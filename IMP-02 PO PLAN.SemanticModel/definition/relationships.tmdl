@@ -1,0 +1,641 @@
+relationship 71607ec2-5548-4e55-905c-cd5ae3eb221b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.SALIDA_AJUSTADA
+	toColumn: LocalDateTable_d88489e1-970d-4953-bf11-c6629bfa51ab.Date
+
+relationship 29bdb3ed-99a8-4d27-adba-7aa931a5c749
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.LLEGADA_BODEGA
+	toColumn: LocalDateTable_60fe2414-1e49-4650-893e-bef4fe9f2f45.Date
+
+relationship 453a5ca3-dca3-4ce9-af79-ec12216595d8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.LLEGADA_PAIS
+	toColumn: LocalDateTable_7ef88a34-20a8-4d66-9cc9-668a204f58f8.Date
+
+relationship 02bf3d99-21be-edbc-a1c4-027a144d669e
+	crossFilteringBehavior: bothDirections
+	fromColumn: PURCHASE_PBI.KEY
+	toColumn: VENDOR_NAME.KEY
+
+relationship AutoDetected_d28b7f9b-4893-431b-ad15-b10df1318755
+	crossFilteringBehavior: bothDirections
+	fromColumn: PURCHASE_PBI.KEY_GEN
+	toColumn: CATALOGO_PBI.KEY_GEN
+
+relationship 93284ff7-6b40-73b1-f9fb-dc8d490d8603
+	crossFilteringBehavior: bothDirections
+	fromColumn: PURCHASE_PBI.ITEMID
+	toColumn: 'CUBO INVENTARIOS'.'[Released products].[Articulo].[Articulo].[MEMBER_CAPTION]'
+
+relationship 08299cf3-07f1-4dd4-b135-01abeb1620f6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.SALIDA_SOLICITADA
+	toColumn: LocalDateTable_303f851d-d7c4-4692-ad96-212aa7d5fd55.Date
+
+relationship 48260670-d885-487e-8e62-3bbdc9944848
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.ACEPTACION_DOC
+	toColumn: LocalDateTable_e2d802d9-5eb4-4778-9ba9-2e56e16f22df.Date
+
+relationship 38f09334-c2c8-44c2-3d97-cc452c70a09c
+	crossFilteringBehavior: bothDirections
+	fromColumn: Consulta1.PO_MADRE
+	toColumn: Intermedia_PO.PURCHID
+
+relationship 5e174ab0-8546-578d-cb28-f4b34b0f5d6b
+	crossFilteringBehavior: bothDirections
+	fromColumn: PURCHASE_PBI.PURCHID
+	toColumn: Intermedia_PO.PURCHID
+
+relationship bf7f1f89-9455-2c9f-aa83-83694d51dca3
+	crossFilteringBehavior: bothDirections
+	fromColumn: PURCHASE_PBI.PURCHID
+	toColumn: METODOS_TRASLADO.PURCHID
+
+relationship 2c37b44f-2ac1-4638-8417-403185ffab20
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Consulta1.CREATEDDATETIME
+	toColumn: LocalDateTable_884a7c35-462a-446d-ad4d-75fff3147600.Date
+
+relationship 74f07ed9-b992-4768-9fb8-3f6b840eb020
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.LLEGADA_DOC_ORIG
+	toColumn: LocalDateTable_a28229f1-56af-4973-9a56-d1fa2c0f5271.Date
+
+relationship 77500c45-9e05-482a-9ffb-88b6220ce844
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.DOC_ORIG_INT
+	toColumn: LocalDateTable_ca34cb9d-d53a-45d2-9271-33f5d3afabae.Date
+
+relationship fe41cbd9-91fe-4455-9c21-10f7af70d8f1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.ENVIO_COPIAS
+	toColumn: LocalDateTable_71b119ce-94f2-4d60-908d-585106599c8a.Date
+
+relationship 8e7df777-ad1d-489e-a6e5-45fef8846f3f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.OK_COPIAS_DOC
+	toColumn: LocalDateTable_650b212d-1371-4d96-b9e2-fff35cf3fcb1.Date
+
+relationship b3190668-0014-469b-b178-66bde45cb23b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.FECHA_BL
+	toColumn: LocalDateTable_fe8bfce8-e2ac-4a9d-a59a-997a81a08a48.Date
+
+relationship 65390b15-6ee8-477b-92bc-bdf9d219f01d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.BORRADOR_BL
+	toColumn: LocalDateTable_3911b29c-886f-4d92-b4aa-c43e0a28d0e1.Date
+
+relationship df300732-f409-44ed-8f82-97f5d3d233de
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.ENVIO_BL
+	toColumn: LocalDateTable_235177ec-64bb-495c-9aaa-4022fe5b1b9d.Date
+
+relationship e8a490d7-1519-4e1f-9143-e79c0d8f6e4c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.APROB_BL
+	toColumn: LocalDateTable_f2f6ade1-09e9-4cf5-8aa3-afe28a523d9d.Date
+
+relationship 0ba02c71-dff3-4e70-9c6d-5a4c0cfb28a3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.BORRADOR_COO
+	toColumn: LocalDateTable_8d14fa03-15ea-4d4c-b2b4-044f486e8f8c.Date
+
+relationship 741064a9-427e-4d9d-bf42-5b65666606f7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.APROB_BORRADOR_COO
+	toColumn: LocalDateTable_92a267eb-f738-4e80-8cde-90979442b05c.Date
+
+relationship 532bf68b-7ae1-4396-9e6d-f6b11386b7e3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.APROB_CERTIF_ORIGEN
+	toColumn: LocalDateTable_7f4ac7be-bc65-49d4-9d1a-8bcc81569e8e.Date
+
+relationship 4aa69273-8fe5-4c7e-9dce-1e49f8de59a2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.BORR_CERTIF_FITO_ORIGEN
+	toColumn: LocalDateTable_2560ccfc-55a1-4824-b5dc-2b8a97ad690f.Date
+
+relationship d622cd39-68b5-4885-acaa-a65b5b3622be
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.APROB_BORR_CERTIF_FITO_ORIGEN
+	toColumn: LocalDateTable_2a0d2cc7-03ac-4ec8-ba4a-16990e5bd16e.Date
+
+relationship d76b0db7-26d6-40fb-8a0c-4637340903de
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.CERTIF_FITO_DEST
+	toColumn: LocalDateTable_5bd0f9a1-3853-4d51-a56b-5516044f0e90.Date
+
+relationship 93ffea51-d5fb-41d4-a44a-f28766b63c17
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.APROB_CERTIF_FITO_DEST
+	toColumn: LocalDateTable_5c4c56c8-d9f8-4269-b10c-0d3eb00d6f97.Date
+
+relationship 3a85320d-c48e-4e09-8c07-3364e1035f46
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.CERTIF_ZOOS_ORIGEN
+	toColumn: LocalDateTable_91eafa49-05c7-4514-8785-eda6ca672e01.Date
+
+relationship b889f819-9398-44bc-9b69-c91d54ff6d4b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.APROB_ZOOS_ORIGEN
+	toColumn: LocalDateTable_236807a6-62d2-425c-9070-8d645f3506ab.Date
+
+relationship d311b383-c33a-49e1-ba60-0b7f5fc02739
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.ENVIO_COPIAS_AGENCIA
+	toColumn: LocalDateTable_fd375512-8d87-446e-adb6-bee6ee472814.Date
+
+relationship 1b5035ec-f41b-42d9-9aa5-389db958a26c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.ENVIO_ORIG_AGENCIA
+	toColumn: LocalDateTable_0609f05b-42f6-4156-9f5b-151333e98b0f.Date
+
+relationship ccafa60d-5946-45eb-bfe4-ba42ce6e7887
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.ACEP_DOC_AGENCIA
+	toColumn: LocalDateTable_d7392e39-e02f-4356-8e58-56c4d733d04f.Date
+
+relationship b69fcbed-8121-4755-ad63-6bbef5ef29d8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.AGENC_FIRMA_PRINTER
+	toColumn: LocalDateTable_11849d34-587c-42bf-bdc0-c4e0159e7e8e.Date
+
+relationship 568c1aa9-8ad2-4002-aafc-91b8785b0311
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DOCUMENTATION.EXON_HACIENDA
+	toColumn: LocalDateTable_7426dbbc-bcf2-4b0b-960b-ebb10412bf1b.Date
+
+relationship b0a9e8a1-7cbd-759d-8095-626c9d9cd8f5
+	fromColumn: PURCHASE_PBI.PURCHID
+	toColumn: DOCUMENTATION.PURCHID
+
+relationship 76f6dae1-872a-4b5b-aad2-84569bb60b4f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.SOLICITADA_LLEGADA_BODEGA
+	toColumn: LocalDateTable_a656bff5-40ba-4a19-9f25-234ae6dbeb64.Date
+
+relationship 6ea0e5d9-6086-4029-a9b6-efceab01cb13
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.AJUSTADA_BODEGA
+	toColumn: LocalDateTable_5190ffba-4388-4079-b5c0-7955b4b84999.Date
+
+relationship fee576a4-ac8b-4844-b8a0-c6467da80fc8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.AJUSTADA_ARRIBO
+	toColumn: LocalDateTable_245a3a3b-9c97-43bf-8995-9d3694fb4b6e.Date
+
+relationship 60fdbc48-cf4c-4e88-a6f2-0bc300c84f97
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.FECHA_VENC_DIAS_LIBRES
+	toColumn: LocalDateTable_64761007-4b6a-4a92-acb3-3bee33c971ab.Date
+
+relationship 63df8930-2820-4715-8578-8e1425b86b59
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.FECHA_DEVOLUCION
+	toColumn: LocalDateTable_15a2b13b-7322-4bd2-ab43-4c1ab1fa2603.Date
+
+relationship 00b9d96a-adad-43ee-9de9-f3d8e9112a65
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.TRANS_PUERTO_BODEGA
+	toColumn: LocalDateTable_14764142-4450-4181-950a-20f9a921131e.Date
+
+relationship c28d7311-5f2f-492d-8263-6f310c6dfec7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.DESCARGA_BODEGA
+	toColumn: LocalDateTable_6be483bb-2ecc-4bca-b98c-3fb054557147.Date
+
+relationship 0302f365-1318-fd5c-662b-ecc3f847fda5
+	fromColumn: PURCHASE_PBI.ITEMID
+	toColumn: Unidades.'Dim Conversiones.Articulo'
+
+relationship 8d6bd5f5-6cff-151d-4068-19f237fe1dc7
+	crossFilteringBehavior: bothDirections
+	fromColumn: PURCHASE_PBI.PURCHID
+	toColumn: PO_MADRE.PURCHIDREFERENCE
+
+relationship 819ebde5-75e1-451e-afa8-b0ff96fa2a63
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.FECHA_CREACION
+	toColumn: LocalDateTable_eb26e26a-c670-462c-b519-be86d6ce1094.Date
+
+relationship 80bead76-a80e-4c2e-8daa-5af95ec94d82
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.PLAN_CARGA
+	toColumn: LocalDateTable_8ce77ea7-32f1-4105-a9ce-b6611c801c18.Date
+
+relationship 8162f518-4997-4a01-85c0-dc0851ae6bad
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.MERCA_LISTA
+	toColumn: LocalDateTable_04b2e768-bfc0-4144-bb1e-76a1e54b2772.Date
+
+relationship a12c176a-5acf-449e-bbe0-d7bd4816a42a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Dates.Fecha
+	toColumn: LocalDateTable_7c07443e-a12e-4c91-a15f-49dc32c9e03c.Date
+
+relationship 65ec3aac-ccc2-473a-bbce-abfc8c2f7090
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Dates2.Fecha
+	toColumn: LocalDateTable_cab84189-b5e7-4452-b042-eb19a112447a.Date
+
+relationship 9a942ce7-38fc-7f21-44f1-be8dc341bcc6
+	fromColumn: Grupos.Grupo
+	toColumn: Dates.Semana
+
+relationship 77e8cd2b-2082-4f1b-830f-59216b867704
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Grupos.Fecha
+	toColumn: LocalDateTable_28f1208a-4f99-4f83-aa2f-d7d2a43dd7af.Date
+
+relationship d729bfa2-0ba4-4764-9016-15c63ba87e36
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Sales.Date
+	toColumn: LocalDateTable_898e7e83-0bd9-4c1a-af02-939f8af875a3.Date
+
+relationship 9d149921-3ff4-1cf0-3a44-38b2c7b2ed58
+	fromColumn: PURCHASE_PBI.KEY_GEN
+	toColumn: CUADRO_INVENTARIO.KEY_1
+
+relationship 149b379b-6229-4ac4-4d7c-fd9886ddc94c
+	crossFilteringBehavior: bothDirections
+	fromColumn: Sales.KEY_GEN
+	toColumn: CATALOGO_PBI_SALES.KEY_GEN
+
+relationship 9cbb7c49-f234-89a7-5666-edb7cc150346
+	crossFilteringBehavior: bothDirections
+	fromColumn: Sales.ITEMID
+	toColumn: 'CUBO INVENTARIOS'.'[Released products].[Articulo].[Articulo].[MEMBER_CAPTION]'
+
+relationship 1c690e76-fb4d-44a4-a241-5435e63297e0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CATALOGO_PBI_SALES.UPDATES
+	toColumn: LocalDateTable_4e0ab1e4-1ab6-43c3-b248-5eea015fe84a.Date
+
+relationship 9bf8dfe3-f424-42f3-ab91-083e08d27b21
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CATALOGO_PBI.UPDATES
+	toColumn: LocalDateTable_efe4f066-a254-4584-8b48-1689b970ea9a.Date
+
+relationship ccc91a92-6d18-e2c8-f13f-171acc56af35
+	crossFilteringBehavior: bothDirections
+	fromColumn: PURCHASE_PBI.KEY_1
+	toColumn: CONTRACTS.KEY_1
+
+relationship AutoDetected_d10abd5d-84e1-4d1a-868e-756e512e23e4
+	fromColumn: lugar_pais.id_region
+	toColumn: regiones.id_region
+
+relationship 738abbc6-8032-4cb0-b278-cbaeea2d7807
+	joinOnDateBehavior: datePartOnly
+	fromColumn: COTIZACIONES.DESDE
+	toColumn: LocalDateTable_9e50370e-64e8-47b3-a705-a4a59d83445d.Date
+
+relationship 20129bb6-236a-4d52-900b-489dd033fd2d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: COTIZACIONES.HASTA
+	toColumn: LocalDateTable_108dc081-1044-4158-9cfa-710d96d4e0fc.Date
+
+relationship 5fc42452-5c14-ae89-3638-d1936198f674
+	crossFilteringBehavior: bothDirections
+	fromColumn: COTIZACIONES.KEY
+	toColumn: CATALOGO_PBI.KEY_GEN
+
+relationship af4f0d9c-8c06-4c9a-84ae-78af9eb34e9c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CRECIMIENTO.STARTDATE
+	toColumn: LocalDateTable_6065664a-590f-41e0-9d71-3dc022d6c98f.Date
+
+relationship 379e3919-7e94-7877-7b7a-9d01c448fad3
+	crossFilteringBehavior: bothDirections
+	fromColumn: CRECIMIENTO.ITEMID
+	toColumn: 'CUBO INVENTARIOS'.'[Released products].[Articulo].[Articulo].[MEMBER_CAPTION]'
+
+relationship 5073ae99-03a5-f2d3-2819-b37458fb6360
+	crossFilteringBehavior: bothDirections
+	fromColumn: PURCHASE_PBI.ITEMID
+	toColumn: UNIDADES_TARIMAS.ITEMID
+
+relationship 4f29a467-e4ca-44a1-9fc5-93f05959c136
+	joinOnDateBehavior: datePartOnly
+	fromColumn: RECEPCIONES.FECHA
+	toColumn: LocalDateTable_1ca8f148-28b0-46f5-bf00-fccc708b73a0.Date
+
+relationship AutoDetected_8b743665-39f7-4105-bff5-29fcd1d64dd6
+	fromColumn: METODOS_TRASLADO.'COUNTRY_CODE.Code'
+	toColumn: COUNTRY_CODE.Code
+
+relationship AutoDetected_ae131b33-a1d7-43a8-83d3-24349289ca2f
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: lugar_pais.'COUNTRY_CODE.Code'
+	toColumn: COUNTRY_CODE.Code
+
+relationship 78ba9fe6-dc16-4cb7-0d8c-4e999a521be6
+	fromColumn: METODOS_TRASLADO.'COUNTRY_CODE.Code'
+	toColumn: lugar_pais.'COUNTRY_CODE.Code'
+
+relationship AutoDetected_9a301265-7945-4714-8113-6c2e7036c113
+	crossFilteringBehavior: bothDirections
+	fromColumn: InventCost.ITEMID
+	toColumn: 'CUBO INVENTARIOS'.'[Released products].[Articulo].[Articulo].[MEMBER_CAPTION]'
+
+relationship 1752e707-cc34-492d-a7cf-adb9e86f7db0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vPURCHDESCARGASBI.CREATEDDATETIME
+	toColumn: LocalDateTable_c236a247-e413-4aeb-8fda-888e7c0cfc97.Date
+
+relationship c6444b80-250c-4a1f-82b1-87eea9b04ea8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Plan colocaciones y descargas'.Column4
+	toColumn: LocalDateTable_565af3cf-a554-469f-8875-1f87489b63c5.Date
+
+relationship b5a4bc95-e4ec-447b-9273-c90d0847ec9c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Plan colocaciones y descargas'.Column2
+	toColumn: LocalDateTable_c90effba-3d4c-4003-836f-8a6d1014fb5c.Date
+
+relationship ed77aa2c-2314-d5fb-029c-e21b940090ba
+	fromColumn: PURCHASE_PBI.PURCHID
+	toColumn: vPURCHDESCARGASBI.PURCHID
+
+relationship ef605320-56e7-4879-aed1-c762a6bccb11
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Plan colocaciones y descargas'.Column3
+	toColumn: LocalDateTable_4c71e891-9db3-4c6c-91a2-84887f9bb470.Date
+
+relationship 48bc6384-c91b-7739-507d-985a890d5b0f
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: PURCHASE_PBI.'PURCHID - Copia'
+	toColumn: 'Plan colocaciones y descargas'.po
+
+relationship 7e55904b-1eee-46a9-a963-3deabeb6e329
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Plan colocaciones y descargas'.Column9
+	toColumn: LocalDateTable_0f180e21-b6c7-44a6-af12-d56b4f82832d.Date
+
+relationship 93239edd-7367-4173-adfd-c905eb24e45b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Plan colocaciones y descargas'.Column22
+	toColumn: LocalDateTable_3b727aa0-86d9-4ef7-8bbc-aa09063d0597.Date
+
+relationship b717fca8-03ac-42c3-becb-45b45717519e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.'Vencimiento Días Libres'
+	toColumn: LocalDateTable_1af362bd-dda1-4fba-aa4c-0678e5b53479.Date
+
+relationship d6b813c7-7e2d-471b-8258-7ce291d29d7b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.LLEGADA_DOC_ORIGEN
+	toColumn: LocalDateTable_245890f5-accc-44ea-b856-b7b31eaadfa5.Date
+
+relationship 94c887e3-a4a8-4c6f-a958-73f609a2d22f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Carpetas_Existentes.SALIDA_AJUSTADA
+	toColumn: LocalDateTable_189eff17-38da-4c1a-9910-e4c351fd79db.Date
+
+relationship 7c00198c-1c23-4f34-9dfe-f322546e4151
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Carpetas_Existentes.'DOCUMENTATION.FECHA_BL'
+	toColumn: LocalDateTable_ed6da6d1-bf1f-41c0-950e-725959ec60ba.Date
+
+relationship 4812b7ce-0920-44d3-ae09-28b411ef3ab5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Carpetas_Existentes.'DOCUMENTATION.APROB_CERTIF_ORIGEN'
+	toColumn: LocalDateTable_6fe27e4a-ba84-45cf-bb49-54f5812a9136.Date
+
+relationship ac50c3fa-4582-c920-3b8c-809631860522
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: PURCHASE_PBI.PURCHID
+	toColumn: Carpetas_Existentes.PURCHID
+
+relationship bf78b75b-fe96-b33d-27ba-cf90e0212897
+	crossFilteringBehavior: bothDirections
+	fromColumn: CONTAINERS.PURCHID
+	toColumn: Intermedia_PO.PURCHID
+
+relationship 084ef84c-ce0b-4a6a-8e8b-6f9458671a5d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.FECHA_DEVOLUCION_CONTENEDOR
+	toColumn: LocalDateTable_0e596314-aaa5-4427-922b-a10ac122151f.Date
+
+relationship 15c40b59-9adf-47c5-a861-7b98a884bf14
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.VENCIMIENTO_DIAS_LIBRES
+	toColumn: LocalDateTable_736d27bf-5d9e-4550-9709-31cb1feb60ba.Date
+
+relationship 66476b4e-d0b5-461b-9fbf-e86c1faad60a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CATALOGO_PBI_INVENTARIO.UPDATES
+	toColumn: LocalDateTable_2cbc5ae2-21c6-4b7c-aa51-df8802d851eb.Date
+
+relationship d2a50513-68f5-d022-d2b8-d09cec87307c
+	crossFilteringBehavior: bothDirections
+	fromColumn: InventCost.ITEMID
+	toColumn: CATALOGO_PBI_INVENTARIO.ITEMID
+
+relationship 86e39adb-d735-4b04-b389-7952d92eb42f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FILLRATEPBI.FECHAPROXENTRADA
+	toColumn: LocalDateTable_1ed27c4d-517c-4262-813d-cfc52ca17d7f.Date
+
+relationship 8ad3471f-8784-4006-a514-00b121664859
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FILLRATEPBI.DATEFALTANTE
+	toColumn: LocalDateTable_345fc546-7628-434e-bf6b-24581e297c0c.Date
+
+relationship 658d498a-7ab0-d2dd-a998-bd7c60037f7a
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: FILLRATEPBI.ITEMID
+	toColumn: CATALOGO_PBI_INVENTARIO.ITEMID
+
+relationship 43f416c6-53bd-483f-9ebc-9f803252349e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'PROX VENCIMIENTO'.'FECHA PROX VENCIMIENTO'
+	toColumn: LocalDateTable_c0cbcc06-f8c3-49c5-8b39-9747b02bd9e4.Date
+
+relationship fb042c0e-6fbe-80be-8115-10a8519113a1
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: CATALOGO_PBI_INVENTARIO.ITEMID
+	toColumn: 'PROX VENCIMIENTO'.ITEMID
+
+relationship 075c840e-282b-9ea3-9c05-1f71d75f1409
+	crossFilteringBehavior: bothDirections
+	fromColumn: PURCHASE_PBI.KEY_RECEP
+	toColumn: RECEP.KEY_RECEP
+
+relationship 905c3fe0-899b-59c7-9e9f-8e8e78e78f4b
+	crossFilteringBehavior: bothDirections
+	fromColumn: RECEPCIONES.KEY_RECEP
+	toColumn: RECEP.KEY_RECEP
+
+relationship AutoDetected_367bb53c-d4ff-49a6-ab79-da76396e174c
+	isActive: false
+	fromColumn: RECEPCIONES.ITEMID
+	toColumn: CATALOGO_PBI_INVENTARIO.ITEMID
+
+relationship AutoDetected_77520691-2c93-4d48-aaf1-573fd3d20b65
+	isActive: false
+	fromColumn: RECEPCIONES.ITEMID
+	toColumn: 'CUBO INVENTARIOS'.'[Released products].[Articulo].[Articulo].[MEMBER_CAPTION]'
+
+relationship AutoDetected_0f023fea-4415-4947-a125-77c1f95a5d63
+	isActive: false
+	fromColumn: RECEPCIONES.ITEMID
+	toColumn: UNIDADES_TARIMAS.ITEMID
+
+relationship 427b00a9-17e8-4bc4-b359-219e708dd1b4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.AJUSTADA_ARRIBO_TICA
+	toColumn: LocalDateTable_40431c30-2c6a-4d09-900c-0db7053bb972.Date
+
+relationship a9fe518a-7c44-4d79-82ff-a761651f11e9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTRACTS.FECHA_INICIO
+	toColumn: LocalDateTable_7a2832fb-33f6-4b2c-a068-ecfaa780ab94.Date
+
+relationship 4d9194b9-17a1-4a1f-8690-ac6f42f22068
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTRACTS.FECHA_FINAL
+	toColumn: LocalDateTable_e8a6a657-631e-4fb3-9eef-f6a7bb37cc9b.Date
+
+relationship c6af3403-61bb-6ef6-fc96-2ae5639d183a
+	crossFilteringBehavior: bothDirections
+	fromColumn: PURCHASE_PBI.PURCHID
+	toColumn: 'OC''s Error 5'.PURCHID
+
+relationship 083c7e8e-99ff-470c-b492-898b56847939
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.DATEDUA
+	toColumn: LocalDateTable_5f125f87-b182-4048-bedf-5520d21008f6.Date
+
+relationship 445b9d8c-7b7e-7ab7-9d65-bcbba18a7c65
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: PURCHASE_PBI.PURCHID
+	toColumn: 'PAGOS OC''s'.PURCHID
+
+relationship 52c2dda6-2b21-4bcd-b03d-da7a70974863
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Sales.INVOICEDATE
+	toColumn: LocalDateTable_674a7c26-6bfc-40cd-9d1b-aae20aaba826.Date
+
+relationship 1385f3e5-b331-49c9-b225-f830dd4e764e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.CITA_PUERTO
+	toColumn: LocalDateTable_9871b3c0-6c01-415e-96d8-33151ef7dd89.Date
+
+relationship 589c67cb-fdbf-44f7-b35a-d11d1c8a8604
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.FECHA_DUA_TRASLADO
+	toColumn: LocalDateTable_7a4a70d2-0dfc-4356-85e8-309ce53894f4.Date
+
+relationship b05ff048-4df9-4cd3-8783-34ce7b39adf3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.PAGO_COSTOS_APM
+	toColumn: LocalDateTable_98f764fa-ec95-4c7d-bead-39f43a97e46e.Date
+
+relationship 2156cf7c-7aca-4eeb-873e-fdf40136d473
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.PLAN_LLEG_AF
+	toColumn: LocalDateTable_d9db54c0-7423-4d5d-a84c-a6feee5040a4.Date
+
+relationship 57213448-63c2-4ceb-959b-8369f2f0a83e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.ENT_REAL_PATIO_AF
+	toColumn: LocalDateTable_fc714b0b-3927-4a2b-83b6-81cdc27e96b3.Date
+
+relationship 708057cb-376e-4d27-8716-a2d2fcb2f8b3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.PLAN_SITIO_DESTINO
+	toColumn: LocalDateTable_31bb47e8-03d8-45b6-8608-2aea92c9998d.Date
+
+relationship 86071317-78e7-48c8-b456-b3c3e989e666
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.LLEG_REAL_SITIO_DEST
+	toColumn: LocalDateTable_4e51e189-7830-42f4-a0c9-f0a1ce25f8a8.Date
+
+relationship a640ea2e-d30b-44d5-ba53-d1a30e2daf48
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.REAL_DESCARGA_EMPRESA
+	toColumn: LocalDateTable_6cc2deed-daed-4238-ba28-71b714eb1d64.Date
+
+relationship 88f06f50-45ba-423f-a320-d80685d6fe8f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.RET_CONT_VACIO
+	toColumn: LocalDateTable_1eed4a0d-8203-4b09-a7ed-2d5703c7ad0a.Date
+
+relationship 5370f3c0-b1be-a332-0aab-cf74d1077bb6
+	crossFilteringBehavior: bothDirections
+	fromColumn: CATALOGO_PBI_SALES.ITEMID
+	toColumn: SPECIAL_UNIT1.DISPLAYPRODUCTNUMBER
+
+relationship 5c1a472f-3ed3-d911-bef0-0a56be7c9125
+	crossFilteringBehavior: bothDirections
+	fromColumn: PURCHASE_PBI.TIPO_CONTENEDOR
+	toColumn: 'TIPOS CONTENEDORES'.codigo_contenedor
+
+relationship 6009436f-3f9e-411a-b14a-a14831c3dbc5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.AJUSTADA_ARRIBO_OC
+	toColumn: LocalDateTable_ea50f880-86bc-44eb-9fa3-95c8e6b25440.Date
+
+relationship 4938720d-8425-46a4-88e8-87cda8ed1528
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.DESCARGA_DEST1
+	toColumn: LocalDateTable_996c2453-f60c-4a6a-8f79-d6c6d5b1e27b.Date
+
+relationship d7a76c96-40a5-4c94-989d-b920dbe90190
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.PermisoMagAprobado
+	toColumn: LocalDateTable_5534cdb4-3eae-4523-80ca-9f893ecefd44.Date
+
+relationship AutoDetected_1db85e60-f323-4292-929b-0df89e7ba77f
+	crossFilteringBehavior: bothDirections
+	fromColumn: Sales.key_vendedor
+	toColumn: 'GRUPO TIPO CLTE'.key_vendedor
+
+relationship 1f24d77a-1cf8-5aed-f7c4-41952c0594e2
+	fromColumn: PURCHASE_PBI.Semanas
+	toColumn: TablaSemanas.Semanas
+
+relationship 046c3598-8477-4cca-a59e-99fcb6f8b17d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TablaSemanas.FechaInicio
+	toColumn: LocalDateTable_006ce892-4f22-49f8-b69d-c6a6e1a844bc.Date
+
+relationship 1446d1b9-d41d-4fc9-88bb-00777d0784aa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TablaSemanas.FechaFin
+	toColumn: LocalDateTable_b720f947-1189-41f6-b4a9-2ec184234b3d.Date
+
+relationship 8aff326f-602f-44c9-9db4-4df43dc3793d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: UPDATE.UPDATES
+	toColumn: LocalDateTable_e4a9d668-f3a7-461c-a5d4-cb37e7fb7c02.Date
+
+relationship 'PURCHASE_PBI_BL_BookingsMaersk (2)_BL'
+	fromColumn: PURCHASE_PBI.BL
+	toColumn: 'BookingsMaersk (2)'.BL
+
+relationship c102717e-cc2d-471f-b106-c6ffe197d863
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Dates2_TEST.Fecha
+	toColumn: LocalDateTable_73122e3d-5a28-43c5-9140-a2643ff9ba32.Date
+
+relationship fecdc24e-feb1-4ca3-a38d-326a207f78ba
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Sales.Fecha_TEST
+	toColumn: LocalDateTable_afcb6ebb-1ced-4434-a072-28f85805e86a.Date
+
+relationship VEND_SALDO_a_PURCHASE_PBI
+	fromColumn: PURCHASE_PBI.PURCHID
+	toColumn: VEND_SALDO.OC_Extraida
+

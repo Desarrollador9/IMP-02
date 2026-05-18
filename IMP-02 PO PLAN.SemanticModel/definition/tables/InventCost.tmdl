@@ -1,0 +1,224 @@
+table InventCost
+	lineageTag: 9e3183aa-2108-4b5b-b683-15453fb3393d
+
+	measure INVENTARIO =
+			
+			SUMX (
+			    InventCost,
+			    DIVIDE (
+			        InventCost[INVENTARIO_FISICO],
+			        RELATED ( 'CUBO INVENTARIOS'[[Measures]].[Und X Cajas]]] ),
+			        0
+			    )
+			)
+		formatString: #,0
+		lineageTag: ecb83db7-a416-41e0-bfbe-d254d649667d
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure INVENTARIO_ACTUAL =
+			
+			COALESCE(
+			    SUMX(
+			        InventCost,
+			        InventCost[INVENTARIO]
+			    ),
+			    0
+			)
+		formatString: #,0
+		lineageTag: 7196c783-4016-4dd0-a15c-4a8566a91e74
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure DI_Act_ConAF =
+			
+			SUMX(
+			    'CUBO INVENTARIOS',
+			    IF([RT] > 0, InventCost[INV ACTUAL] / [RT],0))
+		lineageTag: 43277656-901b-40eb-bc81-77a72814935c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Costo Unitario' = DIVIDE(SUM(InventCost[TotalTotCostFinanc]),SUM(InventCost[INVENTARIO_FISICO]))
+		lineageTag: 85991329-9f64-498b-8947-8143876e4eb8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inv en Tarimas' =
+			
+			SUMX(
+			    InventCost,  // Itera sobre cada fila de InventCost
+			    DIVIDE(
+			        InventCost[INVENTARIO_FISICO],
+			        RELATED(CATALOGO_PBI_INVENTARIO[FACTOR_TARIMA])
+			    )
+			)
+		lineageTag: c70c5d7d-fd7f-40f5-a944-ea8d49e27abd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inv en Cajas' =
+			
+			SUMX(
+			    InventCost,  // Itera sobre cada fila de InventCost
+			    DIVIDE(
+			        InventCost[INVENTARIO_FISICO],
+			        RELATED(CATALOGO_PBI_INVENTARIO[FACTOR_CAJA])
+			    )
+			)
+		lineageTag: 80d4d5a5-e00d-4fb0-ae58-e225ed0e4e44
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inventario Unidad Especial' =
+			
+			SUMX(
+			    InventCost,
+			    InventCost[INVENTARIO_FISICO] * LOOKUPVALUE(
+			        SPECIAL_UNIT1[FACTOR],
+			        SPECIAL_UNIT1[DISPLAYPRODUCTNUMBER], InventCost[ITEMID]
+			    )
+			)
+		formatString: #,0
+		lineageTag: 56f18745-4a5b-4e22-ab0b-a3311ea961d2
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Inv + AF en Tarimas' =
+			VAR InvTarimas = [Inv en Tarimas]
+			VAR EntradasFiscal =
+			    CALCULATE(
+			        [Entradas_Tarima],
+			        PURCHASE_PBI[ESTADO] = "ALMACÉN FISCAL"
+			    )
+			RETURN
+			    InvTarimas + EntradasFiscal
+		lineageTag: 1e0fba5f-0995-4995-b8db-6b358014b55e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure DI_Act =
+			
+			SUMX(
+			    'CUBO INVENTARIOS',
+			    IF([RT] > 0, InventCost[INVENTARIO_ACTUAL] / [RT],0))
+		lineageTag: 2332bd83-80ba-455a-9478-7bdb6ddd1426
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'INV ACTUAL' =
+			DIVIDE(
+			    [Inv + AF en Tarimas] * MAX(CATALOGO_PBI_INVENTARIO[FACTOR_TARIMA]),
+			    MAX(CATALOGO_PBI_INVENTARIO[FACTOR_CAJA])
+			)
+		lineageTag: 067b739a-f4ea-4897-83ee-1fb90f064fb7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ITEMID
+		dataType: string
+		lineageTag: 97fe5ca4-51e9-4864-b1e1-0cc86fb0ae52
+		summarizeBy: none
+		sourceColumn: ITEMID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalCostoUnit
+		dataType: double
+		lineageTag: 13f79fa3-a828-4cbb-a858-062945c6bfb9
+		summarizeBy: sum
+		sourceColumn: TotalCostoUnit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalTotCostFinanc
+		dataType: double
+		lineageTag: 5c8ce080-c132-48d3-90cb-b94eba5fbacd
+		summarizeBy: sum
+		sourceColumn: TotalTotCostFinanc
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column INVENTARIO_FISICO
+		dataType: double
+		lineageTag: a411998b-c4bd-42ff-8459-4deac0d5af90
+		summarizeBy: sum
+		sourceColumn: INVENTARIO_FISICO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ALMACEN
+		dataType: string
+		lineageTag: 6d9ffea9-ec0b-492f-8668-57d45b86b409
+		summarizeBy: none
+		sourceColumn: ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOCALIDAD1
+		dataType: string
+		lineageTag: 119aef21-5f8b-4a08-9e73-39895f014110
+		summarizeBy: none
+		sourceColumn: LOCALIDAD1
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITIO
+		dataType: string
+		lineageTag: c86a317c-e68a-4a76-be62-30c8b81a2bfc
+		summarizeBy: none
+		sourceColumn: SITIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOTE
+		dataType: string
+		lineageTag: 06d2b528-eff3-40d9-a3a8-3546caa21ef8
+		summarizeBy: none
+		sourceColumn: LOTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ESTADO INVENTARIO'
+		dataType: string
+		lineageTag: cf45cc06-0c5c-4eb3-9b1f-6d5de7f6d180
+		summarizeBy: none
+		sourceColumn: ESTADO INVENTARIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BACKORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: ee026086-1deb-4c37-a25c-72af016b9c57
+		summarizeBy: sum
+		sourceColumn: BACKORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Back Order?' = IF(InventCost[BACKORDER] = 1,"Si","No")
+		lineageTag: 052afa63-d134-4e83-8862-5bee0a374903
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition InventCost = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD"),
+				    dbo_InventCost = Origen{[Schema="dbo",Item="InventCost"]}[Data],
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(dbo_InventCost,{{"LOCALIDAD", "ALMACEN"}})
+				in
+				    #"Columnas con nombre cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,145 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "6ce9875ebb2089b3a3ee",
+  "position": {
+    "x": 561.42857142857144,
+    "y": 538.57142857142856,
+    "z": 12000,
+    "height": 307.14285714285717,
+    "width": 911.42857142857144,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "scriptVisual",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "ESTADO"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.ESTADO",
+              "nativeQueryRef": "ESTADO"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "Cant_Contenedores"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.Cant_Contenedores",
+              "nativeQueryRef": "Cant_Contenedores"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                    }
+                  },
+                  "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.SALIDA_AJUSTADA Hierarchy.Fecha Salida Ajustada del Barco",
+              "nativeQueryRef": "SALIDA_AJUSTADA Hierarchy Fecha Salida Ajustada del Barco"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                    }
+                  },
+                  "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.LLEGADA_PAIS Hierarchy.Fecha Llegada del Barco a Puerto",
+              "nativeQueryRef": "LLEGADA_PAIS Hierarchy Fecha Llegada del Barco a Puerto"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PURCHASE_PBI"
+                  }
+                },
+                "Property": "ESTADO"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "script": [
+        {
+          "properties": {
+            "source": {
+              "expr": {
+                "Literal": {
+                  "Value": "'# Cargar librerías necesarias\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(ggplot2)\n\n# dataset <- data.frame(ESTADO, Cant_Contenedores, SALIDA_AJUSTADA, LLEGADA_PAIS)\n# dataset <- unique(dataset)\n\n# ---- ANCLA DINÁMICA: semana T = semana actual (domingo a sábado) ----\nhoy <- Sys.Date()\ninicio_semana_T <- hoy - as.integer(format(hoy, \"%w\"))  # domingo de la semana actual\n\n# Función para etiquetar semanas con respecto al ancla (T..T+9)\netiqueta_semana <- function(fecha, ancla) {\n  if (is.na(fecha) || fecha == as.Date(\"1900-01-01\")) return(\"Sin Fecha\")\n  semanas_diff <- as.integer(floor((as.Date(fecha) - ancla)/7))\n  if (semanas_diff < 0 || semanas_diff > 9) return(NA_character_)  # fuera del rango mostrado\n  if (semanas_diff == 0) \"T\" else paste0(\"T+\", semanas_diff)\n}\n\n# Calcular la semana dinámica para SALIDA_AJUSTADA (Semana_Bodega)\ndataset <- dataset %>%\n  mutate(\n    Semana_Bodega = vapply(as.Date(SALIDA_AJUSTADA), etiqueta_semana, \"\", ancla = inicio_semana_T)\n  )\n\n# Calcular la semana dinámica para LLEGADA_PAIS (Semana_Mar)\ndataset <- dataset %>%\n  mutate(\n    Semana_Mar = vapply(as.Date(LLEGADA_PAIS), etiqueta_semana, \"\", ancla = inicio_semana_T)\n  )\n\n# Crear rangos semanales desde T hasta T+9\nrangos_semanas <- tibble(\n  Semana = c(\"T\", paste0(\"T+\", seq(1, 9))),\n  Rango = paste0(\n    format(inicio_semana_T + (seq(0, 9) * 7), \"%d/%m/%Y\"), \" - \",\n    format(inicio_semana_T + (seq(0, 9) * 7) + 6, \"%d/%m/%Y\")\n  )\n)\n\n# Crear el resumen de contenedores por Estado y Semana_Mar\nresumen <- dataset %>%\n  filter(Semana_Mar %in% c(\"T\", paste0(\"T+\", 1:9))) %>%\n  group_by(ESTADO, Semana_Mar) %>%\n  summarise(Total_Contenedores = sum(Cant_Contenedores, na.rm = TRUE), .groups = \"drop\") %>%\n  pivot_wider(names_from = Semana_Mar, values_from = Total_Contenedores,\n              values_fill = list(Total_Contenedores = 0)) %>%\n  ungroup()\n\n# Asegurar columnas T..T+9 presentes aunque no existan en los datos\nt_cols <- c(\"T\", paste0(\"T+\", 1:9))\nfor (cname in t_cols) if (!cname %in% names(resumen)) resumen[[cname]] <- 0L\n\n# Ordenar columnas cronológicamente\nresumen <- resumen %>% select(ESTADO, all_of(t_cols))\n\n# Incorporar los rangos de fechas en los encabezados\nrangos_encabezados <- rangos_semanas$Rango[match(t_cols, rangos_semanas$Semana)]\nnuevos_nombres <- paste0(t_cols, \"\\n(\", rangos_encabezados, \")\")\ncolnames(resumen)[-1] <- nuevos_nombres\n\n# Agregar totales generales por fila\nresumen <- resumen %>%\n  mutate(Total_General = rowSums(select(., -ESTADO), na.rm = TRUE))\n\n# Crear dataset largo para graficar\ntotales_estado <- resumen %>%\n  pivot_longer(cols = -c(ESTADO, Total_General),\n               names_to = \"Semana\", values_to = \"Total\") %>%\n  filter(ESTADO != \"Total\")\n\n# Crear el gráfico de barras separado por Estado\ngrafico_totales_estado <- ggplot(totales_estado, aes(x = Semana, y = Total, fill = ESTADO)) +\n  geom_bar(stat = \"identity\", position = position_dodge()) +\n  theme_minimal() +\n  labs(\n    title = \"Totales de Contenedores por Semana y Estado\",\n    x = \"Semana\",\n    y = \"Total de Contenedores\",\n    fill = \"Estado\"\n  ) +\n  theme(\n    axis.text.x = element_text(angle = 45, hjust = 1),\n    plot.title = element_text(hjust = 0.5, face = \"bold\")\n  )\n\n# Mostrar el gráfico\nprint(grafico_totales_estado)\n'"
+                }
+              }
+            },
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'R'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

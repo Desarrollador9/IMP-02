@@ -1,0 +1,66 @@
+table UNIDADES_TARIMAS
+	lineageTag: 31883c8f-cf13-4b6f-8e65-cf86bbd01528
+
+	column RECID
+		dataType: int64
+		formatString: 0
+		lineageTag: 51a3cde2-2e13-4364-8443-7d03574a9e1e
+		summarizeBy: none
+		sourceColumn: RECID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEMID
+		dataType: string
+		lineageTag: 5b52d79d-771d-45e9-90f4-4903b41b7394
+		summarizeBy: none
+		sourceColumn: ITEMID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FACTOR
+		dataType: double
+		lineageTag: bf34a1d1-22cb-4980-9419-1029a1691040
+		summarizeBy: none
+		sourceColumn: FACTOR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UNTIFROM
+		dataType: string
+		lineageTag: 71c800f2-e769-4e1b-a7bb-8729ba52a80c
+		summarizeBy: none
+		sourceColumn: UNTIFROM
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNITTO
+		dataType: string
+		lineageTag: 4f73f2a8-83b2-4984-b099-3523f201adca
+		summarizeBy: none
+		sourceColumn: UNITTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: 2f6de499-fb0f-4436-9b9e-2f2583068333
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition UNIDADES_TARIMAS = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="SELECT T3.RECID, T1.ITEMID, T3.FACTOR, T4.SYMBOL AS UNTIFROM, T5.SYMBOL AS UNITTO, T1.DATAAREAID#(lf)FROM     INVENTTABLE AS T1 INNER JOIN#(lf)                  ECORESPRODUCT AS T2 ON T1.PRODUCT = T2.RECID INNER JOIN#(lf)                  UNITOFMEASURECONVERSION AS T3 ON T2.RECID = T3.PRODUCT LEFT OUTER JOIN#(lf)                  UNITOFMEASURE AS T4 ON T3.FROMUNITOFMEASURE = T4.RECID LEFT OUTER JOIN#(lf)                  UNITOFMEASURE AS T5 ON T3.TOUNITOFMEASURE = T5.RECID INNER JOIN#(lf)#(tab)#(tab)#(tab)#(tab)  INVENTTABLEMODULE AS T6 ON T6.MODULETYPE = 1 AND T6.ITEMID = T1.ITEMID AND T6.DATAAREAID = T1.DATAAREAID AND T5.SYMBOL = T6.UNITID#(lf)WHERE T1.DATAAREAID = 'CMER' AND T4.SYMBOL = 'TARIMA'", MultiSubnetFailover=true])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

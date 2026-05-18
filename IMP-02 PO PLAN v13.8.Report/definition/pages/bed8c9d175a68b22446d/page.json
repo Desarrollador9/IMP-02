@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "bed8c9d175a68b22446d",
+  "displayName": "T4.1 PO PLAN - CON DIAS INV",
+  "displayOption": "FitToPage",
+  "height": 1325,
+  "width": 1900
+}

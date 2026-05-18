@@ -1,0 +1,316 @@
+table 'Plan colocaciones y descargas'
+	lineageTag: 71be49a3-1d4e-408c-9914-5dde6ea293ae
+
+	column Column1
+		dataType: string
+		lineageTag: 0ec79e92-21e0-4d50-8731-cea9d82dc1f8
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column2
+		dataType: dateTime
+		formatString: dd-mmm-yy
+		lineageTag: a60232b3-37fb-431f-a6d1-bbca1b13d1b3
+		summarizeBy: none
+		sourceColumn: Column2
+
+		variation Variación
+			isDefault
+			relationship: b5a4bc95-e4ec-447b-9273-c90d0847ec9c
+			defaultHierarchy: LocalDateTable_c90effba-3d4c-4003-836f-8a6d1014fb5c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Column3
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 77f6103b-f686-45a2-b4db-11f1f9ea55d3
+		summarizeBy: none
+		sourceColumn: Column3
+
+		variation Variación
+			isDefault
+			relationship: ef605320-56e7-4879-aed1-c762a6bccb11
+			defaultHierarchy: LocalDateTable_4c71e891-9db3-4c6c-91a2-84887f9bb470.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Column4
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: 0e377fad-54b7-4698-8fd1-349de7dde1db
+		summarizeBy: none
+		sourceColumn: Column4
+
+		variation Variación
+			isDefault
+			relationship: c6444b80-250c-4a1f-82b1-87eea9b04ea8
+			defaultHierarchy: LocalDateTable_565af3cf-a554-469f-8875-1f87489b63c5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column Column5
+		dataType: string
+		lineageTag: 3ec08f40-dfb6-49a8-8983-a6a1591b957f
+		summarizeBy: none
+		sourceColumn: Column5
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column6
+		dataType: string
+		lineageTag: 10d78ecf-2139-452b-8869-202e95454079
+		summarizeBy: none
+		sourceColumn: Column6
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column7
+		dataType: string
+		lineageTag: 253f9eaf-ace8-4ead-a57a-362c6a308518
+		summarizeBy: none
+		sourceColumn: Column7
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column8
+		dataType: string
+		lineageTag: 7ee950c9-73f7-45e4-9694-daddeaa73854
+		summarizeBy: none
+		sourceColumn: Column8
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column9
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0d2bb812-23da-4346-ae18-c428b75a381a
+		summarizeBy: none
+		sourceColumn: Column9
+
+		variation Variación
+			isDefault
+			relationship: 7e55904b-1eee-46a9-a963-3deabeb6e329
+			defaultHierarchy: LocalDateTable_0f180e21-b6c7-44a6-af12-d56b4f82832d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Column10
+		dataType: string
+		lineageTag: c9853fc8-620b-4d14-8fe4-a8a8901db09a
+		summarizeBy: none
+		sourceColumn: Column10
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column11
+		dataType: string
+		lineageTag: b448e8d5-0e08-4a13-89e0-bfc597f094c0
+		summarizeBy: none
+		sourceColumn: Column11
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column12
+		dataType: string
+		lineageTag: 56044fb2-7164-43b7-80cf-4b77ef41dd67
+		summarizeBy: none
+		sourceColumn: Column12
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column13
+		dataType: string
+		lineageTag: 01767a4a-6fb2-4b4b-8483-10f2eaee57ed
+		summarizeBy: none
+		sourceColumn: Column13
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column14
+		dataType: string
+		lineageTag: a885af68-7297-4bf4-bd38-bdbee91c1552
+		summarizeBy: none
+		sourceColumn: Column14
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column15
+		dataType: string
+		lineageTag: 22b17b6d-66e7-4564-9174-d90aed254141
+		summarizeBy: none
+		sourceColumn: Column15
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column16
+		dataType: string
+		lineageTag: 3b67d83c-990e-4f4b-8e1f-4f43406fa2c2
+		summarizeBy: none
+		sourceColumn: Column16
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column17
+		dataType: string
+		lineageTag: 473af5b1-c6c8-4137-a9e7-96fa217506f8
+		summarizeBy: none
+		sourceColumn: Column17
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column18
+		dataType: string
+		lineageTag: 069d0041-9373-4a3b-8962-b1e1ac67e842
+		summarizeBy: none
+		sourceColumn: Column18
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column19
+		dataType: string
+		lineageTag: 50d6290d-f4ac-430a-b14b-2338ee457bac
+		summarizeBy: none
+		sourceColumn: Column19
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column20
+		dataType: string
+		lineageTag: 108ac3d7-a06c-4dc7-9778-e970532b7b9c
+		summarizeBy: none
+		sourceColumn: Column20
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column21
+		dataType: string
+		lineageTag: 6d5086dd-a491-4d9f-a9ee-cd60896f4115
+		summarizeBy: none
+		sourceColumn: Column21
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column22
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 696a7eee-7a0c-4136-be17-434b4acd3bfc
+		summarizeBy: none
+		sourceColumn: Column22
+
+		variation Variación
+			isDefault
+			relationship: 93239edd-7367-4173-adfd-c905eb24e45b
+			defaultHierarchy: LocalDateTable_3b727aa0-86d9-4ef7-8bbc-aa09063d0597.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Column23
+		dataType: string
+		lineageTag: 13ab6f87-aa9e-4a88-b587-1a21bfa019e7
+		summarizeBy: none
+		sourceColumn: Column23
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column24
+		dataType: string
+		lineageTag: 889b8fc7-c55c-4c25-8c56-c3a4d307322f
+		summarizeBy: none
+		sourceColumn: Column24
+
+		annotation SummarizationSetBy = Automatic
+
+	column po
+		dataType: string
+		lineageTag: 14ec1372-05bd-4c78-af13-85fff6dd86e9
+		summarizeBy: none
+		sourceColumn: po
+
+		annotation SummarizationSetBy = Automatic
+
+	column poh1
+		dataType: string
+		lineageTag: b98b275d-30a1-4282-920b-67e8792a6a3e
+		summarizeBy: none
+		sourceColumn: poh1
+
+		annotation SummarizationSetBy = Automatic
+
+	column poh2
+		dataType: string
+		lineageTag: 7bc04ddb-7a5b-46ca-9c43-e196542b80fe
+		summarizeBy: none
+		sourceColumn: poh2
+
+		annotation SummarizationSetBy = Automatic
+
+	column poh3
+		dataType: string
+		lineageTag: 59f5e0ef-a7a4-4540-bd4a-312863ae1006
+		summarizeBy: none
+		sourceColumn: poh3
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Plan colocaciones y descargas' = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(Web.Contents("https://parnersenseitcs-my.sharepoint.com/personal/jefe_import_grupointeca_com/Documents/Operaciones/Plan%20de%20colocaciones%20y%20descargas%20MERCASA%202021%20-%202022-03-11T173121.110.xlsx"), null, true),
+				    #"Plan colocaciones y descargas _Sheet" = Origen{[Item="Plan colocaciones y descargas ",Kind="Sheet"]}[Data],
+				    #"Errores reemplazados" = Table.ReplaceErrorValues(#"Plan colocaciones y descargas _Sheet", {{"Column4", #date(1900, 1, 1)}}),
+				    #"Errores quitados" = Table.RemoveRowsWithErrors(#"Errores reemplazados", {"Column4"}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Errores quitados",{{"Column4", type text}}),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Tipo cambiado","Vence","",Replacer.ReplaceText,{"Column4"}),
+				    #"Valor reemplazado1" = Table.ReplaceValue(#"Valor reemplazado","Imp","",Replacer.ReplaceText,{"Column4"}),
+				    #"Valor reemplazado2" = Table.ReplaceValue(#"Valor reemplazado1","NA/AF","",Replacer.ReplaceText,{"Column4"}),
+				    #"Valor reemplazado3" = Table.ReplaceValue(#"Valor reemplazado2","D inmediata","",Replacer.ReplaceText,{"Column4"}),
+				    #"Valor reemplazado4" = Table.ReplaceValue(#"Valor reemplazado3","Descarga inmediata","",Replacer.ReplaceText,{"Column4"}),
+				    #"Valor reemplazado5" = Table.ReplaceValue(#"Valor reemplazado4","n/a","",Replacer.ReplaceText,{"Column4"}),
+				    #"Valor reemplazado6" = Table.ReplaceValue(#"Valor reemplazado5","N/A","",Replacer.ReplaceText,{"Column4"}),
+				    #"Valor reemplazado7" = Table.ReplaceValue(#"Valor reemplazado6"," AF","",Replacer.ReplaceText,{"Column4"}),
+				    #"Valor reemplazado8" = Table.ReplaceValue(#"Valor reemplazado7","na/af","",Replacer.ReplaceText,{"Column4"}),
+				    #"Tipo cambiado1" = Table.TransformColumnTypes(#"Valor reemplazado8",{{"Column4", type date}, {"Column2", type date}}),
+				    #"Filas filtradas" = Table.SelectRows(#"Tipo cambiado1", each true),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Filas filtradas", List.RemoveRange(Table.ColumnNames(#"Filas filtradas"), 0, 25)),
+				    #"Columna duplicada" = Table.DuplicateColumn(#"Columnas quitadas", "Column6", "Column6 - Copia"),
+				    #"Valor reemplazado9" = Table.ReplaceValue(#"Columna duplicada",null,"",Replacer.ReplaceValue,{"Column6 - Copia"}),
+				    #"Duplicados quitados" = Table.Distinct(#"Valor reemplazado9", {"Column6 - Copia"}),
+				    #"Tipo cambiado2" = Table.TransformColumnTypes(#"Duplicados quitados",{{"Column6 - Copia", type text}}),
+				    #"Dividir columna por delimitador" = Table.SplitColumn(#"Tipo cambiado2", "Column6 - Copia", Splitter.SplitTextByDelimiter("/", QuoteStyle.Csv), {"Column6 - Copia.1", "Column6 - Copia.2"}),
+				    #"Dividir columna por delimitador1" = Table.SplitColumn(#"Dividir columna por delimitador", "Column6 - Copia.1", Splitter.SplitTextByDelimiter("-", QuoteStyle.Csv), {"Column6 - Copia.1.1", "Column6 - Copia.1.2", "Column6 - Copia.1.3"}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Dividir columna por delimitador1",{{"Column6 - Copia.1.1", "po"}, {"Column6 - Copia.1.2", "poh1"}, {"Column6 - Copia.1.3", "poh2"}, {"Column6 - Copia.2", "poh3"}}),
+				    #"Tipo cambiado3" = Table.TransformColumnTypes(#"Columnas con nombre cambiado",{{"Column3", type date}}),
+				    #"Errores quitados1" = Table.RemoveRowsWithErrors(#"Tipo cambiado3", {"Column3"}),
+				    #"Errores quitados2" = Table.RemoveRowsWithErrors(#"Errores quitados1", {"Column4"}),
+				    #"Errores quitados3" = Table.RemoveRowsWithErrors(#"Errores quitados2", {"Column2"}),
+				    #"Tipo cambiado4" = Table.TransformColumnTypes(#"Errores quitados3",{{"Column9", type date}}),
+				    #"Errores quitados4" = Table.RemoveRowsWithErrors(#"Tipo cambiado4", {"Column9"}),
+				    #"Tipo cambiado5" = Table.TransformColumnTypes(#"Errores quitados4",{{"Column22", type date}}),
+				    #"Errores quitados5" = Table.RemoveRowsWithErrors(#"Tipo cambiado5", {"Column22"}),
+				    #"Tipo cambiado6" = Table.TransformColumnTypes(#"Errores quitados5",{{"Column25", type date}}),
+				    #"Columnas quitadas1" = Table.RemoveColumns(#"Tipo cambiado6",{"Column25"})
+				in
+				    #"Columnas quitadas1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

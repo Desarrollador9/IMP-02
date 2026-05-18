@@ -1,0 +1,244 @@
+table FILLRATEPBI
+	lineageTag: 777404f6-1af7-4d57-86ae-c15b043876c1
+
+	measure '% Ventas' =
+			
+			DIVIDE(
+			    SUM(FILLRATEPBI[VENTAS]),
+			    CALCULATE(
+			        SUM(FILLRATEPBI[VENTAS]),
+			        ALLSELECTED(),
+			        ALL(FILLRATEPBI[ESTADOEXISTENCIAS])
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 35c7268a-7fcd-4af4-b256-327d94b0c582
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: 8f4557dc-61e1-49bc-bf6c-f166e99c137f
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEMID
+		dataType: string
+		lineageTag: ba421a01-63e1-4f95-9c8d-948a697e2857
+		summarizeBy: none
+		sourceColumn: ITEMID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEMLINE
+		dataType: string
+		lineageTag: 0262d8fa-4889-4bd7-9a67-a3eef854c922
+		summarizeBy: none
+		sourceColumn: ITEMLINE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ONORDERTOTAL
+		dataType: double
+		lineageTag: 325ca786-6d1f-42e6-b22c-fbb502ae0b90
+		summarizeBy: sum
+		sourceColumn: ONORDERTOTAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column INVENT_L0
+		dataType: double
+		lineageTag: 6e4b725d-be8c-4465-bd7e-b083f4118f7f
+		summarizeBy: sum
+		sourceColumn: INVENT_L0
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column INVNETO
+		dataType: double
+		lineageTag: 4f772f9d-ecfa-4b41-a54b-dbfe6a63884e
+		summarizeBy: sum
+		sourceColumn: INVNETO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ROTACIONHISTDIARIATOTAL3M
+		dataType: double
+		lineageTag: f11696c9-f200-4a6d-948d-39a6dfbcf5e2
+		summarizeBy: sum
+		sourceColumn: ROTACIONHISTDIARIATOTAL3M
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ESTIMATEDTOTAL
+		dataType: double
+		lineageTag: 9a9bab89-0b40-4de8-8660-715c47c94db3
+		summarizeBy: sum
+		sourceColumn: ESTIMATEDTOTAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DIASINVENT3M
+		dataType: double
+		lineageTag: 3da0ad90-a713-4f87-bb3f-e920dcef9007
+		summarizeBy: sum
+		sourceColumn: DIASINVENT3M
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DIASINVENTESTIMATED
+		dataType: double
+		lineageTag: 726b72b2-f2b6-4e77-a170-2f23f2b8f0a2
+		summarizeBy: sum
+		sourceColumn: DIASINVENTESTIMATED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PURCHID
+		dataType: string
+		lineageTag: ac7f6ef4-f3f2-4dbe-a15f-cf999205611a
+		summarizeBy: none
+		sourceColumn: PURCHID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PORCVENTAS
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: dfb628ff-fbf3-43f0-b8fc-0062ee693cf2
+		summarizeBy: sum
+		sourceColumn: PORCVENTAS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTADOEXISTENCIAS
+		dataType: string
+		lineageTag: 498f548e-7dfc-4cb0-a809-ee90fc49d176
+		summarizeBy: none
+		sourceColumn: ESTADOEXISTENCIAS
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHAPROXENTRADA
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: f655ebca-b674-40f8-a2ef-6431b08683f6
+		summarizeBy: none
+		sourceColumn: FECHAPROXENTRADA
+
+		variation Variation
+			isDefault
+			relationship: 86e39adb-d735-4b04-b389-7952d92eb42f
+			defaultHierarchy: LocalDateTable_1ed27c4d-517c-4262-813d-cfc52ca17d7f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column PURCHQTY
+		dataType: double
+		lineageTag: 237d2a55-4942-4b92-acae-54b696c76842
+		summarizeBy: sum
+		sourceColumn: PURCHQTY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PURCHUNIT
+		dataType: string
+		lineageTag: c8ddd14e-5c7c-46e4-acc2-e8190d821346
+		summarizeBy: none
+		sourceColumn: PURCHUNIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANTDIASSIGUIENTEENTRADA
+		dataType: int64
+		formatString: 0
+		lineageTag: 69b35cb4-47d6-42bd-9968-58eac6086b73
+		summarizeBy: sum
+		sourceColumn: CANTDIASSIGUIENTEENTRADA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATEFALTANTE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4c1b4897-db8c-4a6f-90d8-832d7e43f936
+		summarizeBy: none
+		sourceColumn: DATEFALTANTE
+
+		variation Variation
+			isDefault
+			relationship: 8ad3471f-8784-4006-a514-00b121664859
+			defaultHierarchy: LocalDateTable_345fc546-7628-434e-bf6b-24581e297c0c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ESTADO
+		dataType: string
+		lineageTag: 44ed8c07-95c2-4702-8ed8-3835ee8b7ef9
+		summarizeBy: none
+		sourceColumn: ESTADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column NEXTPURCHID
+		dataType: string
+		lineageTag: 076825f6-3e13-47c5-8e87-62b508e2aae7
+		summarizeBy: none
+		sourceColumn: NEXTPURCHID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana Ingreso' =
+			
+			WEEKNUM ( FILLRATEPBI[FECHAPROXENTRADA], 2 )
+		formatString: 0
+		lineageTag: d8096698-551a-439d-ba14-a320bba6df29
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENTAS
+		dataType: double
+		lineageTag: cd3df50e-1abe-4ec9-8657-a40818771c28
+		summarizeBy: sum
+		sourceColumn: VENTAS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FILLRATEPBI = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [MultiSubnetFailover=true]),
+				    dbo_FILLRATEPBI = Source{[Schema="dbo",Item="FILLRATEPBI"]}[Data]
+				in
+				    dbo_FILLRATEPBI
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

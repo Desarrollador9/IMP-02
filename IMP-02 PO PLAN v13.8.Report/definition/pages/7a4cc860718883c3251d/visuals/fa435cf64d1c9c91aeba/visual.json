@@ -1,0 +1,1197 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "fa435cf64d1c9c91aeba",
+  "position": {
+    "x": 0,
+    "y": 196.25,
+    "z": 20000,
+    "height": 653.75,
+    "width": 1998.75,
+    "tabOrder": 20000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Property": "PURCHID"
+                    }
+                  },
+                  "Function": 2
+                }
+              },
+              "queryRef": "Count(CONTAINERS.PURCHID)",
+              "nativeQueryRef": "#",
+              "displayName": "#"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "PURCHID"
+                }
+              },
+              "queryRef": "CONTAINERS.PURCHID",
+              "nativeQueryRef": "OC",
+              "displayName": "OC"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "Nombre Proveedor"
+                }
+              },
+              "queryRef": "CONTAINERS.Nombre Proveedor",
+              "nativeQueryRef": "Proveedor",
+              "displayName": "Proveedor"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "BL"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.BL",
+              "nativeQueryRef": "BL"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "Cant Contenedores"
+                }
+              },
+              "queryRef": "CONTAINERS.Cant Contenedores",
+              "nativeQueryRef": "#1",
+              "displayName": "#"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "CONTENEDOR"
+                }
+              },
+              "queryRef": "CONTAINERS.CONTENEDOR",
+              "nativeQueryRef": "Contenedor",
+              "displayName": "Contenedor"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "Total_Entradas_Tarima"
+                }
+              },
+              "queryRef": "CONTAINERS.Total_Entradas_Tarima",
+              "nativeQueryRef": "Tarimas por Contenedor",
+              "displayName": "Tarimas por Contenedor"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "SOLICITADA_LLEGADA_BODEGA"
+                }
+              },
+              "queryRef": "CONTAINERS.SOLICITADA_LLEGADA_BODEGA",
+              "nativeQueryRef": "Solic Lleg Bodega",
+              "displayName": "Solic Lleg Bodega"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "METODO_TRASLADO_TERRESTRE"
+                }
+              },
+              "queryRef": "CONTAINERS.METODO_TRASLADO_TERRESTRE",
+              "nativeQueryRef": "Met Traslado Terrestre - Cont",
+              "displayName": "Met Traslado Terrestre - Cont"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "METODO_TRASLADO_TERRESTRE"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.METODO_TRASLADO_TERRESTRE",
+              "nativeQueryRef": "Met Traslado Terrestre - OC",
+              "displayName": "Met Traslado Terrestre - OC"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "AJUSTADA_ARRIBO"
+                }
+              },
+              "queryRef": "CONTAINERS.AJUSTADA_ARRIBO",
+              "nativeQueryRef": "COM en TICA",
+              "displayName": "COM en TICA"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "FECHA_DUA_TRASLADO"
+                }
+              },
+              "queryRef": "CONTAINERS.FECHA_DUA_TRASLADO",
+              "nativeQueryRef": "DUA Traslado",
+              "displayName": "DUA Traslado"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "CITA_PUERTO"
+                }
+              },
+              "queryRef": "CONTAINERS.CITA_PUERTO",
+              "nativeQueryRef": "Cita Puerto/Patio",
+              "displayName": "Cita Puerto/Patio"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "PAGO_COSTOS_APM"
+                }
+              },
+              "queryRef": "CONTAINERS.PAGO_COSTOS_APM",
+              "nativeQueryRef": "Pago Costos APM",
+              "displayName": "Pago Costos APM"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "NUM_MARCHAMO"
+                }
+              },
+              "queryRef": "CONTAINERS.NUM_MARCHAMO",
+              "nativeQueryRef": "#Marchamo",
+              "displayName": "#Marchamo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "COD_TRANSP_TERRESTRE"
+                }
+              },
+              "queryRef": "CONTAINERS.COD_TRANSP_TERRESTRE",
+              "nativeQueryRef": "Transp Terrestre",
+              "displayName": "Transp Terrestre"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "TRANS_PUERTO_BODEGA"
+                }
+              },
+              "queryRef": "CONTAINERS.TRANS_PUERTO_BODEGA",
+              "nativeQueryRef": "Trasp Puerto a Bodega",
+              "displayName": "Trasp Puerto a Bodega"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "PLAN_LLEG_AF"
+                }
+              },
+              "queryRef": "CONTAINERS.PLAN_LLEG_AF",
+              "nativeQueryRef": "Plan Lleg a AF",
+              "displayName": "Plan Lleg a AF"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "ENT_REAL_PATIO_AF"
+                }
+              },
+              "queryRef": "CONTAINERS.ENT_REAL_PATIO_AF",
+              "nativeQueryRef": "Entrada Real al Patio AF",
+              "displayName": "Entrada Real al Patio AF"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "SITIO_AF"
+                }
+              },
+              "queryRef": "CONTAINERS.SITIO_AF",
+              "nativeQueryRef": "Sitio AF",
+              "displayName": "Sitio AF"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "TRANSPORTISTA_AF"
+                }
+              },
+              "queryRef": "CONTAINERS.TRANSPORTISTA_AF",
+              "nativeQueryRef": "Transportista a AF",
+              "displayName": "Transportista a AF"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "NOMBRE_CHOFER_AF"
+                }
+              },
+              "queryRef": "CONTAINERS.NOMBRE_CHOFER_AF",
+              "nativeQueryRef": "Chofer a AF",
+              "displayName": "Chofer a AF"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "PLAN_SITIO_DESTINO"
+                }
+              },
+              "queryRef": "CONTAINERS.PLAN_SITIO_DESTINO",
+              "nativeQueryRef": "Plan Sitio Destino",
+              "displayName": "Plan Sitio Destino"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "AJUSTADA_BODEGA"
+                }
+              },
+              "queryRef": "CONTAINERS.AJUSTADA_BODEGA",
+              "nativeQueryRef": "Ajustada de Bodega",
+              "displayName": "Ajustada de Bodega"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "LLEG_REAL_SITIO_DEST"
+                }
+              },
+              "queryRef": "CONTAINERS.LLEG_REAL_SITIO_DEST",
+              "nativeQueryRef": "Real Lleg a Sitio Destino",
+              "displayName": "Real Lleg a Sitio Destino"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "REAL_DESCARGA_EMPRESA"
+                }
+              },
+              "queryRef": "CONTAINERS.REAL_DESCARGA_EMPRESA",
+              "nativeQueryRef": "Real Descarga en Empresa",
+              "displayName": "Real Descarga en Empresa"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "SITIO_FINAL"
+                }
+              },
+              "queryRef": "CONTAINERS.SITIO_FINAL",
+              "nativeQueryRef": "Sitio Dest Final",
+              "displayName": "Sitio Dest Final"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "TRANSPORTISTA_FINAL"
+                }
+              },
+              "queryRef": "CONTAINERS.TRANSPORTISTA_FINAL",
+              "nativeQueryRef": "Transportista a Dest Final",
+              "displayName": "Transportista a Dest Final"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "NOMBRE_CHOFER_FINAL"
+                }
+              },
+              "queryRef": "CONTAINERS.NOMBRE_CHOFER_FINAL",
+              "nativeQueryRef": "Chofer a Dest Final",
+              "displayName": "Chofer a Dest Final"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "RET_CONT_VACIO"
+                }
+              },
+              "queryRef": "CONTAINERS.RET_CONT_VACIO",
+              "nativeQueryRef": "Aviso Retiro Cont Vacío",
+              "displayName": "Aviso Retiro Cont Vacío"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Hierarchy": "FECHA_DEVOLUCION Jerarquía"
+                    }
+                  },
+                  "Level": "TIR (Devolución)"
+                }
+              },
+              "queryRef": "CONTAINERS.FECHA_DEVOLUCION Jerarquía.Devolución (TIR)",
+              "nativeQueryRef": "FECHA_DEVOLUCION Jerarquía Devolución (TIR)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Property": "DIAS_LIBRES"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(CONTAINERS.DIAS_LIBRES)",
+              "nativeQueryRef": "Días Libres",
+              "displayName": "Días Libres"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "FECHA_VENC_DIAS_LIBRES"
+                }
+              },
+              "queryRef": "CONTAINERS.FECHA_VENC_DIAS_LIBRES",
+              "nativeQueryRef": "Vence Días Libres",
+              "displayName": "Vence Días Libres"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "DESCARGA_BODEGA"
+                }
+              },
+              "queryRef": "CONTAINERS.DESCARGA_BODEGA",
+              "nativeQueryRef": "Descarga en Bodega",
+              "displayName": "Descarga en Bodega"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "NumTIR"
+                }
+              },
+              "queryRef": "CONTAINERS.NumTIR",
+              "nativeQueryRef": "#TIR",
+              "displayName": "#TIR"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Property": "DIAS_DEMORA_DEVOL"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(CONTAINERS.DIAS_DEMORA_DEVOL)",
+              "nativeQueryRef": "Días Demora Devolución",
+              "displayName": "Días Demora Devolución"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "UBICACION"
+                }
+              },
+              "queryRef": "CONTAINERS.UBICACION",
+              "nativeQueryRef": "Ubicación",
+              "displayName": "Ubicación"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "ESTADO"
+                }
+              },
+              "queryRef": "CONTAINERS.ESTADO",
+              "nativeQueryRef": "Estado",
+              "displayName": "Estado"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CONTAINERS"
+                  }
+                },
+                "Property": "PURCHID"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00496B'"
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "CONTAINERS.PURCHID"
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.2
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "imageHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "76D"
+                }
+              }
+            },
+            "imageWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "78D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89.33333234627315D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.SOLICITADA_LLEGADA_BODEGA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "100.96207663017138D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.METODO_TRASLADO_TERRESTRE"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.33333392821788D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.AJUSTADA_ARRIBO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.14284319681246D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.CITA_PUERTO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "85.33334186810457D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.PAGO_COSTOS_APM"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "86.33332258640117D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.TRANS_PUERTO_BODEGA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "85.9999776310898D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.ENT_REAL_PATIO_AF"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "78.33333333333333D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.PLAN_SITIO_DESTINO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89.00001860827473D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.AJUSTADA_BODEGA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "81.66666666666666D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.LLEG_REAL_SITIO_DEST"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "100.33329046795556D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.REAL_DESCARGA_EMPRESA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "88.66662100778551D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.TRANSPORTISTA_FINAL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "96.66666666666666D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.NOMBRE_CHOFER_FINAL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "109.66668774486219D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.TRANSPORTISTA_AF"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "94.00002045269345D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.RET_CONT_VACIO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "84.33331787507835D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.FECHA_DEVOLUCION Jerarquía.Devolución (TIR)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82.99993823818987D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.DESCARGA_BODEGA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "96.66666666666666D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(CONTAINERS.DIAS_DEMORA_DEVOL)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "55D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.SITIO_FINAL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "129.2290355606228D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.CONTENEDOR"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "86.00000233024488D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.METODO_TRASLADO_TERRESTRE"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "80.71428571428572D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.FECHA_DUA_TRASLADO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "108.85716030211061D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.Total_Entradas_Tarima"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "240.3333438401673D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.Nombre Proveedor"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Contenedores Asociados'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

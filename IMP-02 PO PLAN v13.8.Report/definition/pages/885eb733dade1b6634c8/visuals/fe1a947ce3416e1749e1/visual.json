@@ -1,0 +1,1089 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "fe1a947ce3416e1749e1",
+  "position": {
+    "x": 1.9277719648688925,
+    "y": 175.4272488030692,
+    "z": 23000,
+    "height": 674.72018770411239,
+    "width": 1898.855385395859,
+    "tabOrder": 23000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                    }
+                  },
+                  "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.SALIDA_AJUSTADA Hierarchy.Salida Ajustada",
+              "nativeQueryRef": "SALIDA_AJUSTADA Hierarchy Salida Ajustada"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VENDOR_NAME"
+                    }
+                  },
+                  "Property": "CONCAT_NAME"
+                }
+              },
+              "queryRef": "VENDOR_NAME.CONCAT_NAME",
+              "nativeQueryRef": "Proveedor",
+              "displayName": "Proveedor"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "PURCHID"
+                    }
+                  },
+                  "Function": 2
+                }
+              },
+              "queryRef": "Count(PURCHASE_PBI.PURCHID)",
+              "nativeQueryRef": "Cant OC's",
+              "displayName": "Cant OC's"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "PURCHID"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.PURCHID",
+              "nativeQueryRef": "OC",
+              "displayName": "OC"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "ESTADO"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.ESTADO",
+              "nativeQueryRef": "Estado",
+              "displayName": "Estado"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "ESTADO_PAGO"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.ESTADO_PAGO",
+              "nativeQueryRef": "Estado de Pago",
+              "displayName": "Estado de Pago"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                    }
+                  },
+                  "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.LLEGADA_PAIS Hierarchy.Llegada (País)",
+              "nativeQueryRef": "LLEGADA_PAIS Hierarchy Llegada (País)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "AJUSTADA_ARRIBO_TICA"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.AJUSTADA_ARRIBO_TICA",
+              "nativeQueryRef": "Ajustada Arribo TICA",
+              "displayName": "Ajustada Arribo TICA"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Hierarchy": "LLEGADA_BODEGA Hierarchy"
+                    }
+                  },
+                  "Level": "Date Arrival Warehouse (Fecha De Llegada Bodega))"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.LLEGADA_BODEGA Hierarchy.LLegada (Bodega)",
+              "nativeQueryRef": "LLEGADA_BODEGA Hierarchy LLegada (Bodega)"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Hierarchy": "ACEPTACION_DOC Jerarquía"
+                    }
+                  },
+                  "Level": "Aceptación Doc"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.ACEPTACION_DOC Jerarquía.Aceptación Doc",
+              "nativeQueryRef": "ACEPTACION_DOC Jerarquía Aceptación Doc"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "SIT_DUA"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.SIT_DUA",
+              "nativeQueryRef": "DUA",
+              "displayName": "DUA"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "BOOKING"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.BOOKING",
+              "nativeQueryRef": "Booking",
+              "displayName": "Booking"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "BL"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.BL",
+              "nativeQueryRef": "BL"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "TIPO_CONTENEDOR"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.TIPO_CONTENEDOR",
+              "nativeQueryRef": "Tipo de Cont",
+              "displayName": "Tipo de Cont"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "NAVIERA"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.NAVIERA",
+              "nativeQueryRef": "Naviera",
+              "displayName": "Naviera"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "CONTENEDOR"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.CONTENEDOR",
+              "nativeQueryRef": "Contenedor",
+              "displayName": "Contenedor"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "Cant_Contenedores"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.Cant_Contenedores",
+              "nativeQueryRef": "Cant Conts1",
+              "displayName": "Cant Conts"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "DIAS_LIBRES"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Sum(PURCHASE_PBI.DIAS_LIBRES)",
+              "nativeQueryRef": "Máx. de DIAS_LIBRES",
+              "displayName": "Días Libres"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "VENCIMIENTO_DIAS_LIBRES"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.VENCIMIENTO_DIAS_LIBRES",
+              "nativeQueryRef": "Vencimiento Días Libres",
+              "displayName": "Vencimiento Días Libres"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "METODOS_TRASLADO"
+                    }
+                  },
+                  "Property": "SITIO_DESTINO"
+                }
+              },
+              "queryRef": "METODOS_TRASLADO.SITIO_DESTINO",
+              "nativeQueryRef": "Sitio Destino",
+              "displayName": "Sitio Destino"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "AIRWAY_BILL"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.AIRWAY_BILL",
+              "nativeQueryRef": "Airway",
+              "displayName": "Airway"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Hierarchy": "LLEGADA_DOC_ORIGEN Hierarchy"
+                    }
+                  },
+                  "Level": "Llegada doc origen"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.LLEGADA_DOC_ORIGEN Hierarchy.LLEGADA_DOC_ORIGEN1",
+              "nativeQueryRef": "LLEGADA_DOC_ORIGEN Hierarchy LLEGADA_DOC_ORIGEN1"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Hierarchy": "AJUSTADA_ARRIBO Jerarquía"
+                    }
+                  },
+                  "Level": "Fecha Com"
+                }
+              },
+              "queryRef": "CONTAINERS.AJUSTADA_ARRIBO Jerarquía.Fecha Com",
+              "nativeQueryRef": "AJUSTADA_ARRIBO Jerarquía Fecha Com"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Hierarchy": "FECHA_DEVOLUCION_CONTENEDOR Hierarchy"
+                    }
+                  },
+                  "Level": "Fecha Dev Cont"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.FECHA_DEVOLUCION_CONTENEDOR Hierarchy.Fecha Dev Cont",
+              "nativeQueryRef": "FECHA_DEVOLUCION_CONTENEDOR Hierarchy Fecha Dev Cont"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "METODOS_TRASLADO"
+                    }
+                  },
+                  "Property": "ALMACEN_DESTINO"
+                }
+              },
+              "queryRef": "METODOS_TRASLADO.ALMACEN_DESTINO",
+              "nativeQueryRef": "Almacen destino",
+              "displayName": "Almacen destino"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "PURCHASE_PBI"
+                      }
+                    },
+                    "Hierarchy": "ACEPTACION_DOC Jerarquía"
+                  }
+                },
+                "Level": "Aceptación Doc"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00496B'"
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "webURL": {
+              "expr": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "TIRS_Link1"
+                    }
+                  },
+                  "Function": 3
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "PURCHASE_PBI.FECHA_DEVOLUCION_CONTENEDOR Hierarchy.Fecha Dev Cont"
+          }
+        },
+        {
+          "properties": {
+            "webURL": {
+              "expr": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Acept_Docs_Link"
+                    }
+                  },
+                  "Function": 3
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "PURCHASE_PBI.ACEPTACION_DOC Jerarquía.Aceptación Doc"
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.2
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "imageHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "76D"
+                }
+              }
+            },
+            "imageWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "78D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "230.24551489550785D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "VENDOR_NAME.CONCAT_NAME"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "94.26823572665359D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.SALIDA_AJUSTADA Hierarchy.Salida Ajustada"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "88.01191368282163D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.LLEGADA_BODEGA Hierarchy.LLegada (Bodega)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "77.10111543450064D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.NAVIERA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.76119099103315D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.TIPO_CONTENEDOR"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "61.57142783477426D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(PURCHASE_PBI.DIAS_LIBRES)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "83.84824798080712D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.ACEPTACION_DOC Jerarquía.Aceptación Doc"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "103.87198492552476D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.LLEGADA_PAIS Hierarchy.Llegada (País)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "121.27333909443844D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.CONTENEDOR"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "81.58801680146452D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "METODOS_TRASLADO.SITIO_DESTINO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "156.55240156370414D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.BL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "160.75625886500504D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.BOOKING"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "66.81050744914002D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.Cant_Contenedores"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "141.85361639986573D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.AIRWAY_BILL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.66292369217038D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.FECHA_DEVOLUCION_CONTENEDOR Hierarchy.Fecha Dev Cont"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "93.4388539004324D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.LLEGADA_DOC_ORIGEN Hierarchy.LLEGADA_DOC_ORIGEN1"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "136.73684719064514D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "METODOS_TRASLADO.ALMACEN_DESTINO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "113.94358017357213D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.VENCIMIENTO_DIAS_LIBRES"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "85.06292860017238D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.ESTADO_PAGO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "58.142097178553705D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Count(PURCHASE_PBI.PURCHID)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "79.5714320678928D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.AJUSTADA_ARRIBO_TICA"
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(PURCHASE_PBI.DIAS_LIBRES)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Count(PURCHASE_PBI.PURCHID)"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

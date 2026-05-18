@@ -1,0 +1,52 @@
+table 'TIPOS CONTENEDORES'
+	lineageTag: 21836044-dd7c-4074-9ee4-6d3d029c3ba9
+
+	column codigo_contenedor
+		dataType: string
+		lineageTag: 8461ca85-7583-4b1d-a6dc-bcb407045fce
+		summarizeBy: none
+		sourceColumn: codigo_contenedor
+
+		annotation SummarizationSetBy = Automatic
+
+	column peso_maximo
+		dataType: double
+		lineageTag: 95a5562c-3640-41cf-94fe-91a5b4e52c78
+		summarizeBy: none
+		sourceColumn: peso_maximo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column volumen_maximo
+		dataType: double
+		lineageTag: 51a64fb4-9afd-4ab6-b469-d39a6f2ac666
+		summarizeBy: none
+		sourceColumn: volumen_maximo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column recid
+		dataType: int64
+		formatString: 0
+		lineageTag: cc311579-3c65-43a5-8154-57a83a4d798e
+		summarizeBy: none
+		sourceColumn: recid
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'TIPOS CONTENEDORES' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="#(lf)select containertypecode as codigo_contenedor,#(lf)maxweight as peso_maximo,#(lf)maxvolume as volumen_maximo,#(lf)recid#(lf)from WHSContainerType#(lf)where dataareaid = 'cmer'#(lf)and partition = 5637144576#(lf)UNION ALL#(lf)select '' as codigo_contenedor, 0 as peso_maximo, 0 as volumen_maximo, 0 as recid", MultiSubnetFailover=true])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,167 @@
+table METODOS_TRASLADO
+	lineageTag: 89d91ce6-ced3-422b-ac2a-e41085d831ec
+
+	measure Measure = SUM(PURCHASE_PBI[CANT_CONTENEDOR])
+		formatString: #,0
+		lineageTag: 02f80395-12fb-403b-9e24-308c081c3992
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: 9710af45-41b0-4042-9adc-b276f825b32a
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PURCHID
+		dataType: string
+		lineageTag: 8a28fc26-9c70-4165-affa-122e43c601da
+		summarizeBy: none
+		sourceColumn: PURCHID
+
+		annotation SummarizationSetBy = Automatic
+
+	column InterTransferMethod
+		dataType: string
+		lineageTag: 01029332-4c07-4e71-9337-ece67bbe4a4c
+		summarizeBy: none
+		sourceColumn: InterTransferMethod
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDMETHOD
+		dataType: string
+		lineageTag: 415cc85a-46eb-466e-afc6-805bcca619b9
+		summarizeBy: none
+		sourceColumn: IDMETHOD
+
+		annotation SummarizationSetBy = Automatic
+
+	column RECID
+		dataType: int64
+		formatString: 0
+		lineageTag: 120bc299-13dd-4801-b22d-525e2a1df4eb
+		summarizeBy: count
+		sourceColumn: RECID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITIO_ORIGEN
+		dataType: string
+		lineageTag: f741692e-d9a5-45fb-8c8c-f5242686f64d
+		summarizeBy: none
+		sourceColumn: SITIO_ORIGEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITIO_PAIS_ORIGEN
+		dataType: string
+		lineageTag: 66c818c6-4424-44b9-8f7d-c36cbf5bd0ea
+		summarizeBy: none
+		sourceColumn: SITIO_PAIS_ORIGEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN_ORIGEN
+		dataType: string
+		lineageTag: 3e708452-734c-4fde-8233-6a7870988c2f
+		summarizeBy: none
+		sourceColumn: ALMACEN_ORIGEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITIO_DESTINO
+		dataType: string
+		lineageTag: d6266b66-a9ad-4431-8a0f-29c0b27b7851
+		summarizeBy: none
+		sourceColumn: SITIO_DESTINO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITIO_PAIS_DESTINO
+		dataType: string
+		lineageTag: 07d1e58f-58a8-4505-ae74-2305ddd8ae29
+		summarizeBy: none
+		sourceColumn: SITIO_PAIS_DESTINO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ALMACEN_DESTINO
+		dataType: string
+		lineageTag: 0245b321-e376-4831-9556-7707d8e14a59
+		summarizeBy: none
+		sourceColumn: ALMACEN_DESTINO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITIO_ORIGEN_PAIS = ```
+			IF(
+			    ISBLANK(METODOS_TRASLADO[SITIO_ORIGEN]), 
+			    "", 
+			    FORMAT(METODOS_TRASLADO[SITIO_ORIGEN], "General Number")
+			) 
+			& " (" & 
+			IF(
+			    ISBLANK(METODOS_TRASLADO[SITIO_PAIS_ORIGEN]), 
+			    "", 
+			    FORMAT(METODOS_TRASLADO[SITIO_PAIS_ORIGEN], "General Number"))
+			& ")"
+			```
+		lineageTag: 842a076d-346e-46f5-ac9a-be268f3ec462
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITIO_DESTINO_PAIS = ```
+			IF(
+			    ISBLANK(METODOS_TRASLADO[SITIO_DESTINO]), 
+			    "", 
+			    FORMAT(METODOS_TRASLADO[SITIO_DESTINO], "General Number")
+			) 
+			& " (" & 
+			IF(
+			    ISBLANK(METODOS_TRASLADO[SITIO_PAIS_DESTINO]), 
+			    "", 
+			    FORMAT(METODOS_TRASLADO[SITIO_PAIS_DESTINO], "General Number"))
+			& ")"
+			```
+		lineageTag: c0391ca4-bfff-4e08-b705-c545f6726488
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCION
+		dataType: string
+		lineageTag: ef25504e-da6e-4156-a7b2-2da2e21f325d
+		summarizeBy: none
+		sourceColumn: DESCRIPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COUNTRY_CODE.Code'
+		dataType: string
+		lineageTag: c908102c-d34f-4fef-b69d-87c717f5a361
+		summarizeBy: none
+		sourceColumn: COUNTRY_CODE.Code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition METODOS_TRASLADO = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [MultiSubnetFailover=true]),
+				    dbo_METODOS_TRASLADO = Source{[Schema="dbo",Item="METODOS_TRASLADO"]}[Data],
+				    #"Texto en mayúsculas" = Table.TransformColumns(dbo_METODOS_TRASLADO,{{"SITIO_PAIS_ORIGEN", Text.Upper, type text}}),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Texto en mayúsculas","PAÍSES BAJOS","HOLANDA (PAISES BAJOS)",Replacer.ReplaceText,{"SITIO_PAIS_ORIGEN"}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Valor reemplazado", {"SITIO_PAIS_ORIGEN"}, COUNTRY_CODE, {"Country"}, "COUNTRY_CODE", JoinKind.LeftOuter),
+				    #"Se expandió COUNTRY_CODE" = Table.ExpandTableColumn(#"Consultas combinadas", "COUNTRY_CODE", {"Code"}, {"COUNTRY_CODE.Code"})
+				in
+				    #"Se expandió COUNTRY_CODE"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

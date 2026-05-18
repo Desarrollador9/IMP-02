@@ -1,0 +1,729 @@
+table CONTAINERS
+	lineageTag: d27fe66c-8104-409e-9417-05a76c8fb883
+
+	measure 'Cant Contenedores' =
+			
+			COUNTROWS(
+			    FILTER(
+			        VALUES(CONTAINERS[CONTENEDOR]),
+			        CONTAINERS[CONTENEDOR] <> BLANK()
+			    )
+			)
+		formatString: 0
+		lineageTag: d5e33cdd-fbf6-4c96-8e16-c1d118f4fbbd
+
+	measure Total_Entradas_Tarima =
+			
+			SUMX(
+			    VALUES(CONTAINERS[CONTENEDOR]),
+			    [Entradas_Tarima_Completa]
+			)
+		lineageTag: f56ad9ae-0a72-4890-a103-eabb9fc25eba
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: 870ec741-d62b-4123-b279-ec031e7846e2
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PURCHID
+		dataType: string
+		lineageTag: 0d2c33cb-79e4-4d0e-b79c-e870b2e78551
+		summarizeBy: none
+		sourceColumn: PURCHID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTENEDOR
+		dataType: string
+		lineageTag: c551fcbb-b8ff-434c-913c-35f8baa70eb1
+		summarizeBy: none
+		sourceColumn: CONTENEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOLICITADA_LLEGADA_BODEGA
+		dataType: dateTime
+		formatString: D/M/YY
+		lineageTag: 3cebca91-6472-4503-b3e3-aa62d8002e7e
+		summarizeBy: none
+		sourceColumn: SOLICITADA_LLEGADA_BODEGA
+
+		variation Variación
+			isDefault
+			relationship: 76f6dae1-872a-4b5b-aad2-84569bb60b4f
+			defaultHierarchy: LocalDateTable_a656bff5-40ba-4a19-9f25-234ae6dbeb64.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column AJUSTADA_BODEGA
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: e6094ffb-18e7-42fe-94df-4949a34a5f01
+		summarizeBy: none
+		sourceColumn: AJUSTADA_BODEGA
+
+		variation Variación
+			isDefault
+			relationship: 6ea0e5d9-6086-4029-a9b6-efceab01cb13
+			defaultHierarchy: LocalDateTable_5190ffba-4388-4079-b5c0-7955b4b84999.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column AJUSTADA_ARRIBO
+		dataType: dateTime
+		formatString: D/M/YY
+		lineageTag: cbd0af58-c433-47a0-b74b-6d24a6f446bd
+		summarizeBy: none
+		sourceColumn: AJUSTADA_ARRIBO
+
+		variation Variación
+			isDefault
+			relationship: fee576a4-ac8b-4844-b8a0-c6467da80fc8
+			defaultHierarchy: LocalDateTable_245a3a3b-9c97-43bf-8995-9d3694fb4b6e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column LLEG_BOD_SOLIC_SEM
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d803c23-451b-4af5-8be5-3fe56f75cb1e
+		summarizeBy: sum
+		sourceColumn: LLEG_BOD_SOLIC_SEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column LLEG_BOD_AJUST_SEM
+		dataType: int64
+		formatString: 0
+		lineageTag: d5fbc1ff-52bb-4db8-bf04-0e55ac78ca45
+		summarizeBy: sum
+		sourceColumn: LLEG_BOD_AJUST_SEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column AJUST_ARRIBO_SEM
+		dataType: int64
+		formatString: 0
+		lineageTag: 0853c694-114a-4baf-8c47-56d028422e58
+		summarizeBy: sum
+		sourceColumn: AJUST_ARRIBO_SEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIAS_LIBRES
+		dataType: int64
+		formatString: 0
+		lineageTag: ffcc4bbd-25b8-4c69-accd-2d3aa58cf1d2
+		summarizeBy: sum
+		sourceColumn: DIAS_LIBRES
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_VENC_DIAS_LIBRES
+		dataType: dateTime
+		formatString: D/M/YY
+		lineageTag: 7c0d89ae-0144-4cf1-8d3e-321a89fed3db
+		summarizeBy: none
+		sourceColumn: FECHA_VENC_DIAS_LIBRES
+
+		variation Variación
+			isDefault
+			relationship: 60fdbc48-cf4c-4e88-a6f2-0bc300c84f97
+			defaultHierarchy: LocalDateTable_64761007-4b6a-4a92-acb3-3bee33c971ab.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column FECHA_DEVOLUCION
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: cbdec77f-4bb3-4fca-94f6-efa0178b0f9f
+		summarizeBy: none
+		sourceColumn: FECHA_DEVOLUCION
+
+		variation Variación
+			isDefault
+			relationship: 63df8930-2820-4715-8578-8e1425b86b59
+			defaultHierarchy: LocalDateTable_15a2b13b-7322-4bd2-ab43-4c1ab1fa2603.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column DIAS_DEMORA_DEVOL
+		dataType: int64
+		formatString: 0
+		lineageTag: ed27195b-aa0a-4048-9b0f-488a85ef111f
+		summarizeBy: sum
+		sourceColumn: DIAS_DEMORA_DEVOL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DIAS_DEMORA_DEVOL_HORAS
+		dataType: double
+		lineageTag: 71fa7a35-923d-4c78-af8f-9ca92d5317ef
+		summarizeBy: sum
+		sourceColumn: DIAS_DEMORA_DEVOL_HORAS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ESTADO
+		dataType: string
+		lineageTag: 764cf92a-1a4b-4714-85d7-61a3532e13f0
+		summarizeBy: none
+		sourceColumn: ESTADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column UBICACION
+		dataType: string
+		lineageTag: 7c819c22-f3a7-481f-a4d4-e70ffae350f7
+		summarizeBy: none
+		sourceColumn: UBICACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_TRANSP_TERRESTRE
+		dataType: string
+		lineageTag: acceee44-a99a-4664-a21d-8ac7ec2d6f23
+		summarizeBy: none
+		sourceColumn: COD_TRANSP_TERRESTRE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANS_PUERTO_BODEGA
+		dataType: dateTime
+		formatString: D/M/YY
+		lineageTag: 41405bd1-333b-43c2-97b5-f018ecf752d1
+		summarizeBy: none
+		sourceColumn: TRANS_PUERTO_BODEGA
+
+		variation Variación
+			isDefault
+			relationship: 00b9d96a-adad-43ee-9de9-f3d8e9112a65
+			defaultHierarchy: LocalDateTable_14764142-4450-4181-950a-20f9a921131e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column DESCARGA_BODEGA
+		dataType: dateTime
+		formatString: D/M/YY
+		lineageTag: d0fb4e06-dd2b-4754-af5b-2c0cc5c7ebbb
+		summarizeBy: none
+		sourceColumn: DESCARGA_BODEGA
+
+		variation Variación
+			isDefault
+			relationship: c28d7311-5f2f-492d-8263-6f310c6dfec7
+			defaultHierarchy: LocalDateTable_6be483bb-2ecc-4bca-b98c-3fb054557147.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column PESO_NETO
+		dataType: double
+		lineageTag: 4eb027a8-8c18-4f64-be5f-3406f66cd7be
+		summarizeBy: sum
+		sourceColumn: PESO_NETO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PESO_BRUTO
+		dataType: double
+		lineageTag: 0f3578a1-14b4-4a22-a113-e0f3543527a3
+		summarizeBy: sum
+		sourceColumn: PESO_BRUTO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NumTIR
+		dataType: string
+		lineageTag: 7746aa33-be68-4a59-af00-eba7b1538779
+		summarizeBy: none
+		sourceColumn: NumTIR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CITA_PUERTO
+		dataType: dateTime
+		formatString: D/M/YY
+		lineageTag: f3ccb078-4b3e-4e4f-a93a-11d5309355fa
+		summarizeBy: none
+		sourceColumn: CITA_PUERTO
+
+		variation Variation
+			isDefault
+			relationship: 1385f3e5-b331-49c9-b225-f830dd4e764e
+			defaultHierarchy: LocalDateTable_9871b3c0-6c01-415e-96d8-33151ef7dd89.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TRANSPORTISTA_AF
+		dataType: string
+		lineageTag: b6951c16-ded6-468b-9ff2-ce695fd0c828
+		summarizeBy: none
+		sourceColumn: TRANSPORTISTA_AF
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANSPORTISTA_FINAL
+		dataType: string
+		lineageTag: 454593f3-da8e-4dfa-88a3-f0c996e89ca8
+		summarizeBy: none
+		sourceColumn: TRANSPORTISTA_FINAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITIO_FINAL
+		dataType: string
+		lineageTag: 6ab26442-de58-4acf-a4c6-61abfcefc9a4
+		summarizeBy: none
+		sourceColumn: SITIO_FINAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITIO_AF
+		dataType: string
+		lineageTag: 27105397-dfe7-4f95-b12c-9b68ba21b531
+		summarizeBy: none
+		sourceColumn: SITIO_AF
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMBRE_CHOFER_AF
+		dataType: string
+		lineageTag: 697d835b-67ca-4e7a-b65c-e12835b925ee
+		summarizeBy: none
+		sourceColumn: NOMBRE_CHOFER_AF
+
+		annotation SummarizationSetBy = Automatic
+
+	column CEDULA_CHOFER_AF
+		dataType: string
+		lineageTag: ae7f5b44-6e82-41cf-8803-82da209fb6ad
+		summarizeBy: none
+		sourceColumn: CEDULA_CHOFER_AF
+
+		annotation SummarizationSetBy = Automatic
+
+	column CELULAR_CHOFER_AF
+		dataType: string
+		lineageTag: 809ebbc5-d125-4541-8a6d-00d8b7ba67d4
+		summarizeBy: none
+		sourceColumn: CELULAR_CHOFER_AF
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMBRE_CHOFER_FINAL
+		dataType: string
+		lineageTag: 6c05f288-40bc-4472-a7c6-a994d5eaf6f5
+		summarizeBy: none
+		sourceColumn: NOMBRE_CHOFER_FINAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CEDULA_CHOFER_FINAL
+		dataType: string
+		lineageTag: 606bb54b-942e-4ca3-8a53-b9921b10fa6e
+		summarizeBy: none
+		sourceColumn: CEDULA_CHOFER_FINAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CELULAR_CHOFER_FINAL
+		dataType: string
+		lineageTag: c6b983f5-f988-4965-86c3-6c3033dfa978
+		summarizeBy: none
+		sourceColumn: CELULAR_CHOFER_FINAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column METODO_TRASLADO_TERRESTRE
+		dataType: string
+		lineageTag: 39c94652-0325-4ef8-a7f8-119d7d0a166c
+		summarizeBy: none
+		sourceColumn: METODO_TRASLADO_TERRESTRE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_DUA_TRASLADO
+		dataType: dateTime
+		formatString: D/M/YY
+		lineageTag: d318c895-9714-49bc-88f1-96e6ef54250a
+		summarizeBy: none
+		sourceColumn: FECHA_DUA_TRASLADO
+
+		variation Variación
+			isDefault
+			relationship: 589c67cb-fdbf-44f7-b35a-d11d1c8a8604
+			defaultHierarchy: LocalDateTable_7a4a70d2-0dfc-4356-85e8-309ce53894f4.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column PAGO_COSTOS_APM
+		dataType: dateTime
+		formatString: D/M/YY
+		lineageTag: e5a0cd54-63d0-4fc9-b563-cec42c647100
+		summarizeBy: none
+		sourceColumn: PAGO_COSTOS_APM
+
+		variation Variación
+			isDefault
+			relationship: b05ff048-4df9-4cd3-8783-34ce7b39adf3
+			defaultHierarchy: LocalDateTable_98f764fa-ec95-4c7d-bead-39f43a97e46e.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column PLAN_LLEG_AF
+		dataType: dateTime
+		formatString: D/M/YY
+		lineageTag: cdf04fe4-2df3-431a-b811-e1c6a70111cf
+		summarizeBy: none
+		sourceColumn: PLAN_LLEG_AF
+
+		variation Variación
+			isDefault
+			relationship: 2156cf7c-7aca-4eeb-873e-fdf40136d473
+			defaultHierarchy: LocalDateTable_d9db54c0-7423-4d5d-a84c-a6feee5040a4.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column ENT_REAL_PATIO_AF
+		dataType: dateTime
+		formatString: D/M/YY
+		lineageTag: 5a41bfe3-fe0f-4a47-8815-50c9248afc10
+		summarizeBy: none
+		sourceColumn: ENT_REAL_PATIO_AF
+
+		variation Variación
+			isDefault
+			relationship: 57213448-63c2-4ceb-959b-8369f2f0a83e
+			defaultHierarchy: LocalDateTable_fc714b0b-3927-4a2b-83b6-81cdc27e96b3.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column PLAN_SITIO_DESTINO
+		dataType: dateTime
+		formatString: D/M/YY
+		lineageTag: f14701c9-cbda-42e5-9bb1-3db758a11ff2
+		summarizeBy: none
+		sourceColumn: PLAN_SITIO_DESTINO
+
+		variation Variación
+			isDefault
+			relationship: 708057cb-376e-4d27-8716-a2d2fcb2f8b3
+			defaultHierarchy: LocalDateTable_31bb47e8-03d8-45b6-8608-2aea92c9998d.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column LLEG_REAL_SITIO_DEST
+		dataType: dateTime
+		formatString: D/M/YY
+		lineageTag: 9c7bb633-6562-4102-846e-ac6aed8b220d
+		summarizeBy: none
+		sourceColumn: LLEG_REAL_SITIO_DEST
+
+		variation Variación
+			isDefault
+			relationship: 86071317-78e7-48c8-b456-b3c3e989e666
+			defaultHierarchy: LocalDateTable_4e51e189-7830-42f4-a0c9-f0a1ce25f8a8.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column REAL_DESCARGA_EMPRESA
+		dataType: dateTime
+		formatString: D/M/YY
+		lineageTag: 47691b06-77f3-4106-9894-4f6eb902be74
+		summarizeBy: none
+		sourceColumn: REAL_DESCARGA_EMPRESA
+
+		variation Variación
+			isDefault
+			relationship: a640ea2e-d30b-44d5-ba53-d1a30e2daf48
+			defaultHierarchy: LocalDateTable_6cc2deed-daed-4238-ba28-71b714eb1d64.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column RET_CONT_VACIO
+		dataType: dateTime
+		formatString: D/M/YY
+		lineageTag: f0f27f64-46b9-4a54-a7ae-fc92c1b7838f
+		summarizeBy: none
+		sourceColumn: RET_CONT_VACIO
+
+		variation Variación
+			isDefault
+			relationship: 88f06f50-45ba-423f-a320-d80685d6fe8f
+			defaultHierarchy: LocalDateTable_1eed4a0d-8203-4b09-a7ed-2d5703c7ad0a.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column NUM_MARCHAMO
+		dataType: string
+		lineageTag: ce0e7701-0706-408e-bba8-646c53abb48d
+		summarizeBy: none
+		sourceColumn: NUM_MARCHAMO
+
+		annotation SummarizationSetBy = Automatic
+
+	column En_Almacen_Fiscal =
+			
+			IF(
+			    CONTAINERS[ENT_REAL_PATIO_AF] <> DATE(1900, 1, 1) && CONTAINERS[LLEG_REAL_SITIO_DEST] = DATE(1900, 1, 1),
+			    "Sí",
+			    "No"
+			)
+		lineageTag: 0b4d8bcf-b9fb-4b9c-b63e-8c7ae223f6f5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NOMBRE SITIO FINAL'
+		dataType: string
+		lineageTag: e6ae2873-f12d-4cbe-9593-b2883062eefd
+		summarizeBy: none
+		sourceColumn: NOMBRE SITIO FINAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NOMBRE SITIO AF'
+		dataType: string
+		lineageTag: 0c1e9e0b-67cd-4f52-9c97-d8f7f54919df
+		summarizeBy: none
+		sourceColumn: NOMBRE SITIO AF
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SITIO FINAL CONCAT'
+		dataType: string
+		lineageTag: 3e6a7234-1ade-4c23-a92d-6779738e22d7
+		summarizeBy: none
+		sourceColumn: SITIO FINAL CONCAT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SITIO AF CONCAT'
+		dataType: string
+		lineageTag: 8aeaf291-db58-49a3-816e-889a3a601eef
+		summarizeBy: none
+		sourceColumn: SITIO AF CONCAT
+
+		annotation SummarizationSetBy = Automatic
+
+	column AJUSTADA_ARRIBO_OC
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c2ff16cd-2f26-498c-b5cd-d1153c18c426
+		summarizeBy: none
+		sourceColumn: AJUSTADA_ARRIBO_OC
+
+		variation Variación
+			isDefault
+			relationship: 6009436f-3f9e-411a-b14a-a14831c3dbc5
+			defaultHierarchy: LocalDateTable_ea50f880-86bc-44eb-9fa3-95c8e6b25440.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ubicación Actual' =
+			
+			VAR FechaPuerto = CONTAINERS[AJUSTADA_ARRIBO_OC]
+			VAR FechaAlmacen = CONTAINERS[ENT_REAL_PATIO_AF]
+			VAR FechaBodega = CONTAINERS[LLEG_REAL_SITIO_DEST]
+			VAR FechaMaxima = MAX(FechaPuerto, MAX(FechaAlmacen, FechaBodega))
+			RETURN
+			    SWITCH(TRUE(),
+			        FechaMaxima = FechaPuerto,"Puerto",
+			        FechaMaxima = FechaAlmacen, CONTAINERS[SITIO_AF],
+			        FechaMaxima = FechaBodega, CONTAINERS[SITIO_FINAL],
+			        BLANK()
+			    )
+		lineageTag: f313aaf0-571e-4b51-b1b0-752eafc893cb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCARGA_DEST1
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: 756169f8-f5e6-4331-a93c-932551116a57
+		summarizeBy: none
+		sourceColumn: DESCARGA_DEST1
+
+		variation Variación
+			isDefault
+			relationship: 4938720d-8425-46a4-88e8-87cda8ed1528
+			defaultHierarchy: LocalDateTable_996c2453-f60c-4a6a-8f79-d6c6d5b1e27b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column orderaccount
+		dataType: string
+		lineageTag: 2f814793-b65f-4d2f-a9bd-3bc42e9cd5f2
+		summarizeBy: none
+		sourceColumn: orderaccount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre Proveedor' = ```
+			
+			LOOKUPVALUE(
+			    VENDOR_NAME[CONCAT_NAME],  
+			    VENDOR_NAME[ACCOUNTNUM],     
+			    CONTAINERS[orderaccount]         
+			)
+			```
+		lineageTag: 2dfbcd55-14af-400c-946e-92cb0c92834a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'SOLICITADA_LLEGADA_BODEGA Jerarquía'
+		lineageTag: 6517514e-d812-4a39-bbc3-2ad4767c8c79
+
+		level 'Solic Lleg Bodega'
+			lineageTag: f817d3fe-b432-4fb5-8322-85a3ae5c1f9c
+			column: SOLICITADA_LLEGADA_BODEGA
+
+	hierarchy 'AJUSTADA_BODEGA Jerarquía'
+		lineageTag: 0caa5f0f-7f32-4fe8-83d5-cfe07ac374da
+
+		level 'Ajustada Bodega'
+			lineageTag: dc2b2aca-74de-436e-8b31-4a6ec380060b
+			column: AJUSTADA_BODEGA
+
+	hierarchy 'AJUSTADA_ARRIBO Jerarquía'
+		lineageTag: 821b2e7c-42c5-42af-b624-3e605f1ca1f0
+
+		level 'Fecha Com'
+			lineageTag: c7aa1ff8-bc4d-4efc-8cb3-ca1fb6b1ce0e
+			column: AJUSTADA_ARRIBO
+
+	hierarchy 'FECHA_VENC_DIAS_LIBRES Jerarquía'
+		lineageTag: 8ea7adfa-ac6b-4aba-a33f-c8b121f39e0a
+
+		level 'Vencimiento Días Libres'
+			lineageTag: 0b0e76f2-9da4-4ec4-a1f5-6f6293c1e45a
+			column: FECHA_VENC_DIAS_LIBRES
+
+	hierarchy 'FECHA_DEVOLUCION Jerarquía'
+		lineageTag: bd99b6ff-a1ca-467c-b8da-5822e347065c
+
+		level 'TIR (Devolución)'
+			lineageTag: 71e445a6-2e82-4a4e-8b11-ec33eb58d0d9
+			column: FECHA_DEVOLUCION
+
+	hierarchy 'Transporte Puerto a Bodega'
+		lineageTag: b8f4b3b5-6299-4343-a8ce-044dffb1e607
+
+		level 'Transporte Puerto a Bodega'
+			lineageTag: 3fc8f080-765c-451a-868b-c690f2899c84
+			column: TRANS_PUERTO_BODEGA
+
+	hierarchy 'DESCARGA_BODEGA Jerarquía'
+		lineageTag: d27bccb8-d2c6-4679-b9e6-bd1699067681
+
+		level 'Descarga en Bodega'
+			lineageTag: e7c498e8-8bf7-4e84-ab89-78e9a5868235
+			column: DESCARGA_BODEGA
+
+	partition CONTAINERS = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="SELECT distinct pt.DATAAREAID, pt.PURCHID, pt.SIT_ArrivalDateAjusted AS AJUSTADA_ARRIBO_OC, T1.CONTAINERID AS CONTENEDOR,T1.SIT_REQUESTEDARRIVALWH AS SOLICITADA_LLEGADA_BODEGA,T1.SIT_ADJUSTEDWH AS AJUSTADA_BODEGA,#(lf)CONVERT(DATE,T1.AJUSTEDARRIVAL) AS AJUSTADA_ARRIBO,T1.SIT_REQUESTARRIVALWHWEEK AS LLEG_BOD_SOLIC_SEM,T1.SIT_ARRIVALADJUSTWHWEEK AS LLEG_BOD_AJUST_SEM,#(lf)T1.SIT_REQUESTAJUSTEDARRIVALWEEK AS AJUST_ARRIBO_SEM,T1.SIT_FREEDAYS AS DIAS_LIBRES,CONVERT(DATE,T1.EXPIRATIONFREEDAYS) AS FECHA_VENC_DIAS_LIBRES,CONVERT(DATE,pt.SIT_ReturnContainerDate) AS FECHA_DEVOLUCION,#(lf)T1.SIT_DAYSOFDELAY AS DIAS_DEMORA_DEVOL,T1.SIT_DAYSOFDELAYHOURS AS DIAS_DEMORA_DEVOL_HORAS, pt.orderaccount,#(lf)CASE COALESCE(NULLIF(T1.SIT_SHIPSTATUS, 0), pt.SIT_SHIPSTATUS)#(lf)WHEN 1 THEN 'PROPUESTA'#(lf)WHEN 2 THEN 'BODEGA'#(lf)WHEN 3 THEN 'MAR'#(lf)WHEN 4 THEN 'TIERRA D'#(lf)WHEN 5 THEN 'TIERRA_ND'#(lf)WHEN 6 THEN 'FORECAST'#(lf)WHEN 7 THEN 'CONTRATO'#(lf)WHEN 8 THEN 'PATIO DE CONTENEDORES'#(lf)WHEN 9 THEN 'RECHAZADO'#(lf)WHEN 10 THEN 'ALMACÉN FISCAL'#(lf)ELSE 'INDEFINIDO'#(lf)END AS ESTADO,#(lf)CASE T1.UBICACIONES#(lf)WHEN 1 THEN 'Anden Cartago'#(lf)WHEN 2 THEN 'Anden San Francisco'#(lf)WHEN 3 THEN 'Almacén Fiscal'#(lf)WHEN 4 THEN 'ZP Limón'#(lf)WHEN 5 THEN 'ZP Caldera'#(lf)WHEN 6 THEN 'Peñas Blancas'#(lf)WHEN 7 THEN 'Aduana Central'#(lf)WHEN 8 THEN 'Predio Naviera'#(lf)ELSE ''#(lf)END AS UBICACION,#(lf)T1.LandCarrierCode AS COD_TRANSP_TERRESTRE,#(lf)T1.TRANSPORTEPUERTOBODEGA AS TRANS_PUERTO_BODEGA, T1.NumTIR,#(lf)T1.DESCARGABODEGA AS DESCARGA_BODEGA,T1.NetWeight AS PESO_NETO,T1.GrossWeight AS PESO_BRUTO,#(lf)T1.UnloadDate AS DESCARGA_DEST1,#(lf)T1.PORTAPPTDT AS CITA_PUERTO,#(lf)T1.LANDCARRIERAF AS TRANSPORTISTA_AF,#(lf)T1.LANDCARRIERFINAL AS TRANSPORTISTA_FINAL,#(lf)T1.NUM_MARCHAMO,#(lf)COALESCE(#(lf)    NULLIF(T1.INVENTSITE, ''),#(lf)    NULLIF(pt.INVENTSITEID, ''),#(lf)    ''#(lf)) AS SITIO_FINAL,#(lf)COALESCE(#(lf)    NULLIF(T1.INVENTSITEAF, ''),#(lf)    NULLIF(pt.INVENTSITEAF, ''),#(lf)    ''#(lf)) AS SITIO_AF,#(lf)T1.TRANSPORTMETHODLAND AS METODO_TRASLADO_TERRESTRE,#(lf)T1.DUADATE AS FECHA_DUA_TRASLADO,#(lf)T1.APMCOSTPAYMENTDATE AS PAGO_COSTOS_APM,#(lf)T1.AFPLANARRIVALDATE AS PLAN_LLEG_AF,#(lf)T1.AFYARDARRIVEDDATE AS ENT_REAL_PATIO_AF,#(lf)T1.DESTINATIONSITEPLANDATE AS PLAN_SITIO_DESTINO,#(lf)T1.DESTSITEARRIVALDATE AS LLEG_REAL_SITIO_DEST,#(lf)T1.COMPANYUNLOADEDDATE AS REAL_DESCARGA_EMPRESA,#(lf)T1.EMPTYCONTAINERPICKUPNOTICEDATE AS RET_CONT_VACIO,#(lf)DT.NAME AS NOMBRE_CHOFER_AF,#(lf)DT.VATNUM1_2303 AS CEDULA_CHOFER_AF,#(lf)CONTACT.LOCATOR AS CELULAR_CHOFER_AF,#(lf)DT1.NAME AS NOMBRE_CHOFER_FINAL,#(lf)DT1.VATNUM1_2303 AS CEDULA_CHOFER_FINAL,#(lf)CONTACT1.LOCATOR AS CELULAR_CHOFER_FINAL#(lf)FROM PurchContainers T1 #(lf)Right join PurchTable pt on T1.PURCHID = pt.PURCHID and T1.DATAAREAID = pt.DATAAREAID AND T1.PARTITION = pt.PARTITION left outer join#(lf)DirPartyTable dt on dt.recid = t1.afdriver left outer join#(lf)(SELECT T2.PARTY,LEA.LOCATION,LEA.LOCATOR,LEA.RECID,#(lf)ROW_NUMBER() OVER(PARTITION BY T2.PARTY,LEA.TYPE ORDER BY LEA.ISPRIMARY DESC) AS RN#(lf)FROM DirPartyLocation t2 #(lf)LEFT JOIN LOGISTICSLOCATION T3 ON t3.RECID = t2.LOCATION AND T2.PARTITION = T3.PARTITION#(lf)INNER JOIN  LOGISTICSELECTRONICADDRESS LEA ON LEA.LOCATION = T3.RECID AND LEA.PARTITION = T3.PARTITION AND LEA.TYPE = 99) AS CONTACT ON CONTACT.PARTY = DT.RECID AND CONTACT.RN = 1 left outer join#(lf)DirPartyTable dt1 on dt1.recid = t1.finaldriver left outer join#(lf)(SELECT T2.PARTY,LEA.LOCATION,LEA.LOCATOR,LEA.RECID,#(lf)ROW_NUMBER() OVER(PARTITION BY T2.PARTY,LEA.TYPE ORDER BY LEA.ISPRIMARY DESC) AS RN#(lf)FROM DirPartyLocation t2 #(lf)LEFT JOIN LOGISTICSLOCATION T3 ON t3.RECID = t2.LOCATION AND T2.PARTITION = T3.PARTITION#(lf)INNER JOIN  LOGISTICSELECTRONICADDRESS LEA ON LEA.LOCATION = T3.RECID AND LEA.PARTITION = T3.PARTITION AND LEA.TYPE = 99) AS CONTACT1 ON CONTACT1.PARTY = DT1.RECID AND CONTACT1.RN = 1#(lf)WHERE  (pt.SIT_AjustDeparture >= DATEADD(MONTH,-14,GETDATE())   #(lf)         OR pt.SIT_AjustDeparture = '1900-01-01 00:00:00.000')   #(lf)    AND pt.DATAAREAID = 'CMER' #(lf)#(tab)AND COALESCE(NULLIF(T1.SIT_SHIPSTATUS, 0), pt.SIT_SHIPSTATUS) not in (0,2,99)", MultiSubnetFailover=true]),
+				    #"Consultas combinadas" = Table.NestedJoin(Origen, {"SITIO_FINAL"}, SITIOS, {"SITEID"}, "SITIOS", JoinKind.LeftOuter),
+				    #"Se expandió SITIOS" = Table.ExpandTableColumn(#"Consultas combinadas", "SITIOS", {"NAME"}, {"SITIOS.NAME"}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Se expandió SITIOS",{{"SITIOS.NAME", "NOMBRE SITIO FINAL"}}),
+				    #"Consultas combinadas1" = Table.NestedJoin(#"Columnas con nombre cambiado", {"SITIO_AF"}, SITIOS, {"SITEID"}, "SITIOS", JoinKind.LeftOuter),
+				    #"Se expandió SITIOS1" = Table.ExpandTableColumn(#"Consultas combinadas1", "SITIOS", {"NAME"}, {"SITIOS.NAME"}),
+				    #"Columnas con nombre cambiado1" = Table.RenameColumns(#"Se expandió SITIOS1",{{"SITIOS.NAME", "NOMBRE SITIO AF"}}),
+				    #"Personalizada agregada" = Table.AddColumn(#"Columnas con nombre cambiado1", "SITIO FINAL CONCAT", each "(" & [SITIO_FINAL] & ") " & [NOMBRE SITIO FINAL]),
+				    #"Personalizada agregada1" = Table.AddColumn(#"Personalizada agregada", "SITIO AF CONCAT", each "(" & [SITIO_AF] & ") " & [NOMBRE SITIO AF])
+				in
+				    #"Personalizada agregada1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

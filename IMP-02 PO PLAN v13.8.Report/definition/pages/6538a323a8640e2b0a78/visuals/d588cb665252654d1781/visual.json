@@ -1,0 +1,977 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "d588cb665252654d1781",
+  "position": {
+    "x": 0,
+    "y": 272.21674876847288,
+    "z": 4000,
+    "height": 446.89655172413791,
+    "width": 1280.3940886699509,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Plan colocaciones y descargas"
+                    }
+                  },
+                  "Property": "Column1"
+                }
+              },
+              "queryRef": "Plan colocaciones y descargas.Column1",
+              "nativeQueryRef": "Semana",
+              "active": true,
+              "displayName": "Semana"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vPURCHDESCARGASBI"
+                    }
+                  },
+                  "Property": "PURCHID - Copia"
+                }
+              },
+              "queryRef": "vPURCHDESCARGASBI.PURCHID - Copia",
+              "nativeQueryRef": "PO",
+              "active": true,
+              "displayName": "PO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "CONTENEDOR"
+                }
+              },
+              "queryRef": "CONTAINERS.CONTENEDOR",
+              "nativeQueryRef": "CONTENEDOR",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column2"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column2)",
+              "nativeQueryRef": "ETA",
+              "displayName": "ETA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column3"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column3)",
+              "nativeQueryRef": "Fecha Com",
+              "displayName": "Fecha Com"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Property": "NumTIR"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(CONTAINERS.NumTIR)",
+              "nativeQueryRef": "Num (TIR)",
+              "displayName": "Num (TIR)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "vPURCHDESCARGASBI"
+                        }
+                      },
+                      "Property": "PURCHNAME"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(vPURCHDESCARGASBI.PURCHNAME)",
+              "nativeQueryRef": "Proveedor",
+              "displayName": "Proveedor"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column4"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column4)",
+              "nativeQueryRef": "Vence",
+              "displayName": "Vence"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column7"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column7)",
+              "nativeQueryRef": "Fecha Dua",
+              "displayName": "Fecha Dua"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column8"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column8)",
+              "nativeQueryRef": "Num Dua",
+              "displayName": "Num Dua"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column9"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column9)",
+              "nativeQueryRef": "Fecha Colocación",
+              "displayName": "Fecha Colocación"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column10"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column10)",
+              "nativeQueryRef": "Aforo",
+              "displayName": "Aforo"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "Entradas_Tarima"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.Entradas_Tarima",
+              "nativeQueryRef": "Tarimas",
+              "displayName": "Tarimas"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column13"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column13)",
+              "nativeQueryRef": "Ubicación",
+              "displayName": "Ubicación"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column14"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column14)",
+              "nativeQueryRef": "Predio Devolución",
+              "displayName": "Predio Devolución"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "vPURCHDESCARGASBI"
+                        }
+                      },
+                      "Property": "PORT"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(vPURCHDESCARGASBI.PORT)",
+              "nativeQueryRef": "Naviera",
+              "displayName": "Naviera"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "vPURCHDESCARGASBI"
+                        }
+                      },
+                      "Property": "SIT_FREEDAYS"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(vPURCHDESCARGASBI.SIT_FREEDAYS)",
+              "nativeQueryRef": "Suma de SIT_FREEDAYS",
+              "displayName": "Días Libres"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column16"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column16)",
+              "nativeQueryRef": "OC Flete",
+              "displayName": "OC Flete"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column17"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column17)",
+              "nativeQueryRef": "OC Dev",
+              "displayName": "OC Dev"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "vPURCHDESCARGASBI"
+                        }
+                      },
+                      "Property": "TRANSPORT"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(vPURCHDESCARGASBI.TRANSPORT)",
+              "nativeQueryRef": "Transportista1",
+              "displayName": "Transportista"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column19"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column19)",
+              "nativeQueryRef": "Tamaño/Tipo Conte.",
+              "displayName": "Tamaño/Tipo Conte."
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column20"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column20)",
+              "nativeQueryRef": "Carta Liberación",
+              "displayName": "Carta Liberación"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column21"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column21)",
+              "nativeQueryRef": "Chofer",
+              "displayName": "Chofer"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "AJUSTADA_ARRIBO_TICA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(PURCHASE_PBI.AJUSTADA_ARRIBO_TICA)",
+              "nativeQueryRef": "Ajustada Arribo TICA",
+              "displayName": "Ajustada Arribo TICA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column22"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column22)",
+              "nativeQueryRef": "Fecha Descarga",
+              "displayName": "Fecha Descarga"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column23"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column23)",
+              "nativeQueryRef": "Ubicación1",
+              "displayName": "Ubicación"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Plan colocaciones y descargas"
+                        }
+                      },
+                      "Property": "Column24"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Plan colocaciones y descargas.Column24)",
+              "nativeQueryRef": "Estado",
+              "displayName": "Estado"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "CONTAINERS"
+                            }
+                          },
+                          "Hierarchy": "FECHA_DEVOLUCION Jerarquía"
+                        }
+                      },
+                      "Level": "TIR (Devolución)"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(CONTAINERS.FECHA_DEVOLUCION Jerarquía.Devolución (TIR))",
+              "nativeQueryRef": "Fecha Dev (TIR)",
+              "displayName": "Fecha Dev (TIR)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "vPURCHDESCARGASBI"
+                      }
+                    },
+                    "Property": "PURCHNAME"
+                  }
+                },
+                "Function": 3
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Plan colocaciones y descargas.Column1"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Plan colocaciones y descargas"
+                    }
+                  },
+                  "Property": "Column1"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "vPURCHDESCARGASBI.PURCHID - Copia"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vPURCHDESCARGASBI"
+                    }
+                  },
+                  "Property": "PURCHID - Copia"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CONTAINERS.CONTENEDOR"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "CONTENEDOR"
+                }
+              }
+            ],
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'40'"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'158443'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'38'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "null"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'41'"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'157723'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                },
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'159304'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'43'"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'161482'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'10'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "null"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'21'"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "null"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'30'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'161658'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'24'"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "null"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00496B'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "209.00000445201783D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Plan colocaciones y descargas.Column5"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "76.64000170288092D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Plan colocaciones y descargas.Column2)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "135.8571429039705D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(PURCHASE_PBI.AJUSTADA_ARRIBO_TICA)"
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {}
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "perRowLevel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

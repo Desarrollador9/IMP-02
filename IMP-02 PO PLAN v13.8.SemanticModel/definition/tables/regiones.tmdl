@@ -1,0 +1,35 @@
+table regiones
+	lineageTag: 05036e5c-80ff-41fa-a83b-1b53136690fe
+
+	column id_region
+		dataType: int64
+		formatString: 0
+		lineageTag: 19da70a0-5ee7-4e3d-a56f-c3bb27c4106c
+		summarizeBy: none
+		sourceColumn: id_region
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_region
+		dataType: string
+		lineageTag: 288afe61-db76-4ccd-b9b8-3e7bddc1d509
+		summarizeBy: none
+		sourceColumn: nombre_region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition regiones = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents("http://sjoiis01:8012/ajuste_sistema/regiones")),
+				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"id_region", "nombre_region"}, {"id_region", "nombre_region"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1",{{"id_region", Int64.Type}, {"nombre_region", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

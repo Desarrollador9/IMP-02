@@ -1,0 +1,53 @@
+table UPDATE
+	lineageTag: 53dea97a-0da0-4033-aea5-c9abf3be216a
+
+	measure Count =
+			
+			COUNTROWS(
+			    FILTER(
+			        ALLSELECTED( PURCHASE_PBI[Articulo_concat2] ),
+			        PURCHASE_PBI[Articulo_concat2] <= MIN( PURCHASE_PBI[Articulo_concat2] )
+			    )
+			)
+		formatString: 0
+		lineageTag: aff1d2a3-e3f3-4250-b986-f96a8fe09384
+
+	column UPDATES
+		dataType: dateTime
+		formatString: dd-mmm-yy h:nn AM/PM
+		lineageTag: e41720b3-da87-44b1-a912-636cee1044da
+		summarizeBy: none
+		sourceColumn: UPDATES
+
+		variation Variation
+			isDefault
+			relationship: 8aff326f-602f-44c9-9db4-4df43dc3793d
+			defaultHierarchy: LocalDateTable_e4a9d668-f3a7-461c-a5d4-cb37e7fb7c02.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column '# Linea' =
+			
+			COUNTROWS(
+			    FILTER(
+			        ALL( PURCHASE_PBI[Articulo_concat2] ),
+			        PURCHASE_PBI[Articulo_concat2] <= EARLIER( PURCHASE_PBI[Articulo_concat2] )
+			    )
+			)
+		lineageTag: e8c5cab8-1bcf-4425-a09f-dcded0fc2e2b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition UPDATE = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="SELECT GETDATE() AS UPDATES", MultiSubnetFailover=true])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

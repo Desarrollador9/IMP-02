@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "661974e4748f06a6fdca",
+  "displayName": "T17.1 CONTROL PREVENTIVO DE BOOKINGS",
+  "displayOption": "FitToPage",
+  "height": 850,
+  "width": 1900,
+  "pageBinding": {
+    "name": "1def3f9195e5d190477c",
+    "type": "Default",
+    "parameters": []
+  }
+}

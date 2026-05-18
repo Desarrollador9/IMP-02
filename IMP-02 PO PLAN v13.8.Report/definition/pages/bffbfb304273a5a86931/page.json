@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "bffbfb304273a5a86931",
+  "displayName": "T7. RESERVACIONES",
+  "displayOption": "FitToPage",
+  "height": 850,
+  "width": 1900,
+  "pageBinding": {
+    "name": "548967a3d10288ad78ca",
+    "type": "Default",
+    "parameters": []
+  }
+}

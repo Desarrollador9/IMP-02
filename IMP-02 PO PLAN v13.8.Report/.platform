@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "IMP-02 PO PLAN v13.8"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cbc8a87d-5fde-4887-81f8-011a925ece23"
+  }
+}

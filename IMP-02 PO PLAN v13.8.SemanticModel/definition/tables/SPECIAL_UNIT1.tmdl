@@ -1,0 +1,43 @@
+table SPECIAL_UNIT1
+	lineageTag: 4802af15-2af9-4211-b61e-b8040cc7f1ab
+
+	column DISPLAYPRODUCTNUMBER
+		dataType: string
+		lineageTag: d09a3445-c737-4fd7-bfe3-1037ea3c88f1
+		summarizeBy: none
+		sourceColumn: DISPLAYPRODUCTNUMBER
+
+		annotation SummarizationSetBy = Automatic
+
+	column SYMBOL
+		dataType: string
+		lineageTag: 7e06940e-d4d1-4693-9c8a-f24235ffb5b4
+		summarizeBy: none
+		sourceColumn: SYMBOL
+
+		annotation SummarizationSetBy = Automatic
+
+	column FACTOR
+		dataType: double
+		lineageTag: 36a5d34a-407f-43bc-8c21-f8f2cd8afbbb
+		summarizeBy: none
+		sourceColumn: FACTOR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition SPECIAL_UNIT1 = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD", [MultiSubnetFailover=true]),
+				    dbo_SPECIAL_UNIT1 = Origen{[Schema="dbo",Item="SPECIAL_UNIT1"]}[Data],
+				    #"Duplicados quitados" = Table.Distinct(dbo_SPECIAL_UNIT1, {"DISPLAYPRODUCTNUMBER"})
+				in
+				    #"Duplicados quitados"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,74 @@
+table TablaSemanas
+	lineageTag: a55781d8-7c76-4f16-8559-c9e516c63c32
+
+	column Value
+		formatString: 0
+		lineageTag: 16623d5c-96c3-45be-81a1-772549a4603e
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semanas
+		lineageTag: a2ac775b-0e5d-42e4-b2b0-27eadd000a6d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Semanas]
+
+		annotation SummarizationSetBy = Automatic
+
+	column FechaInicio
+		formatString: General Date
+		lineageTag: 9fbef903-ecfd-4685-826c-584e880199b7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [FechaInicio]
+
+		variation Variation
+			isDefault
+			relationship: 046c3598-8477-4cca-a59e-99fcb6f8b17d
+			defaultHierarchy: LocalDateTable_006ce892-4f22-49f8-b69d-c6a6e1a844bc.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FechaFin
+		formatString: General Date
+		lineageTag: 97fcd010-9272-4804-b509-10d74398ba93
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [FechaFin]
+
+		variation Variation
+			isDefault
+			relationship: 1446d1b9-d41d-4fc9-88bb-00777d0784aa
+			defaultHierarchy: LocalDateTable_b720f947-1189-41f6-b4a9-2ec184234b3d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column RangoFechas
+		lineageTag: c1b08623-7f8e-4362-84fd-728c345e96ba
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [RangoFechas]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TablaSemanas = calculated
+		mode: import
+		source = ```
+				
+				ADDCOLUMNS(
+				    GENERATESERIES(0, 25, 1), -- Genera las semanas de T+1 a T+26 (6 meses)
+				    "Semanas", "1.T+" & [Value] + 1,
+				    "FechaInicio", TODAY() - WEEKDAY(TODAY(), 2) + ([Value] * 7), -- Calcula el lunes de cada semana
+				    "FechaFin", TODAY() - WEEKDAY(TODAY(), 2) + ([Value] * 7) + 6, -- Calcula el domingo correspondiente
+				    "RangoFechas", -- Agrega el rango de fechas
+				        FORMAT(TODAY() - WEEKDAY(TODAY(), 2) + ([Value] * 7), "dd/MM/yyyy") & " - " &
+				        FORMAT(TODAY() - WEEKDAY(TODAY(), 2) + ([Value] * 7) + 6, "dd/MM/yyyy")
+				)
+				
+				```
+
+	annotation PBI_Id = 0185d68129c94a1a80fe4f23a6f9b8da
+

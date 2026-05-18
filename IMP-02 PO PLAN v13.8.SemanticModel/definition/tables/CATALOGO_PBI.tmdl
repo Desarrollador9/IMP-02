@@ -1,0 +1,294 @@
+table CATALOGO_PBI
+	lineageTag: f6d0d053-f19d-4e0b-9728-bd7620e1abaa
+
+	measure 'Measure 2'
+		lineageTag: b62fd325-71c9-4bfc-a078-eb9fe050b3c9
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure ContenedoresPorSemana
+		lineageTag: 0c7e80c7-e97a-476b-b237-593012a77785
+
+	column ITEMID
+		dataType: string
+		lineageTag: 62636a1c-5d78-44ad-b923-2496ac17e924
+		summarizeBy: none
+		sourceColumn: ITEMID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: 1c593bf4-c6c5-4d0f-8f0b-3bac44a4d5af
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCTCATEGORYID
+		dataType: string
+		lineageTag: c042efa8-6f21-4415-9538-a9d4b2d74601
+		summarizeBy: none
+		sourceColumn: PRODUCTCATEGORYID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FAMILYID
+		dataType: string
+		lineageTag: 44eeb127-f7ad-408e-9784-aaf1076a5ce4
+		summarizeBy: none
+		sourceColumn: FAMILYID
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY_GEN
+		dataType: string
+		lineageTag: 9a8f65e4-266b-4028-8d6e-868440021caf
+		summarizeBy: none
+		sourceColumn: KEY_GEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBFAMILIA
+		dataType: string
+		lineageTag: f778846f-c083-438a-9e43-f21046864b0f
+		summarizeBy: none
+		sourceColumn: SUBFAMILIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBCATEGORIA
+		dataType: string
+		lineageTag: febda32e-81bf-4947-b146-47e73c64f7ea
+		summarizeBy: none
+		sourceColumn: SUBCATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEMMARKID
+		dataType: string
+		lineageTag: b27ad236-84b7-40b3-b2d1-3c61f0b78ea1
+		summarizeBy: none
+		sourceColumn: ITEMMARKID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBSUBCATEGORIA
+		dataType: string
+		lineageTag: 9ec988b9-459d-46e6-bcf2-9106719dd0c3
+		summarizeBy: none
+		sourceColumn: SUBSUBCATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUADRO
+		dataType: string
+		lineageTag: 2a13fef0-1fd8-48af-a240-4dd3462522f6
+		summarizeBy: none
+		sourceColumn: CUADRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMBRE_CUADRO
+		dataType: string
+		lineageTag: eececa5c-517b-491c-810c-d66b358c31e4
+		summarizeBy: none
+		sourceColumn: NOMBRE_CUADRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cuadro_Inventario = ```
+			IF(
+			    ISBLANK(CATALOGO_PBI[CUADRO]), 
+			    "", 
+			    FORMAT(CATALOGO_PBI[CUADRO], "General Number")
+			) 
+			& " " & 
+			IF(
+			    ISBLANK(CATALOGO_PBI[NOMBRE_CUADRO]), 
+			    "", 
+			    CATALOGO_PBI[NOMBRE_CUADRO]
+			)
+			```
+		lineageTag: 50920b4d-abbe-4f0c-b1b9-09d6defd3648
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENCARGADO
+		dataType: string
+		lineageTag: 55634cba-9b19-4cf0-a49a-9b3c11ce9546
+		summarizeBy: none
+		sourceColumn: ENCARGADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CICLO_VIDA
+		dataType: string
+		lineageTag: ead1d861-870b-4d0c-8b9f-763398dfb3cc
+		summarizeBy: none
+		sourceColumn: CICLO_VIDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIDAD
+		dataType: string
+		lineageTag: 3a013837-aaca-4f40-ae07-2a3cd55e4098
+		summarizeBy: none
+		sourceColumn: UNIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCTNAME
+		dataType: string
+		lineageTag: e281fde6-bf7d-429e-ba94-da7d1073ef58
+		summarizeBy: none
+		sourceColumn: PRODUCTNAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column UPDATES
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c69fbbf8-2ac8-4cc3-9e96-1c336fc629c4
+		summarizeBy: none
+		sourceColumn: UPDATES
+
+		variation Variación
+			isDefault
+			relationship: 9bf8dfe3-f424-42f3-ab91-083e08d27b21
+			defaultHierarchy: LocalDateTable_efe4f066-a254-4584-8b48-1689b970ea9a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column CICLO_FAMILIA
+		dataType: string
+		lineageTag: be2fd957-fb99-4fae-987f-550a050423be
+		summarizeBy: none
+		sourceColumn: CICLO_FAMILIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CICLO_SUBFAMILIA
+		dataType: string
+		lineageTag: af7adc58-a636-4eb1-88d1-edaa65df4ceb
+		summarizeBy: none
+		sourceColumn: CICLO_SUBFAMILIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CICLO_CATEGORIA
+		dataType: string
+		lineageTag: dbfa5107-c286-4a27-8d35-834bfa801231
+		summarizeBy: none
+		sourceColumn: CICLO_CATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CICLO_SUBCATEGORIA
+		dataType: string
+		lineageTag: 9b96f6d6-eaae-4e04-9abb-4d200edc884e
+		summarizeBy: none
+		sourceColumn: CICLO_SUBCATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NOMBRE PRODUCTO' = CONCATENATE("(",CONCATENATE(CATALOGO_PBI[ITEMID],CONCATENATE(") ",CATALOGO_PBI[PRODUCTNAME])))
+		lineageTag: 0ab90878-5aa5-417b-86d9-87a0b7683af1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO
+		dataType: string
+		lineageTag: 998829dc-dfba-40e1-8126-ab77f2a3aac2
+		summarizeBy: none
+		sourceColumn: TIPO
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_LINEA
+		dataType: string
+		lineageTag: 83979bf8-3685-40c4-9888-789fa4af10e3
+		summarizeBy: none
+		sourceColumn: COD_LINEA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCION_LINEA
+		dataType: string
+		lineageTag: b4663701-3d4d-4795-8cc4-1fd7437e113a
+		summarizeBy: none
+		sourceColumn: DESCRIPCION_LINEA
+
+		annotation SummarizationSetBy = Automatic
+
+	column POSITION
+		dataType: string
+		lineageTag: 7b344300-addd-4171-aa61-f086ea51f11f
+		summarizeBy: none
+		sourceColumn: POSITION
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIDAD_INVENTARIO
+		dataType: string
+		lineageTag: c222fdd7-a1b3-46a2-ad8d-5fe7ea2496de
+		summarizeBy: none
+		sourceColumn: UNIDAD_INVENTARIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column USO_PRODUCTO
+		dataType: string
+		lineageTag: 659226b8-9901-4780-8da3-4c67d81cf5da
+		summarizeBy: none
+		sourceColumn: USO_PRODUCTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARTIDAARANCELHACIENDA
+		dataType: string
+		lineageTag: 9ba1ca50-593b-4bc7-8b33-f5ba9fda8108
+		summarizeBy: none
+		sourceColumn: PARTIDAARANCELHACIENDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARTIDAARANCELHACIENDADESCRIPTION
+		dataType: string
+		lineageTag: 4fcc9b8c-1890-46cc-b0f3-e6a51f53b280
+		summarizeBy: none
+		sourceColumn: PARTIDAARANCELHACIENDADESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGISTRO_SANITARIO
+		dataType: string
+		lineageTag: d9aeff83-9a4d-4732-83b8-898efa05b132
+		summarizeBy: none
+		sourceColumn: REGISTRO_SANITARIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMBRE_CICLO_VIDA
+		dataType: string
+		lineageTag: 821038d4-cc41-4bfd-bbf9-0605b7ea1628
+		summarizeBy: none
+		sourceColumn: NOMBRE_CICLO_VIDA
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CATALOGO_PBI = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [MultiSubnetFailover=true]),
+				    dbo_CATALOGO_PBI = Source{[Schema="dbo",Item="CATALOGO_PBI"]}[Data]
+				in
+				    dbo_CATALOGO_PBI
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

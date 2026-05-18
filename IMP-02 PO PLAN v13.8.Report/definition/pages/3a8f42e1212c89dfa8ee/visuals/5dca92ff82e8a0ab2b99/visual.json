@@ -178,7 +178,7 @@
                                   "Entity": "CATALOGO_PBI_SALES"
                                 }
                               },
-                              "Property": "Cuadro_Inventario"
+                              "Property": "ORIGEN_CUADRO"
                             }
                           }
                         ],

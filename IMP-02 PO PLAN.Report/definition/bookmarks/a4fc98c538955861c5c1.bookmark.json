@@ -1,0 +1,3111 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "SW01 T4.2",
+  "name": "a4fc98c538955861c5c1",
+  "options": {
+    "targetVisualNames": [],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "73f12e98322d86b8c0be",
+    "sections": {
+      "73f12e98322d86b8c0be": {
+        "visualContainers": {
+          "52750535c7aaad41e570": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "e529614fc989cf08f07b": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "9061a86fc9c1ff562dd6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "8c9d1d575cc8ac6759e9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "PURCHID"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "132593115b3456a87345",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "NAVIERA"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a0dbf83f7a267d494773",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "ESTADO"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "69a1476e3a5c553acecd",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                        }
+                      },
+                      "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4f1ded807f4b32846671",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "BOOKING"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "31040d2e7de036edd12d",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                        }
+                      },
+                      "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a877099797d8f86ecf08",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_BODEGA Hierarchy"
+                        }
+                      },
+                      "Level": "Date Arrival Warehouse (Fecha De Llegada Bodega))"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5bf56dd605b3e074715c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "TIPO_CONTENEDOR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "dcd512089a7cbb9a8dc4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "CANT_CONTENEDOR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2f50462e44dcb0249ce6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Property": "Días Inventario"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8e3ee76f1fddd4f66e2d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "DIAS_LIBRES"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5a535335a0538acfc777",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_SOLICITADA Jerarquía"
+                        }
+                      },
+                      "Level": "Requested Vessel Departure (Salida de Buque Solicitada)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4cb89ec1ee6cf59bc01c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "FORWARDER"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ebcf5c4b51b66ab8aff9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Articulo_concat"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "61d2718f5647f6791079",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VENDOR_NAME"
+                        }
+                      },
+                      "Property": "ACCOUNTNUM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b4c80151ab6a0f007e70",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "MERCA_LISTA Jerarquía"
+                        }
+                      },
+                      "Level": "Ready Cargo Date(Fecha De Mercancía Lista)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d55f33774ee669419671",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Volumen_1"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0d0c4bba6e797166add0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Peso_2"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4182a0f28f488df3225b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTRACTS"
+                        }
+                      },
+                      "Property": "CONTRACTNUMBER"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "87de8ba1e8fd32d34b86",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "CONSOLIDADA"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c0f39d4e13229fac5918",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Entradas_Tarima"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Columns": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                        }
+                      },
+                      "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                        }
+                      },
+                      "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_BODEGA Hierarchy"
+                        }
+                      },
+                      "Level": "Date Arrival Warehouse (Fecha De Llegada Bodega))"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_SOLICITADA Jerarquía"
+                        }
+                      },
+                      "Level": "Requested Vessel Departure (Salida de Buque Solicitada)"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "PURCHID"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTRACTS"
+                        }
+                      },
+                      "Property": "CONTRACTNUMBER"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "CONSOLIDADA"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VENDOR_NAME"
+                        }
+                      },
+                      "Property": "ACCOUNTNUM"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "ESTADO"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "MERCA_LISTA Jerarquía"
+                        }
+                      },
+                      "Level": "Ready Cargo Date(Fecha De Mercancía Lista)"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "BOOKING"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "NAVIERA"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "DIAS_LIBRES"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "TIPO_CONTENEDOR"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "CANT_CONTENEDOR"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Volumen_1"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Peso_2"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "FORWARDER"
+                    }
+                  }
+                ],
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Articulo_concat"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "16cb6df3de49e5306b36": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e239982a5661a4c4ad2e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "DATAAREAID"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "DATAAREAID"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "d310264c224e25e7dba7": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "c685742fecb287a52a79": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "5198f3f87e04d780b03b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "VENDOR_NAME"
+                            }
+                          },
+                          "Property": "CONCAT_NAME"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "d150b9167038fb8b10cd": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b13f20ece7bc58bf0b07",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VENDOR_NAME"
+                        }
+                      },
+                      "Property": "CONCAT_NAME"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VENDOR_NAME"
+                        }
+                      },
+                      "Property": "CONCAT_NAME"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "8e8b8693104bbf70c8bf": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f98c23d1578cde15fc60",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "ESTADO"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "ESTADO"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "af9856d309a90e2174a9": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f4514fad27bc52517cee",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "PURCHID"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "p",
+                                "Entity": "PURCHASE_PBI",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "p"
+                                            }
+                                          },
+                                          "Property": "PURCHID"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'OC-00183369'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "PURCHID"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "d203e90e5bf97543f43e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "8aa56a175672d118e2a2",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                        }
+                      },
+                      "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "p",
+                                "Entity": "PURCHASE_PBI",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "Comparison": {
+                                    "ComparisonKind": 2,
+                                    "Left": {
+                                      "HierarchyLevel": {
+                                        "Expression": {
+                                          "Hierarchy": {
+                                            "Expression": {
+                                              "SourceRef": {
+                                                "Source": "p"
+                                              }
+                                            },
+                                            "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                                          }
+                                        },
+                                        "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                                      }
+                                    },
+                                    "Right": {
+                                      "Literal": {
+                                        "Value": "datetime'2025-01-01T00:00:00'"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "startDate": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "datetime'2025-01-01T00:00:00'"
+                            }
+                          }
+                        },
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Between'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                        }
+                      },
+                      "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                        }
+                      },
+                      "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "48aacc4a0b04a648c7a0": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d9d596ffe9481322085d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI"
+                        }
+                      },
+                      "Property": "FAMILYID"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8d7d4ef615af13f3a884",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI"
+                        }
+                      },
+                      "Property": "SUBFAMILIA"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI"
+                        }
+                      },
+                      "Property": "FAMILYID"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "624686bddbc609c95fb6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "356f043f5925f1654f54",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI"
+                        }
+                      },
+                      "Property": "PRODUCTCATEGORYID"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8dc5347cbe09cce56deb",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI"
+                        }
+                      },
+                      "Property": "SUBCATEGORIA"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI"
+                        }
+                      },
+                      "Property": "PRODUCTCATEGORYID"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI"
+                        }
+                      },
+                      "Property": "SUBCATEGORIA"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Values"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "CATALOGO_PBI.PRODUCTCATEGORYID"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "CATALOGO_PBI"
+                              }
+                            },
+                            "Property": "PRODUCTCATEGORYID"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "CATALOGO_PBI.SUBCATEGORIA"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null,
+                    "children": [
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'Chocolates'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'Galletas'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "f2b8a5cf789165709dfc": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "14c22833c61b43f293e7",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "PURCHID"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3cc1403b8928d370938a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Property": "CANTIDAD"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "44a6a63112ae83e27007",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "NAVIERA"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3e325386cbb7199872b4",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "ESTADO"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0831f4d3faf03a448643",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                        }
+                      },
+                      "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c323342317bb529c94f4",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "BOOKING"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c191874f61f4c5866b4c",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                        }
+                      },
+                      "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "44cb20bd3114065b9754",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_BODEGA Hierarchy"
+                        }
+                      },
+                      "Level": "Date Arrival Warehouse (Fecha De Llegada Bodega))"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d88dfea7a7da44d9e522",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "TIPO_CONTENEDOR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c522c654c52820ee1bfb",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "CANT_CONTENEDOR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "15624d2253c737d3eb94",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Property": "Días Inventario 3S"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c501edc5f55e5b940641",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_SOLICITADA Jerarquía"
+                        }
+                      },
+                      "Level": "Requested Vessel Departure (Salida de Buque Solicitada)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "56f0c867424541b59f09",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "DIAS_LIBRES"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "11d5aaeb502bbb3fd45f",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "FORWARDER"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ddf0a1f8d8d79033b951",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Articulo_concat"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Columns": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                        }
+                      },
+                      "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_SOLICITADA Jerarquía"
+                        }
+                      },
+                      "Level": "Requested Vessel Departure (Salida de Buque Solicitada)"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "PURCHID"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "ESTADO"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                        }
+                      },
+                      "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_BODEGA Hierarchy"
+                        }
+                      },
+                      "Level": "Date Arrival Warehouse (Fecha De Llegada Bodega))"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "BOOKING"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "NAVIERA"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "DIAS_LIBRES"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "TIPO_CONTENEDOR"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "CANT_CONTENEDOR"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "FORWARDER"
+                    }
+                  }
+                ],
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Articulo_concat"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "553b25b4fa5460cb7d72": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "63a49fb664d0e598cc13",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "PURCHID"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "28a7dcb3119f0ff99bbe",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Property": "CANTIDAD"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "be76ad2310ba1b29af0a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "NAVIERA"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "bbef2046a01faabff7c6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "ESTADO"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ccd15777555165a3b99f",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                        }
+                      },
+                      "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3167141359e834ab20dc",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "BOOKING"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "71c70e398dd023d0e024",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                        }
+                      },
+                      "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "173fcb87c9f974c49bf9",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_BODEGA Hierarchy"
+                        }
+                      },
+                      "Level": "Date Arrival Warehouse (Fecha De Llegada Bodega))"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "baf3f868ad8cf647ba8e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "TIPO_CONTENEDOR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c63702069a3f68ae0964",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "CANT_CONTENEDOR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "bf373acf7b7f99489f81",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Property": "Días Inventario 3M"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2f4eb6155ad4abad96b8",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_SOLICITADA Jerarquía"
+                        }
+                      },
+                      "Level": "Requested Vessel Departure (Salida de Buque Solicitada)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "00972d67ae81caf2b3b4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "DIAS_LIBRES"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5ee3f60336e2ec17164a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "FORWARDER"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "dd579af91430c755d617",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Articulo_concat"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Columns": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                        }
+                      },
+                      "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_SOLICITADA Jerarquía"
+                        }
+                      },
+                      "Level": "Requested Vessel Departure (Salida de Buque Solicitada)"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "PURCHID"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "ESTADO"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                        }
+                      },
+                      "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_BODEGA Hierarchy"
+                        }
+                      },
+                      "Level": "Date Arrival Warehouse (Fecha De Llegada Bodega))"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "BOOKING"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "NAVIERA"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "DIAS_LIBRES"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "TIPO_CONTENEDOR"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "CANT_CONTENEDOR"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "FORWARDER"
+                    }
+                  }
+                ],
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Articulo_concat"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "5e620db8a3f1125e1ed1": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "33dfd398751fb5644c73": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "e3172939d71abd77b419": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "9168f2ee690f9dd952de",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Art_Und"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Art_Und"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "44cb1a3abe88b71cee79": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "97c9a56d95a7ecd09688",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI"
+                        }
+                      },
+                      "Property": "Cuadro_Inventario"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI"
+                        }
+                      },
+                      "Property": "Cuadro_Inventario"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "74723241cb84242def17": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "9e995ccc1c5cf1616b12",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "NOMBRE_CICLO"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "NOMBRE_CICLO"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "399ddb299c3c45c3dfd4": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "decfde84f4303e10eb32",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI"
+                        }
+                      },
+                      "Property": "ITEMMARKID"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI"
+                        }
+                      },
+                      "Property": "ITEMMARKID"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "82e192f676bbf4762c9f": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e8e24d8b3167e302f8af",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Version"
+                            }
+                          },
+                          "Property": "Version"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "84bdb67aa8c204482df7": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "8ef566a0bea9955a8598": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b7424216df06dbf7c40b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "CATALOGO_PBI_SALES"
+                            }
+                          },
+                          "Property": "UPDATES"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "CATALOGO_PBI_SALES"
+                            }
+                          },
+                          "Property": "UPDATES"
+                        }
+                      },
+                      "Function": 3
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "9a7ea166255e13d87713": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d2e450c19a10cf32d665",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Property": "Articulo_concat"
+                        }
+                      },
+                      "Function": 2
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Property": "Articulo_concat"
+                        }
+                      },
+                      "Function": 2
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "9056221621583932a026": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "0f199981e80e72b1ac66",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "PURCHID"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a9b40d719dcc580c9231",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "NAVIERA"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "84a56a4db0302bff25d8",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "ESTADO"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ccd104d01566d4c1b2a4",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                        }
+                      },
+                      "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "09feae101a2316f1e678",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "BOOKING"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "37d6a1ca648cd99b21b3",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                        }
+                      },
+                      "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d9598c5cef4a96a8115f",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_BODEGA Hierarchy"
+                        }
+                      },
+                      "Level": "Date Arrival Warehouse (Fecha De Llegada Bodega))"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "06a4d125b20f7cd5e9ad",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "TIPO_CONTENEDOR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7e348d801ebf095341d7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "CANT_CONTENEDOR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "10b39f2f79873c1005f0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Property": "Días Inventario"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "48b5ae0ef11d8b986518",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "DIAS_LIBRES"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a44abec6cb7964968a59",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_SOLICITADA Jerarquía"
+                        }
+                      },
+                      "Level": "Requested Vessel Departure (Salida de Buque Solicitada)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6a103fd07138230df9dc",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "FORWARDER"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ef134cab66607b81c121",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Articulo_concat"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4be178d569665f059a98",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VENDOR_NAME"
+                        }
+                      },
+                      "Property": "ACCOUNTNUM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f495ae7181ec5d992be2",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "MERCA_LISTA Jerarquía"
+                        }
+                      },
+                      "Level": "Ready Cargo Date(Fecha De Mercancía Lista)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "510bf3a6c919bf791e1c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Volumen_1"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5dedb08e0360d37a5db4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Peso_2"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "bd26941a5cf7af89a259",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTRACTS"
+                        }
+                      },
+                      "Property": "CONTRACTNUMBER"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "bcf14dc47a1513fdb07f",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "CONSOLIDADA"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "54627e13becc543cba21",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Tarimas_OC"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Columns": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                        }
+                      },
+                      "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                        }
+                      },
+                      "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_BODEGA Hierarchy"
+                        }
+                      },
+                      "Level": "Date Arrival Warehouse (Fecha De Llegada Bodega))"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_SOLICITADA Jerarquía"
+                        }
+                      },
+                      "Level": "Requested Vessel Departure (Salida de Buque Solicitada)"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "PURCHID"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTRACTS"
+                        }
+                      },
+                      "Property": "CONTRACTNUMBER"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "CONSOLIDADA"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VENDOR_NAME"
+                        }
+                      },
+                      "Property": "ACCOUNTNUM"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "ESTADO"
+                    }
+                  },
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "MERCA_LISTA Jerarquía"
+                        }
+                      },
+                      "Level": "Ready Cargo Date(Fecha De Mercancía Lista)"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "BOOKING"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "NAVIERA"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "DIAS_LIBRES"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "TIPO_CONTENEDOR"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "CANT_CONTENEDOR"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Volumen_1"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Peso_2"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "FORWARDER"
+                    }
+                  }
+                ],
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Articulo_concat"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "db431024e81090ce3747": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "f1669843ac62571d866a": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "4b44e82d5616cd2084d4": {
+            "isHidden": false
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "visible": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

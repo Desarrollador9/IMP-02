@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "IMP-02 PO PLAN"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "28df6e8b-a2f5-411a-940f-26ba61ffaa92"
+  }
+}

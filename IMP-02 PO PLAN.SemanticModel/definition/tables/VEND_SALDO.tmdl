@@ -1,0 +1,30 @@
+table VEND_SALDO
+	lineageTag: 785e90cf-2a91-4047-b87c-c52e688b8454
+
+	column OC_Extraida
+		lineageTag: ae6db821-fd8f-4f00-b286-9a819f1b283e
+		isNameInferred
+		sourceColumn: VENDTRANS[OC_Extraida]
+
+	column Saldo
+		lineageTag: 024ad133-f34a-40a1-97bd-a9d95f1cd587
+		isNameInferred
+		sourceColumn: [Saldo]
+
+	partition VEND_SALDO = calculated
+		mode: import
+		source =
+				ADDCOLUMNS(
+				    FILTER(
+				        VALUES( VENDTRANS[OC_Extraida] ),
+				        NOT ISBLANK( VENDTRANS[OC_Extraida] )
+				    ),
+				    "Saldo",
+				    FORMAT(
+				        CALCULATE(
+				            SUMX( VENDTRANS, VENDTRANS[amountcur] - VENDTRANS[settleamountcur] )
+				        ),
+				        "#,##0.00"
+				    )
+				)
+

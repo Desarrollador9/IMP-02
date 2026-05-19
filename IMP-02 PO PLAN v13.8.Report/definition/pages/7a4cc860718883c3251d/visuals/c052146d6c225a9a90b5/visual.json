@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "c052146d6c225a9a90b5",
   "position": {
     "x": 672.85714285714289,
@@ -27,9 +27,9 @@
                 }
               },
               "queryRef": "PURCHASE_PBI.PURCHID",
-              "nativeQueryRef": "OC",
+              "nativeQueryRef": "OC's",
               "active": true,
-              "displayName": "OC"
+              "displayName": "OC's"
             }
           ]
         }

@@ -621,10 +621,6 @@ relationship 8aff326f-602f-44c9-9db4-4df43dc3793d
 	fromColumn: UPDATE.UPDATES
 	toColumn: LocalDateTable_e4a9d668-f3a7-461c-a5d4-cb37e7fb7c02.Date
 
-relationship 'PURCHASE_PBI_BL_BookingsMaersk (2)_BL'
-	fromColumn: PURCHASE_PBI.BL
-	toColumn: 'BookingsMaersk (2)'.BL
-
 relationship c102717e-cc2d-471f-b106-c6ffe197d863
 	joinOnDateBehavior: datePartOnly
 	fromColumn: Dates2_TEST.Fecha

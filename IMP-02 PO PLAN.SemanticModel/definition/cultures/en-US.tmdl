@@ -145,16 +145,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.9
 			          }
-			        },
-			        {
-			          "OC's": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -728,6 +718,16 @@ cultureInfo en-US
 			        },
 			        {
 			          "Booking Number": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Buking": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -6421,9 +6421,6 @@ cultureInfo en-US
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
 			          "bl": {
@@ -60587,380 +60584,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "BookingsMaersk_2": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "BookingsMaersk (2)": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.bl": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "BL"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "bl": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.confirmado": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Confirmado"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "confirmado": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.estado_documento": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Estado Documento"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "estado documento": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.copia_verificación_emitida": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Copia Verificación Emitida"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "copia verificación emitida": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.instrucciones_enviada": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Instrucciones Enviadas"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "instrucciones enviada": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "instruccione enviada": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.78
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.VGM_enviado": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "VGM Enviado"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "VGM enviado": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.origen_ciudad": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Origen Ciudad"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "origen ciudad": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.origen_país": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Origen País"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "origen país": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.etd": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "ETD"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "etd": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.buque_salida": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Buque Salida"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "buque salida": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.voyage_salida": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Voyage Salida"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "voyage salida": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.destino_ciudad": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Destino Ciudad"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "destino ciudad": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.destino_país": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Destino País"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "destino país": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.eta": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "ETA"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "eta": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.buque_llegada": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Buque Llegada"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "buque llegada": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.voyage_llegada": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Voyage Llegada"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "voyage llegada": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.último_evento": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Último Evento"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "último evento": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.fecha_último_evento": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Fecha Último Evento"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "fecha último evento": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.ciudad_último_evento": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Ciudad Último Evento"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ciudad último evento": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.tiempo_tránsito": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Tiempo Tránsito"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "tiempo tránsito": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.estado_BL": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Estado BL"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "estado BL": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2.contenedore": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BookingsMaersk (2)",
-			          "ConceptualProperty": "Contenedores"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "contenedore": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "catalogo_pbi_inventario.inv_tar_exceso": {
 			      "Definition": {
 			        "Binding": {
@@ -81168,59 +80791,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "purchase_pbi_has_BookingsMaersk_2": {
-			      "Binding": {
-			        "ConceptualEntity": "PURCHASE_PBI"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "purchase_pbi": {
-			          "Target": {
-			            "Entity": "purchase_pbi"
-			          }
-			        },
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          },
-			          "Nouns": [
-			            {
-			              "bl": {
-			                "State": "Generated"
-			              }
-			            }
-			          ]
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "purchase_pbi"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "purchase_pbis_have_BookingsMaersk_2"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "purchase_pbi"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_purchase_pbis"
-			        }
-			      ]
-			    },
 			    "purchase_pbi_has_tabla_semana": {
 			      "Binding": {
 			        "ConceptualEntity": "PURCHASE_PBI"
@@ -83383,732 +82953,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "catalogo_pbi_inventarios_have_inv_tar_exceso"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_contenedore": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.contenedore": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.contenedore"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.contenedore"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_contenedores"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_estado_BL": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.estado_BL": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.estado_BL"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.estado_BL"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_estado_BL"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_tiempo_tránsito": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.tiempo_tránsito": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.tiempo_tránsito"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.tiempo_tránsito"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_tiempo_tránsitos"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_ciudad_último_evento": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.ciudad_último_evento": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.ciudad_último_evento"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.ciudad_último_evento"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_ciudad_último_eventos"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_fecha_último_evento": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.fecha_último_evento": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.fecha_último_evento"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.fecha_último_evento"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_fecha_último_eventos"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_último_evento": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.último_evento": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.último_evento"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.último_evento"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_último_eventos"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_voyage_llegada": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.voyage_llegada": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.voyage_llegada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.voyage_llegada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_voyage_llegadas"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_buque_llegada": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.buque_llegada": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.buque_llegada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.buque_llegada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_buque_llegadas"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_eta": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.eta": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.eta"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.eta"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_etas"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_destino_país": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.destino_país": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.destino_país"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.destino_país"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_destino_país"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_destino_ciudad": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.destino_ciudad": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.destino_ciudad"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.destino_ciudad"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_destino_ciudad"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_voyage_salida": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.voyage_salida": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.voyage_salida"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.voyage_salida"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_voyage_salidas"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_buque_salida": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.buque_salida": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.buque_salida"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.buque_salida"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_buque_salidas"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_etd": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.etd": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.etd"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.etd"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_etds"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_origen_país": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.origen_país": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.origen_país"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.origen_país"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_origen_país"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_origen_ciudad": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.origen_ciudad": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.origen_ciudad"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.origen_ciudad"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_origen_ciudad"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_VGM_enviado": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.VGM_enviado": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.VGM_enviado"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.VGM_enviado"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_VGM_enviados"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_instrucciones_enviada": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.instrucciones_enviada": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.instrucciones_enviada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.instrucciones_enviada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_instrucciones_enviadas"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_copia_verificación_emitida": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.copia_verificación_emitida": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.copia_verificación_emitida"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.copia_verificación_emitida"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_copia_verificación_emitidas"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_estado_documento": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.estado_documento": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.estado_documento"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.estado_documento"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_estado_documentos"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_confirmado": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.confirmado": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.confirmado"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.confirmado"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_confirmados"
-			        }
-			      ]
-			    },
-			    "BookingsMaersk_2_has_bl": {
-			      "Binding": {
-			        "ConceptualEntity": "BookingsMaersk (2)"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "BookingsMaersk_2": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2"
-			          }
-			        },
-			        "BookingsMaersk_2.bl": {
-			          "Target": {
-			            "Entity": "BookingsMaersk_2.bl"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "BookingsMaersk_2"
-			            },
-			            "Object": {
-			              "Role": "BookingsMaersk_2.bl"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "BookingsMaersk_2_have_bl"
 			        }
 			      ]
 			    },
@@ -104202,15 +103046,15 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "purchase_pbi_has_medida_agrupada": {
+			    "invent_cost_has_purchase_pbi_medida_agrupada": {
 			      "Binding": {
-			        "ConceptualEntity": "PURCHASE_PBI"
+			        "ConceptualEntity": "InventCost"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "purchase_pbi": {
+			        "invent_cost": {
 			          "Target": {
-			            "Entity": "purchase_pbi"
+			            "Entity": "invent_cost"
 			          }
 			        },
 			        "purchase_pbi.medida_agrupada": {
@@ -104223,7 +103067,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "purchase_pbi"
+			              "Role": "invent_cost"
 			            },
 			            "Object": {
 			              "Role": "purchase_pbi.medida_agrupada"
@@ -104231,7 +103075,73 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "purchase_pbis_have_medida_agrupada"
+			          "ID": "invent_cost_have_medida_agrupada"
+			        }
+			      ]
+			    },
+			    "grupo_has_purchase_pbi_medida_agrupada": {
+			      "Binding": {
+			        "ConceptualEntity": "Grupos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "grupo": {
+			          "Target": {
+			            "Entity": "grupo"
+			          }
+			        },
+			        "purchase_pbi.medida_agrupada": {
+			          "Target": {
+			            "Entity": "purchase_pbi.medida_agrupada"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "grupo"
+			            },
+			            "Object": {
+			              "Role": "purchase_pbi.medida_agrupada"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "grupos_have_medida_agrupada"
+			        }
+			      ]
+			    },
+			    "cubo_inventario_has_purchase_pbi_medida_agrupada": {
+			      "Binding": {
+			        "ConceptualEntity": "CUBO INVENTARIOS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cubo_inventario": {
+			          "Target": {
+			            "Entity": "cubo_inventario"
+			          }
+			        },
+			        "purchase_pbi.medida_agrupada": {
+			          "Target": {
+			            "Entity": "purchase_pbi.medida_agrupada"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cubo_inventario"
+			            },
+			            "Object": {
+			              "Role": "purchase_pbi.medida_agrupada"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "cubo_inventarios_have_medida_agrupada"
 			        }
 			      ]
 			    },
@@ -110632,6 +109542,39 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "purchase_pbis_have_dias_libres"
+			        }
+			      ]
+			    },
+			    "purchase_pbi_has_bl": {
+			      "Binding": {
+			        "ConceptualEntity": "PURCHASE_PBI"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "purchase_pbi": {
+			          "Target": {
+			            "Entity": "purchase_pbi"
+			          }
+			        },
+			        "purchase_pbi.bl": {
+			          "Target": {
+			            "Entity": "purchase_pbi.bl"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "purchase_pbi"
+			            },
+			            "Object": {
+			              "Role": "purchase_pbi.bl"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "purchase_pbis_have_bl"
 			        }
 			      ]
 			    },

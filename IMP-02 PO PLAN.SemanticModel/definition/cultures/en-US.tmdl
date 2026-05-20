@@ -137,7 +137,17 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "PO": {
+			          "#PO": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "OC's": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -62230,27 +62240,6 @@ cultureInfo en-US
 			      ],
 			      "SemanticType": "Time"
 			    },
-			    "purchase_pbi.días_3s": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "PURCHASE_PBI",
-			          "ConceptualProperty": "Días 3S"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Días Inventario": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
 			    "purchase_pbi.días_3m": {
 			      "Definition": {
 			        "Binding": {
@@ -62271,9 +62260,96 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "purchase_pbi.días_3s": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "PURCHASE_PBI",
+			          "ConceptualProperty": "Días 3S"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Días Inventario": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "sale_fecha_TEST_date_hierarchy_has_sale_fecha_TEST_quarter": {
+			      "Binding": {
+			        "ConceptualEntity": "Sales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "sale.fecha_TEST.date_hierarchy": {
+			          "Target": {
+			            "Entity": "sale.fecha_TEST.date_hierarchy"
+			          }
+			        },
+			        "sale.fecha_TEST.quarter": {
+			          "Target": {
+			            "Entity": "sale.fecha_TEST.quarter"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "sale.fecha_TEST.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "sale.fecha_TEST.quarter"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_TEST_date_hierarchies_have_fecha_TEST_quarters"
+			        }
+			      ]
+			    },
+			    "sale_fecha_TEST_date_hierarchy_has_sale_fecha_TEST_year": {
+			      "Binding": {
+			        "ConceptualEntity": "Sales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "sale.fecha_TEST.date_hierarchy": {
+			          "Target": {
+			            "Entity": "sale.fecha_TEST.date_hierarchy"
+			          }
+			        },
+			        "sale.fecha_TEST.year": {
+			          "Target": {
+			            "Entity": "sale.fecha_TEST.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "sale.fecha_TEST.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "sale.fecha_TEST.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_TEST_date_hierarchies_have_fecha_TEST_years"
+			        }
+			      ]
+			    },
 			    "sale_fecha_TEST_has_date_hierarchy": {
 			      "Binding": {
 			        "ConceptualEntity": "Sales"
@@ -80738,11 +80814,6 @@ cultureInfo en-US
 			              }
 			            },
 			            {
-			              "#PO": {
-			                "State": "Generated"
-			              }
-			            },
-			            {
 			              "PO": {
 			                "State": "Generated"
 			              }
@@ -80984,11 +81055,6 @@ cultureInfo en-US
 			              }
 			            },
 			            {
-			              "#PO": {
-			                "State": "Generated"
-			              }
-			            },
-			            {
 			              "PO": {
 			                "State": "Generated"
 			              }
@@ -81160,11 +81226,6 @@ cultureInfo en-US
 			            },
 			            {
 			              "# PO": {
-			                "State": "Generated"
-			              }
-			            },
-			            {
-			              "#PO": {
 			                "State": "Generated"
 			              }
 			            },
@@ -81377,11 +81438,6 @@ cultureInfo en-US
 			              }
 			            },
 			            {
-			              "#PO": {
-			                "State": "Generated"
-			              }
-			            },
-			            {
 			              "PO": {
 			                "State": "Generated"
 			              }
@@ -81491,11 +81547,6 @@ cultureInfo en-US
 			              }
 			            },
 			            {
-			              "#PO": {
-			                "State": "Generated"
-			              }
-			            },
-			            {
 			              "PO": {
 			                "State": "Generated"
 			              }
@@ -81559,11 +81610,6 @@ cultureInfo en-US
 			              }
 			            },
 			            {
-			              "#PO": {
-			                "State": "Generated"
-			              }
-			            },
-			            {
 			              "PO": {
 			                "State": "Generated"
 			              }
@@ -81623,11 +81669,6 @@ cultureInfo en-US
 			            },
 			            {
 			              "# PO": {
-			                "State": "Generated"
-			              }
-			            },
-			            {
-			              "#PO": {
 			                "State": "Generated"
 			              }
 			            },
@@ -103117,15 +103158,15 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "invent_cost_has_purchase_pbi_medida_agrupada": {
+			    "purchase_pbi_has_medida_agrupada": {
 			      "Binding": {
-			        "ConceptualEntity": "InventCost"
+			        "ConceptualEntity": "PURCHASE_PBI"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "invent_cost": {
+			        "purchase_pbi": {
 			          "Target": {
-			            "Entity": "invent_cost"
+			            "Entity": "purchase_pbi"
 			          }
 			        },
 			        "purchase_pbi.medida_agrupada": {
@@ -103138,7 +103179,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "invent_cost"
+			              "Role": "purchase_pbi"
 			            },
 			            "Object": {
 			              "Role": "purchase_pbi.medida_agrupada"
@@ -103146,73 +103187,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "invent_cost_have_medida_agrupada"
-			        }
-			      ]
-			    },
-			    "grupo_has_purchase_pbi_medida_agrupada": {
-			      "Binding": {
-			        "ConceptualEntity": "Grupos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "grupo": {
-			          "Target": {
-			            "Entity": "grupo"
-			          }
-			        },
-			        "purchase_pbi.medida_agrupada": {
-			          "Target": {
-			            "Entity": "purchase_pbi.medida_agrupada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "grupo"
-			            },
-			            "Object": {
-			              "Role": "purchase_pbi.medida_agrupada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "grupos_have_medida_agrupada"
-			        }
-			      ]
-			    },
-			    "cubo_inventario_has_purchase_pbi_medida_agrupada": {
-			      "Binding": {
-			        "ConceptualEntity": "CUBO INVENTARIOS"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "cubo_inventario": {
-			          "Target": {
-			            "Entity": "cubo_inventario"
-			          }
-			        },
-			        "purchase_pbi.medida_agrupada": {
-			          "Target": {
-			            "Entity": "purchase_pbi.medida_agrupada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "cubo_inventario"
-			            },
-			            "Object": {
-			              "Role": "purchase_pbi.medida_agrupada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "cubo_inventarios_have_medida_agrupada"
+			          "ID": "purchase_pbis_have_medida_agrupada"
 			        }
 			      ]
 			    },
@@ -113347,72 +113322,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.75,
 			          "ID": "containers_contain"
-			        }
-			      ]
-			    },
-			    "sale_fecha_TEST_date_hierarchy_has_sale_fecha_TEST_year": {
-			      "Binding": {
-			        "ConceptualEntity": "Sales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "sale.fecha_TEST.date_hierarchy": {
-			          "Target": {
-			            "Entity": "sale.fecha_TEST.date_hierarchy"
-			          }
-			        },
-			        "sale.fecha_TEST.year": {
-			          "Target": {
-			            "Entity": "sale.fecha_TEST.year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "sale.fecha_TEST.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "sale.fecha_TEST.year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fecha_TEST_date_hierarchies_have_fecha_TEST_years"
-			        }
-			      ]
-			    },
-			    "sale_fecha_TEST_date_hierarchy_has_sale_fecha_TEST_quarter": {
-			      "Binding": {
-			        "ConceptualEntity": "Sales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "sale.fecha_TEST.date_hierarchy": {
-			          "Target": {
-			            "Entity": "sale.fecha_TEST.date_hierarchy"
-			          }
-			        },
-			        "sale.fecha_TEST.quarter": {
-			          "Target": {
-			            "Entity": "sale.fecha_TEST.quarter"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "sale.fecha_TEST.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "sale.fecha_TEST.quarter"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fecha_TEST_date_hierarchies_have_fecha_TEST_quarters"
 			        }
 			      ]
 			    },

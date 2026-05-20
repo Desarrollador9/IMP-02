@@ -137,16 +137,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "#PO": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
 			          "PO": {
 			            "State": "Suggested",
 			            "Source": {
@@ -28875,7 +28865,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Cant": {
+			          "Cantidad": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -28885,7 +28875,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Cantidad": {
+			          "Cant": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -31883,7 +31873,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Ciclo": {
+			          "Ciclo del producto": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -31893,7 +31883,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Ciclo del producto": {
+			          "Ciclo": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -31959,7 +31949,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Ciclo de vida": {
+			          "Ciclo del cuadro": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -31969,7 +31959,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Ciclo del cuadro": {
+			          "Ciclo de vida": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -32458,7 +32448,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "# Contrato del proveedor": {
+			          "Número contrato del proveedor": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -32468,7 +32458,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Número contrato del proveedor": {
+			          "# Contrato del proveedor": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -33172,7 +33162,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Artículo": {
+			          "Producto": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -33182,7 +33172,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Producto": {
+			          "Artículo": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -37428,16 +37418,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Saldo": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
 			          "Dif Cant": {
 			            "State": "Suggested",
 			            "Source": {
@@ -39176,7 +39156,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Fecha Com": {
+			          "Feha Com": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -39186,7 +39166,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Feha Com": {
+			          "Fecha Com": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

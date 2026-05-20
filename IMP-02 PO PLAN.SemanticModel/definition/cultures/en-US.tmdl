@@ -34917,6 +34917,16 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Cant Cont's": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Cant Conts": {
 			            "State": "Suggested",
 			            "Source": {
@@ -62658,72 +62668,6 @@ cultureInfo en-US
 			    }
 			  },
 			  "Relationships": {
-			    "sale_fecha_TEST_date_hierarchy_has_sale_fecha_TEST_quarter": {
-			      "Binding": {
-			        "ConceptualEntity": "Sales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "sale.fecha_TEST.date_hierarchy": {
-			          "Target": {
-			            "Entity": "sale.fecha_TEST.date_hierarchy"
-			          }
-			        },
-			        "sale.fecha_TEST.quarter": {
-			          "Target": {
-			            "Entity": "sale.fecha_TEST.quarter"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "sale.fecha_TEST.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "sale.fecha_TEST.quarter"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fecha_TEST_date_hierarchies_have_fecha_TEST_quarters"
-			        }
-			      ]
-			    },
-			    "sale_fecha_TEST_date_hierarchy_has_sale_fecha_TEST_year": {
-			      "Binding": {
-			        "ConceptualEntity": "Sales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "sale.fecha_TEST.date_hierarchy": {
-			          "Target": {
-			            "Entity": "sale.fecha_TEST.date_hierarchy"
-			          }
-			        },
-			        "sale.fecha_TEST.year": {
-			          "Target": {
-			            "Entity": "sale.fecha_TEST.year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "sale.fecha_TEST.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "sale.fecha_TEST.year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fecha_TEST_date_hierarchies_have_fecha_TEST_years"
-			        }
-			      ]
-			    },
 			    "sale_fecha_TEST_has_date_hierarchy": {
 			      "Binding": {
 			        "ConceptualEntity": "Sales"
@@ -114422,6 +114366,72 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.75,
 			          "ID": "containers_contain"
+			        }
+			      ]
+			    },
+			    "sale_fecha_TEST_date_hierarchy_has_sale_fecha_TEST_year": {
+			      "Binding": {
+			        "ConceptualEntity": "Sales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "sale.fecha_TEST.date_hierarchy": {
+			          "Target": {
+			            "Entity": "sale.fecha_TEST.date_hierarchy"
+			          }
+			        },
+			        "sale.fecha_TEST.year": {
+			          "Target": {
+			            "Entity": "sale.fecha_TEST.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "sale.fecha_TEST.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "sale.fecha_TEST.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_TEST_date_hierarchies_have_fecha_TEST_years"
+			        }
+			      ]
+			    },
+			    "sale_fecha_TEST_date_hierarchy_has_sale_fecha_TEST_quarter": {
+			      "Binding": {
+			        "ConceptualEntity": "Sales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "sale.fecha_TEST.date_hierarchy": {
+			          "Target": {
+			            "Entity": "sale.fecha_TEST.date_hierarchy"
+			          }
+			        },
+			        "sale.fecha_TEST.quarter": {
+			          "Target": {
+			            "Entity": "sale.fecha_TEST.quarter"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "sale.fecha_TEST.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "sale.fecha_TEST.quarter"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fecha_TEST_date_hierarchies_have_fecha_TEST_quarters"
 			        }
 			      ]
 			    },

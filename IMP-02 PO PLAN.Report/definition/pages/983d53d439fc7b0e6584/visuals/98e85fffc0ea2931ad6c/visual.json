@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "98e85fffc0ea2931ad6c",
   "position": {
     "x": 2,
@@ -61,8 +61,8 @@
                 }
               },
               "queryRef": "PURCHASE_PBI.Cant_Contenedores",
-              "nativeQueryRef": "Cant Conts1",
-              "displayName": "Cant Conts"
+              "nativeQueryRef": "Cant Cont's",
+              "displayName": "Cant Cont's"
             },
             {
               "field": {
@@ -466,8 +466,8 @@
                 }
               },
               "queryRef": "PURCHASE_PBI.Cant_Contenedores",
-              "nativeQueryRef": "Cant Conts1",
-              "displayName": "Cant Conts"
+              "nativeQueryRef": "Cant Cont's",
+              "displayName": "Cant Cont's"
             },
             {
               "field": {

@@ -3,14 +3,31 @@ table FILLRATEPBI
 
 	measure '% Ventas' =
 			
-			DIVIDE(
-			    SUM(FILLRATEPBI[VENTAS]),
+			VAR _denom =
 			    CALCULATE(
 			        SUM(FILLRATEPBI[VENTAS]),
 			        ALLSELECTED(),
 			        ALL(FILLRATEPBI[ESTADOEXISTENCIAS])
 			    )
-			)
+			VAR _pctFila = DIVIDE(SUM(FILLRATEPBI[VENTAS]), _denom)
+			VAR _esFilaDetalle =
+			    ISINSCOPE(CATALOGO_PBI[FAMILYID])
+			    || ISINSCOPE(CATALOGO_PBI[SUBFAMILIA])
+			    || ISINSCOPE(CATALOGO_PBI[PRODUCTCATEGORYID])
+			    || ISINSCOPE(CATALOGO_PBI[SUBCATEGORIA])
+			    || ISINSCOPE(PURCHASE_PBI[ARTICULO_CONCAT])
+			    || ISINSCOPE(CATALOGO_PBI[CICLO_VIDA])
+			RETURN
+			    IF(
+			        _esFilaDetalle,
+			        _pctFila,
+			        SUMX(
+			            VALUES(CATALOGO_PBI[FAMILYID]),
+			            VAR _items = CALCULATETABLE(VALUES(CATALOGO_PBI_INVENTARIO[ITEMID]))
+			            VAR _num = CALCULATE(SUM(FILLRATEPBI[VENTAS]), _items)
+			            RETURN DIVIDE(_num, _denom)
+			        )
+			    )
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 35c7268a-7fcd-4af4-b256-327d94b0c582
 

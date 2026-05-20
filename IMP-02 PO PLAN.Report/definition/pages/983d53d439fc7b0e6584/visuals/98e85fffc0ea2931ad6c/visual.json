@@ -61,8 +61,8 @@
                 }
               },
               "queryRef": "PURCHASE_PBI.Cant_Contenedores",
-              "nativeQueryRef": "Cant Cont's",
-              "displayName": "Cant Cont's"
+              "nativeQueryRef": "Cant Conts1",
+              "displayName": "Cant Conts"
             },
             {
               "field": {
@@ -466,8 +466,8 @@
                 }
               },
               "queryRef": "PURCHASE_PBI.Cant_Contenedores",
-              "nativeQueryRef": "Cant Cont's",
-              "displayName": "Cant Cont's"
+              "nativeQueryRef": "Cant Conts1",
+              "displayName": "Cant Conts"
             },
             {
               "field": {

@@ -145,6 +145,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "OC's": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -1902,6 +1912,16 @@ cultureInfo en-US
 			        },
 			        {
 			          "Supplier Code": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Proveedor": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -28872,7 +28892,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Cantidad": {
+			          "Cant": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -28882,7 +28902,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Cant": {
+			          "Cantidad": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -31880,7 +31900,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Ciclo del producto": {
+			          "Ciclo": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -31890,7 +31910,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Ciclo": {
+			          "Ciclo del producto": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -31956,7 +31976,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Ciclo del cuadro": {
+			          "Ciclo de vida": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -31966,7 +31986,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Ciclo de vida": {
+			          "Ciclo del cuadro": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -32455,7 +32475,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Número contrato del proveedor": {
+			          "# Contrato del proveedor": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -32465,7 +32485,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "# Contrato del proveedor": {
+			          "Número contrato del proveedor": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -33169,7 +33189,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Producto": {
+			          "Artículo": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -33179,7 +33199,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Artículo": {
+			          "Producto": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -34905,16 +34925,6 @@ cultureInfo en-US
 			        },
 			        {
 			          "Cant_Contenedores - OC": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "Cant Cont's": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -37443,6 +37453,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Saldo en unidades": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -39173,7 +39193,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Feha Com": {
+			          "Fecha Com": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -39183,7 +39203,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Fecha Com": {
+			          "Feha Com": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -62247,11 +62267,53 @@ cultureInfo en-US
 			      ],
 			      "SemanticType": "Time"
 			    },
-			    "purchase_pbi.días_3m": {
+			    "catalogo_pbi_inventario.inventclasificacioninventario": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "CATALOGO_PBI_INVENTARIO",
+			          "ConceptualProperty": "INVENTCLASIFICACIONINVENTARIO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "inventclasificacioninventario": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "catalogo_pbi_inventario.estado_autorización": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "CATALOGO_PBI_INVENTARIO",
+			          "ConceptualProperty": "Estado Autorización"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estado autorización": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Exceso": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "purchase_pbi.días_3s": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "PURCHASE_PBI",
-			          "ConceptualProperty": "Días 3M"
+			          "ConceptualProperty": "Días 3S"
 			        }
 			      },
 			      "State": "Generated",
@@ -62268,11 +62330,11 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "purchase_pbi.días_3s": {
+			    "purchase_pbi.días_3m": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "PURCHASE_PBI",
-			          "ConceptualProperty": "Días 3S"
+			          "ConceptualProperty": "Días 3M"
 			        }
 			      },
 			      "State": "Generated",
@@ -80758,6 +80820,11 @@ cultureInfo en-US
 			              "PO": {
 			                "State": "Generated"
 			              }
+			            },
+			            {
+			              "#PO": {
+			                "State": "Generated"
+			              }
 			            }
 			          ]
 			        }
@@ -80946,6 +81013,11 @@ cultureInfo en-US
 			              "PO": {
 			                "State": "Generated"
 			              }
+			            },
+			            {
+			              "#PO": {
+			                "State": "Generated"
+			              }
 			            }
 			          ]
 			        }
@@ -81119,6 +81191,11 @@ cultureInfo en-US
 			            },
 			            {
 			              "PO": {
+			                "State": "Generated"
+			              }
+			            },
+			            {
+			              "#PO": {
 			                "State": "Generated"
 			              }
 			            }
@@ -81329,6 +81406,11 @@ cultureInfo en-US
 			              "PO": {
 			                "State": "Generated"
 			              }
+			            },
+			            {
+			              "#PO": {
+			                "State": "Generated"
+			              }
 			            }
 			          ]
 			        }
@@ -81438,6 +81520,11 @@ cultureInfo en-US
 			              "PO": {
 			                "State": "Generated"
 			              }
+			            },
+			            {
+			              "#PO": {
+			                "State": "Generated"
+			              }
 			            }
 			          ]
 			        }
@@ -81501,6 +81588,11 @@ cultureInfo en-US
 			              "PO": {
 			                "State": "Generated"
 			              }
+			            },
+			            {
+			              "#PO": {
+			                "State": "Generated"
+			              }
 			            }
 			          ]
 			        }
@@ -81562,6 +81654,11 @@ cultureInfo en-US
 			            },
 			            {
 			              "PO": {
+			                "State": "Generated"
+			              }
+			            },
+			            {
+			              "#PO": {
 			                "State": "Generated"
 			              }
 			            }
@@ -81732,6 +81829,72 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "vendor_names_have_purchase_pbis"
+			        }
+			      ]
+			    },
+			    "catalogo_pbi_inventario_has_estado_autorización": {
+			      "Binding": {
+			        "ConceptualEntity": "CATALOGO_PBI_INVENTARIO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "catalogo_pbi_inventario": {
+			          "Target": {
+			            "Entity": "catalogo_pbi_inventario"
+			          }
+			        },
+			        "catalogo_pbi_inventario.estado_autorización": {
+			          "Target": {
+			            "Entity": "catalogo_pbi_inventario.estado_autorización"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "catalogo_pbi_inventario"
+			            },
+			            "Object": {
+			              "Role": "catalogo_pbi_inventario.estado_autorización"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "catalogo_pbi_inventarios_have_estado_autorizacións"
+			        }
+			      ]
+			    },
+			    "catalogo_pbi_inventario_has_inventclasificacioninventario": {
+			      "Binding": {
+			        "ConceptualEntity": "CATALOGO_PBI_INVENTARIO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "catalogo_pbi_inventario": {
+			          "Target": {
+			            "Entity": "catalogo_pbi_inventario"
+			          }
+			        },
+			        "catalogo_pbi_inventario.inventclasificacioninventario": {
+			          "Target": {
+			            "Entity": "catalogo_pbi_inventario.inventclasificacioninventario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "catalogo_pbi_inventario"
+			            },
+			            "Object": {
+			              "Role": "catalogo_pbi_inventario.inventclasificacioninventario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "catalogo_pbi_inventarios_have_inventclasificacioninventarios"
 			        }
 			      ]
 			    },

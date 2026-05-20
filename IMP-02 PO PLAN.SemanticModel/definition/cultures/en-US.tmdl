@@ -145,6 +145,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "OC's": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -34907,6 +34917,16 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Cant Cont's": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Cant Conts": {
 			            "State": "Suggested",
 			            "Source": {
@@ -62604,11 +62624,11 @@ cultureInfo en-US
 			      ],
 			      "SemanticType": "Time"
 			    },
-			    "purchase_pbi.días_3s": {
+			    "purchase_pbi.días_3m": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "PURCHASE_PBI",
-			          "ConceptualProperty": "Días 3S"
+			          "ConceptualProperty": "Días 3M"
 			        }
 			      },
 			      "State": "Generated",
@@ -62625,11 +62645,11 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "purchase_pbi.días_3m": {
+			    "purchase_pbi.días_3s": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "PURCHASE_PBI",
-			          "ConceptualProperty": "Días 3M"
+			          "ConceptualProperty": "Días 3S"
 			        }
 			      },
 			      "State": "Generated",
@@ -81112,11 +81132,6 @@ cultureInfo en-US
 			              }
 			            },
 			            {
-			              "#PO": {
-			                "State": "Generated"
-			              }
-			            },
-			            {
 			              "PO": {
 			                "State": "Generated"
 			              }
@@ -81358,11 +81373,6 @@ cultureInfo en-US
 			              }
 			            },
 			            {
-			              "#PO": {
-			                "State": "Generated"
-			              }
-			            },
-			            {
 			              "PO": {
 			                "State": "Generated"
 			              }
@@ -81534,11 +81544,6 @@ cultureInfo en-US
 			            },
 			            {
 			              "# PO": {
-			                "State": "Generated"
-			              }
-			            },
-			            {
-			              "#PO": {
 			                "State": "Generated"
 			              }
 			            },
@@ -81751,11 +81756,6 @@ cultureInfo en-US
 			              }
 			            },
 			            {
-			              "#PO": {
-			                "State": "Generated"
-			              }
-			            },
-			            {
 			              "PO": {
 			                "State": "Generated"
 			              }
@@ -81865,11 +81865,6 @@ cultureInfo en-US
 			              }
 			            },
 			            {
-			              "#PO": {
-			                "State": "Generated"
-			              }
-			            },
-			            {
 			              "PO": {
 			                "State": "Generated"
 			              }
@@ -81933,11 +81928,6 @@ cultureInfo en-US
 			              }
 			            },
 			            {
-			              "#PO": {
-			                "State": "Generated"
-			              }
-			            },
-			            {
 			              "PO": {
 			                "State": "Generated"
 			              }
@@ -81997,11 +81987,6 @@ cultureInfo en-US
 			            },
 			            {
 			              "# PO": {
-			                "State": "Generated"
-			              }
-			            },
-			            {
-			              "#PO": {
 			                "State": "Generated"
 			              }
 			            },
@@ -104217,15 +104202,15 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "invent_cost_has_purchase_pbi_medida_agrupada": {
+			    "purchase_pbi_has_medida_agrupada": {
 			      "Binding": {
-			        "ConceptualEntity": "InventCost"
+			        "ConceptualEntity": "PURCHASE_PBI"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "invent_cost": {
+			        "purchase_pbi": {
 			          "Target": {
-			            "Entity": "invent_cost"
+			            "Entity": "purchase_pbi"
 			          }
 			        },
 			        "purchase_pbi.medida_agrupada": {
@@ -104238,7 +104223,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "invent_cost"
+			              "Role": "purchase_pbi"
 			            },
 			            "Object": {
 			              "Role": "purchase_pbi.medida_agrupada"
@@ -104246,73 +104231,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "invent_cost_have_medida_agrupada"
-			        }
-			      ]
-			    },
-			    "grupo_has_purchase_pbi_medida_agrupada": {
-			      "Binding": {
-			        "ConceptualEntity": "Grupos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "grupo": {
-			          "Target": {
-			            "Entity": "grupo"
-			          }
-			        },
-			        "purchase_pbi.medida_agrupada": {
-			          "Target": {
-			            "Entity": "purchase_pbi.medida_agrupada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "grupo"
-			            },
-			            "Object": {
-			              "Role": "purchase_pbi.medida_agrupada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "grupos_have_medida_agrupada"
-			        }
-			      ]
-			    },
-			    "cubo_inventario_has_purchase_pbi_medida_agrupada": {
-			      "Binding": {
-			        "ConceptualEntity": "CUBO INVENTARIOS"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "cubo_inventario": {
-			          "Target": {
-			            "Entity": "cubo_inventario"
-			          }
-			        },
-			        "purchase_pbi.medida_agrupada": {
-			          "Target": {
-			            "Entity": "purchase_pbi.medida_agrupada"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "cubo_inventario"
-			            },
-			            "Object": {
-			              "Role": "purchase_pbi.medida_agrupada"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "cubo_inventarios_have_medida_agrupada"
+			          "ID": "purchase_pbis_have_medida_agrupada"
 			        }
 			      ]
 			    },

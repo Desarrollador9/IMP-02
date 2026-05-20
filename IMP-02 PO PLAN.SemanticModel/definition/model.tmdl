@@ -7,7 +7,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["PURCHASE_PBI","VENDOR_NAME","CATALOGO_PBI","Inventory value cube","CUBO INVENTARIOS","Consulta1","METODOS_TRASLADO","DOCUMENTATION","CONTAINERS","Unidades","PO_MADRE","Dates","Dates2","Sales","CUADRO_INVENTARIO","CONTRACTS","CATALOGO_PBI_SALES","regiones","lugar_pais","COTIZACIONES","CRECIMIENTO","UNIDADES_TARIMAS","RECEPCIONES","COUNTRY_CODE","InventCost","vPURCHDESCARGASBI","Plan colocaciones y descargas","Carpetas_Existentes","CATALOGO_PBI_INVENTARIO","FILLRATEPBI","PROX VENCIMIENTO","OC's Error 5","PAGOS OC's","SPECIAL_UNIT1","TIPOS CONTENEDORES","SITIOS","GRUPO TIPO CLTE","UPDATE","BookingsMaersk (2)","Dates2_TEST","VENDTRANS"]
+annotation PBI_QueryOrder = ["PURCHASE_PBI","VENDOR_NAME","CATALOGO_PBI","Inventory value cube","CUBO INVENTARIOS","Consulta1","METODOS_TRASLADO","DOCUMENTATION","CONTAINERS","Unidades","PO_MADRE","Dates","Dates2","Sales","CUADRO_INVENTARIO","CONTRACTS","CATALOGO_PBI_SALES","regiones","lugar_pais","COTIZACIONES","CRECIMIENTO","UNIDADES_TARIMAS","RECEPCIONES","COUNTRY_CODE","InventCost","vPURCHDESCARGASBI","Plan colocaciones y descargas","Carpetas_Existentes","CATALOGO_PBI_INVENTARIO","FILLRATEPBI","PROX VENCIMIENTO","OC's Error 5","PAGOS OC's","SPECIAL_UNIT1","TIPOS CONTENEDORES","SITIOS","GRUPO TIPO CLTE","UPDATE","BookingsMaersk (2)","Dates2_TEST","VENDTRANS","OCS HIJAS"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -144,6 +144,7 @@ ref table LocalDateTable_006ce892-4f22-49f8-b69d-c6a6e1a844bc
 ref table LocalDateTable_b720f947-1189-41f6-b4a9-2ec184234b3d
 ref table UPDATE
 ref table LocalDateTable_e4a9d668-f3a7-461c-a5d4-cb37e7fb7c02
+ref table 'BookingsMaersk (2)'
 ref table Dates2_TEST
 ref table LocalDateTable_73122e3d-5a28-43c5-9140-a2643ff9ba32
 ref table VENDTRANS

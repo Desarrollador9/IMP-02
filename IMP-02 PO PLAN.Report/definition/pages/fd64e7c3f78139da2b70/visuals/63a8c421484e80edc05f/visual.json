@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "63a8c421484e80edc05f",
   "position": {
     "x": 0,
@@ -217,8 +217,8 @@
                 }
               },
               "queryRef": "PURCHASE_PBI.BOOKING",
-              "nativeQueryRef": "Booking",
-              "displayName": "Booking"
+              "nativeQueryRef": "Buking",
+              "displayName": "Buking"
             },
             {
               "field": {
@@ -419,21 +419,16 @@
         "sort": [
           {
             "field": {
-              "HierarchyLevel": {
+              "Column": {
                 "Expression": {
-                  "Hierarchy": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "PURCHASE_PBI"
-                      }
-                    },
-                    "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                  "SourceRef": {
+                    "Entity": "PURCHASE_PBI"
                   }
                 },
-                "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                "Property": "BOOKING"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }

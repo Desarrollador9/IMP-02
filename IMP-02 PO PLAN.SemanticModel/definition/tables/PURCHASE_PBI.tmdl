@@ -4260,111 +4260,6 @@ table PURCHASE_PBI
 			)
 		lineageTag: 9c65a457-e84d-4d38-beaa-e8e6ebc84b40
 
-	/// Cuenta las OCs únicas que NO están en Consulta1 (ni como madre ni como hija)
-	measure 'Total OCs Sin Flete' = ```
-			VAR OCsEnPurchase = DISTINCT(PURCHASE_PBI[PURCHID])
-			VAR OCsConFlete = 
-			    UNION(
-			        DISTINCT(SELECTCOLUMNS(Consulta1, "OC", Consulta1[PO_MADRE])),
-			        DISTINCT(SELECTCOLUMNS(Consulta1, "OC", Consulta1[PO_HIJA]))
-			    )
-			RETURN
-			COUNTROWS(EXCEPT(OCsEnPurchase, OCsConFlete))
-			```
-		formatString: #,0
-		lineageTag: e355c618-7290-4698-9366-ea5ff2172749
-
-	/// Suma el valor total (LINEAMOUNT) de las OCs que NO tienen flete
-	measure 'Valor Sin Flete' = ```
-			CALCULATE(
-			    SUM(PURCHASE_PBI[LINEAMOUNT]),
-			    FILTER(
-			        PURCHASE_PBI,
-			        VAR OC_Actual = PURCHASE_PBI[PURCHID]
-			        VAR EstaEnMadres = 
-			            CALCULATE(
-			                COUNTROWS(Consulta1),
-			                Consulta1[PO_MADRE] = OC_Actual
-			            ) > 0
-			        VAR EstaEnHijas = 
-			            CALCULATE(
-			                COUNTROWS(Consulta1),
-			                Consulta1[PO_HIJA] = OC_Actual
-			            ) > 0
-			        RETURN NOT EstaEnMadres && NOT EstaEnHijas
-			    )
-			)
-			```
-		formatString: "$"#,0.00
-		lineageTag: b0eac8d4-58fa-4c1d-a499-fb12a0ebef53
-
-	/// Calcula cuántos días faltan hasta la fecha de llegada al país
-	measure 'Dias Hasta Llegada' = DATEDIFF(TODAY(), SELECTEDVALUE(PURCHASE_PBI[LLEGADA_PAIS]), DAY)
-		formatString: #,0
-		lineageTag: 2887f174-5586-44ae-8fe2-a970873a2e3c
-
-	/// Clasifica la OC por prioridad según días hasta llegada
-	measure 'Nivel Prioridad' =
-			VAR Dias = [Dias Hasta Llegada]
-			RETURN
-			SWITCH(
-			    TRUE(),
-			    ISBLANK(Dias), "",
-			    Dias < 0, "⏰ RETRASADO",
-			    Dias <= 15, "🔴 CRÍTICO",
-			    Dias <= 30, "⚠️ URGENTE",
-			    "✅ PLANIFICADO"
-			)
-		lineageTag: 126a6387-ad61-496f-864c-d807651d9d41
-
-	/// Cuenta cuántos items distintos hay en las OCs sin flete
-	measure 'Items Sin Flete' = ```
-			CALCULATE(
-			    DISTINCTCOUNT(PURCHASE_PBI[ITEMID]),
-			    FILTER(
-			        PURCHASE_PBI,
-			        VAR OC_Actual = PURCHASE_PBI[PURCHID]
-			        VAR EstaEnMadres = 
-			            CALCULATE(
-			                COUNTROWS(Consulta1),
-			                Consulta1[PO_MADRE] = OC_Actual
-			            ) > 0
-			        VAR EstaEnHijas = 
-			            CALCULATE(
-			                COUNTROWS(Consulta1),
-			                Consulta1[PO_HIJA] = OC_Actual
-			            ) > 0
-			        RETURN NOT EstaEnMadres && NOT EstaEnHijas
-			    )
-			)
-			```
-		formatString: #,0
-		lineageTag: 7a2bbf12-3730-40a6-b18b-158d0a4cf02f
-
-	/// Muestra la fecha de llegada más próxima de las OCs sin flete
-	measure 'OC Mas Antigua' = ```
-			CALCULATE(
-			    MIN(PURCHASE_PBI[LLEGADA_PAIS]),
-			    FILTER(
-			        PURCHASE_PBI,
-			        VAR OC_Actual = PURCHASE_PBI[PURCHID]
-			        VAR EstaEnMadres = 
-			            CALCULATE(
-			                COUNTROWS(Consulta1),
-			                Consulta1[PO_MADRE] = OC_Actual
-			            ) > 0
-			        VAR EstaEnHijas = 
-			            CALCULATE(
-			                COUNTROWS(Consulta1),
-			                Consulta1[PO_HIJA] = OC_Actual
-			            ) > 0
-			        RETURN NOT EstaEnMadres && NOT EstaEnHijas
-			    )
-			)
-			```
-		formatString: dd/mm/yyyy
-		lineageTag: fd0ce24a-6914-491c-abad-1b39c53e444d
-
 	column DATAAREAID
 		dataType: string
 		lineageTag: 443f31b1-73fe-4bdd-b9e9-11802a085eec
@@ -6362,9 +6257,6 @@ table PURCHASE_PBI
 			)
 			```
 		lineageTag: a9712124-4252-4a5a-a45f-6dde57eab30a
-		summarizeBy: none
-
-		annotation SummarizationSetBy = Automatic
 
 	/// Cuenta el número de OCs hijas que tiene cada OC madre
 	column 'Num OCs Hijas' =
@@ -6383,9 +6275,6 @@ table PURCHASE_PBI
 		dataType: int64
 		formatString: #,0
 		lineageTag: 5c791bea-c473-4ff4-8108-50ca61e1d6a6
-		summarizeBy: sum
-
-		annotation SummarizationSetBy = Automatic
 
 	hierarchy 'SALIDA_AJUSTADA Hierarchy'
 		lineageTag: 63d4aba1-0253-43d2-b979-da286c328550

@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "72455edd086d41a520e6",
   "position": {
     "x": 1.791044776119403,
-    "y": 193.43283582089552,
+    "y": 128.955223880597,
     "z": 0,
-    "height": 603.58208955223881,
-    "width": 1277.9104477611941,
+    "height": 668.05970149253733,
+    "width": 501.49253731343282,
     "tabOrder": 0
   },
   "visual": {
@@ -17,78 +17,31 @@
           "projections": [
             {
               "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PURCHASE_PBI"
-                    }
-                  },
-                  "Property": "Nivel Prioridad"
-                }
-              },
-              "queryRef": "PURCHASE_PBI.Nivel Prioridad",
-              "nativeQueryRef": "Nivel Prioridad"
-            },
-            {
-              "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "PURCHASE_PBI"
                     }
                   },
-                  "Property": "PURCHID"
+                  "Property": "PO_MADRE"
                 }
               },
-              "queryRef": "PURCHASE_PBI.PURCHID",
-              "nativeQueryRef": "PURCHID"
+              "queryRef": "PURCHASE_PBI.PO_MADRE",
+              "nativeQueryRef": "PO_MADRE"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "PURCHASE_PBI"
+                      "Entity": "Consulta1"
                     }
                   },
-                  "Property": "ITEMID"
+                  "Property": "PO_HIJA"
                 }
               },
-              "queryRef": "PURCHASE_PBI.ITEMID",
-              "nativeQueryRef": "ITEMID"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PURCHASE_PBI"
-                    }
-                  },
-                  "Property": "PRODUCTNAME"
-                }
-              },
-              "queryRef": "PURCHASE_PBI.PRODUCTNAME",
-              "nativeQueryRef": "PRODUCTNAME"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "PURCHASE_PBI"
-                        }
-                      },
-                      "Property": "CANTIDAD"
-                    }
-                  },
-                  "Function": 0
-                }
-              },
-              "queryRef": "Sum(PURCHASE_PBI.CANTIDAD)",
-              "nativeQueryRef": "Suma de CANTIDAD"
+              "queryRef": "Consulta1.PO_HIJA",
+              "nativeQueryRef": "PO_HIJA"
             },
             {
               "field": {
@@ -103,9 +56,45 @@
               },
               "queryRef": "PURCHASE_PBI.BOOKING",
               "nativeQueryRef": "BOOKING"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "TIPO_ORDEN"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(PURCHASE_PBI.TIPO_ORDEN)",
+              "nativeQueryRef": "TIPO_ORDEN"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PURCHASE_PBI"
+                  }
+                },
+                "Property": "PO_MADRE"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "objects": {
@@ -187,6 +176,20 @@
               }
             ]
           }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "114.02985268378487D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.PO_MADRE"
+          }
         }
       ]
     },
@@ -240,114 +243,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "b531d96771d6c73ee269",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "OCs_Sin_Flete"
-              }
-            },
-            "Property": "PURCHID"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
-        "name": "cb1ca5920f316f440f08",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "PURCHASE_PBI"
-              }
-            },
-            "Property": "Nivel Prioridad"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d4e50ce531421fd1a2ec",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "PURCHASE_PBI"
-              }
-            },
-            "Property": "PURCHID"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "74b138c6ca1d600fd56e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "PURCHASE_PBI"
-              }
-            },
-            "Property": "ITEMID"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "c62f4a38465ff9852fd0",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "PURCHASE_PBI"
-              }
-            },
-            "Property": "PRODUCTNAME"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "1e3ca0cfe829dbcbfc74",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "PURCHASE_PBI"
-                  }
-                },
-                "Property": "CANTIDAD"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

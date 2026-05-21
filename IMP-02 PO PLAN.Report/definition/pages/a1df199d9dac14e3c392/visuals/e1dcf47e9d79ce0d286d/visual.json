@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "InventCost"
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
                     }
                   },
-                  "Property": "Back Order?"
+                  "Property": "Estado Autorización"
                 }
               },
-              "queryRef": "InventCost.Back Order?",
-              "nativeQueryRef": "Back Order?",
+              "queryRef": "CATALOGO_PBI_INVENTARIO.Estado Autorización",
+              "nativeQueryRef": "Estado Autorización",
               "active": true
             }
           ]
@@ -42,7 +42,7 @@
         "levels": [
           {
             "queryRefs": [
-              "InventCost.Back Order?"
+              "CATALOGO_PBI_INVENTARIO.Estado Autorización"
             ],
             "isCollapsed": true,
             "isPinned": true

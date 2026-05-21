@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "a7ea35cc9ff1bd17c206",
+  "position": {
+    "x": 759.47901591895811,
+    "y": 78.726483357452977,
+    "z": 6001,
+    "height": 100.0289435600579,
+    "width": 324.16787264833579,
+    "tabOrder": 6001
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "OC Mas Antigua"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.OC Mas Antigua",
+              "nativeQueryRef": "OC Mas Antigua"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PURCHASE_PBI"
+                  }
+                },
+                "Property": "OC Mas Antigua"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

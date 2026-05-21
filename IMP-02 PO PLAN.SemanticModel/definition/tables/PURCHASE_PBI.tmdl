@@ -160,7 +160,6 @@ table PURCHASE_PBI
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure T22 = MAX(MAX('CUBO INVENTARIOS'[[Measures]].[Cajas T+22 Grwth]]])/[RT],0)
-		isHidden
 		lineageTag: 2d599cef-7a18-4d04-9bde-6a32023df2aa
 
 		changedProperty = IsHidden

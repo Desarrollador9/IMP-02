@@ -185,7 +185,7 @@ table VENDTRANS
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="select dataareaid as empresa, accountnum as proveedor, amountcur, settleamountcur, txt , recid from vendtrans#(lf)where dataareaid = 'cmer' and partition = 5637144576 and createddatetime >= dateadd(yy,-1,getdate())"])
+				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="select dataareaid as empresa, accountnum as proveedor, amountcur, settleamountcur, txt , recid from vendtrans#(lf)where dataareaid = 'cmer' and partition = 5637144576 and createddatetime >= dateadd(yy,-1,getdate())#(lf)"])
 				in
 				    Origen
 

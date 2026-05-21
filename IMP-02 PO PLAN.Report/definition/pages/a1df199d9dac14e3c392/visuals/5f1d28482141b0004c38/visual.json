@@ -219,6 +219,21 @@
             },
             {
               "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "Estado Autorización"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.Estado Autorización",
+              "nativeQueryRef": "Exceso",
+              "displayName": "Exceso"
+            },
+            {
+              "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
@@ -1107,6 +1122,5 @@
       }
     ],
     "filterSortOrder": "Custom"
-  },
-  "isHidden": true
+  }
 }

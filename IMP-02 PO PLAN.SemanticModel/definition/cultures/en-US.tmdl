@@ -147,7 +147,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "OC's": {
+			          "#PO": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -1902,6 +1902,16 @@ cultureInfo en-US
 			        },
 			        {
 			          "Supplier Code": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Proveedor": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -34917,16 +34927,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Cant Cont's": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
 			          "Cant Conts": {
 			            "State": "Suggested",
 			            "Source": {
@@ -37439,6 +37439,16 @@ cultureInfo en-US
 			        },
 			        {
 			          "Dif Cant": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Saldo en unidades": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -62624,11 +62634,53 @@ cultureInfo en-US
 			      ],
 			      "SemanticType": "Time"
 			    },
-			    "purchase_pbi.días_3m": {
+			    "catalogo_pbi_inventario.inventclasificacioninventario": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "CATALOGO_PBI_INVENTARIO",
+			          "ConceptualProperty": "INVENTCLASIFICACIONINVENTARIO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "inventclasificacioninventario": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "catalogo_pbi_inventario.estado_autorización": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "CATALOGO_PBI_INVENTARIO",
+			          "ConceptualProperty": "Estado Autorización"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estado autorización": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Exceso": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "purchase_pbi.días_3s": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "PURCHASE_PBI",
-			          "ConceptualProperty": "Días 3M"
+			          "ConceptualProperty": "Días 3S"
 			        }
 			      },
 			      "State": "Generated",
@@ -62645,11 +62697,11 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "purchase_pbi.días_3s": {
+			    "purchase_pbi.días_3m": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "PURCHASE_PBI",
-			          "ConceptualProperty": "Días 3S"
+			          "ConceptualProperty": "Días 3M"
 			        }
 			      },
 			      "State": "Generated",
@@ -81135,6 +81187,11 @@ cultureInfo en-US
 			              "PO": {
 			                "State": "Generated"
 			              }
+			            },
+			            {
+			              "#PO": {
+			                "State": "Generated"
+			              }
 			            }
 			          ]
 			        }
@@ -81376,6 +81433,11 @@ cultureInfo en-US
 			              "PO": {
 			                "State": "Generated"
 			              }
+			            },
+			            {
+			              "#PO": {
+			                "State": "Generated"
+			              }
 			            }
 			          ]
 			        }
@@ -81549,6 +81611,11 @@ cultureInfo en-US
 			            },
 			            {
 			              "PO": {
+			                "State": "Generated"
+			              }
+			            },
+			            {
+			              "#PO": {
 			                "State": "Generated"
 			              }
 			            }
@@ -81759,6 +81826,11 @@ cultureInfo en-US
 			              "PO": {
 			                "State": "Generated"
 			              }
+			            },
+			            {
+			              "#PO": {
+			                "State": "Generated"
+			              }
 			            }
 			          ]
 			        }
@@ -81868,6 +81940,11 @@ cultureInfo en-US
 			              "PO": {
 			                "State": "Generated"
 			              }
+			            },
+			            {
+			              "#PO": {
+			                "State": "Generated"
+			              }
 			            }
 			          ]
 			        }
@@ -81931,6 +82008,11 @@ cultureInfo en-US
 			              "PO": {
 			                "State": "Generated"
 			              }
+			            },
+			            {
+			              "#PO": {
+			                "State": "Generated"
+			              }
 			            }
 			          ]
 			        }
@@ -81992,6 +82074,11 @@ cultureInfo en-US
 			            },
 			            {
 			              "PO": {
+			                "State": "Generated"
+			              }
+			            },
+			            {
+			              "#PO": {
 			                "State": "Generated"
 			              }
 			            }
@@ -82162,6 +82249,72 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "vendor_names_have_purchase_pbis"
+			        }
+			      ]
+			    },
+			    "catalogo_pbi_inventario_has_estado_autorización": {
+			      "Binding": {
+			        "ConceptualEntity": "CATALOGO_PBI_INVENTARIO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "catalogo_pbi_inventario": {
+			          "Target": {
+			            "Entity": "catalogo_pbi_inventario"
+			          }
+			        },
+			        "catalogo_pbi_inventario.estado_autorización": {
+			          "Target": {
+			            "Entity": "catalogo_pbi_inventario.estado_autorización"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "catalogo_pbi_inventario"
+			            },
+			            "Object": {
+			              "Role": "catalogo_pbi_inventario.estado_autorización"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "catalogo_pbi_inventarios_have_estado_autorizacións"
+			        }
+			      ]
+			    },
+			    "catalogo_pbi_inventario_has_inventclasificacioninventario": {
+			      "Binding": {
+			        "ConceptualEntity": "CATALOGO_PBI_INVENTARIO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "catalogo_pbi_inventario": {
+			          "Target": {
+			            "Entity": "catalogo_pbi_inventario"
+			          }
+			        },
+			        "catalogo_pbi_inventario.inventclasificacioninventario": {
+			          "Target": {
+			            "Entity": "catalogo_pbi_inventario.inventclasificacioninventario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "catalogo_pbi_inventario"
+			            },
+			            "Object": {
+			              "Role": "catalogo_pbi_inventario.inventclasificacioninventario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "catalogo_pbi_inventarios_have_inventclasificacioninventarios"
 			        }
 			      ]
 			    },
@@ -104202,15 +104355,15 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "purchase_pbi_has_medida_agrupada": {
+			    "invent_cost_has_purchase_pbi_medida_agrupada": {
 			      "Binding": {
-			        "ConceptualEntity": "PURCHASE_PBI"
+			        "ConceptualEntity": "InventCost"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "purchase_pbi": {
+			        "invent_cost": {
 			          "Target": {
-			            "Entity": "purchase_pbi"
+			            "Entity": "invent_cost"
 			          }
 			        },
 			        "purchase_pbi.medida_agrupada": {
@@ -104223,7 +104376,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "purchase_pbi"
+			              "Role": "invent_cost"
 			            },
 			            "Object": {
 			              "Role": "purchase_pbi.medida_agrupada"
@@ -104231,7 +104384,73 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "purchase_pbis_have_medida_agrupada"
+			          "ID": "invent_cost_have_medida_agrupada"
+			        }
+			      ]
+			    },
+			    "grupo_has_purchase_pbi_medida_agrupada": {
+			      "Binding": {
+			        "ConceptualEntity": "Grupos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "grupo": {
+			          "Target": {
+			            "Entity": "grupo"
+			          }
+			        },
+			        "purchase_pbi.medida_agrupada": {
+			          "Target": {
+			            "Entity": "purchase_pbi.medida_agrupada"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "grupo"
+			            },
+			            "Object": {
+			              "Role": "purchase_pbi.medida_agrupada"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "grupos_have_medida_agrupada"
+			        }
+			      ]
+			    },
+			    "cubo_inventario_has_purchase_pbi_medida_agrupada": {
+			      "Binding": {
+			        "ConceptualEntity": "CUBO INVENTARIOS"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cubo_inventario": {
+			          "Target": {
+			            "Entity": "cubo_inventario"
+			          }
+			        },
+			        "purchase_pbi.medida_agrupada": {
+			          "Target": {
+			            "Entity": "purchase_pbi.medida_agrupada"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cubo_inventario"
+			            },
+			            "Object": {
+			              "Role": "purchase_pbi.medida_agrupada"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "cubo_inventarios_have_medida_agrupada"
 			        }
 			      ]
 			    },

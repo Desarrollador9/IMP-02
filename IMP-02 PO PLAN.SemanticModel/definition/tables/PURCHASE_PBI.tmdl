@@ -160,7 +160,6 @@ table PURCHASE_PBI
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure T22 = MAX(MAX('CUBO INVENTARIOS'[[Measures]].[Cajas T+22 Grwth]]])/[RT],0)
-		isHidden
 		lineageTag: 2d599cef-7a18-4d04-9bde-6a32023df2aa
 
 		changedProperty = IsHidden
@@ -4188,6 +4187,184 @@ table PURCHASE_PBI
 		displayFolder: Mercadería AF
 		lineageTag: 1a011655-b5f8-4633-87dd-e6ae426496b1
 
+	/// Cuenta cuántas OCs hijas tiene cada OC madre
+	measure 'Cantidad OCs Hijas' =
+			VAR OCMadreActual = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
+			VAR OCActual = SELECTEDVALUE('PURCHASE_PBI'[PURCHID])
+			RETURN
+			IF(
+			    NOT ISBLANK(OCMadreActual),
+			    CALCULATE(
+			        DISTINCTCOUNT('PURCHASE_PBI'[PURCHID]),
+			        FILTER(
+			            ALL('PURCHASE_PBI'[PURCHID], 'PURCHASE_PBI'[PO_MADRE]),
+			            'PURCHASE_PBI'[PO_MADRE] = OCMadreActual &&
+			            'PURCHASE_PBI'[PURCHID] <> OCMadreActual
+			        )
+			    ),
+			    BLANK()
+			)
+		formatString: #,0
+		lineageTag: e339ae93-20ce-409e-a210-662c4754b298
+
+	/// Identifica si la OC es una madre sin hijas
+	measure 'Estado OC Madre-Hija' =
+			VAR OCMadreActual = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
+			VAR OCActual = SELECTEDVALUE('PURCHASE_PBI'[PURCHID])
+			VAR EsMadre = OCMadreActual = OCActual
+			VAR CantidadHijas = [Cantidad OCs Hijas]
+			RETURN
+			IF(
+			    EsMadre && CantidadHijas = 0,
+			    "Sin Hijas",
+			    IF(EsMadre && CantidadHijas > 0, "Con Hijas", "Es Hija")
+			)
+		lineageTag: 61296a64-6109-4a41-9e72-640d6a430335
+
+	/// Cuenta solo las OCs Madres (internacionales) que NO tienen OCs hijas asociadas
+	measure 'Total OCs Madres Sin Hijas' = ```
+			CALCULATE(
+			    DISTINCTCOUNT('PURCHASE_PBI'[PURCHID]),
+			    FILTER(
+			        'PURCHASE_PBI',
+			        VAR OCActual = 'PURCHASE_PBI'[PURCHID]
+			        VAR POMadre = 'PURCHASE_PBI'[PO_MADRE]
+			        VAR EsMadre = NOT ISBLANK(POMadre) && OCActual = POMadre
+			        VAR TieneHijas = 
+			            CALCULATE(
+			                COUNTROWS('PURCHASE_PBI'),
+			                FILTER(
+			                    ALL('PURCHASE_PBI'),
+			                    'PURCHASE_PBI'[PO_MADRE] = OCActual &&
+			                    'PURCHASE_PBI'[PURCHID] <> OCActual
+			                )
+			            ) > 0
+			        RETURN EsMadre && NOT TieneHijas
+			    )
+			)
+			```
+		formatString: #,0
+		lineageTag: 4fd4fc18-f71a-4908-bad8-76070940556d
+
+	/// Indicador visual: muestra icono de alerta para OCs madre sin hijas
+	measure 'Alerta Flete' =
+			VAR OCMadreActual = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
+			VAR OCActual = SELECTEDVALUE('PURCHASE_PBI'[PURCHID])
+			VAR EsMadre = NOT ISBLANK(OCMadreActual) && OCActual = OCMadreActual
+			VAR CantidadHijas = [Cantidad OCs Hijas]
+			RETURN
+			IF(
+			    EsMadre && CantidadHijas = 0,
+			    "⚠️ Sin Flete Gestionado",
+			    IF(EsMadre && CantidadHijas > 0, "✅ Flete OK", "")
+			)
+		lineageTag: 9c65a457-e84d-4d38-beaa-e8e6ebc84b40
+
+	/// Cuenta las OCs únicas que NO están en Consulta1 (ni como madre ni como hija)
+	measure 'Total OCs Sin Flete' = ```
+			VAR OCsEnPurchase = DISTINCT(PURCHASE_PBI[PURCHID])
+			VAR OCsConFlete = 
+			    UNION(
+			        DISTINCT(SELECTCOLUMNS(Consulta1, "OC", Consulta1[PO_MADRE])),
+			        DISTINCT(SELECTCOLUMNS(Consulta1, "OC", Consulta1[PO_HIJA]))
+			    )
+			RETURN
+			COUNTROWS(EXCEPT(OCsEnPurchase, OCsConFlete))
+			```
+		formatString: #,0
+		lineageTag: e355c618-7290-4698-9366-ea5ff2172749
+
+	/// Suma el valor total (LINEAMOUNT) de las OCs que NO tienen flete
+	measure 'Valor Sin Flete' = ```
+			CALCULATE(
+			    SUM(PURCHASE_PBI[LINEAMOUNT]),
+			    FILTER(
+			        PURCHASE_PBI,
+			        VAR OC_Actual = PURCHASE_PBI[PURCHID]
+			        VAR EstaEnMadres = 
+			            CALCULATE(
+			                COUNTROWS(Consulta1),
+			                Consulta1[PO_MADRE] = OC_Actual
+			            ) > 0
+			        VAR EstaEnHijas = 
+			            CALCULATE(
+			                COUNTROWS(Consulta1),
+			                Consulta1[PO_HIJA] = OC_Actual
+			            ) > 0
+			        RETURN NOT EstaEnMadres && NOT EstaEnHijas
+			    )
+			)
+			```
+		formatString: "$"#,0.00
+		lineageTag: b0eac8d4-58fa-4c1d-a499-fb12a0ebef53
+
+	/// Calcula cuántos días faltan hasta la fecha de llegada al país
+	measure 'Dias Hasta Llegada' = DATEDIFF(TODAY(), SELECTEDVALUE(PURCHASE_PBI[LLEGADA_PAIS]), DAY)
+		formatString: #,0
+		lineageTag: 2887f174-5586-44ae-8fe2-a970873a2e3c
+
+	/// Clasifica la OC por prioridad según días hasta llegada
+	measure 'Nivel Prioridad' =
+			VAR Dias = [Dias Hasta Llegada]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(Dias), "",
+			    Dias < 0, "⏰ RETRASADO",
+			    Dias <= 15, "🔴 CRÍTICO",
+			    Dias <= 30, "⚠️ URGENTE",
+			    "✅ PLANIFICADO"
+			)
+		lineageTag: 126a6387-ad61-496f-864c-d807651d9d41
+
+	/// Cuenta cuántos items distintos hay en las OCs sin flete
+	measure 'Items Sin Flete' = ```
+			CALCULATE(
+			    DISTINCTCOUNT(PURCHASE_PBI[ITEMID]),
+			    FILTER(
+			        PURCHASE_PBI,
+			        VAR OC_Actual = PURCHASE_PBI[PURCHID]
+			        VAR EstaEnMadres = 
+			            CALCULATE(
+			                COUNTROWS(Consulta1),
+			                Consulta1[PO_MADRE] = OC_Actual
+			            ) > 0
+			        VAR EstaEnHijas = 
+			            CALCULATE(
+			                COUNTROWS(Consulta1),
+			                Consulta1[PO_HIJA] = OC_Actual
+			            ) > 0
+			        RETURN NOT EstaEnMadres && NOT EstaEnHijas
+			    )
+			)
+			```
+		formatString: #,0
+		lineageTag: 7a2bbf12-3730-40a6-b18b-158d0a4cf02f
+
+	/// Muestra la fecha de llegada más próxima de las OCs sin flete
+	measure 'OC Mas Antigua' = ```
+			CALCULATE(
+			    MIN(PURCHASE_PBI[LLEGADA_PAIS]),
+			    FILTER(
+			        PURCHASE_PBI,
+			        VAR OC_Actual = PURCHASE_PBI[PURCHID]
+			        VAR EstaEnMadres = 
+			            CALCULATE(
+			                COUNTROWS(Consulta1),
+			                Consulta1[PO_MADRE] = OC_Actual
+			            ) > 0
+			        VAR EstaEnHijas = 
+			            CALCULATE(
+			                COUNTROWS(Consulta1),
+			                Consulta1[PO_HIJA] = OC_Actual
+			            ) > 0
+			        RETURN NOT EstaEnMadres && NOT EstaEnHijas
+			    )
+			)
+			```
+		formatString: dd/mm/yyyy
+		lineageTag: fd0ce24a-6914-491c-abad-1b39c53e444d
+
 	column DATAAREAID
 		dataType: string
 		lineageTag: 443f31b1-73fe-4bdd-b9e9-11802a085eec
@@ -6161,6 +6338,52 @@ table PURCHASE_PBI
 		lineageTag: e6169121-c4be-4b71-8a12-5b1c0260a7e7
 		dataCategory: WebUrl
 		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Indica si es OC Madre, Hija, o Madre sin Hijas
+	column 'Clasificacion OC' = ```
+			VAR EsMadre = 'PURCHASE_PBI'[PURCHID] = 'PURCHASE_PBI'[PO_MADRE]
+			VAR CantidadHijas = 
+			    CALCULATE(
+			        COUNTROWS('PURCHASE_PBI'),
+			        FILTER(
+			            'PURCHASE_PBI',
+			            'PURCHASE_PBI'[PO_MADRE] = EARLIER('PURCHASE_PBI'[PURCHID]) &&
+			            'PURCHASE_PBI'[PURCHID] <> EARLIER('PURCHASE_PBI'[PURCHID])
+			        )
+			    )
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    EsMadre && CantidadHijas = 0, "Madre Sin Hijas",
+			    EsMadre && CantidadHijas > 0, "Madre Con Hijas",
+			    "OC Hija"
+			)
+			```
+		lineageTag: a9712124-4252-4a5a-a45f-6dde57eab30a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Cuenta el número de OCs hijas que tiene cada OC madre
+	column 'Num OCs Hijas' =
+			IF(
+			    'PURCHASE_PBI'[PURCHID] = 'PURCHASE_PBI'[PO_MADRE],
+			    CALCULATE(
+			        COUNTROWS('PURCHASE_PBI'),
+			        FILTER(
+			            'PURCHASE_PBI',
+			            'PURCHASE_PBI'[PO_MADRE] = EARLIER('PURCHASE_PBI'[PURCHID]) &&
+			            'PURCHASE_PBI'[PURCHID] <> EARLIER('PURCHASE_PBI'[PURCHID])
+			        )
+			    ),
+			    BLANK()
+			)
+		dataType: int64
+		formatString: #,0
+		lineageTag: 5c791bea-c473-4ff4-8108-50ca61e1d6a6
+		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 

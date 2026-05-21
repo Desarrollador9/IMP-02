@@ -639,3 +639,9 @@ relationship VEND_SALDO_a_PURCHASE_PBI
 	fromColumn: PURCHASE_PBI.PURCHID
 	toColumn: VEND_SALDO.OC_Extraida
 
+relationship a7ba47d3-c945-ddfb-7631-511ff9c86333
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: OCs_Sin_Flete.PURCHID
+	toColumn: PURCHASE_PBI.PURCHID
+

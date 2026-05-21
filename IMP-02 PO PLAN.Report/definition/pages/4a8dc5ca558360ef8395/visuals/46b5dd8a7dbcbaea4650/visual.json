@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "46b5dd8a7dbcbaea4650",
   "position": {
-    "x": 148.75,
-    "y": 153.75,
+    "x": 149,
+    "y": 154,
     "z": 15000,
-    "height": 696.25,
-    "width": 1701.25,
+    "height": 696,
+    "width": 1701,
     "tabOrder": 15000
   },
   "visual": {
@@ -254,6 +254,26 @@
               },
               "queryRef": "select",
               "nativeQueryRef": "Inv Tar Exceso"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI_INVENTARIO"
+                        }
+                      },
+                      "Property": "Estado Autorización"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(CATALOGO_PBI_INVENTARIO.Estado Autorización)",
+              "nativeQueryRef": "Exceso",
+              "displayName": "Exceso"
             },
             {
               "field": {
@@ -788,6 +808,26 @@
               }
             ],
             "metadata": "select"
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ]

@@ -151,6 +151,7 @@ ref table VENDTRANS
 ref table LocalDateTable_afcb6ebb-1ced-4434-a072-28f85805e86a
 ref table VEND_SALDO
 ref table 'OCS HIJAS'
+ref table OCs_Sin_Flete
 
 ref cultureInfo en-US
 

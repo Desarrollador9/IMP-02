@@ -4,7 +4,7 @@
   "position": {
     "x": 743.75,
     "y": 56.25,
-    "z": 6000,
+    "z": 5000,
     "height": 76.25,
     "width": 151.25,
     "tabOrder": 6000
@@ -63,44 +63,6 @@
                 "Literal": {
                   "Value": "6D"
                 }
-              }
-            },
-            "selfFilter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "c",
-                    "Entity": "Consulta1",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "Contains": {
-                        "Left": {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "c"
-                              }
-                            },
-                            "Property": "PO_HIJA"
-                          }
-                        },
-                        "Right": {
-                          "Literal": {
-                            "Value": "'175452'"
-                          }
-                        }
-                      }
-                    },
-                    "Annotations": {
-                      "PowerBI.MParameterBehavior": 1
-                    }
-                  }
-                ]
               }
             }
           }

@@ -1,53 +1,103 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
-  "name": "72455edd086d41a520e6",
+  "name": "afe5518dc68ad499d857",
   "position": {
-    "x": 0,
+    "x": 353.33333333333337,
     "y": 213.33333333333334,
-    "z": 0,
+    "z": 13001,
     "height": 506.66666666666669,
     "width": 220,
-    "tabOrder": 0
+    "tabOrder": 13001
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "pivotTable",
     "query": {
       "queryState": {
-        "Values": {
+        "Rows": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "PURCHASE_PBI"
+                      "Entity": "Consulta1"
                     }
                   },
-                  "Property": "PURCHID"
+                  "Property": "PO_MADRE"
                 }
               },
-              "queryRef": "PURCHASE_PBI.PURCHID",
-              "nativeQueryRef": "PURCHID"
+              "queryRef": "Consulta1.PO_MADRE",
+              "nativeQueryRef": "PO_MADRE",
+              "active": true
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "PURCHASE_PBI"
+                      "Entity": "Consulta1"
                     }
                   },
-                  "Property": "Tiene Hijas"
+                  "Property": "PO_HIJA"
                 }
               },
-              "queryRef": "PURCHASE_PBI.Tiene Hijas",
-              "nativeQueryRef": "Tipo de OC",
-              "displayName": "Tipo de OC"
+              "queryRef": "Consulta1.PO_HIJA",
+              "nativeQueryRef": "PO_HIJA",
+              "active": true
             }
           ]
         }
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Consulta1.PO_MADRE"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Consulta1"
+                    }
+                  },
+                  "Property": "PO_MADRE"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Consulta1.PO_HIJA"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'OC-00177200'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
     "objects": {
       "columnHeaders": [
         {

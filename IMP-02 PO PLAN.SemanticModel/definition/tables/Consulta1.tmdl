@@ -7,6 +7,8 @@ table Consulta1
 		summarizeBy: none
 		sourceColumn: DATAAREAID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column PO_MADRE
@@ -14,6 +16,8 @@ table Consulta1
 		lineageTag: b5dc9932-2a75-4bd8-a2be-7ecc4bdc2672
 		summarizeBy: none
 		sourceColumn: PO_MADRE
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -23,6 +27,8 @@ table Consulta1
 		summarizeBy: none
 		sourceColumn: PO_HIJA
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column TIPO
@@ -30,6 +36,8 @@ table Consulta1
 		lineageTag: decde6ec-f113-4a45-902b-90215e3b8291
 		summarizeBy: none
 		sourceColumn: TIPO
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -39,6 +47,8 @@ table Consulta1
 		summarizeBy: none
 		sourceColumn: ORDERACCOUNT
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column RECID
@@ -47,6 +57,8 @@ table Consulta1
 		lineageTag: db6383d4-7cf9-4d16-a932-0f2c12da4fcc
 		summarizeBy: count
 		sourceColumn: RECID
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -62,6 +74,8 @@ table Consulta1
 			relationship: 2c37b44f-2ac1-4638-8417-403185ffab20
 			defaultHierarchy: LocalDateTable_884a7c35-462a-446d-ad4d-75fff3147600.'Date Hierarchy'
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isCustom":true}
@@ -73,6 +87,8 @@ table Consulta1
 		summarizeBy: sum
 		sourceColumn: LINEAMOUNT
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isDecimal":true}
@@ -83,6 +99,8 @@ table Consulta1
 		summarizeBy: none
 		sourceColumn: MONEDA
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	hierarchy 'CREATEDDATETIME Hierarchy'
@@ -91,6 +109,8 @@ table Consulta1
 		level 'Fecha Creación'
 			lineageTag: af0e277e-0da4-4a26-8a03-e0f6c88b54db
 			column: CREATEDDATETIME
+
+		changedProperty = IsHidden
 
 	partition Consulta1 = m
 		mode: import
@@ -104,6 +124,8 @@ table Consulta1
 				in
 				    Origen
 				```
+
+	changedProperty = IsHidden
 
 	annotation PBI_ResultType = Table
 

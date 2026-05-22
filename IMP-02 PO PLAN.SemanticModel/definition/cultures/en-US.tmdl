@@ -62717,6 +62717,27 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "purchase_pbi.tiene_hijas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "PURCHASE_PBI",
+			          "ConceptualProperty": "Tiene Hijas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Tipo de OC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {

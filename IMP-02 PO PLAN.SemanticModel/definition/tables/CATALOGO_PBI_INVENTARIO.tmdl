@@ -419,9 +419,12 @@ table CATALOGO_PBI_INVENTARIO
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Estado Autorización' = IF([INVENTCLASIFICACIONINVENTARIO] = 1, "Autorizado", "No Autorizado")
+	column 'Estado Autorización' = IF([INVENTCLASIFICACIONINVENTARIO] = 1,"No Autorizado","Autorizado")
 		dataType: string
 		lineageTag: 297bf10e-68e3-44c3-b3f5-4642eafcef30
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	partition CATALOGO_PBI_INVENTARIO = m
 		mode: import

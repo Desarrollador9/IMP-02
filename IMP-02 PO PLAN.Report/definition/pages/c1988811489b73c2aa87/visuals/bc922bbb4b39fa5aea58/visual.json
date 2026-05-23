@@ -156,16 +156,6 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'MOIN-SLI-CCA'"
-                  }
-                }
-              ],
-              "isToggled": true
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
                     "Value": "'AF-SLI'"
                   }
                 }
@@ -187,16 +177,6 @@
                 {
                   "Literal": {
                     "Value": "'AF-CSC'"
-                  }
-                }
-              ],
-              "isToggled": true
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'MOIN-CCA'"
                   }
                 }
               ],

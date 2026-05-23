@@ -1,0 +1,39 @@
+table TRANSPORTISTAS
+	lineageTag: 3b01c82b-3741-48c3-bbf7-35eef4751a86
+
+	column COD_TRANSPORTISTA
+		lineageTag: 0e36c493-c67c-4db3-93b5-191261d686b6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [COD_TRANSPORTISTA]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMBRE_TRANSPORTISTA
+		lineageTag: c46061c7-c1c7-46ae-84c4-b20a5d1a2d3f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NOMBRE_TRANSPORTISTA]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TRANSPORTISTAS = calculated
+		mode: import
+		source =
+				DATATABLE(
+				    "COD_TRANSPORTISTA", STRING,
+				    "NOMBRE_TRANSPORTISTA", STRING,
+				    {
+				        {"IB000", "Importadora Brejim S.A."},
+				        {"LPLI000", "LP Logistic International Ltda."},
+				        {"TGSA003", "Transportes Grant S.A."},
+				        {"MRCS000", "Mauricio Ricardo Calvo Solis"},
+				        {"CABM004", "Carlos Alberto Barquero Molina"},
+				        {"RADA004", "Maersk LNSCR Logistics & Services CR S.A."},
+				        {"MSCS000", "MSC Mediterranean Shipping Company S.A."},
+				        {"", "(Sin Transportista)"}
+				    }
+				)
+
+	annotation PBI_Id = 23ad72fba043438daa32e3690d54be37
+

@@ -62738,6 +62738,27 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "purchase_pbi.ruta_transporte": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "PURCHASE_PBI",
+			          "ConceptualProperty": "RUTA_TRANSPORTE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SITIO": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {

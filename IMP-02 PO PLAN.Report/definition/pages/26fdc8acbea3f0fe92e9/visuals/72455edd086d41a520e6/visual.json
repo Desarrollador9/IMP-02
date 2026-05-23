@@ -3,9 +3,9 @@
   "name": "72455edd086d41a520e6",
   "position": {
     "x": 0,
-    "y": 213.33333333333334,
+    "y": 140,
     "z": 0,
-    "height": 506.66666666666669,
+    "height": 917.5,
     "width": 220,
     "tabOrder": 0
   },
@@ -46,6 +46,23 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PURCHASE_PBI"
+                  }
+                },
+                "Property": "Tiene Hijas"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "objects": {

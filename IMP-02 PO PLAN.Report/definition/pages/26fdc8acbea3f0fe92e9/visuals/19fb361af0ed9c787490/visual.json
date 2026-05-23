@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Consulta1"
+                      "Entity": "VENDOR_NAME"
                     }
                   },
-                  "Property": "PO_HIJA"
+                  "Property": "CONCAT_NAME"
                 }
               },
-              "queryRef": "Consulta1.PO_HIJA",
-              "nativeQueryRef": "PO_HIJA",
+              "queryRef": "VENDOR_NAME.CONCAT_NAME",
+              "nativeQueryRef": "CONCAT_NAME",
               "active": true
             }
           ]

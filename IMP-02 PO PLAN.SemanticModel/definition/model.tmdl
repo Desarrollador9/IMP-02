@@ -152,6 +152,8 @@ ref table LocalDateTable_afcb6ebb-1ced-4434-a072-28f85805e86a
 ref table VEND_SALDO
 ref table 'OCS HIJAS'
 ref table OCs_Sin_Flete
+ref table TRANSPORTISTAS
+ref table LocalDateTable_eaf91acb-1efa-4437-b6e7-3d959ce0fa34
 
 ref cultureInfo en-US
 

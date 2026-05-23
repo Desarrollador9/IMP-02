@@ -4234,6 +4234,63 @@ table PURCHASE_PBI
 			)
 		lineageTag: 126a6387-ad61-496f-864c-d807651d9d41
 
+	/// Cuenta cuántas OCs hijas tiene cada OC madre
+	measure 'Cantidad OCs Hijas' =
+			VAR OCMadreActual = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
+			VAR OCActual = SELECTEDVALUE('PURCHASE_PBI'[PURCHID])
+			RETURN
+			IF(
+			    NOT ISBLANK(OCMadreActual),
+			    CALCULATE(
+			        DISTINCTCOUNT('PURCHASE_PBI'[PURCHID]),
+			        FILTER(
+			            ALL('PURCHASE_PBI'[PURCHID], 'PURCHASE_PBI'[PO_MADRE]),
+			            'PURCHASE_PBI'[PO_MADRE] = OCMadreActual &&
+			            'PURCHASE_PBI'[PURCHID] <> OCMadreActual
+			        )
+			    ),
+			    BLANK()
+			)
+		formatString: #,0
+		lineageTag: 5f7caa61-bde9-4803-ba17-1aabd9b8e671
+
+	/// Cuenta solo las OCs Madres (internacionales) que NO tienen OCs hijas asociadas
+	measure 'Total OCs Madres Sin Hijas' = ```
+			CALCULATE(
+			    DISTINCTCOUNT('PURCHASE_PBI'[PURCHID]),
+			    FILTER(
+			        'PURCHASE_PBI',
+			        VAR OCActual = 'PURCHASE_PBI'[PURCHID]
+			        VAR POMadre = 'PURCHASE_PBI'[PO_MADRE]
+			        VAR EsMadre = NOT ISBLANK(POMadre) && OCActual = POMadre
+			        VAR TieneHijas = 
+			            CALCULATE(
+			                COUNTROWS('PURCHASE_PBI'),
+			                FILTER(
+			                    ALL('PURCHASE_PBI'),
+			                    'PURCHASE_PBI'[PO_MADRE] = OCActual &&
+			                    'PURCHASE_PBI'[PURCHID] <> OCActual
+			                )
+			            ) > 0
+			        RETURN EsMadre && NOT TieneHijas
+			    )
+			)
+			```
+		formatString: #,0
+		lineageTag: 1ae31718-6e2e-4901-9238-63138478abdf
+
+	measure Contenedores = SUM(PURCHASE_PBI[CANT_CONTENEDOR])
+		formatString: 0
+		lineageTag: 08ae0584-a99f-4bb5-816d-c4056f1122e1
+
+	measure 'Contenedores x Transp Final' =
+			CALCULATE(
+			    SUM(PURCHASE_PBI[CANT_CONTENEDOR]),
+			    USERELATIONSHIP(PURCHASE_PBI[TRANSPORTISTA_FINAL], TRANSPORTISTAS[COD_TRANSPORTISTA])
+			)
+		formatString: 0
+		lineageTag: 6cf066ee-70a4-4749-9e5f-7665aaed0b9c
+
 	column DATAAREAID
 		dataType: string
 		lineageTag: 443f31b1-73fe-4bdd-b9e9-11802a085eec
@@ -6210,15 +6267,106 @@ table PURCHASE_PBI
 
 		annotation SummarizationSetBy = Automatic
 
-	/// Clasifica la OC en: Madre con Hijas, Madre sin Hijas, o Es Hija
-	column 'Tiene Hijas' = ```
+	/// Indica si es OC Madre, Hija, o Madre sin Hijas
+	column 'Clasificacion OC' = ```
+			VAR EsMadre = 'PURCHASE_PBI'[PURCHID] = 'PURCHASE_PBI'[PO_MADRE]
+			VAR CantidadHijas = 
+			    CALCULATE(
+			        COUNTROWS('PURCHASE_PBI'),
+			        FILTER(
+			            'PURCHASE_PBI',
+			            'PURCHASE_PBI'[PO_MADRE] = EARLIER('PURCHASE_PBI'[PURCHID]) &&
+			            'PURCHASE_PBI'[PURCHID] <> EARLIER('PURCHASE_PBI'[PURCHID])
+			        )
+			    )
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    EsMadre && CantidadHijas = 0, "Madre Sin Hijas",
+			    EsMadre && CantidadHijas > 0, "Madre Con Hijas",
+			    "OC Hija"
+			)
+			```
+		dataType: string
+		lineageTag: 9cfc769e-6f1f-4f3f-b8ca-ed704b2305c5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Cuenta el número de OCs hijas que tiene cada OC madre
+	column 'Num OCs Hijas' =
+			IF(
+			    'PURCHASE_PBI'[PURCHID] = 'PURCHASE_PBI'[PO_MADRE],
+			    CALCULATE(
+			        COUNTROWS('PURCHASE_PBI'),
+			        FILTER(
+			            'PURCHASE_PBI',
+			            'PURCHASE_PBI'[PO_MADRE] = EARLIER('PURCHASE_PBI'[PURCHID]) &&
+			            'PURCHASE_PBI'[PURCHID] <> EARLIER('PURCHASE_PBI'[PURCHID])
+			        )
+			    ),
+			    BLANK()
+			)
+		dataType: int64
+		formatString: #,0
+		lineageTag: 5f078953-6696-4d79-accc-d7f941b564a9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column RUTA_TRANSPORTE =
+			VAR _metodo = PURCHASE_PBI[METODO_TRASLADO_TERRESTRE]
+			VAR _debeAF = PURCHASE_PBI[Debe ir a AF?]
+			VAR _sitioAF = PURCHASE_PBI[INVENTSITEAF]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    _metodo = "Moin-CCA", "MOIN-CCA",
+			    _metodo = "Calder-CCA", "CALDERA-CCA",
+			    _metodo = "MOB-SLI-CC", "MOIN-SLI-CCA",
+			    _metodo = "CAL-SLC-CC", "CAL-SLC-CCA",
+			    _metodo = "LAEMCHA-C", "LAEMCHA-CCA",
+			    _debeAF = "Sí" && _sitioAF <> BLANK(), "AF-" & _sitioAF,
+			    "OTRO"
+			)
+		dataType: string
+		lineageTag: b9ee0886-4076-4ad1-a366-fa4265b84903
+		summarizeBy: none
+
+	column SEMANA_LLEGADA_SORT =
+			VAR _fecha = PURCHASE_PBI[LLEGADA_PAIS]
+			RETURN
+			IF(_fecha = BLANK(), BLANK(), _fecha - WEEKDAY(_fecha, 2) + 1)
+		dataType: dateTime
+		isHidden
+		formatString: dd/mm/yyyy
+		lineageTag: bd3fefdd-3264-4e3a-b75e-563f82ca1f77
+		summarizeBy: none
+
+		variation Variación
+			isDefault
+			relationship: 2e27afc7-9205-4c14-b3a6-b311b47e11dd
+			defaultHierarchy: LocalDateTable_eaf91acb-1efa-4437-b6e7-3d959ce0fa34.'Date Hierarchy'
+
+	column SEMANA_LLEGADA =
+			VAR _fecha = PURCHASE_PBI[LLEGADA_PAIS]
+			VAR _lunes = _fecha - WEEKDAY(_fecha, 2) + 1
+			VAR _domingo = _lunes + 6
+			RETURN
+			IF(_fecha = BLANK(), BLANK(), FORMAT(_lunes, "DD/MM/YY") & " al " & FORMAT(_domingo, "DD/MM/YY"))
+		dataType: string
+		lineageTag: e87452ec-74cd-4b82-944a-40b692aa5606
+		summarizeBy: none
+		sortByColumn: SEMANA_LLEGADA_SORT
+
+	column 'Tiene Hijas' =
 			VAR OC_Actual = PURCHASE_PBI[PURCHID]
-			VAR EstaEnMadres = 
+			VAR EstaEnMadres =
 			    CALCULATE(
 			        COUNTROWS(Consulta1),
 			        Consulta1[PO_MADRE] = OC_Actual
 			    ) > 0
-			VAR EstaEnHijas = 
+			VAR EstaEnHijas =
 			    CALCULATE(
 			        COUNTROWS(Consulta1),
 			        Consulta1[PO_HIJA] = OC_Actual
@@ -6230,11 +6378,8 @@ table PURCHASE_PBI
 			    EstaEnHijas, "Es Hija",
 			    "Sin Hijas"
 			)
-			```
-		lineageTag: 7027402d-c8bb-44c5-828b-26f5df3bee73
-		summarizeBy: none
-
-		annotation SummarizationSetBy = Automatic
+		dataType: string
+		lineageTag: ae4b9c56-fe39-476b-8166-af24ff432881
 
 	hierarchy 'SALIDA_AJUSTADA Hierarchy'
 		lineageTag: 63d4aba1-0253-43d2-b979-da286c328550

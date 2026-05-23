@@ -103,6 +103,22 @@ table Consulta1
 
 		annotation SummarizationSetBy = Automatic
 
+	column TIPOSERVICIO
+		dataType: string
+		lineageTag: c3892c2a-5fe9-4fa0-ae53-29aa3c7263bb
+		summarizeBy: none
+		sourceColumn: TIPOSERVICIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMBRE_PROVEEDOR =
+			LOOKUPVALUE(
+			    VENDOR_NAME[CONCAT_NAME],
+			    VENDOR_NAME[ACCOUNTNUM], Consulta1[ORDERACCOUNT]
+			)
+		dataType: string
+		lineageTag: f2bd4c92-a012-4e0f-8d94-04e66c8179ce
+
 	hierarchy 'CREATEDDATETIME Hierarchy'
 		lineageTag: 884e025e-6f40-4192-bf43-96835e82f1ce
 
@@ -114,16 +130,11 @@ table Consulta1
 
 	partition Consulta1 = m
 		mode: import
-		source = ```
+		source =
 				let
-				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="SELECT T1.DATAAREAID, T1.PURCHIDREFERENCE AS PO_MADRE, T1.PURCHID AS PO_HIJA, 
-				T1.SERVICEID AS TIPO,T1.ORDERACCOUNT,T1.CREATEDDATETIME,T2.RECID, T2.LINEAMOUNT, T2.CURRENCYCODE AS MONEDA
-				FROM PURCHTABLE T1 LEFT OUTER JOIN
-				PURCHLINE T2 ON T2.PURCHID = T1.PURCHID AND T2.DATAAREAID = T1.DATAAREAID
-				WHERE T1.DATAAREAID = 'CMER' AND T1.PURCHIDREFERENCE <> ''", MultiSubnetFailover=true])
+				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="SELECT T1.DATAAREAID, T1.PURCHIDREFERENCE AS PO_MADRE, T1.PURCHID AS PO_HIJA, #(lf)T1.SERVICEID AS TIPO,T1.ORDERACCOUNT,T1.CREATEDDATETIME,T2.RECID, T2.LINEAMOUNT, T2.CURRENCYCODE AS MONEDA, T1.SERVICEID AS TIPOSERVICIO#(lf)FROM PURCHTABLE T1 LEFT OUTER JOIN#(lf)PURCHLINE T2 ON T2.PURCHID = T1.PURCHID AND T2.DATAAREAID = T1.DATAAREAID#(lf)WHERE T1.DATAAREAID = 'CMER' AND T1.PURCHIDREFERENCE <> ''", MultiSubnetFailover=true])
 				in
 				    Origen
-				```
 
 	changedProperty = IsHidden
 

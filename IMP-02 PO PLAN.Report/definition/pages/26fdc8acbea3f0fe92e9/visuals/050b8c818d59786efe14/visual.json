@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
-  "name": "e553775f82a9802c2a17",
+  "name": "050b8c818d59786efe14",
   "position": {
-    "x": 591.25,
+    "x": 1247.5,
     "y": 56.25,
-    "z": 2000,
+    "z": 15001,
     "height": 76.25,
-    "width": 152.5,
-    "tabOrder": 3000
+    "width": 202.5,
+    "tabOrder": 15001
   },
   "visual": {
     "visualType": "slicer",
@@ -23,13 +23,12 @@
                       "Entity": "PURCHASE_PBI"
                     }
                   },
-                  "Property": "PURCHID"
+                  "Property": "TIPO_SERV"
                 }
               },
-              "queryRef": "PURCHASE_PBI.PURCHID",
-              "nativeQueryRef": "OC",
-              "active": true,
-              "displayName": "OC"
+              "queryRef": "PURCHASE_PBI.TIPO_SERV",
+              "nativeQueryRef": "TIPO_SERV",
+              "active": true
             }
           ]
         }
@@ -52,13 +51,6 @@
       "general": [
         {
           "properties": {
-            "selfFilterEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "outlineWeight": {
               "expr": {
                 "Literal": {
@@ -66,42 +58,11 @@
                 }
               }
             },
-            "selfFilter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "p",
-                    "Entity": "PURCHASE_PBI",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "Contains": {
-                        "Left": {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "p"
-                              }
-                            },
-                            "Property": "PURCHID"
-                          }
-                        },
-                        "Right": {
-                          "Literal": {
-                            "Value": "'107595'"
-                          }
-                        }
-                      }
-                    },
-                    "Annotations": {
-                      "PowerBI.MParameterBehavior": 1
-                    }
-                  }
-                ]
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
               }
             }
           }
@@ -186,11 +147,6 @@
           }
         }
       ]
-    },
-    "syncGroup": {
-      "groupName": "PURCHID1",
-      "fieldChanges": true,
-      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

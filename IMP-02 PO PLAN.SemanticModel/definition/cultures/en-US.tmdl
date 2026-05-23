@@ -555,6 +555,16 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Estado Pedido": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Estado del Pedido": {
 			            "State": "Suggested",
 			            "Source": {
@@ -576,16 +586,6 @@ cultureInfo en-US
 			        },
 			        {
 			          "Status": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "Estado Pedido": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -21547,6 +21547,16 @@ cultureInfo en-US
 			          "date": {
 			            "State": "Generated",
 			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "FECHA COLOCACIÓN": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        },
 			        {

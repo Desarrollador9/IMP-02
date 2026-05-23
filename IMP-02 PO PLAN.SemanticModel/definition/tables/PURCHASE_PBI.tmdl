@@ -6327,7 +6327,7 @@ table PURCHASE_PBI
 			    _metodo = "CAL-SLC-CC", "CAL-SLC-CCA",
 			    _metodo = "LAEMCHA-C", "LAEMCHA-CCA",
 			    _debeAF = "Sí" && _sitioAF <> BLANK(), "AF-" & _sitioAF,
-			    "OTRO"
+			    "NULL"
 			)
 		dataType: string
 		lineageTag: b9ee0886-4076-4ad1-a366-fa4265b84903

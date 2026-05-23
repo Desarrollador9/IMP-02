@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "7412344f8c44660e19bd",
   "position": {
-    "x": 368.33333333333337,
-    "y": 210,
+    "x": 414.89361702127661,
+    "y": 223.40425531914894,
     "z": 45000,
-    "height": 288.33333333333337,
-    "width": 970,
+    "height": 276.59574468085106,
+    "width": 970.21276595744689,
     "tabOrder": 44000
   },
   "visual": {
@@ -29,26 +29,6 @@
               "queryRef": "PURCHASE_PBI.SEMANA_LLEGADA",
               "nativeQueryRef": "SEMANA_LLEGADA",
               "active": true
-            },
-            {
-              "field": {
-                "HierarchyLevel": {
-                  "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "PURCHASE_PBI"
-                        }
-                      },
-                      "Hierarchy": "LLEGADA_PAIS Hierarchy"
-                    }
-                  },
-                  "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
-                }
-              },
-              "queryRef": "PURCHASE_PBI.LLEGADA_PAIS Hierarchy.Adjusted Arrival Date (Fecha De Llegada Ajustada)",
-              "nativeQueryRef": "LLEGADA_PAIS Hierarchy Adjusted Arrival Date (Fecha De Llegada Ajustada)",
-              "active": false
             }
           ]
         },
@@ -84,6 +64,36 @@
               "queryRef": "TRANSPORTISTAS.NOMBRE_TRANSPORTISTA",
               "nativeQueryRef": "NOMBRE_TRANSPORTISTA",
               "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "PURCHID"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.PURCHID",
+              "nativeQueryRef": "PURCHID",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "CONTENEDOR"
+                }
+              },
+              "queryRef": "CONTAINERS.CONTENEDOR",
+              "nativeQueryRef": "CONTENEDOR",
+              "active": false
             }
           ]
         },
@@ -117,6 +127,19 @@
                   }
                 },
                 "Property": "RUTA_TRANSPORTE"
+              }
+            },
+            "direction": "Descending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "TRANSPORTISTAS"
+                  }
+                },
+                "Property": "NOMBRE_TRANSPORTISTA"
               }
             },
             "direction": "Descending"
@@ -167,6 +190,44 @@
               }
             ],
             "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "PURCHASE_PBI.PURCHID"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "PURCHID"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CONTAINERS.CONTENEDOR"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "CONTENEDOR"
+                }
+              }
+            ],
+            "isPinned": true
           }
         ],
         "root": {
@@ -176,28 +237,6 @@
                 {
                   "Literal": {
                     "Value": "'AF-CSC'"
-                  }
-                }
-              ],
-              "isToggled": true,
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Importadora Brejim S.A.'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'MOIN-SLI-CCA'"
                   }
                 }
               ],
@@ -217,31 +256,89 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'AF-SLI'"
+                    "Value": "'MOIN-SLI-CCA'"
                   }
                 }
               ],
-              "isToggled": true
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'(Sin Transportista)'"
+                      }
+                    }
+                  ],
+                  "isToggled": true,
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'OC-00201092'"
+                          }
+                        }
+                      ],
+                      "isToggled": true
+                    }
+                  ]
+                },
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'LP Logistic International Ltda.'"
+                      }
+                    }
+                  ],
+                  "isToggled": true,
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'OC-00201092'"
+                          }
+                        }
+                      ],
+                      "isToggled": true
+                    }
+                  ]
+                }
+              ]
             },
             {
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'MOIN-CCA'"
+                    "Value": "'CALDERA-CCA'"
                   }
                 }
               ],
-              "isToggled": true
-            },
-            {
-              "identityValues": [
+              "children": [
                 {
-                  "Literal": {
-                    "Value": "'OTRO'"
-                  }
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Importadora Brejim S.A.'"
+                      }
+                    }
+                  ],
+                  "isToggled": true,
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'OC-00198065'"
+                          }
+                        }
+                      ],
+                      "isToggled": true
+                    }
+                  ]
                 }
-              ],
-              "isToggled": true
+              ]
             }
           ]
         }

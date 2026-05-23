@@ -6,7 +6,7 @@
     "y": 140,
     "z": 14000,
     "height": 845,
-    "width": 523.75,
+    "width": 866.25,
     "tabOrder": 14000
   },
   "visual": {
@@ -43,7 +43,7 @@
               },
               "queryRef": "Consulta1.PO_HIJA",
               "nativeQueryRef": "PO_HIJA",
-              "active": true
+              "active": false
             }
           ]
         },
@@ -136,20 +136,7 @@
             "isPinned": true
           }
         ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'OC-00177200'"
-                  }
-                }
-              ],
-              "isToggled": true
-            }
-          ]
-        }
+        "root": {}
       }
     ],
     "objects": {

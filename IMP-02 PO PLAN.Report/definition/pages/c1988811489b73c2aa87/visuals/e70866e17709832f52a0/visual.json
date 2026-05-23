@@ -43,7 +43,7 @@
               },
               "queryRef": "PURCHASE_PBI.LLEGADA_PAIS",
               "nativeQueryRef": "Primera fecha: LLEGADA_PAIS",
-              "active": false
+              "active": true
             }
           ]
         },
@@ -257,5 +257,89 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "40dff0a74cb8ba282da2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PURCHASE_PBI"
+              }
+            },
+            "Property": "SEMANA_LLEGADA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "494284f39aca1b489bf0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PURCHASE_PBI"
+              }
+            },
+            "Property": "LLEGADA_PAIS"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "37516351c2f21cfe4915",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PURCHASE_PBI"
+              }
+            },
+            "Property": "RUTA_TRANSPORTE"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "54e5135bc1db3ebb7f72",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PURCHASE_PBI"
+                  }
+                },
+                "Property": "INVENTSITEAF"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bc64946b1c39b5f305b8",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PURCHASE_PBI"
+                  }
+                },
+                "Property": "SITIO_DEST_FINAL"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

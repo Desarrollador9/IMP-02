@@ -78,7 +78,7 @@
               },
               "queryRef": "PURCHASE_PBI.PURCHID",
               "nativeQueryRef": "PURCHID",
-              "active": false
+              "active": true
             },
             {
               "field": {
@@ -93,7 +93,7 @@
               },
               "queryRef": "CONTAINERS.CONTENEDOR",
               "nativeQueryRef": "CONTENEDOR",
-              "active": false
+              "active": true
             }
           ]
         },
@@ -260,6 +260,7 @@
                   }
                 }
               ],
+              "isToggled": true,
               "children": [
                 {
                   "identityValues": [

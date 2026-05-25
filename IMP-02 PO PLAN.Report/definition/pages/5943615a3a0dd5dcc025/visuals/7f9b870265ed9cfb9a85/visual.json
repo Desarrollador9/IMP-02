@@ -111,7 +111,7 @@
               },
               "queryRef": "PURCHASE_PBI.PURCHID",
               "nativeQueryRef": "OC",
-              "active": false,
+              "active": true,
               "displayName": "OC"
             },
             {
@@ -127,7 +127,7 @@
               },
               "queryRef": "PURCHASE_PBI.CONSOLIDADA",
               "nativeQueryRef": "Consolidado",
-              "active": false,
+              "active": true,
               "displayName": "Consolidado"
             }
           ]
@@ -372,6 +372,62 @@
                   ]
                 }
               ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Costa Oeste'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'ESTADOS UNIDOS'"
+                      }
+                    }
+                  ],
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'MICHIGAN (ESTADOS UNIDOS)'"
+                          }
+                        }
+                      ],
+                      "isToggled": true,
+                      "children": [
+                        {
+                          "identityValues": [
+                            {
+                              "Literal": {
+                                "Value": "'(COEC000) Cooperative Elevator Co. (Coopelev)'"
+                              }
+                            }
+                          ],
+                          "isToggled": true,
+                          "children": [
+                            {
+                              "identityValues": [
+                                {
+                                  "Literal": {
+                                    "Value": "'OC-00177200'"
+                                  }
+                                }
+                              ],
+                              "isToggled": true
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -468,7 +524,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "83.38860790994886D"
+                  "Value": "100.80989673388135D"
                 }
               }
             }

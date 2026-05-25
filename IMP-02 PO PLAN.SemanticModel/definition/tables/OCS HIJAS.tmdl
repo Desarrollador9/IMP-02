@@ -1,0 +1,35 @@
+table 'OCS HIJAS'
+	lineageTag: 733d9728-8983-4ebc-a507-491c320b4b82
+
+	column TipoOrden
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(20)
+		lineageTag: 0a700477-17e2-4974-a51a-425571d86a28
+		summarizeBy: none
+		sourceColumn: TipoOrden
+
+		annotation SummarizationSetBy = Automatic
+
+	column OC
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(20)
+		lineageTag: ddb4c94c-32c5-4911-975a-643d1351e051
+		summarizeBy: none
+		sourceColumn: OC
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'OCS HIJAS' = m
+		mode: directQuery
+		source =
+				let
+				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="select typepurchaseorder TipoOrden,  PURCHID as OC from purchtable"])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

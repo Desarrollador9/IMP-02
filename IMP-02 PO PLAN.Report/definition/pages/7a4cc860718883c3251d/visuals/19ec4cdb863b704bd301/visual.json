@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "19ec4cdb863b704bd301",
   "position": {
     "x": 1551.25,
@@ -235,6 +235,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "Aceptación Doc",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

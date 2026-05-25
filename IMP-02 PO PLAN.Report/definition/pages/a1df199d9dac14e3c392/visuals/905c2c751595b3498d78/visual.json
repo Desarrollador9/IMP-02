@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "905c2c751595b3498d78",
   "position": {
-    "x": 149,
-    "y": 154,
+    "x": 0,
+    "y": 142,
     "z": 15000,
     "height": 696,
     "width": 1701,
@@ -231,6 +231,21 @@
               },
               "queryRef": "select",
               "nativeQueryRef": "Inv Tar Exceso"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "Estado Autorización"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.Estado Autorización",
+              "nativeQueryRef": "Exceso",
+              "displayName": "Exceso"
             },
             {
               "field": {
@@ -748,5 +763,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "isHidden": true
 }

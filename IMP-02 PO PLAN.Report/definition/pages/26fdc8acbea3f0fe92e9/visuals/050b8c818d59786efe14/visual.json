@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
-  "name": "2a87d07d768eef0ac05a",
+  "name": "050b8c818d59786efe14",
   "position": {
-    "x": 976.55913978494618,
-    "y": 55.161290322580641,
-    "z": 25000,
-    "height": 79.6774193548387,
-    "width": 143.01075268817203,
-    "tabOrder": 25000
+    "x": 1247.5,
+    "y": 56.25,
+    "z": 15001,
+    "height": 76.25,
+    "width": 202.5,
+    "tabOrder": 15001
   },
   "visual": {
     "visualType": "slicer",
@@ -23,13 +23,12 @@
                       "Entity": "PURCHASE_PBI"
                     }
                   },
-                  "Property": "ESTADO"
+                  "Property": "TIPO_SERV"
                 }
               },
-              "queryRef": "PURCHASE_PBI.ESTADO",
-              "nativeQueryRef": "Estado del Pedido",
-              "active": true,
-              "displayName": "Estado del Pedido"
+              "queryRef": "PURCHASE_PBI.TIPO_SERV",
+              "nativeQueryRef": "TIPO_SERV",
+              "active": true
             }
           ]
         }
@@ -52,17 +51,17 @@
       "general": [
         {
           "properties": {
-            "selfFilterEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "outlineWeight": {
               "expr": {
                 "Literal": {
                   "Value": "6D"
+                }
+              }
+            },
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

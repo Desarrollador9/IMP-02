@@ -27,9 +27,9 @@
                 }
               },
               "queryRef": "PURCHASE_PBI.PURCHID",
-              "nativeQueryRef": "OC's",
+              "nativeQueryRef": "OC",
               "active": true,
-              "displayName": "OC's"
+              "displayName": "OC"
             }
           ]
         }

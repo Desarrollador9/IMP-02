@@ -149,6 +149,11 @@
         }
       ]
     },
+    "syncGroup": {
+      "groupName": "PURCHID1",
+      "fieldChanges": true,
+      "filterChanges": true
+    },
     "drillFilterOtherVisuals": true
   }
 }

@@ -289,6 +289,63 @@ table Sales
 
 		annotation PBI_FormatHint = {"isDecimal":true}
 
+	measure '% Valor Ventas' =
+			
+			VAR _denom =
+			    CALCULATE(
+			        SUMX(Sales, Sales[MONTO_VENTA] / 1000000),
+			        ALLSELECTED()
+			    )
+			RETURN
+			    DIVIDE(
+			        SUMX(Sales, Sales[MONTO_VENTA] / 1000000),
+			        _denom
+			    )
+		formatString: 0.00%
+		lineageTag: 5df15cbd-c562-488a-9a15-fd78cec08518
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// % del valor de ventas de artículos con ESTADOEXISTENCIAS = FALTANTE - evaluado desde CATALOGO_PBI_SALES para respetar el contexto del visual
+	measure '% Ventas Faltantes' =
+			VAR _keysFaltantes =
+			    CALCULATETABLE(
+			        VALUES( FILLRATEPBI[KEY_GEN] ),
+			        FILLRATEPBI[ESTADOEXISTENCIAS] = "FALTANTE",
+			        ALL( FILLRATEPBI )
+			    )
+			VAR _keysContexto =
+			    VALUES( PURCHASE_PBI[KEY_GEN] )
+			VAR _keysCruce =
+			    INTERSECT( _keysFaltantes, _keysContexto )
+			VAR _ventaFaltante =
+			    CALCULATE(
+			        SUMX( Sales, Sales[MONTO_VENTA] / 1000000 ),
+			        TREATAS( _keysCruce, CATALOGO_PBI_SALES[KEY_GEN] )
+			    )
+			VAR _ventaTotal =
+			    CALCULATE(
+			        SUMX( Sales, Sales[MONTO_VENTA] / 1000000 ),
+			        ALL( PURCHASE_PBI ),
+			        ALL( CATALOGO_PBI ),
+			        ALL( CATALOGO_PBI_SALES )
+			    )
+			RETURN
+			    DIVIDE( _ventaFaltante, _ventaTotal, 0 )
+		formatString: 0.00%
+		lineageTag: 3febc7c4-77a5-4373-a622-5aa71320cdc8
+
+	measure TEST2 =
+			CALCULATE(
+			    SUMX(Sales, Sales[MONTO_VENTA] / 1000000),
+			    FILTER(
+			        FILLRATEPBI,
+			        FILLRATEPBI[ESTADOEXISTENCIAS] = "FALTANTE"
+			    ),
+			    USERELATIONSHIP(FILLRATEPBI[KEY_GEN], CATALOGO_PBI_SALES[KEY_GEN])
+			)
+		lineageTag: 8e8ab7d4-b8a7-48e2-b9f0-c1bc9fd9f803
+
 	column MONTO_VENTA
 		dataType: double
 		lineageTag: eeb2defb-5c9b-4939-aada-f7e59cf03c4e

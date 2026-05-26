@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "bc922bbb4b39fa5aea58",
   "position": {
     "x": 391.42857142857144,
@@ -17,17 +17,22 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "PURCHASE_PBI"
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Hierarchy": "LLEGADA_PAIS Hierarchy"
                     }
                   },
-                  "Property": "SEMANA_LLEGADA"
+                  "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
                 }
               },
-              "queryRef": "PURCHASE_PBI.SEMANA_LLEGADA",
-              "nativeQueryRef": "SEMANA_LLEGADA",
+              "queryRef": "PURCHASE_PBI.LLEGADA_PAIS Hierarchy.Adjusted Arrival Date (Fecha De Llegada Ajustada)",
+              "nativeQueryRef": "LLEGADA_PAIS Hierarchy Adjusted Arrival Date (Fecha De Llegada Ajustada)",
               "active": true
             }
           ]

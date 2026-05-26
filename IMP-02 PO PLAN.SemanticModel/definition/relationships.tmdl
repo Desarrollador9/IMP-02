@@ -265,7 +265,6 @@ relationship 149b379b-6229-4ac4-4d7c-fd9886ddc94c
 	toColumn: CATALOGO_PBI_SALES.KEY_GEN
 
 relationship 9cbb7c49-f234-89a7-5666-edb7cc150346
-	crossFilteringBehavior: bothDirections
 	fromColumn: Sales.ITEMID
 	toColumn: 'CUBO INVENTARIOS'.'[Released products].[Articulo].[Articulo].[MEMBER_CAPTION]'
 
@@ -435,7 +434,6 @@ relationship 66476b4e-d0b5-461b-9fbf-e86c1faad60a
 	toColumn: LocalDateTable_2cbc5ae2-21c6-4b7c-aa51-df8802d851eb.Date
 
 relationship d2a50513-68f5-d022-d2b8-d09cec87307c
-	crossFilteringBehavior: bothDirections
 	fromColumn: InventCost.ITEMID
 	toColumn: CATALOGO_PBI_INVENTARIO.ITEMID
 
@@ -621,10 +619,6 @@ relationship 8aff326f-602f-44c9-9db4-4df43dc3793d
 	fromColumn: UPDATE.UPDATES
 	toColumn: LocalDateTable_e4a9d668-f3a7-461c-a5d4-cb37e7fb7c02.Date
 
-relationship 'PURCHASE_PBI_BL_BookingsMaersk (2)_BL'
-	fromColumn: PURCHASE_PBI.BL
-	toColumn: 'BookingsMaersk (2)'.BL
-
 relationship c102717e-cc2d-471f-b106-c6ffe197d863
 	joinOnDateBehavior: datePartOnly
 	fromColumn: Dates2_TEST.Fecha
@@ -638,6 +632,10 @@ relationship fecdc24e-feb1-4ca3-a38d-326a207f78ba
 relationship VEND_SALDO_a_PURCHASE_PBI
 	fromColumn: PURCHASE_PBI.PURCHID
 	toColumn: VEND_SALDO.OC_Extraida
+
+relationship 'PURCHASE_PBI_BL_BookingsMaersk (2)_BL'
+	fromColumn: PURCHASE_PBI.BL
+	toColumn: 'BookingsMaersk (2)'.BL
 
 relationship a7ba47d3-c945-ddfb-7631-511ff9c86333
 	crossFilteringBehavior: bothDirections
@@ -658,4 +656,8 @@ relationship PURCHASE_PBI_TRANSPORTISTA_FINAL_TRANSPORTISTAS_COD_TRANSPORTISTA
 	isActive: false
 	fromColumn: PURCHASE_PBI.TRANSPORTISTA_FINAL
 	toColumn: TRANSPORTISTAS.COD_TRANSPORTISTA
+
+relationship FILLRATEPBI_KEY_GEN_CATALOGO_PBI_SALES_KEY_GEN
+	fromColumn: FILLRATEPBI.KEY_GEN
+	toColumn: CATALOGO_PBI_SALES.KEY_GEN
 

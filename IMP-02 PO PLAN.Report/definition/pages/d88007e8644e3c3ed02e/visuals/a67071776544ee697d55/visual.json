@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
-  "name": "29a6cac9277db053ed50",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "a67071776544ee697d55",
   "position": {
-    "x": 1535.398813447594,
-    "y": 125.77455504284774,
-    "z": 17000,
-    "height": 68.820039551746873,
-    "width": 142.38628872775215,
-    "tabOrder": 17000
+    "x": 915,
+    "y": 156.25,
+    "z": 25000,
+    "height": 73.75,
+    "width": 202.5,
+    "tabOrder": 25000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                      "Entity": "Sales"
                     }
                   },
-                  "Property": "ENCARGADO"
+                  "Property": "WEEK"
                 }
               },
-              "queryRef": "CATALOGO_PBI_INVENTARIO.ENCARGADO",
-              "nativeQueryRef": "Enc Línea",
+              "queryRef": "Sales.WEEK",
+              "nativeQueryRef": "Semana",
               "active": true,
-              "displayName": "Enc Línea"
+              "displayName": "Semana"
             }
           ]
         }
@@ -45,6 +45,66 @@
                   "Value": "'Dropdown'"
                 }
               }
+            },
+            "isInvertedSelectionMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "outlineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "6D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "selectAllCheckboxEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
             }
           }
         }
@@ -55,7 +115,7 @@
             "textSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "10D"
                 }
               }
             }
@@ -74,17 +134,6 @@
                 }
               }
             },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#00496B'"
-                    }
-                  }
-                }
-              }
-            },
             "radius": {
               "expr": {
                 "Literal": {
@@ -92,83 +141,25 @@
                 }
               }
             },
-            "width": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "title": [
-        {
-          "properties": {
-            "titleWrap": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "background": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "padding": [
-        {
-          "properties": {
-            "top": {
-              "expr": {
-                "Literal": {
-                  "Value": "5D"
-                }
-              }
-            },
-            "bottom": {
-              "expr": {
-                "Literal": {
-                  "Value": "5D"
-                }
-              }
-            },
-            "left": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "right": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00496b'"
+                    }
+                  }
                 }
               }
             }
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "WEEK",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

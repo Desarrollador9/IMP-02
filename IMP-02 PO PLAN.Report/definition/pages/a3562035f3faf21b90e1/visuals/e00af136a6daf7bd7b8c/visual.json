@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "e00af136a6daf7bd7b8c",
   "position": {
     "x": 1675,
@@ -17,22 +17,17 @@
           "projections": [
             {
               "field": {
-                "HierarchyLevel": {
+                "Column": {
                   "Expression": {
-                    "Hierarchy": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "PURCHASE_PBI"
-                        }
-                      },
-                      "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                    "SourceRef": {
+                      "Entity": "Sales"
                     }
                   },
-                  "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                  "Property": "INVOICEDATE"
                 }
               },
-              "queryRef": "PURCHASE_PBI.SALIDA_AJUSTADA Hierarchy.Salida Ajustada",
-              "nativeQueryRef": "SALIDA_AJUSTADA Hierarchy Salida Ajustada",
+              "queryRef": "Sales.INVOICEDATE",
+              "nativeQueryRef": "INVOICEDATE",
               "active": true
             }
           ]
@@ -42,18 +37,13 @@
         "sort": [
           {
             "field": {
-              "HierarchyLevel": {
+              "Column": {
                 "Expression": {
-                  "Hierarchy": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "PURCHASE_PBI"
-                      }
-                    },
-                    "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                  "SourceRef": {
+                    "Entity": "Sales"
                   }
                 },
-                "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                "Property": "INVOICEDATE"
               }
             },
             "direction": "Ascending"
@@ -70,6 +60,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Between'"
+                }
+              }
+            },
+            "startDate": {
+              "expr": {
+                "Literal": {
+                  "Value": "datetime'1900-02-12T00:00:00'"
                 }
               }
             }
@@ -91,6 +88,42 @@
                 "Literal": {
                   "Value": "6D"
                 }
+              }
+            },
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "s",
+                    "Entity": "Sales",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "Comparison": {
+                        "ComparisonKind": 2,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "s"
+                              }
+                            },
+                            "Property": "INVOICEDATE"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "datetime'1900-02-12T00:00:00'"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
               }
             }
           }
@@ -162,6 +195,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "Estimated Time of Departure(Fecha Estimada De Salida)1",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

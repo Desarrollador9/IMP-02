@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
-  "name": "3a9ed3a0d770054195d6",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "998ab970f170de47eaee",
   "position": {
-    "x": 0,
-    "y": 156.62491760052737,
-    "z": 27000,
-    "height": 643.11140408701385,
-    "width": 950.42847725774561,
-    "tabOrder": 27000
+    "x": 683.63636363636363,
+    "y": 243.63636363636363,
+    "z": 24000,
+    "height": 556.36363636363637,
+    "width": 833.63636363636351,
+    "tabOrder": 24000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -116,92 +116,46 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "FILLRATEPBI"
-                        }
-                      },
-                      "Property": "PURCHID"
+                    "SourceRef": {
+                      "Entity": "Sales"
                     }
                   },
-                  "Function": 3
+                  "Property": "VALOR"
                 }
               },
-              "queryRef": "Min(FILLRATEPBI.PURCHID)",
-              "nativeQueryRef": "OC Prox Ingreso",
-              "displayName": "OC Prox Ingreso"
+              "queryRef": "Sales.VALOR",
+              "nativeQueryRef": "Valor Venta en M",
+              "displayName": "Valor Venta en M"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FILLRATEPBI"
+                      "Entity": "Sales"
                     }
                   },
-                  "Property": "% Ventas"
+                  "Property": "% Valor Ventas"
                 }
               },
-              "queryRef": "FILLRATEPBI.% Ventas",
-              "nativeQueryRef": "% Ventas"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "FILLRATEPBI"
-                        }
-                      },
-                      "Property": "INVNETO"
-                    }
-                  },
-                  "Function": 0
-                }
-              },
-              "queryRef": "Sum(FILLRATEPBI.INVNETO)",
-              "nativeQueryRef": "Cantidad",
-              "displayName": "Cantidad"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "CATALOGO_PBI_INVENTARIO"
-                        }
-                      },
-                      "Property": "UNIDAD_INVENTARIO"
-                    }
-                  },
-                  "Function": 3
-                }
-              },
-              "queryRef": "Min(CATALOGO_PBI_INVENTARIO.UNIDAD_INVENTARIO)",
-              "nativeQueryRef": "Unidad",
-              "displayName": "Unidad"
+              "queryRef": "Sales.% Valor Ventas",
+              "nativeQueryRef": "% Valor Ventas"
             },
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "PURCHASE_PBI"
+                      "Entity": "Sales"
                     }
                   },
-                  "Property": "DI_Actual"
+                  "Property": "% Ventas Faltantes"
                 }
               },
-              "queryRef": "PURCHASE_PBI.DI_Actual",
-              "nativeQueryRef": "Días Inventario",
-              "displayName": "Días Inventario"
+              "queryRef": "Sales.% Ventas Faltantes",
+              "nativeQueryRef": "% Ventas Faltantes"
             }
           ]
         }
@@ -210,21 +164,16 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Measure": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "CATALOGO_PBI_INVENTARIO"
-                      }
-                    },
-                    "Property": "UNIDAD_INVENTARIO"
+                  "SourceRef": {
+                    "Entity": "Sales"
                   }
                 },
-                "Function": 3
+                "Property": "VALOR"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -316,13 +265,26 @@
               "PURCHASE_PBI.Articulo_concat"
             ],
             "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "Articulo_concat"
+                }
+              }
+            ],
             "isPinned": true
           },
           {
             "queryRefs": [
               "CATALOGO_PBI.CICLO_VIDA"
             ],
-            "isCollapsed": true
+            "isCollapsed": true,
+            "isPinned": true
           }
         ],
         "root": {
@@ -331,7 +293,7 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'Alimentos'"
+                    "Value": "'Cuidado Personal'"
                   }
                 }
               ],
@@ -340,47 +302,17 @@
                   "identityValues": [
                     {
                       "Literal": {
-                        "Value": "'Confitería y Snacks'"
+                        "Value": "'Higiene Personal'"
                       }
                     }
                   ],
+                  "isToggled": true,
                   "children": [
                     {
                       "identityValues": [
                         {
                           "Literal": {
-                            "Value": "'Confites'"
-                          }
-                        }
-                      ],
-                      "isToggled": true
-                    },
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'Chocolates'"
-                          }
-                        }
-                      ],
-                      "isToggled": true
-                    }
-                  ]
-                },
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Baking'"
-                      }
-                    }
-                  ],
-                  "children": [
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'Harinas'"
+                            "Value": "'Papel Higiénico'"
                           }
                         }
                       ],
@@ -493,6 +425,88 @@
             }
           }
         }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sales.VALOR"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sales.% Ventas Faltantes"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -515,7 +529,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -545,5 +559,141 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "30a2081386f1fa5dd9c2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales"
+              }
+            },
+            "Property": "VALOR"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "s",
+              "Entity": "Sales",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "s"
+                            }
+                          },
+                          "Property": "VALOR"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "31c4d239b54bc4e2c87d",
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "FILLRATEPBI"
+                      }
+                    },
+                    "Property": "ESTADOEXISTENCIAS"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Aggregation": {
+                    "Expression": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FILLRATEPBI"
+                          }
+                        },
+                        "Property": "ESTADOEXISTENCIAS"
+                      }
+                    },
+                    "Function": 5
+                  }
+                },
+                "Scope": []
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "193d48e5629e0927946e",
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Sales"
+                  }
+                },
+                "Property": "% Ventas Faltantes"
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Sales"
+                      }
+                    },
+                    "Property": "% Ventas Faltantes"
+                  }
+                },
+                "Scope": []
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      }
+    ]
   }
 }

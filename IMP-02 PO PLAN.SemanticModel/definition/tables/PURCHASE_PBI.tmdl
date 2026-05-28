@@ -4291,6 +4291,188 @@ table PURCHASE_PBI
 		formatString: 0
 		lineageTag: 6cf066ee-70a4-4749-9e5f-7665aaed0b9c
 
+	/// Peso proporcional de cantidad del artículo vs total de la OC madre
+	measure COSTEO_Peso_Item =
+			VAR ocMadre = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
+			VAR cantItem = SUM('PURCHASE_PBI'[CANTIDAD])
+			VAR cantTotal = CALCULATE(
+			    SUM('PURCHASE_PBI'[CANTIDAD]),
+			    ALL('PURCHASE_PBI'),
+			    'PURCHASE_PBI'[PO_MADRE] = ocMadre
+			)
+			RETURN
+			    IF(ISBLANK(ocMadre) || cantTotal = 0, BLANK(), DIVIDE(cantItem, cantTotal))
+		displayFolder: COSTEO IMP
+		lineageTag: 5b947d7f-3258-4086-abe1-f0746affd0a3
+
+	/// Precio base del artículo (LINEAMOUNT / CANTIDAD)
+	measure COSTEO_Precio_Base = DIVIDE(SUM('PURCHASE_PBI'[LINEAMOUNT]), SUM('PURCHASE_PBI'[CANTIDAD]))
+		displayFolder: COSTEO IMP
+		lineageTag: 1b1ca426-ae32-4a96-a986-1cfe49b2cf9a
+
+	/// Cargo 1 - Sociaco Logistics S.A. (CRC) distribuido por peso de cantidad
+	measure COSTEO_Cargo1_SAC_CRC =
+			VAR ocMadre = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
+			VAR pesoItem = [COSTEO_Peso_Item]
+			VAR totalCargo1 = CALCULATE(
+			    SUM(Consulta1[LINEAMOUNT]),
+			    ALL(Consulta1),
+			    Consulta1[PO_MADRE] = ocMadre,
+			    Consulta1[ORDERACCOUNT] = "SAC000",
+			    Consulta1[MONEDA] = "CRC"
+			)
+			RETURN
+			    IF(ISBLANK(pesoItem) || ISBLANK(ocMadre), BLANK(), pesoItem * totalCargo1)
+		displayFolder: COSTEO IMP
+		lineageTag: faf23c94-01bc-4efa-84a1-6d70af5562c8
+
+	/// Cargo 2 - Mediterranean Shipping Company (USD) - primer flete
+	measure COSTEO_Cargo2_MSC_USD =
+			VAR ocMadre = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
+			VAR pesoItem = [COSTEO_Peso_Item]
+			VAR totalCargo = CALCULATE(
+			    SUM(Consulta1[LINEAMOUNT]),
+			    ALL(Consulta1),
+			    Consulta1[PO_MADRE] = ocMadre,
+			    Consulta1[ORDERACCOUNT] = "MSC000",
+			    Consulta1[MONEDA] = "USD",
+			    Consulta1[TIPOSERVICIO] = "Flete_Internacional"
+			)
+			RETURN
+			    IF(ISBLANK(pesoItem) || ISBLANK(ocMadre), BLANK(), pesoItem * totalCargo)
+		displayFolder: COSTEO IMP
+		lineageTag: 72c2218a-cf27-479e-b176-f54b7dd29668
+
+	/// Cargo 3 - Mediterranean Shipping Company otros cargos (USD)
+	measure COSTEO_Cargo3_MSC_USD =
+			VAR ocMadre = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
+			VAR pesoItem = [COSTEO_Peso_Item]
+			VAR totalCargo = CALCULATE(
+			    SUM(Consulta1[LINEAMOUNT]),
+			    ALL(Consulta1),
+			    Consulta1[PO_MADRE] = ocMadre,
+			    Consulta1[ORDERACCOUNT] = "MSC000",
+			    Consulta1[MONEDA] = "USD",
+			    OR(Consulta1[TIPOSERVICIO] = "Flete_Internacional_Terrestre", Consulta1[TIPOSERVICIO] = "Gastos Naviera")
+			)
+			RETURN
+			    IF(ISBLANK(pesoItem) || ISBLANK(ocMadre), BLANK(), pesoItem * totalCargo)
+		displayFolder: COSTEO IMP
+		lineageTag: f02a5a24-8144-451f-baec-2b887d3e7e62
+
+	/// Cargo 4 - Poliza Maritima (USD) distribuido por peso
+	measure COSTEO_Cargo4_Poliza_USD =
+			VAR ocMadre = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
+			VAR pesoItem = [COSTEO_Peso_Item]
+			VAR totalCargo = CALCULATE(
+			    SUM(Consulta1[LINEAMOUNT]),
+			    ALL(Consulta1),
+			    Consulta1[PO_MADRE] = ocMadre,
+			    Consulta1[ORDERACCOUNT] = "POL012",
+			    Consulta1[MONEDA] = "USD"
+			)
+			RETURN
+			    IF(ISBLANK(pesoItem) || ISBLANK(ocMadre), BLANK(), pesoItem * totalCargo)
+		displayFolder: COSTEO IMP
+		lineageTag: 6ad8bf1a-c7c3-451a-a0c6-b10db2983216
+
+	/// Impuestos Aduana (CRC) - Ministerio Hacienda distribuido por peso
+	measure COSTEO_Impuestos_CRC =
+			VAR ocMadre = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
+			VAR pesoItem = [COSTEO_Peso_Item]
+			VAR totalImpuestos = CALCULATE(
+			    SUM(Consulta1[LINEAMOUNT]),
+			    ALL(Consulta1),
+			    Consulta1[PO_MADRE] = ocMadre,
+			    Consulta1[ORDERACCOUNT] = "MHDT000",
+			    Consulta1[MONEDA] = "CRC"
+			)
+			RETURN
+			    IF(ISBLANK(pesoItem) || ISBLANK(ocMadre), BLANK(), pesoItem * totalImpuestos)
+		displayFolder: COSTEO IMP
+		lineageTag: 8e4dfb2e-ddbb-4751-8f95-8c964b0621f9
+
+	/// Monto de compra en USD = LINEAMOUNT de la OC madre por artículo
+	measure COSTEO_Monto_Compra_USD = SUM('PURCHASE_PBI'[LINEAMOUNT])
+		formatString: #,##0.00
+		displayFolder: COSTEO IMP
+		lineageTag: e264cabb-ca5f-4492-ac35-66c50e081613
+
+	/// Tasa de cambio CRC/USD - busca en tabla Consulta1 o usa valor por defecto
+	measure COSTEO_Tasa_CRC =
+			VAR tcDefault = 530
+			VAR tcFromData = CALCULATE(
+			    DIVIDE(
+			        SUMX(FILTER(Consulta1, Consulta1[MONEDA] = "CRC" && Consulta1[ORDERACCOUNT] = "MHDT000"), Consulta1[LINEAMOUNT]),
+			        SUMX(FILTER(Consulta1, Consulta1[MONEDA] = "USD" && Consulta1[ORDERACCOUNT] = "MHDT000"), Consulta1[LINEAMOUNT])
+			    )
+			)
+			RETURN tcDefault
+		displayFolder: COSTEO IMP
+		lineageTag: f62f8c12-38b8-418a-b20e-fedc27981636
+
+	/// Costo total por unidad de compra en USD = (Monto compra + cargos USD proporcionales) / CANTIDAD
+	measure COSTEO_Por_Unidad_Compra_USD =
+			VAR montoCompra = [COSTEO_Monto_Compra_USD]
+			VAR cargo2 = [COSTEO_Cargo2_MSC_USD]
+			VAR cargo3 = [COSTEO_Cargo3_MSC_USD]
+			VAR cargo4 = [COSTEO_Cargo4_Poliza_USD]
+			VAR cantidad = SUM('PURCHASE_PBI'[CANTIDAD])
+			VAR totalUSD = montoCompra + cargo2 + cargo3 + cargo4
+			RETURN
+			    IF(cantidad = 0 || ISBLANK(cantidad), BLANK(), DIVIDE(totalUSD, cantidad))
+		formatString: #,##0.0000
+		displayFolder: COSTEO IMP
+		lineageTag: c068e3f0-a74f-4edf-867e-57dc38a22c74
+
+	/// Costo por unidad de inventario en USD. Factor de conversión editable aquí hasta implementar tabla de conversiones.
+	measure COSTEO_Por_Unidad_Inventario_USD =
+			-- ⚠️ FACTOR_CONVERSION pendiente: editar el valor 1 abajo cuando se implemente
+			VAR factorConversion = 1
+			VAR porUnidadCompra = [COSTEO_Por_Unidad_Compra_USD]
+			RETURN
+			    IF(ISBLANK(porUnidadCompra), BLANK(), porUnidadCompra / factorConversion)
+		formatString: #,##0.0000
+		displayFolder: COSTEO IMP
+		lineageTag: ff21d6d2-0c31-4a61-b4db-ef9f0662f0bc
+
+	/// Monto total de compra en CRC = (Monto compra USD + cargos USD) * Tasa + Cargo1 CRC + Impuestos CRC
+	measure COSTEO_Monto_Compra_CRC =
+			VAR tasa = [COSTEO_Tasa_CRC]
+			VAR montoCompraUSD = [COSTEO_Monto_Compra_USD]
+			VAR cargo2 = [COSTEO_Cargo2_MSC_USD]
+			VAR cargo3 = [COSTEO_Cargo3_MSC_USD]
+			VAR cargo4 = [COSTEO_Cargo4_Poliza_USD]
+			VAR cargo1CRC = [COSTEO_Cargo1_SAC_CRC]
+			VAR impuestosCRC = [COSTEO_Impuestos_CRC]
+			VAR totalUSDenCRC = (montoCompraUSD + cargo2 + cargo3 + cargo4) * tasa
+			RETURN
+			    IF(ISBLANK(montoCompraUSD), BLANK(), totalUSDenCRC + cargo1CRC + impuestosCRC)
+		formatString: #,##0.00
+		displayFolder: COSTEO IMP
+		lineageTag: 1fa8b1f0-5165-42a7-8c36-9602ed543a09
+
+	/// Costo total por unidad de compra en CRC
+	measure COSTEO_Por_Unidad_Compra_CRC =
+			VAR montoCRC = [COSTEO_Monto_Compra_CRC]
+			VAR cantidad = SUM('PURCHASE_PBI'[CANTIDAD])
+			RETURN
+			    IF(cantidad = 0 || ISBLANK(cantidad), BLANK(), DIVIDE(montoCRC, cantidad))
+		formatString: #,##0.00
+		displayFolder: COSTEO IMP
+		lineageTag: 8b260ae4-9003-4f81-980f-b53510d489a3
+
+	/// Costo por unidad de inventario en CRC. Factor de conversión editable aquí hasta implementar tabla de conversiones.
+	measure COSTEO_Por_Unidad_Inventario_CRC =
+			-- ⚠️ FACTOR_CONVERSION pendiente: editar el valor 1 abajo cuando se implemente
+			VAR factorConversion = 1
+			VAR porUnidadCompra = [COSTEO_Por_Unidad_Compra_CRC]
+			RETURN
+			    IF(ISBLANK(porUnidadCompra), BLANK(), porUnidadCompra / factorConversion)
+		formatString: #,##0.00
+		displayFolder: COSTEO IMP
+		lineageTag: e508689f-4645-4481-945d-76ac740a8a7b
+
 	column DATAAREAID
 		dataType: string
 		lineageTag: 443f31b1-73fe-4bdd-b9e9-11802a085eec

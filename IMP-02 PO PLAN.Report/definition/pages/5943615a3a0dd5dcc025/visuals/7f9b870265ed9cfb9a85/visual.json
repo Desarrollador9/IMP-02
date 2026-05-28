@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "7f9b870265ed9cfb9a85",
   "position": {
     "x": 0,
-    "y": 219.93569131832797,
+    "y": 221,
     "z": 22000,
-    "height": 630.78778135048231,
-    "width": 1903.0546623794212,
+    "height": 629,
+    "width": 1903,
     "tabOrder": 22000
   },
   "visual": {
@@ -79,7 +79,7 @@
               },
               "queryRef": "METODOS_TRASLADO.SITIO_ORIGEN_PAIS",
               "nativeQueryRef": "Sitio",
-              "active": true,
+              "active": false,
               "displayName": "Sitio"
             },
             {
@@ -95,7 +95,7 @@
               },
               "queryRef": "VENDOR_NAME.CONCAT_NAME",
               "nativeQueryRef": "Proveedor1",
-              "active": true,
+              "active": false,
               "displayName": "Proveedor"
             },
             {
@@ -111,7 +111,7 @@
               },
               "queryRef": "PURCHASE_PBI.PURCHID",
               "nativeQueryRef": "OC",
-              "active": true,
+              "active": false,
               "displayName": "OC"
             },
             {
@@ -127,7 +127,7 @@
               },
               "queryRef": "PURCHASE_PBI.CONSOLIDADA",
               "nativeQueryRef": "Consolidado",
-              "active": true,
+              "active": false,
               "displayName": "Consolidado"
             }
           ]
@@ -183,6 +183,7 @@
             "queryRefs": [
               "lugar_pais.nombre_pais"
             ],
+            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -332,94 +333,6 @@
                                   "isToggled": true
                                 }
                               ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'ASIA'"
-                  }
-                }
-              ],
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'INDIA'"
-                      }
-                    }
-                  ],
-                  "children": [
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'Mundra (INDIA)'"
-                          }
-                        }
-                      ],
-                      "isToggled": true
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Costa Oeste'"
-                  }
-                }
-              ],
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'ESTADOS UNIDOS'"
-                      }
-                    }
-                  ],
-                  "children": [
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'MICHIGAN (ESTADOS UNIDOS)'"
-                          }
-                        }
-                      ],
-                      "isToggled": true,
-                      "children": [
-                        {
-                          "identityValues": [
-                            {
-                              "Literal": {
-                                "Value": "'(COEC000) Cooperative Elevator Co. (Coopelev)'"
-                              }
-                            }
-                          ],
-                          "isToggled": true,
-                          "children": [
-                            {
-                              "identityValues": [
-                                {
-                                  "Literal": {
-                                    "Value": "'OC-00177200'"
-                                  }
-                                }
-                              ],
-                              "isToggled": true
                             }
                           ]
                         }

@@ -115,6 +115,28 @@ table InventCost
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	/// Inventario físico en unidades. Retorna 0 si no hay stock. Usar en matriz para filtrar productos sin inventario.
+	measure 'Inventario Físico' =
+			VAR _inv = SUMX(InventCost, InventCost[INVENTARIO_FISICO])
+			RETURN IF(ISBLANK(_inv) || _inv <= 0, 0, _inv)
+		formatString: #,##0
+		displayFolder: Inventario
+		lineageTag: 1dca3903-a3ec-448a-ae9c-1345496f0b60
+
+	/// Devuelve el DI_Act_ConAF del articulo solo si cae dentro del rango seleccionado en el segmentador Dias Inventario. Usar en filtros visuales.
+	measure 'Filtro DI Activo' =
+			VAR _di = [DI_Act_ConAF]
+			VAR _min = MINX('Dias Inventario', 'Dias Inventario'[Dias Inventario])
+			VAR _max = MAXX('Dias Inventario', 'Dias Inventario'[Dias Inventario])
+			RETURN
+			    IF(
+			        _di >= _min && _di <= _max,
+			        _di,
+			        BLANK()
+			    )
+		formatString: 0
+		lineageTag: 27ea8f82-2111-4f9d-b986-5582fcc7924e
+
 	column ITEMID
 		dataType: string
 		lineageTag: 97fe5ca4-51e9-4864-b1e1-0cc86fb0ae52

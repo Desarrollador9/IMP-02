@@ -22,7 +22,11 @@ table Sales
 
 		annotation PBI_FormatHint = {"isDecimal":true}
 
-	measure VALOR = SUMX(SALES, SALES[MONTO_VENTA] / 1000000)
+	measure VALOR =
+			CALCULATE(
+			    SUMX(SALES, SALES[MONTO_VENTA] / 1000000),
+			    SALES[CodCliente] <> "MCM001"
+			)
 		formatString: 0.0
 		lineageTag: a5228d78-28e1-4436-93ca-c573daa9edb8
 
@@ -289,8 +293,7 @@ table Sales
 
 		annotation PBI_FormatHint = {"isDecimal":true}
 
-	measure '% Valor Ventas' =
-			
+	measure '% Valor Ventas' = ```
 			VAR _denom =
 			    CALCULATE(
 			        SUMX(Sales, Sales[MONTO_VENTA] / 1000000),
@@ -298,40 +301,37 @@ table Sales
 			    )
 			RETURN
 			    DIVIDE(
-			        SUMX(Sales, Sales[MONTO_VENTA] / 1000000),
+			        CALCULATE(
+			            SUMX(Sales, Sales[MONTO_VENTA] / 1000000)
+			        
+			        ),
 			        _denom
 			    )
+			```
 		formatString: 0.00%
 		lineageTag: 5df15cbd-c562-488a-9a15-fd78cec08518
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	/// % del valor de ventas de artículos con ESTADOEXISTENCIAS = FALTANTE - evaluado desde CATALOGO_PBI_SALES para respetar el contexto del visual
+	/// % del total de ventas que podría recuperarse si se tuviera inventario de los artículos que hoy tienen stock = 0. Itera sobre CATALOGO_PBI_SALES para incluir artículos que no tienen fila en InventCost.
 	measure '% Ventas Faltantes' =
-			VAR _keysFaltantes =
-			    CALCULATETABLE(
-			        VALUES( FILLRATEPBI[KEY_GEN] ),
-			        FILLRATEPBI[ESTADOEXISTENCIAS] = "FALTANTE",
-			        ALL( FILLRATEPBI )
+			VAR _itemsSinInventario =
+			    FILTER(
+			        VALUES( CATALOGO_PBI_SALES[ITEMID] ),
+			        CALCULATE( [INVENTARIO_ACTUAL] ) <= 0
 			    )
-			VAR _keysContexto =
-			    VALUES( PURCHASE_PBI[KEY_GEN] )
-			VAR _keysCruce =
-			    INTERSECT( _keysFaltantes, _keysContexto )
-			VAR _ventaFaltante =
+			VAR _ventaSinInv =
 			    CALCULATE(
 			        SUMX( Sales, Sales[MONTO_VENTA] / 1000000 ),
-			        TREATAS( _keysCruce, CATALOGO_PBI_SALES[KEY_GEN] )
+			        TREATAS( _itemsSinInventario, CATALOGO_PBI_SALES[ITEMID] )
 			    )
 			VAR _ventaTotal =
 			    CALCULATE(
 			        SUMX( Sales, Sales[MONTO_VENTA] / 1000000 ),
-			        ALL( PURCHASE_PBI ),
-			        ALL( CATALOGO_PBI ),
-			        ALL( CATALOGO_PBI_SALES )
+			        ALLSELECTED()
 			    )
 			RETURN
-			    DIVIDE( _ventaFaltante, _ventaTotal, 0 )
+			    DIVIDE( COALESCE( _ventaSinInv, 0 ), _ventaTotal, 0 )
 		formatString: 0.00%
 		lineageTag: 3febc7c4-77a5-4373-a622-5aa71320cdc8
 

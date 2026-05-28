@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "998ab970f170de47eaee",
   "position": {
-    "x": 683.63636363636363,
-    "y": 243.63636363636363,
+    "x": 65.555555555555557,
+    "y": 211.11111111111111,
     "z": 24000,
-    "height": 556.36363636363637,
-    "width": 833.63636363636351,
+    "height": 556.66666666666663,
+    "width": 1600,
     "tabOrder": 24000
   },
   "visual": {
@@ -44,7 +44,7 @@
               },
               "queryRef": "CATALOGO_PBI.SUBFAMILIA",
               "nativeQueryRef": "Subfamilia",
-              "active": false,
+              "active": true,
               "displayName": "Subfamilia"
             },
             {
@@ -60,7 +60,7 @@
               },
               "queryRef": "CATALOGO_PBI.PRODUCTCATEGORYID",
               "nativeQueryRef": "PRODUCTCATEGORYID",
-              "active": false
+              "active": true
             },
             {
               "field": {
@@ -75,7 +75,7 @@
               },
               "queryRef": "CATALOGO_PBI.SUBCATEGORIA",
               "nativeQueryRef": "Subcategoria",
-              "active": false,
+              "active": true,
               "displayName": "Subcategoria"
             },
             {
@@ -91,29 +91,33 @@
               },
               "queryRef": "PURCHASE_PBI.Articulo_concat",
               "nativeQueryRef": "Articulo_concat",
-              "active": false
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "CATALOGO_PBI"
-                    }
-                  },
-                  "Property": "CICLO_VIDA"
-                }
-              },
-              "queryRef": "CATALOGO_PBI.CICLO_VIDA",
-              "nativeQueryRef": "Ciclo",
-              "active": false,
-              "displayName": "Ciclo"
+              "active": true
             }
           ],
           "showAll": true
         },
         "Values": {
           "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "Articulo_concat2"
+                    }
+                  },
+                  "Function": 2
+                }
+              },
+              "queryRef": "Min(PURCHASE_PBI.Articulo_concat2)",
+              "nativeQueryRef": "# de Articulos",
+              "displayName": "# de Articulos"
+            },
             {
               "field": {
                 "Measure": {
@@ -141,7 +145,8 @@
                 }
               },
               "queryRef": "Sales.% Valor Ventas",
-              "nativeQueryRef": "% Valor Ventas"
+              "nativeQueryRef": "% Valor Ventas con Inv=0",
+              "displayName": "% Valor Ventas con Inv=0"
             },
             {
               "field": {
@@ -156,6 +161,36 @@
               },
               "queryRef": "Sales.% Ventas Faltantes",
               "nativeQueryRef": "% Ventas Faltantes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "Inv + AF en Tarimas"
+                }
+              },
+              "queryRef": "InventCost.Inv + AF en Tarimas",
+              "nativeQueryRef": "Inventario en Tarimas",
+              "displayName": "Inventario en Tarimas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "DI_Act_ConAF"
+                }
+              },
+              "queryRef": "InventCost.DI_Act_ConAF",
+              "nativeQueryRef": "Dias Inventario",
+              "displayName": "Dias Inventario"
             }
           ]
         }
@@ -170,7 +205,7 @@
                     "Entity": "Sales"
                   }
                 },
-                "Property": "VALOR"
+                "Property": "% Ventas Faltantes"
               }
             },
             "direction": "Descending"
@@ -278,13 +313,6 @@
               }
             ],
             "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "CATALOGO_PBI.CICLO_VIDA"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
           }
         ],
         "root": {
@@ -293,16 +321,17 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'Cuidado Personal'"
+                    "Value": "'Bebidas'"
                   }
                 }
               ],
+              "isToggled": true,
               "children": [
                 {
                   "identityValues": [
                     {
                       "Literal": {
-                        "Value": "'Higiene Personal'"
+                        "Value": "'Bebidas en polvo'"
                       }
                     }
                   ],
@@ -312,7 +341,188 @@
                       "identityValues": [
                         {
                           "Literal": {
-                            "Value": "'Papel Higiénico'"
+                            "Value": "'Café'"
+                          }
+                        }
+                      ],
+                      "isToggled": true,
+                      "children": [
+                        {
+                          "identityValues": [
+                            {
+                              "Literal": {
+                                "Value": "'Café Torrefacto'"
+                              }
+                            }
+                          ],
+                          "isToggled": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Uso Industrial'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Empaque'"
+                      }
+                    }
+                  ],
+                  "isToggled": true,
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'Plástico para paletizar'"
+                          }
+                        }
+                      ],
+                      "isToggled": true,
+                      "children": [
+                        {
+                          "identityValues": [
+                            {
+                              "Literal": {
+                                "Value": "'Plástico para paletizar'"
+                              }
+                            }
+                          ],
+                          "isToggled": true,
+                          "children": [
+                            {
+                              "identityValues": [
+                                {
+                                  "Literal": {
+                                    "Value": "'(MTMEMM174) PLASTICO PARA PALETIZAR 18 PULG x 1200 PIES 400% PRESTRETCH RATE (DI min): 60'"
+                                  }
+                                }
+                              ],
+                              "isToggled": true
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Construcción'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Productos de acero'"
+                      }
+                    }
+                  ],
+                  "isToggled": true,
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'Productos de acero'"
+                          }
+                        }
+                      ],
+                      "isToggled": true,
+                      "children": [
+                        {
+                          "identityValues": [
+                            {
+                              "Literal": {
+                                "Value": "'Productos de acero'"
+                              }
+                            }
+                          ],
+                          "isToggled": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Cuidado del Hogar'"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Ferretería'"
+                      }
+                    }
+                  ],
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'Iluminación'"
+                          }
+                        }
+                      ],
+                      "isToggled": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Alimentos'"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Grasas y Aceites'"
+                      }
+                    }
+                  ],
+                  "isToggled": true,
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'Aceites de Cocina'"
                           }
                         }
                       ],
@@ -507,6 +717,21 @@
             "metadata": "Sales.% Ventas Faltantes"
           }
         }
+      ],
+      "values": [
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "InventCost.Inv + AF en Tarimas"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -563,7 +788,359 @@
   "filterConfig": {
     "filters": [
       {
+        "name": "b5cf0b9cccca21aa428c",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales"
+              }
+            },
+            "Property": "% Valor Ventas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a7019dae38deeb1ca136",
+        "ordinal": 1,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventCost"
+              }
+            },
+            "Property": "Filtro DI Activo"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "i",
+              "Entity": "InventCost",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "i"
+                            }
+                          },
+                          "Property": "Filtro DI Activo"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "985715383dae46341394",
+        "ordinal": 2,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales"
+              }
+            },
+            "Property": "% Ventas Faltantes"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "193d48e5629e0927946e",
+        "ordinal": 3,
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Sales"
+                  }
+                },
+                "Property": "% Ventas Faltantes"
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Sales"
+                      }
+                    },
+                    "Property": "% Ventas Faltantes"
+                  }
+                },
+                "Scope": []
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "31c4d239b54bc4e2c87d",
+        "ordinal": 4,
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "FILLRATEPBI"
+                      }
+                    },
+                    "Property": "ESTADOEXISTENCIAS"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Aggregation": {
+                    "Expression": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "FILLRATEPBI"
+                          }
+                        },
+                        "Property": "ESTADOEXISTENCIAS"
+                      }
+                    },
+                    "Function": 5
+                  }
+                },
+                "Scope": []
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "5795277eb886159ea8b5",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI"
+              }
+            },
+            "Property": "FAMILYID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e9e04838a845906863c3",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PURCHASE_PBI"
+              }
+            },
+            "Property": "Articulo_concat"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7c843b773563cfbf265d",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales"
+              }
+            },
+            "Property": "CodCliente"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "s",
+              "Entity": "Sales",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "s"
+                              }
+                            },
+                            "Property": "CodCliente"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'MCM001'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "260b527a66f07c5a60e2",
+        "ordinal": 8,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Sales"
+                  }
+                },
+                "Property": "CodCliente"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "9f32b79b08eb10f3d381",
+        "ordinal": 9,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI"
+              }
+            },
+            "Property": "PRODUCTCATEGORYID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4898180bf5454a301ca7",
+        "ordinal": 10,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI"
+              }
+            },
+            "Property": "SUBCATEGORIA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "eb740e4ef1ebb6bbf8bd",
+        "ordinal": 11,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI"
+              }
+            },
+            "Property": "SUBFAMILIA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f37298b5c6c13dc7b8ea",
+        "ordinal": 12,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventCost"
+              }
+            },
+            "Property": "Inv + AF en Tarimas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
         "name": "30a2081386f1fa5dd9c2",
+        "ordinal": 13,
         "field": {
           "Measure": {
             "Expression": {
@@ -615,85 +1192,21 @@
         }
       },
       {
-        "name": "31c4d239b54bc4e2c87d",
+        "name": "033ff3ea1d60a61c1b99",
+        "ordinal": 14,
         "field": {
-          "Arithmetic": {
-            "Left": {
-              "Aggregation": {
-                "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FILLRATEPBI"
-                      }
-                    },
-                    "Property": "ESTADOEXISTENCIAS"
-                  }
-                },
-                "Function": 5
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventCost"
               }
             },
-            "Right": {
-              "ScopedEval": {
-                "Expression": {
-                  "Aggregation": {
-                    "Expression": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "FILLRATEPBI"
-                          }
-                        },
-                        "Property": "ESTADOEXISTENCIAS"
-                      }
-                    },
-                    "Function": 5
-                  }
-                },
-                "Scope": []
-              }
-            },
-            "Operator": 3
+            "Property": "DI_Act_ConAF"
           }
         },
-        "type": "Advanced",
-        "howCreated": "User"
-      },
-      {
-        "name": "193d48e5629e0927946e",
-        "field": {
-          "Arithmetic": {
-            "Left": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Sales"
-                  }
-                },
-                "Property": "% Ventas Faltantes"
-              }
-            },
-            "Right": {
-              "ScopedEval": {
-                "Expression": {
-                  "Measure": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "Sales"
-                      }
-                    },
-                    "Property": "% Ventas Faltantes"
-                  }
-                },
-                "Scope": []
-              }
-            },
-            "Operator": 3
-          }
-        },
-        "type": "Advanced",
-        "howCreated": "User"
+        "type": "Advanced"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }

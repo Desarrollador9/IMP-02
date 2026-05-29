@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "0efb865a343960be2074",
   "position": {
-    "x": 1713.6,
-    "y": 156.4,
+    "x": 613.71127224785766,
+    "y": 135.26697429136453,
     "z": 25000,
-    "height": 64.6,
-    "width": 187,
+    "height": 63.876071193144369,
+    "width": 186.61832564271589,
     "tabOrder": 25000
   },
   "visual": {
@@ -142,6 +142,19 @@
                       "Value": "'#00496b'"
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "showPinButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

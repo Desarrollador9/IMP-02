@@ -1,35 +1,13 @@
 table FILLRATEPBI
 	lineageTag: 777404f6-1af7-4d57-86ae-c15b043876c1
 
-	measure '% Ventas' =
-			
-			VAR _denom =
-			    CALCULATE(
-			        SUM(FILLRATEPBI[VENTAS]),
-			        ALLSELECTED(),
-			        ALL(FILLRATEPBI[ESTADOEXISTENCIAS])
-			    )
-			VAR _pctFila = DIVIDE(SUM(FILLRATEPBI[VENTAS]), _denom)
-			VAR _esFilaDetalle =
-			    ISINSCOPE(CATALOGO_PBI[FAMILYID])
-			    || ISINSCOPE(CATALOGO_PBI[SUBFAMILIA])
-			    || ISINSCOPE(CATALOGO_PBI[PRODUCTCATEGORYID])
-			    || ISINSCOPE(CATALOGO_PBI[SUBCATEGORIA])
-			    || ISINSCOPE(PURCHASE_PBI[ARTICULO_CONCAT])
-			    || ISINSCOPE(CATALOGO_PBI[CICLO_VIDA])
-			RETURN
-			    IF(
-			        _esFilaDetalle,
-			        _pctFila,
-			        SUMX(
-			            VALUES(CATALOGO_PBI[FAMILYID]),
-			            VAR _items = CALCULATETABLE(VALUES(CATALOGO_PBI_INVENTARIO[ITEMID]))
-			            VAR _num = CALCULATE(SUM(FILLRATEPBI[VENTAS]), _items)
-			            RETURN DIVIDE(_num, _denom)
-			        )
-			    )
-		formatString: 0.00%;-0.00%;0.00%
-		lineageTag: 35c7268a-7fcd-4af4-b256-327d94b0c582
+	measure '% Art Faltantes' =
+			DIVIDE(
+			    CALCULATE(COUNTROWS(FILLRATEPBI), FILLRATEPBI[ESTADOEXISTENCIAS] = "FALTANTE"),
+			    COUNTROWS(FILLRATEPBI)
+			)
+		formatString: 0.00%
+		lineageTag: 8f33d966-2332-4a7f-8d99-f4903d0fb21c
 
 	column DATAAREAID
 		dataType: string
@@ -246,11 +224,17 @@ table FILLRATEPBI
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column KEY_GEN = FILLRATEPBI[DATAAREAID] & FILLRATEPBI[ITEMID]
+		lineageTag: 9e074958-b7f8-4e7d-8543-040f858a4b6b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FILLRATEPBI = m
 		mode: import
 		source =
 				let
-				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [MultiSubnetFailover=true]),
+				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [MultiSubnetFailover=true]),
 				    dbo_FILLRATEPBI = Source{[Schema="dbo",Item="FILLRATEPBI"]}[Data]
 				in
 				    dbo_FILLRATEPBI

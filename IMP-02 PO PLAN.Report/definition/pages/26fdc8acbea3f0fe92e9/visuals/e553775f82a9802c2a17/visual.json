@@ -65,44 +65,6 @@
                   "Value": "6D"
                 }
               }
-            },
-            "selfFilter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "p",
-                    "Entity": "PURCHASE_PBI",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "Contains": {
-                        "Left": {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "p"
-                              }
-                            },
-                            "Property": "PURCHID"
-                          }
-                        },
-                        "Right": {
-                          "Literal": {
-                            "Value": "'107595'"
-                          }
-                        }
-                      }
-                    },
-                    "Annotations": {
-                      "PowerBI.MParameterBehavior": 1
-                    }
-                  }
-                ]
-              }
             }
           }
         }

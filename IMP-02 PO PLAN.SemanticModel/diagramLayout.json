@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 5666.0958904109584,
+        "x": 6517.6825202802975,
         "y": 0
       },
       "nodes": [
@@ -672,6 +672,44 @@
             "y": 0
           },
           "nodeIndex": "TRANSPORTISTAS",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7003.35375315701,
+            "y": 0
+          },
+          "nodeIndex": "DI Minimo",
+          "nodeLineageTag": "88cd3a33-e8a9-472e-b55e-d59bdac29864",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7237.35375315701,
+            "y": 0
+          },
+          "nodeIndex": "Dias Inventario",
+          "nodeLineageTag": "61c69482-245f-4d64-8bb7-a1f823d88699",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7471.35375315701,
+            "y": 0
+          },
+          "nodeIndex": "RESUMEN_CTRL_CONT",
           "size": {
             "height": 200,
             "width": 234

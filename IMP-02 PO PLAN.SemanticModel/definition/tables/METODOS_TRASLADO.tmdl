@@ -152,7 +152,7 @@ table METODOS_TRASLADO
 		mode: import
 		source =
 				let
-				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [MultiSubnetFailover=true]),
+				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [MultiSubnetFailover=true]),
 				    dbo_METODOS_TRASLADO = Source{[Schema="dbo",Item="METODOS_TRASLADO"]}[Data],
 				    #"Texto en mayúsculas" = Table.TransformColumns(dbo_METODOS_TRASLADO,{{"SITIO_PAIS_ORIGEN", Text.Upper, type text}}),
 				    #"Valor reemplazado" = Table.ReplaceValue(#"Texto en mayúsculas","PAÍSES BAJOS","HOLANDA (PAISES BAJOS)",Replacer.ReplaceText,{"SITIO_PAIS_ORIGEN"}),

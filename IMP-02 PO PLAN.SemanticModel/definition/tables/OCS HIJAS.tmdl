@@ -25,7 +25,7 @@ table 'OCS HIJAS'
 		mode: directQuery
 		source =
 				let
-				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="select typepurchaseorder TipoOrden,  PURCHID as OC from purchtable"])
+				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="select typepurchaseorder TipoOrden,  PURCHID as OC from purchtable"])
 				in
 				    Origen
 

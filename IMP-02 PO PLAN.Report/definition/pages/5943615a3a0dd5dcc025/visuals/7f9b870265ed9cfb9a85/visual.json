@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "7f9b870265ed9cfb9a85",
   "position": {
     "x": 0,
@@ -109,7 +109,7 @@
               },
               "queryRef": "METODOS_TRASLADO.SITIO_ORIGEN_PAIS",
               "nativeQueryRef": "Sitio",
-              "active": true,
+              "active": false,
               "displayName": "Sitio"
             },
             {
@@ -125,7 +125,7 @@
               },
               "queryRef": "VENDOR_NAME.CONCAT_NAME",
               "nativeQueryRef": "Proveedor1",
-              "active": true,
+              "active": false,
               "displayName": "Proveedor"
             },
             {
@@ -141,7 +141,7 @@
               },
               "queryRef": "PURCHASE_PBI.PURCHID",
               "nativeQueryRef": "OC",
-              "active": true,
+              "active": false,
               "displayName": "OC"
             },
             {
@@ -157,7 +157,7 @@
               },
               "queryRef": "PURCHASE_PBI.CONSOLIDADA",
               "nativeQueryRef": "Consolidado",
-              "active": true,
+              "active": false,
               "displayName": "Consolidado"
             }
           ]
@@ -213,6 +213,7 @@
             "queryRefs": [
               "lugar_pais.nombre_pais"
             ],
+            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {

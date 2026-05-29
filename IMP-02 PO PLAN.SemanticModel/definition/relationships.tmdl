@@ -265,7 +265,6 @@ relationship 149b379b-6229-4ac4-4d7c-fd9886ddc94c
 	toColumn: CATALOGO_PBI_SALES.KEY_GEN
 
 relationship 9cbb7c49-f234-89a7-5666-edb7cc150346
-	crossFilteringBehavior: bothDirections
 	fromColumn: Sales.ITEMID
 	toColumn: 'CUBO INVENTARIOS'.'[Released products].[Articulo].[Articulo].[MEMBER_CAPTION]'
 
@@ -435,7 +434,6 @@ relationship 66476b4e-d0b5-461b-9fbf-e86c1faad60a
 	toColumn: LocalDateTable_2cbc5ae2-21c6-4b7c-aa51-df8802d851eb.Date
 
 relationship d2a50513-68f5-d022-d2b8-d09cec87307c
-	crossFilteringBehavior: bothDirections
 	fromColumn: InventCost.ITEMID
 	toColumn: CATALOGO_PBI_INVENTARIO.ITEMID
 
@@ -658,4 +656,8 @@ relationship PURCHASE_PBI_TRANSPORTISTA_FINAL_TRANSPORTISTAS_COD_TRANSPORTISTA
 	isActive: false
 	fromColumn: PURCHASE_PBI.TRANSPORTISTA_FINAL
 	toColumn: TRANSPORTISTAS.COD_TRANSPORTISTA
+
+relationship FILLRATEPBI_KEY_GEN_CATALOGO_PBI_SALES_KEY_GEN
+	fromColumn: FILLRATEPBI.KEY_GEN
+	toColumn: CATALOGO_PBI_SALES.KEY_GEN
 

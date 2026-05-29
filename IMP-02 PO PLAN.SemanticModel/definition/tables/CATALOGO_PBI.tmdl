@@ -283,7 +283,7 @@ table CATALOGO_PBI
 		mode: import
 		source =
 				let
-				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [MultiSubnetFailover=true]),
+				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [MultiSubnetFailover=true]),
 				    dbo_CATALOGO_PBI = Source{[Schema="dbo",Item="CATALOGO_PBI"]}[Data]
 				in
 				    dbo_CATALOGO_PBI

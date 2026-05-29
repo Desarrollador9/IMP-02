@@ -29039,6 +29039,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Valor Venta en M": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -29700,16 +29710,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "Días Inventario": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -40344,6 +40344,16 @@ cultureInfo en-US
 			        },
 			        {
 			          "Días Inventario + AF": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Dias Inventario": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -61000,6 +61010,16 @@ cultureInfo en-US
 			          "inv + AF en tarimas": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Inventario en Tarimas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -62750,6 +62770,87 @@ cultureInfo en-US
 			      "Terms": [
 			        {
 			          "SITIO": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sales.valor_ventas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sales",
+			          "ConceptualProperty": "% Valor Ventas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Valor Ventas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sales.ventas_faltantes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sales",
+			          "ConceptualProperty": "% Ventas Faltantes"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "inventcost.posible_faltante_di": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InventCost",
+			          "ConceptualProperty": "Posible Faltante DI"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "sales.ventas_en_riesgo_di": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sales",
+			          "ConceptualProperty": "% Ventas en Riesgo DI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Ventas Posibles Faltantes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sales.ventas_faltantes_fijo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sales",
+			          "ConceptualProperty": "% Ventas Faltantes (Fijo)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Ventas Faltantes con Inv 0": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

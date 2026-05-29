@@ -154,6 +154,9 @@ ref table 'OCS HIJAS'
 ref table OCs_Sin_Flete
 ref table TRANSPORTISTAS
 ref table LocalDateTable_eaf91acb-1efa-4437-b6e7-3d959ce0fa34
+ref table 'DI Minimo'
+ref table 'Dias Inventario'
+ref table RESUMEN_CTRL_CONT
 
 ref cultureInfo en-US
 

@@ -126,28 +126,13 @@ table COTIZACIONES
 
 	partition COTIZACIONES = m
 		mode: import
-		source = ```
+		source =
 				let
-				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="SELECT DISTINCT DATAAREAID AS EMPRESA,
-				ITEMRELATION AS PRODUCTO,
-				ACCOUNTRELATION AS PROVEEDOR,
-				FROMDATE AS DESDE,
-				TODATE AS HASTA,
-				UNITID AS UNIDAD,
-				CURRENCY AS MONEDA,
-				AMOUNT AS MONTO
-				FROM PRICEDISCTABLE
-				WHERE 
-				RELATION = 0 
-				AND (TODATE = ('1900-01-01 00:00:00.000') OR TODATE > GETDATE())
-				AND DATAAREAID = 'CMER'
-				AND MODULE = 2 
-				AND PARTITION = 5637144576", MultiSubnetFailover=true]),
+				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="SELECT DISTINCT DATAAREAID AS EMPRESA,#(lf)ITEMRELATION AS PRODUCTO,#(lf)ACCOUNTRELATION AS PROVEEDOR,#(lf)FROMDATE AS DESDE,#(lf)TODATE AS HASTA,#(lf)UNITID AS UNIDAD,#(lf)CURRENCY AS MONEDA,#(lf)AMOUNT AS MONTO#(lf)FROM PRICEDISCTABLE#(lf)WHERE #(lf)RELATION = 0 #(lf)AND (TODATE = ('1900-01-01 00:00:00.000') OR TODATE > GETDATE())#(lf)AND DATAAREAID = 'CMER'#(lf)AND MODULE = 2 #(lf)AND PARTITION = 5637144576", MultiSubnetFailover=true]),
 				    #"Personalizada agregada" = Table.AddColumn(Origen, "KEY", each [EMPRESA]&[PRODUCTO]),
 				    #"Personalizada agregada1" = Table.AddColumn(#"Personalizada agregada", "KEY_1", each [EMPRESA]&[PROVEEDOR])
 				in
 				    #"Personalizada agregada1"
-				```
 
 	annotation PBI_ResultType = Table
 

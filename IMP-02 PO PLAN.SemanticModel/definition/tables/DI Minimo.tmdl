@@ -1,0 +1,26 @@
+table 'DI Minimo'
+	lineageTag: 88cd3a33-e8a9-472e-b55e-d59bdac29864
+
+	measure 'Valor de DI Minimo' = SELECTEDVALUE('DI Minimo'[DI Minimo])
+		formatString: 0
+		lineageTag: ea191e02-1d4b-4bcc-8f9d-a5aae0d7050f
+
+	column 'DI Minimo'
+		formatString: 0
+		lineageTag: 518e72c4-2282-4d01-8357-bf57ec8f761a
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition 'DI Minimo' = calculated
+		mode: import
+		source = GENERATESERIES(0, 999, 1)
+
+	annotation PBI_Id = aa5693cf40f44b8ba80d2ae488282f5d
+

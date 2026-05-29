@@ -45,6 +45,13 @@
                   "Value": "'Dropdown'"
                 }
               }
+            },
+            "isInvertedSelectionMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -229,6 +236,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "Ciclo Concat",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

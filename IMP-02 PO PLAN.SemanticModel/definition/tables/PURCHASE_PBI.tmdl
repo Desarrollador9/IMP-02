@@ -6644,7 +6644,7 @@ table PURCHASE_PBI
 		mode: import
 		source = ```
 				let
-				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [MultiSubnetFailover=true]),
+				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [MultiSubnetFailover=true]),
 				    dbo_PURCHASE_PBI = Source{[Schema="dbo",Item="PURCHASE_PBI"]}[Data],
 				    #"Added Custom" = Table.AddColumn(dbo_PURCHASE_PBI, "Artículo", each "("&[ITEMID]&")"&" "&[PRODUCTNAME]),
 				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "KEY", each [DATAAREAID]&[ORDERACCOUNT]),

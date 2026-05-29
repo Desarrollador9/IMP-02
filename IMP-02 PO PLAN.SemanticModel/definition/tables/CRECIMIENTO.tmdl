@@ -35,16 +35,11 @@ table CRECIMIENTO
 
 	partition CRECIMIENTO = m
 		mode: import
-		source = ```
+		source =
 				let
-				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="SELECT ITEMID,GROWTH,STARTDATE FROM ForecastSales 
-				WHERE DATEPART(WEEK,STARTDATE) = DATEPART(WEEK,GETDATE()) 
-				AND DATEPART(YEAR,STARTDATE) = DATEPART(YEAR,GETDATE()) 
-				AND DATAAREAID = 'CMER' 
-				AND PARTITION = '5637144576'", MultiSubnetFailover=true])
+				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="SELECT ITEMID,GROWTH,STARTDATE FROM ForecastSales #(lf)WHERE DATEPART(WEEK,STARTDATE) = DATEPART(WEEK,GETDATE()) #(lf)AND DATEPART(YEAR,STARTDATE) = DATEPART(YEAR,GETDATE()) #(lf)AND DATAAREAID = 'CMER' #(lf)AND PARTITION = '5637144576'", MultiSubnetFailover=true])
 				in
 				    Origen
-				```
 
 	annotation PBI_ResultType = Table
 

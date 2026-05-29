@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "998ab970f170de47eaee",
   "position": {
-    "x": 65.555555555555557,
-    "y": 211.11111111111111,
+    "x": 0,
+    "y": 287.5,
     "z": 24000,
-    "height": 556.66666666666663,
-    "width": 1600,
+    "height": 512.5,
+    "width": 1771.25,
     "tabOrder": 24000
   },
   "visual": {
@@ -60,7 +60,7 @@
               },
               "queryRef": "CATALOGO_PBI.PRODUCTCATEGORYID",
               "nativeQueryRef": "PRODUCTCATEGORYID",
-              "active": true
+              "active": false
             },
             {
               "field": {
@@ -75,7 +75,7 @@
               },
               "queryRef": "CATALOGO_PBI.SUBCATEGORIA",
               "nativeQueryRef": "Subcategoria",
-              "active": true,
+              "active": false,
               "displayName": "Subcategoria"
             },
             {
@@ -91,7 +91,7 @@
               },
               "queryRef": "PURCHASE_PBI.Articulo_concat",
               "nativeQueryRef": "Articulo_concat",
-              "active": true
+              "active": false
             }
           ],
           "showAll": true
@@ -145,22 +145,8 @@
                 }
               },
               "queryRef": "Sales.% Valor Ventas",
-              "nativeQueryRef": "% Valor Ventas con Inv=0",
-              "displayName": "% Valor Ventas con Inv=0"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Sales"
-                    }
-                  },
-                  "Property": "% Ventas Faltantes"
-                }
-              },
-              "queryRef": "Sales.% Ventas Faltantes",
-              "nativeQueryRef": "% Ventas Faltantes"
+              "nativeQueryRef": "% Valor Ventas",
+              "displayName": "% Valor Ventas"
             },
             {
               "field": {
@@ -191,26 +177,24 @@
               "queryRef": "InventCost.DI_Act_ConAF",
               "nativeQueryRef": "Dias Inventario",
               "displayName": "Dias Inventario"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales"
+                    }
+                  },
+                  "Property": "% Ventas en Riesgo DI"
+                }
+              },
+              "queryRef": "Sales.% Ventas en Riesgo DI",
+              "nativeQueryRef": "% Ventas Posibles Faltantes ",
+              "displayName": "% Ventas Posibles Faltantes "
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Sales"
-                  }
-                },
-                "Property": "% Ventas Faltantes"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "expansionStates": [
@@ -321,52 +305,6 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'Bebidas'"
-                  }
-                }
-              ],
-              "isToggled": true,
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Bebidas en polvo'"
-                      }
-                    }
-                  ],
-                  "isToggled": true,
-                  "children": [
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'Café'"
-                          }
-                        }
-                      ],
-                      "isToggled": true,
-                      "children": [
-                        {
-                          "identityValues": [
-                            {
-                              "Literal": {
-                                "Value": "'Café Torrefacto'"
-                              }
-                            }
-                          ],
-                          "isToggled": true
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
                     "Value": "'Uso Industrial'"
                   }
                 }
@@ -380,7 +318,6 @@
                       }
                     }
                   ],
-                  "isToggled": true,
                   "children": [
                     {
                       "identityValues": [
@@ -390,7 +327,6 @@
                           }
                         }
                       ],
-                      "isToggled": true,
                       "children": [
                         {
                           "identityValues": [
@@ -400,7 +336,6 @@
                               }
                             }
                           ],
-                          "isToggled": true,
                           "children": [
                             {
                               "identityValues": [
@@ -424,7 +359,7 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'Construcción'"
+                    "Value": "''"
                   }
                 }
               ],
@@ -433,7 +368,7 @@
                   "identityValues": [
                     {
                       "Literal": {
-                        "Value": "'Productos de acero'"
+                        "Value": "''"
                       }
                     }
                   ],
@@ -443,7 +378,7 @@
                       "identityValues": [
                         {
                           "Literal": {
-                            "Value": "'Productos de acero'"
+                            "Value": "''"
                           }
                         }
                       ],
@@ -453,7 +388,7 @@
                           "identityValues": [
                             {
                               "Literal": {
-                                "Value": "'Productos de acero'"
+                                "Value": "''"
                               }
                             }
                           ],
@@ -469,68 +404,11 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'Cuidado del Hogar'"
+                    "Value": "'Electrodomesticos'"
                   }
                 }
               ],
-              "isToggled": true,
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Ferretería'"
-                      }
-                    }
-                  ],
-                  "children": [
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'Iluminación'"
-                          }
-                        }
-                      ],
-                      "isToggled": true
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Alimentos'"
-                  }
-                }
-              ],
-              "isToggled": true,
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Grasas y Aceites'"
-                      }
-                    }
-                  ],
-                  "isToggled": true,
-                  "children": [
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'Aceites de Cocina'"
-                          }
-                        }
-                      ],
-                      "isToggled": true
-                    }
-                  ]
-                }
-              ]
+              "isToggled": true
             }
           ]
         }
@@ -649,72 +527,6 @@
           },
           "selector": {
             "metadata": "Sales.VALOR"
-          }
-        },
-        {
-          "properties": {
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Left'"
-                }
-              }
-            },
-            "backColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "styleTotal": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "styleHeader": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "styleValues": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "styleSubtotals": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sales.% Ventas Faltantes"
           }
         }
       ],
@@ -869,7 +681,8 @@
             "Property": "% Ventas Faltantes"
           }
         },
-        "type": "Advanced"
+        "type": "Advanced",
+        "howCreated": "User"
       },
       {
         "name": "193d48e5629e0927946e",

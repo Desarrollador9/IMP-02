@@ -293,29 +293,31 @@ table Sales
 
 		annotation PBI_FormatHint = {"isDecimal":true}
 
-	measure '% Valor Ventas' = ```
+	measure '% Valor Ventas' =
 			VAR _denom =
 			    CALCULATE(
 			        SUMX(Sales, Sales[MONTO_VENTA] / 1000000),
-			        ALLSELECTED()
+			        ALLSELECTED(),
+			        ALL( 'Dias Inventario' ),
+			        ALL( FILLRATEPBI )
 			    )
 			RETURN
 			    DIVIDE(
 			        CALCULATE(
-			            SUMX(Sales, Sales[MONTO_VENTA] / 1000000)
-			        
+			            SUMX(Sales, Sales[MONTO_VENTA] / 1000000),
+			            ALL( 'Dias Inventario' ),
+			            ALL( FILLRATEPBI )
 			        ),
 			        _denom
 			    )
-			```
 		formatString: 0.00%
 		lineageTag: 5df15cbd-c562-488a-9a15-fd78cec08518
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	/// % del total de ventas que podría recuperarse si se tuviera inventario de los artículos que hoy tienen stock = 0. Itera sobre CATALOGO_PBI_SALES para incluir artículos que no tienen fila en InventCost.
+	/// % del total de ventas que se podria recuperar si se tuviera inventario de los articulos con stock = 0.
 	measure '% Ventas Faltantes' =
-			VAR _itemsSinInventario =
+			VAR _itemsSinInv =
 			    FILTER(
 			        VALUES( CATALOGO_PBI_SALES[ITEMID] ),
 			        CALCULATE( [INVENTARIO_ACTUAL] ) <= 0
@@ -323,7 +325,7 @@ table Sales
 			VAR _ventaSinInv =
 			    CALCULATE(
 			        SUMX( Sales, Sales[MONTO_VENTA] / 1000000 ),
-			        TREATAS( _itemsSinInventario, CATALOGO_PBI_SALES[ITEMID] )
+			        TREATAS( _itemsSinInv, CATALOGO_PBI_SALES[ITEMID] )
 			    )
 			VAR _ventaTotal =
 			    CALCULATE(
@@ -345,6 +347,55 @@ table Sales
 			    USERELATIONSHIP(FILLRATEPBI[KEY_GEN], CATALOGO_PBI_SALES[KEY_GEN])
 			)
 		lineageTag: 8e8ab7d4-b8a7-48e2-b9f0-c1bc9fd9f803
+
+	/// % del total de ventas que aportan los articulos con DI <= umbral del slider.
+	measure '% Ventas en Riesgo DI' =
+			VAR _umbral = MAXX('Dias Inventario', 'Dias Inventario'[Dias Inventario])
+			VAR _itemsEnRiesgo =
+			    FILTER(
+			        VALUES( FILLRATEPBI[ITEMID] ),
+			        VAR _di = CALCULATE( MAX( FILLRATEPBI[DIASINVENT3M] ) )
+			        RETURN
+			            NOT ISBLANK( _di ) && _di > 0 && _di <= _umbral
+			    )
+			VAR _ventaEnRiesgo =
+			    CALCULATE(
+			        SUMX( Sales, Sales[MONTO_VENTA] / 1000000 ),
+			        TREATAS( _itemsEnRiesgo, CATALOGO_PBI_SALES[ITEMID] )
+			    )
+			VAR _ventaTotal =
+			    CALCULATE(
+			        SUMX( Sales, Sales[MONTO_VENTA] / 1000000 ),
+			        ALLSELECTED(),
+			        ALL( 'Dias Inventario' )
+			    )
+			RETURN
+			    DIVIDE( COALESCE( _ventaEnRiesgo, 0 ), _ventaTotal, 0 )
+		formatString: 0.00%
+		lineageTag: 5a36c5a7-6ea2-4a37-9623-e782898a85f8
+
+	/// % fijo del total de ventas con inventario = 0. Incluye articulos sin DI calculado. No cambia con ningun filtro.
+	measure '% Ventas Faltantes (Fijo)' =
+			VAR _itemsSinInv =
+			    FILTER(
+			        ALL( CATALOGO_PBI_SALES[ITEMID] ),
+			        CALCULATE( [INVENTARIO_ACTUAL] ) <= 0
+			    )
+			VAR _ventaSinInv =
+			    CALCULATE(
+			        SUMX( Sales, Sales[MONTO_VENTA] / 1000000 ),
+			        TREATAS( _itemsSinInv, CATALOGO_PBI_SALES[ITEMID] ),
+			        ALL( Sales )
+			    )
+			VAR _ventaTotal =
+			    CALCULATE(
+			        SUMX( Sales, Sales[MONTO_VENTA] / 1000000 ),
+			        ALL( Sales )
+			    )
+			RETURN
+			    DIVIDE( COALESCE( _ventaSinInv, 0 ), _ventaTotal, 0 )
+		formatString: 0.00%
+		lineageTag: 328760ee-9ea2-48de-8282-84a0dd2ec50f
 
 	column MONTO_VENTA
 		dataType: double
@@ -624,7 +675,7 @@ table Sales
 		mode: import
 		source =
 				let
-				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="WITH COGS AS (#(lf)    SELECT#(lf)        DATAAREAID,#(lf)        INVOICEID,#(lf)        INVENTTRANSID,#(lf)        SUM(COGS) AS Total_COGS#(lf)    FROM#(lf)        CostOfGoodsSold#(lf)    GROUP BY#(lf)        DATAAREAID,#(lf)        INVOICEID,#(lf)        INVENTTRANSID#(lf))#(lf)#(lf)SELECT#(lf)    SUM(T1.LINEAMOUNTMST) AS MONTO_VENTA,#(lf)    DATEPART(WEEK, T1.INVOICEDATE) AS SEMANA,#(lf)    DATEPART(YEAR, T1.INVOICEDATE) AS ANNIO,#(lf)    T1.ITEMID,#(lf)    T1.DATAAREAID,#(lf)    T1.DATAAREAID + T1.ITEMID AS KEY_GEN,#(lf)    SUM(T1.INVENTQTY) AS CANTIDAD,#(lf)    SUM(T1.LINEAMOUNTMST - ISNULL(C.Total_COGS, 0)) AS ContribucionBruta,#(lf)#(tab)t2.INVOICEACCOUNT as CodCliente,#(lf)#(tab)SUM(T1.INVENTQTY * T3.FACTOR) AS Venta_Especial,#(lf)#(tab)T3.SYMBOL AS UNIDADESPECIAL,#(lf)#(tab)MAX(T3.FACTOR) AS FACTOR_UND_ESP,#(lf)#(tab)T1.INVOICEDATE,#(lf)#(tab)CASE #(lf)            WHEN ISNULL(T50.ROLESPECIFICID, '') = '' #(lf)            THEN T51.ROLESPECIFICID #(lf)            ELSE T50.ROLESPECIFICID #(lf)        END AS Vendedor#(lf)FROM#(lf)    CUSTINVOICETRANS T1#(lf)LEFT JOIN CUSTINVOICEJOUR T2 ON T2.INVOICEID=T1.INVOICEID AND T2.DATAAREAID=T1.DATAAREAID AND T2.PARTITION=T1.PARTITION and t1.INVOICEDATE=t2.INVOICEDATE and t1.SALESID=t2.SALESID#(lf)LEFT JOIN#(lf)    COGS C ON T1.DATAAREAID = C.DATAAREAID#(lf)               AND T1.INVOICEID = C.INVOICEID#(lf)               AND T1.INVENTTRANSID = C.INVENTTRANSID#(lf)LEFT OUTER JOIN SPECIAL_UNIT1 T3 ON T3.DISPLAYPRODUCTNUMBER = T1.ITEMID#(lf)LEFT JOIN RoleSpecificAddressGenPBI T50 WITH (NOLOCK)#(lf)        ON T50.REFRECID = T2.ADDRESSREFRECID#(lf)        AND T50.DATAAREAID = T2.DATAAREAID#(lf)        AND T50.ROLEID LIKE '%Vendedor%' #(lf)LEFT JOIN RoleSpecificCustGenPBI T51 WITH (NOLOCK)#(lf)        ON T51.ACCOUNTNUM = T2.INVOICEACCOUNT #(lf)        AND T51.DATAAREAID = T2.DATAAREAID#(lf)        AND T51.ROLEID LIKE '%Vendedor%' #(lf)WHERE#(lf)    T1.DATAAREAID IN ('CMER', 'FMCM')#(lf)    AND T1.INVOICEDATE >= DATEADD(WEEK, -14, GETDATE())#(lf)    AND T1.PARTITION = 5637144576#(lf)GROUP BY#(lf)    DATEPART(WEEK, T1.INVOICEDATE),#(lf)    DATEPART(YEAR, T1.INVOICEDATE),#(lf)    T1.ITEMID,#(lf)    T1.DATAAREAID,#(lf)#(tab)t2.INVOICEACCOUNT,#(lf)#(tab)T3.SYMBOL,#(lf)#(tab)T1.INVOICEDATE,#(lf)#(tab)T50.ROLESPECIFICID,#(lf)#(tab)T51.ROLESPECIFICID", MultiSubnetFailover=true]),
+				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="WITH COGS AS (#(lf)    SELECT#(lf)        DATAAREAID,#(lf)        INVOICEID,#(lf)        INVENTTRANSID,#(lf)        SUM(COGS) AS Total_COGS#(lf)    FROM#(lf)        CostOfGoodsSold#(lf)    GROUP BY#(lf)        DATAAREAID,#(lf)        INVOICEID,#(lf)        INVENTTRANSID#(lf))#(lf)#(lf)SELECT#(lf)    SUM(T1.LINEAMOUNTMST) AS MONTO_VENTA,#(lf)    DATEPART(WEEK, T1.INVOICEDATE) AS SEMANA,#(lf)    DATEPART(YEAR, T1.INVOICEDATE) AS ANNIO,#(lf)    T1.ITEMID,#(lf)    T1.DATAAREAID,#(lf)    T1.DATAAREAID + T1.ITEMID AS KEY_GEN,#(lf)    SUM(T1.INVENTQTY) AS CANTIDAD,#(lf)    SUM(T1.LINEAMOUNTMST - ISNULL(C.Total_COGS, 0)) AS ContribucionBruta,#(lf)#(tab)t2.INVOICEACCOUNT as CodCliente,#(lf)#(tab)SUM(T1.INVENTQTY * T3.FACTOR) AS Venta_Especial,#(lf)#(tab)T3.SYMBOL AS UNIDADESPECIAL,#(lf)#(tab)MAX(T3.FACTOR) AS FACTOR_UND_ESP,#(lf)#(tab)T1.INVOICEDATE,#(lf)#(tab)CASE #(lf)            WHEN ISNULL(T50.ROLESPECIFICID, '') = '' #(lf)            THEN T51.ROLESPECIFICID #(lf)            ELSE T50.ROLESPECIFICID #(lf)        END AS Vendedor#(lf)FROM#(lf)    CUSTINVOICETRANS T1#(lf)LEFT JOIN CUSTINVOICEJOUR T2 ON T2.INVOICEID=T1.INVOICEID AND T2.DATAAREAID=T1.DATAAREAID AND T2.PARTITION=T1.PARTITION and t1.INVOICEDATE=t2.INVOICEDATE and t1.SALESID=t2.SALESID#(lf)LEFT JOIN#(lf)    COGS C ON T1.DATAAREAID = C.DATAAREAID#(lf)               AND T1.INVOICEID = C.INVOICEID#(lf)               AND T1.INVENTTRANSID = C.INVENTTRANSID#(lf)LEFT OUTER JOIN SPECIAL_UNIT1 T3 ON T3.DISPLAYPRODUCTNUMBER = T1.ITEMID#(lf)LEFT JOIN RoleSpecificAddressGenPBI T50 WITH (NOLOCK)#(lf)        ON T50.REFRECID = T2.ADDRESSREFRECID#(lf)        AND T50.DATAAREAID = T2.DATAAREAID#(lf)        AND T50.ROLEID LIKE '%Vendedor%' #(lf)LEFT JOIN RoleSpecificCustGenPBI T51 WITH (NOLOCK)#(lf)        ON T51.ACCOUNTNUM = T2.INVOICEACCOUNT #(lf)        AND T51.DATAAREAID = T2.DATAAREAID#(lf)        AND T51.ROLEID LIKE '%Vendedor%' #(lf)WHERE#(lf)    T1.DATAAREAID IN ('CMER', 'FMCM')#(lf)    AND T1.INVOICEDATE >= DATEADD(WEEK, -14, GETDATE())#(lf)    AND T1.PARTITION = 5637144576#(lf)GROUP BY#(lf)    DATEPART(WEEK, T1.INVOICEDATE),#(lf)    DATEPART(YEAR, T1.INVOICEDATE),#(lf)    T1.ITEMID,#(lf)    T1.DATAAREAID,#(lf)#(tab)t2.INVOICEACCOUNT,#(lf)#(tab)T3.SYMBOL,#(lf)#(tab)T1.INVOICEDATE,#(lf)#(tab)T50.ROLESPECIFICID,#(lf)#(tab)T51.ROLESPECIFICID", MultiSubnetFailover=true]),
 				    #"Valor reemplazado" = Table.ReplaceValue(Source,null,"ND",Replacer.ReplaceValue,{"Vendedor"}),
 				    #"Personalizada agregada" = Table.AddColumn(#"Valor reemplazado", "key_vendedor", each [DATAAREAID]&[Vendedor])
 				in

@@ -62790,7 +62790,67 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "% Valor Ventas con Inv=0": {
+			          "% Valor Ventas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sales.ventas_faltantes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sales",
+			          "ConceptualProperty": "% Ventas Faltantes"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "inventcost.posible_faltante_di": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InventCost",
+			          "ConceptualProperty": "Posible Faltante DI"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "sales.ventas_en_riesgo_di": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sales",
+			          "ConceptualProperty": "% Ventas en Riesgo DI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Ventas Posibles Faltantes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sales.ventas_faltantes_fijo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sales",
+			          "ConceptualProperty": "% Ventas Faltantes (Fijo)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Ventas Faltantes con Inv 0": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

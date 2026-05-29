@@ -13,7 +13,7 @@ table PO_MADRE
 		mode: import
 		source =
 				let
-				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="SELECT DISTINCT PURCHIDREFERENCE FROM PURCHTABLE WHERE PURCHIDREFERENCE <> '' AND DATAAREAID = 'CMER'#(lf)", MultiSubnetFailover=true]),
+				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="SELECT DISTINCT PURCHIDREFERENCE FROM PURCHTABLE WHERE PURCHIDREFERENCE <> '' AND DATAAREAID = 'CMER'#(lf)", MultiSubnetFailover=true]),
 				    #"Removed Duplicates" = Table.Distinct(Source)
 				in
 				    #"Removed Duplicates"

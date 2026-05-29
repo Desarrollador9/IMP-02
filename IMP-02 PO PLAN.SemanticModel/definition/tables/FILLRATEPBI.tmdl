@@ -234,7 +234,7 @@ table FILLRATEPBI
 		mode: import
 		source =
 				let
-				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [MultiSubnetFailover=true]),
+				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [MultiSubnetFailover=true]),
 				    dbo_FILLRATEPBI = Source{[Schema="dbo",Item="FILLRATEPBI"]}[Data]
 				in
 				    dbo_FILLRATEPBI

@@ -234,7 +234,7 @@ table InventCost
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD"),
+				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD"),
 				    dbo_InventCost = Origen{[Schema="dbo",Item="InventCost"]}[Data],
 				    #"Columnas con nombre cambiado" = Table.RenameColumns(dbo_InventCost,{{"LOCALIDAD", "ALMACEN"}})
 				in

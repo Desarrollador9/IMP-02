@@ -145,26 +145,26 @@
               {
                 "textRuns": [
                   {
-                    "value": "Estimacion AF:",
+                    "value": "Estimacion Salida Bodega:",
                     "textStyle": {
                       "fontWeight": "bold"
                     }
                   },
                   {
-                    "value": " Capacidad fija semanal de recepción en bodega — 34 contenedores por semana, 340 en el horizonte T..T+9."
+                    "value": " Capacidad fija semanal de recepción en bodega — 34 contenedores por semana, 340 en el horizonte T..T+9. Esto es lo que se estima que sale de bodega por semana"
                   }
                 ]
               },
               {
                 "textRuns": [
                   {
-                    "value": "Estimación Total AF:",
+                    "value": "Estimación total capacidad traer:",
                     "textStyle": {
                       "fontWeight": "bold"
                     }
                   },
                   {
-                    "value": " Diferencia entre la Estimacion AF y los Contenedores MAR de cada semana (invertida de signo). Indica cuánto margen o déficit de capacidad existe respecto a lo que está navegando."
+                    "value": " Diferencia entre la Estimacion Salida Bodega y los Contenedores MAR de cada semana (invertida de signo). Indica cuánto margen o déficit de capacidad existe respecto a lo estimado por semana."
                   }
                 ]
               }

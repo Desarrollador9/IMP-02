@@ -3,10 +3,10 @@
   "name": "7f9b870265ed9cfb9a85",
   "position": {
     "x": 0,
-    "y": 199.14304548450892,
+    "y": 238.2636655948553,
     "z": 22000,
-    "height": 651.28543177323672,
-    "width": 1902.5049439683587,
+    "height": 612.459807073955,
+    "width": 1903.0546623794212,
     "tabOrder": 22000
   },
   "visual": {
@@ -29,36 +29,6 @@
               "queryRef": "PURCHASE_PBI.Semanas",
               "nativeQueryRef": "Semanas",
               "active": true
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PURCHASE_PBI"
-                    }
-                  },
-                  "Property": "SALIDA_AJUSTADA"
-                }
-              },
-              "queryRef": "PURCHASE_PBI.SALIDA_AJUSTADA",
-              "nativeQueryRef": "SALIDA_AJUSTADA",
-              "active": false
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PURCHASE_PBI"
-                    }
-                  },
-                  "Property": "LLEGADA_PAIS"
-                }
-              },
-              "queryRef": "PURCHASE_PBI.LLEGADA_PAIS",
-              "nativeQueryRef": "LLEGADA_PAIS",
-              "active": false
             }
           ]
         },
@@ -232,6 +202,7 @@
             "queryRefs": [
               "METODOS_TRASLADO.SITIO_ORIGEN_PAIS"
             ],
+            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -250,6 +221,7 @@
             "queryRefs": [
               "VENDOR_NAME.CONCAT_NAME"
             ],
+            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -268,6 +240,7 @@
             "queryRefs": [
               "PURCHASE_PBI.PURCHID"
             ],
+            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -411,13 +384,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'Center'"
-                }
-              }
-            },
-            "urlIcon": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
                 }
               }
             }
@@ -867,13 +833,6 @@
                   }
                 }
               }
-            },
-            "urlIcon": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
             }
           }
         }
@@ -985,13 +944,6 @@
                   }
                 }
               }
-            },
-            "styleHeader": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
             }
           },
           "selector": {
@@ -1013,152 +965,6 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            },
-            "urlIcon": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        },
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ],
-            "metadata": "PURCHASE_PBI.Cant_desi_Contenedores"
-          }
-        }
-      ]
-    },
-    "visualContainerObjects": {
-      "visualHeader": [
-        {
-          "properties": {
-            "showDrillToggleButton": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showTooltipButton": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "showSmartNarrativeButton": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "showVisualInformationButton": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showVisualWarningButton": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showDrillRoleSelector": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showDrillUpButton": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showDrillDownLevelButton": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showDrillDownExpandButton": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showPinButton": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showFocusModeButton": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showSeeDataLayoutToggleButton": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showOptionsMenu": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showFilterRestatementButton": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "visualTooltip": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "showActionsInTooltips": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
                 }
               }
             }

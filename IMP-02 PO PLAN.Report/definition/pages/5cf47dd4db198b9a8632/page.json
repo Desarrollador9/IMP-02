@@ -3,6 +3,11 @@
   "name": "5cf47dd4db198b9a8632",
   "displayName": "T21. CTRL CONT -MAR",
   "displayOption": "FitToPage",
-  "height": 1400,
-  "width": 1900
+  "height": 850,
+  "width": 1900,
+  "pageBinding": {
+    "name": "3a282a3eb6d7c8dd790c",
+    "type": "Default",
+    "parameters": []
+  }
 }

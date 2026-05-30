@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "8b0b2e6aae36112d8c3f",
   "position": {
     "x": 0,
-    "y": 160,
+    "y": 131.25,
     "z": 21000,
-    "height": 640,
-    "width": 1698.8888888888889,
+    "height": 668.75,
+    "width": 1698.75,
     "tabOrder": 21000
   },
   "visual": {
@@ -44,7 +44,7 @@
               },
               "queryRef": "PURCHASE_PBI.Artículo",
               "nativeQueryRef": "Artículo",
-              "active": false
+              "active": true
             },
             {
               "field": {
@@ -59,7 +59,7 @@
               },
               "queryRef": "CATALOGO_PBI.REGISTRO_SANITARIO",
               "nativeQueryRef": "Reg Sanitario",
-              "active": false,
+              "active": true,
               "displayName": "Reg Sanitario"
             },
             {
@@ -75,7 +75,7 @@
               },
               "queryRef": "DOCUMENTATION.PLANTA",
               "nativeQueryRef": "#Planta",
-              "active": false,
+              "active": true,
               "displayName": "#Planta"
             },
             {
@@ -91,7 +91,7 @@
               },
               "queryRef": "CATALOGO_PBI.PARTIDAARANCELHACIENDA",
               "nativeQueryRef": "Part Arancel",
-              "active": false,
+              "active": true,
               "displayName": "Part Arancel"
             },
             {
@@ -107,7 +107,7 @@
               },
               "queryRef": "PURCHASE_PBI.CONSOLIDADA",
               "nativeQueryRef": "Consoli dada Con",
-              "active": false,
+              "active": true,
               "displayName": "Consoli dada Con"
             }
           ]
@@ -356,7 +356,7 @@
                     "Entity": "PURCHASE_PBI"
                   }
                 },
-                "Property": "Artículo"
+                "Property": "PURCHID+CONT"
               }
             },
             "direction": "Ascending"
@@ -374,7 +374,6 @@
             "queryRefs": [
               "PURCHASE_PBI.PURCHID+CONT"
             ],
-            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -393,7 +392,6 @@
             "queryRefs": [
               "PURCHASE_PBI.Artículo"
             ],
-            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -412,7 +410,6 @@
             "queryRefs": [
               "CATALOGO_PBI.REGISTRO_SANITARIO"
             ],
-            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -431,14 +428,12 @@
             "queryRefs": [
               "DOCUMENTATION.PLANTA"
             ],
-            "isCollapsed": true,
             "isPinned": true
           },
           {
             "queryRefs": [
               "CATALOGO_PBI.PARTIDAARANCELHACIENDA"
             ],
-            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -868,7 +863,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "77.37437767003809D"
+                  "Value": "55.246450591615954D"
                 }
               }
             }
@@ -966,7 +961,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "83.10554145452288D"
+                  "Value": "63.150076311017614D"
                 }
               }
             }
@@ -1029,20 +1024,6 @@
           },
           "selector": {
             "metadata": "Min(PURCHASE_PBI.TIPO_CONTENEDOR)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "71.00000265948428D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(PURCHASE_PBI.CANTIDAD)"
           }
         }
       ],

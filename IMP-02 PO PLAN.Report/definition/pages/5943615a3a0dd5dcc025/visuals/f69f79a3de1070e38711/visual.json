@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "f69f79a3de1070e38711",
   "position": {
-    "x": 673,
-    "y": 386,
+    "x": 697.99035369774913,
+    "y": 138.9871382636656,
     "z": 16000,
-    "height": 100,
-    "width": 135,
+    "height": 99.276527331189712,
+    "width": 134.40514469453376,
     "tabOrder": 16000
   },
   "visual": {
@@ -66,6 +66,13 @@
       "data": [
         {
           "properties": {
+            "startDate": {
+              "expr": {
+                "Literal": {
+                  "Value": "datetime'2026-06-15T00:00:00'"
+                }
+              }
+            },
             "endDate": {
               "expr": {
                 "Literal": {
@@ -113,26 +120,55 @@
                 "Where": [
                   {
                     "Condition": {
-                      "Comparison": {
-                        "ComparisonKind": 3,
+                      "And": {
                         "Left": {
-                          "HierarchyLevel": {
-                            "Expression": {
-                              "Hierarchy": {
+                          "Comparison": {
+                            "ComparisonKind": 2,
+                            "Left": {
+                              "HierarchyLevel": {
                                 "Expression": {
-                                  "SourceRef": {
-                                    "Source": "p"
+                                  "Hierarchy": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "p"
+                                      }
+                                    },
+                                    "Hierarchy": "LLEGADA_PAIS Hierarchy"
                                   }
                                 },
-                                "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                                "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
                               }
                             },
-                            "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                            "Right": {
+                              "Literal": {
+                                "Value": "datetime'2026-06-15T00:00:00'"
+                              }
+                            }
                           }
                         },
                         "Right": {
-                          "Literal": {
-                            "Value": "datetime'2026-07-01T00:00:00'"
+                          "Comparison": {
+                            "ComparisonKind": 3,
+                            "Left": {
+                              "HierarchyLevel": {
+                                "Expression": {
+                                  "Hierarchy": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "p"
+                                      }
+                                    },
+                                    "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                                  }
+                                },
+                                "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "datetime'2026-07-01T00:00:00'"
+                              }
+                            }
                           }
                         }
                       }

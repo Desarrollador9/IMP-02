@@ -3,10 +3,10 @@
   "name": "ad2cb1e3f3d104cbc4b8",
   "position": {
     "x": 0,
-    "y": 858.33333333333337,
+    "y": 858.88888888888891,
     "z": 16001,
-    "height": 324.16666666666669,
-    "width": 1275,
+    "height": 323.33333333333331,
+    "width": 1290,
     "tabOrder": 16001
   },
   "visual": {
@@ -15,6 +15,26 @@
       "queryState": {
         "Values": {
           "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "RESUMEN_CTRL_CONT"
+                        }
+                      },
+                      "Property": "Orden"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(RESUMEN_CTRL_CONT.Orden)",
+              "nativeQueryRef": "#",
+              "displayName": "#"
+            },
             {
               "field": {
                 "Column": {
@@ -264,13 +284,13 @@
                         "Entity": "RESUMEN_CTRL_CONT"
                       }
                     },
-                    "Property": "T+4"
+                    "Property": "Orden"
                   }
                 },
                 "Function": 0
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }

@@ -7,6 +7,8 @@ table VENDOR_NAME
 		summarizeBy: none
 		sourceColumn: NAME
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column ACCOUNTNUM
@@ -14,6 +16,8 @@ table VENDOR_NAME
 		lineageTag: 61264b5c-e052-4e2b-9df5-ed6e519d7fa8
 		summarizeBy: none
 		sourceColumn: ACCOUNTNUM
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -23,6 +27,8 @@ table VENDOR_NAME
 		summarizeBy: none
 		sourceColumn: DATAAREAID
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column CONCAT_NAME
@@ -31,6 +37,8 @@ table VENDOR_NAME
 		summarizeBy: none
 		sourceColumn: CONCAT_NAME
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column KEY
@@ -38,6 +46,8 @@ table VENDOR_NAME
 		lineageTag: 3ab1f20c-eedc-421a-8962-3d29a8e2ca27
 		summarizeBy: none
 		sourceColumn: KEY
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -50,6 +60,8 @@ table VENDOR_NAME
 				    #"Added Custom" = Table.AddColumn(dbo_BICOMPANYVIEW_PBI, "KEY", each [DATAAREAID]&[ACCOUNTNUM])
 				in
 				    #"Added Custom"
+
+	changedProperty = IsHidden
 
 	annotation PBI_ResultType = Table
 

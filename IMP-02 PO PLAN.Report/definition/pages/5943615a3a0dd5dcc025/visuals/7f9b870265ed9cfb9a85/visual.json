@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "7f9b870265ed9cfb9a85",
   "position": {
     "x": 0,
-    "y": 221,
+    "y": 210,
     "z": 22000,
-    "height": 629,
-    "width": 1903,
+    "height": 640,
+    "width": 1902.8571428571429,
     "tabOrder": 22000
   },
   "visual": {
@@ -79,7 +79,7 @@
               },
               "queryRef": "METODOS_TRASLADO.SITIO_ORIGEN_PAIS",
               "nativeQueryRef": "Sitio",
-              "active": false,
+              "active": true,
               "displayName": "Sitio"
             },
             {
@@ -95,7 +95,7 @@
               },
               "queryRef": "VENDOR_NAME.CONCAT_NAME",
               "nativeQueryRef": "Proveedor1",
-              "active": false,
+              "active": true,
               "displayName": "Proveedor"
             },
             {
@@ -294,6 +294,7 @@
                       }
                     }
                   ],
+                  "isToggled": true,
                   "children": [
                     {
                       "identityValues": [
@@ -303,6 +304,7 @@
                           }
                         }
                       ],
+                      "isToggled": true,
                       "children": [
                         {
                           "identityValues": [
@@ -337,6 +339,39 @@
                           ]
                         }
                       ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "null"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "null"
+                      }
+                    }
+                  ],
+                  "isToggled": true,
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'CONSTANZA (RUMANIA)'"
+                          }
+                        }
+                      ],
+                      "isToggled": true
                     }
                   ]
                 }

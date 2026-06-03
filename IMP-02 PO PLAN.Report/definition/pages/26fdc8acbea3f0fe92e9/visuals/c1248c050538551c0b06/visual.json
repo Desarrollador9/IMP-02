@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
-  "name": "f7bf921dbe832178db38",
+  "name": "c1248c050538551c0b06",
   "position": {
-    "x": 536.66666666666663,
-    "y": 58.888888888888886,
-    "z": 5000,
-    "height": 76.666666666666671,
-    "width": 126.66666666666666,
-    "tabOrder": 5000
+    "x": 1446,
+    "y": 134,
+    "z": 16003,
+    "height": 60,
+    "width": 154,
+    "tabOrder": 16003
   },
   "visual": {
     "visualType": "slicer",
@@ -23,13 +23,13 @@
                       "Entity": "PURCHASE_PBI"
                     }
                   },
-                  "Property": "ESTADO"
+                  "Property": "NAVIERA"
                 }
               },
-              "queryRef": "PURCHASE_PBI.ESTADO",
-              "nativeQueryRef": "Estado Pedido",
+              "queryRef": "PURCHASE_PBI.NAVIERA",
+              "nativeQueryRef": "Naviera",
               "active": true,
-              "displayName": "Estado Pedido"
+              "displayName": "Naviera"
             }
           ]
         }
@@ -127,13 +127,6 @@
                 }
               }
             },
-            "radius": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            },
             "color": {
               "solid": {
                 "color": {
@@ -144,10 +137,96 @@
                   }
                 }
               }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
             }
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "NAVIERA",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

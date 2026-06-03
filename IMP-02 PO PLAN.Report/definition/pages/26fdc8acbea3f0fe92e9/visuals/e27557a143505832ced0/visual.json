@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "e27557a143505832ced0",
   "position": {
-    "x": 895,
-    "y": 56.25,
+    "x": 895.45454545454538,
+    "y": 56.36363636363636,
     "z": 4000,
-    "height": 76.25,
-    "width": 151.25,
+    "height": 77.272727272727266,
+    "width": 150.90909090909091,
     "tabOrder": 5000
   },
   "visual": {
@@ -29,6 +29,21 @@
               "queryRef": "Consulta1.PO_MADRE",
               "nativeQueryRef": "PO_MADRE",
               "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Consulta1"
+                    }
+                  },
+                  "Property": "PO_HIJA"
+                }
+              },
+              "queryRef": "Consulta1.PO_HIJA",
+              "nativeQueryRef": "PO_HIJA",
+              "active": false
             }
           ]
         }
@@ -78,26 +93,138 @@
                 "Where": [
                   {
                     "Condition": {
-                      "Contains": {
+                      "Or": {
                         "Left": {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "c"
+                          "Contains": {
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "c"
+                                  }
+                                },
+                                "Property": "PO_MADRE"
                               }
                             },
-                            "Property": "PO_MADRE"
+                            "Right": {
+                              "Literal": {
+                                "Value": "'193809'"
+                              }
+                            }
                           }
                         },
                         "Right": {
-                          "Literal": {
-                            "Value": "'107595'"
+                          "Contains": {
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "c"
+                                  }
+                                },
+                                "Property": "PO_HIJA"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "'193809'"
+                              }
+                            }
                           }
                         }
                       }
                     },
                     "Annotations": {
-                      "PowerBI.MParameterBehavior": 1
+                      "PowerBI.MParameterBehavior": 1,
+                      "filterExpressionMetadata": {
+                        "expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "Consulta1"
+                                }
+                              },
+                              "Property": "PO_MADRE"
+                            }
+                          }
+                        ],
+                        "decomposedIdentities": {
+                          "values": [
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'OC-00177200'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          ],
+                          "columns": [
+                            {
+                              "value": {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Consulta1"
+                                    }
+                                  },
+                                  "Property": "PO_MADRE"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "valueMap": [
+                          {
+                            "0": "OC-00177200"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "c",
+                    "Entity": "Consulta1",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "c"
+                                }
+                              },
+                              "Property": "PO_MADRE"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'OC-00177200'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
                     }
                   }
                 ]

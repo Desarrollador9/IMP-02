@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "57c937f00874a357c18d",
   "position": {
     "x": 1060,
@@ -222,6 +222,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "NAVIERA",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

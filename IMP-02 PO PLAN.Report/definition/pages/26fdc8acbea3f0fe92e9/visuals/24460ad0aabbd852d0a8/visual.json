@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
-  "name": "f7bf921dbe832178db38",
+  "name": "24460ad0aabbd852d0a8",
   "position": {
-    "x": 536.66666666666663,
-    "y": 58.888888888888886,
-    "z": 5000,
-    "height": 76.666666666666671,
-    "width": 126.66666666666666,
-    "tabOrder": 5000
+    "x": 744.5454545454545,
+    "y": 57.272727272727266,
+    "z": 16002,
+    "height": 76.36363636363636,
+    "width": 150.90909090909091,
+    "tabOrder": 16002
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "PURCHASE_PBI"
+                      "Entity": "Consulta1"
                     }
                   },
-                  "Property": "ESTADO"
+                  "Property": "PO_HIJA"
                 }
               },
-              "queryRef": "PURCHASE_PBI.ESTADO",
-              "nativeQueryRef": "Estado Pedido",
-              "active": true,
-              "displayName": "Estado Pedido"
+              "queryRef": "Consulta1.PO_HIJA",
+              "nativeQueryRef": "PO_HIJA",
+              "active": true
             }
           ]
         }
@@ -64,6 +63,44 @@
                 "Literal": {
                   "Value": "6D"
                 }
+              }
+            },
+            "selfFilter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "c",
+                    "Entity": "Consulta1",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "Contains": {
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "c"
+                              }
+                            },
+                            "Property": "PO_HIJA"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'208733'"
+                          }
+                        }
+                      }
+                    },
+                    "Annotations": {
+                      "PowerBI.MParameterBehavior": 1
+                    }
+                  }
+                ]
               }
             }
           }

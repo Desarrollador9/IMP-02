@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 6517.8082191780823,
-        "y": 0
+        "x": 112.8460089041095,
+        "y": 122.55319709449915
       },
       "nodes": [
         {
@@ -23,8 +23,8 @@
         },
         {
           "location": {
-            "x": 1507.0158761272817,
-            "y": 872.32140221467751
+            "x": 1463.3335500998846,
+            "y": 824.99888235166372
           },
           "nodeIndex": "VENDOR_NAME",
           "nodeLineageTag": "4448b67c-b36a-41b1-b9f8-39aee1c5c4a4",
@@ -126,8 +126,8 @@
         },
         {
           "location": {
-            "x": 1934.1886625682962,
-            "y": 1064.9585300064912
+            "x": 2006.9925392806251,
+            "y": 986.69436254073776
           },
           "nodeIndex": "PO_MADRE",
           "nodeLineageTag": "da6c8ff0-b798-421b-8341-a011e4fecaad",
@@ -423,8 +423,8 @@
         },
         {
           "location": {
-            "x": 1821.2627002872214,
-            "y": 1323.9186012870591
+            "x": 2061.5154934379061,
+            "y": 1347.5798612185658
           },
           "nodeIndex": "Carpetas_Existentes",
           "nodeLineageTag": "08456295-5592-4d6f-88f3-942b5111b649",
@@ -718,7 +718,7 @@
         }
       ],
       "name": "All tables",
-      "zoomValue": 97.333333333333343,
+      "zoomValue": 54.942129191901046,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

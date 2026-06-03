@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
-  "name": "f7bf921dbe832178db38",
+  "name": "38b6e24057b0d70ee99a",
   "position": {
-    "x": 536.66666666666663,
-    "y": 58.888888888888886,
-    "z": 5000,
-    "height": 76.666666666666671,
-    "width": 126.66666666666666,
-    "tabOrder": 5000
+    "x": 439,
+    "y": 63,
+    "z": 16001,
+    "height": 67,
+    "width": 143,
+    "tabOrder": 16001
   },
   "visual": {
     "visualType": "slicer",
@@ -23,13 +23,13 @@
                       "Entity": "PURCHASE_PBI"
                     }
                   },
-                  "Property": "ESTADO"
+                  "Property": "ESTADO1"
                 }
               },
-              "queryRef": "PURCHASE_PBI.ESTADO",
-              "nativeQueryRef": "Estado Pedido",
+              "queryRef": "PURCHASE_PBI.ESTADO1",
+              "nativeQueryRef": "Estado",
               "active": true,
-              "displayName": "Estado Pedido"
+              "displayName": "Estado"
             }
           ]
         }
@@ -148,6 +148,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "ESTADO11",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

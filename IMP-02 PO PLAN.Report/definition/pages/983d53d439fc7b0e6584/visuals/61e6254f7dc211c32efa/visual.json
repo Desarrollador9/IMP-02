@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "61e6254f7dc211c32efa",
   "position": {
     "x": 1330,
@@ -249,6 +249,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "Estimated Time of Departure(Fecha Estimada De Salida)2",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

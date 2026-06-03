@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "afe5518dc68ad499d857",
   "position": {
-    "x": 220,
-    "y": 140,
+    "x": 524,
+    "y": 133,
     "z": 14000,
     "height": 845,
-    "width": 866.25,
+    "width": 919,
     "tabOrder": 14000
   },
   "visual": {
@@ -43,7 +43,7 @@
               },
               "queryRef": "Consulta1.PO_HIJA",
               "nativeQueryRef": "PO_HIJA",
-              "active": false
+              "active": true
             }
           ]
         },
@@ -75,6 +75,44 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
+                          "Entity": "VENDOR_NAME"
+                        }
+                      },
+                      "Property": "CONCAT_NAME"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(VENDOR_NAME.CONCAT_NAME)",
+              "nativeQueryRef": "Última fecha: CONCAT_NAME"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "NAVIERA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(PURCHASE_PBI.NAVIERA)",
+              "nativeQueryRef": "Primera fecha: NAVIERA"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
                           "Entity": "Consulta1"
                         }
                       },
@@ -85,7 +123,7 @@
                 }
               },
               "queryRef": "Min(Consulta1.NOMBRE_PROVEEDOR)",
-              "nativeQueryRef": "NOMBRE_PROVEEDOR"
+              "nativeQueryRef": "Primera fecha: NOMBRE_PROVEEDOR"
             }
           ]
         }
@@ -101,7 +139,6 @@
             "queryRefs": [
               "Consulta1.PO_MADRE"
             ],
-            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -136,7 +173,20 @@
             "isPinned": true
           }
         ],
-        "root": {}
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'OC-00177200'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
       }
     ],
     "objects": {

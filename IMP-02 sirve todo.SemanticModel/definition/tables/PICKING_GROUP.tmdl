@@ -1,0 +1,32 @@
+table PICKING_GROUP
+	lineageTag: bd87bd51-7ca6-4eb7-9dfc-fe3f90cb94b8
+
+	column ID
+		dataType: string
+		lineageTag: 5b3c7a88-ba8f-4ae2-92df-f5f423039862
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPTION
+		dataType: string
+		lineageTag: 6ffe0626-223f-492c-8f28-818a7786e36f
+		summarizeBy: none
+		sourceColumn: DESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PICKING_GROUP = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD", [Query = "SELECT ID, DESCRIPTION FROM dbo.WMSBALANCEPICKINGGROUP WHERE DATAAREAID = 'cmer'"]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen, {{"ID", type text}, {"DESCRIPTION", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

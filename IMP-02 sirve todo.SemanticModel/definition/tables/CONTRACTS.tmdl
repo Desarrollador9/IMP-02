@@ -1,0 +1,114 @@
+table CONTRACTS
+	lineageTag: 51f64cba-1ecf-415e-b779-cfe5f4532336
+
+	column CONTRACTNUMBER
+		dataType: int64
+		formatString: 0
+		lineageTag: c3d3ec3a-08e8-443b-9b4f-29cf608297b6
+		summarizeBy: sum
+		sourceColumn: CONTRACTNUMBER
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: a6dd41ac-279c-4984-8ae9-d50c8eb4c739
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENDOR
+		dataType: string
+		lineageTag: 8d862cbb-1b7c-4bf4-88c9-565e070cb3c4
+		summarizeBy: none
+		sourceColumn: VENDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTRACTVENDOR
+		dataType: string
+		lineageTag: d2572da5-36f6-4a5b-b124-2b8728d83297
+		summarizeBy: none
+		sourceColumn: CONTRACTVENDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY
+		dataType: string
+		lineageTag: b5f496c7-9729-401f-921d-b0ca2268681d
+		summarizeBy: none
+		sourceColumn: KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY_1
+		dataType: string
+		lineageTag: 9bee3bed-b32f-45eb-a98e-9dee475b8149
+		summarizeBy: none
+		sourceColumn: KEY_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_INICIO
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: d3eb461a-ed51-4e0f-872b-499c80f7b62d
+		summarizeBy: none
+		sourceColumn: FECHA_INICIO
+
+		variation Variación
+			isDefault
+			relationship: a9fe518a-7c44-4d79-82ff-a761651f11e9
+			defaultHierarchy: LocalDateTable_7a2832fb-33f6-4b2c-a068-ecfaa780ab94.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column FECHA_FINAL
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: 4c67fb5e-8c4f-44ca-a002-a959080b8b2e
+		summarizeBy: none
+		sourceColumn: FECHA_FINAL
+
+		variation Variación
+			isDefault
+			relationship: 4d9194b9-17a1-4a1f-8690-ac6f42f22068
+			defaultHierarchy: LocalDateTable_e8a6a657-631e-4fb3-9eef-f6a7bb37cc9b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column Estado_Contrato = ```
+			
+			VAR FechaHoy = TODAY()
+			VAR FechaFinal = CONTRACTS[FECHA_FINAL] 
+			RETURN
+			    IF(
+			        FechaFinal = DATE(1900, 1, 1) || FechaFinal >= FechaHoy,
+			        "Activa",
+			        "Terminado"
+			    )
+			```
+		lineageTag: e1c0b244-089f-4a1d-8cd4-64104924cc47
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CONTRACTS = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="SELECT T1.CONTRACTNUMBER, T1.DATAAREAID, T1.DATE AS FECHA_INICIO, T1.ENDDATE AS FECHA_FINAL, T1.VENDOR, T1.CONTRACTVENDOR FROM CONTRACTS T1#(lf)WHERE T1.DATAAREAID = 'CMER'", MultiSubnetFailover=true]),
+				    #"Personalizada agregada" = Table.AddColumn(Origen, "KEY", each [DATAAREAID]&[VENDOR]),
+				    #"Added Custom" = Table.AddColumn(#"Personalizada agregada", "KEY_1", each [DATAAREAID] & Text.From([CONTRACTNUMBER]))
+				in
+				    #"Added Custom"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

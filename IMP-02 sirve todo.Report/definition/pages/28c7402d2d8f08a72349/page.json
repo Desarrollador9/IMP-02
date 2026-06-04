@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "28c7402d2d8f08a72349",
+  "displayName": "T9.4. CTRL DESALMACENAJE",
+  "displayOption": "FitToPage",
+  "height": 850,
+  "width": 1900,
+  "pageBinding": {
+    "name": "003bc051606e03b25b35",
+    "type": "Default",
+    "parameters": []
+  }
+}

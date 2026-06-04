@@ -1,0 +1,47 @@
+table CRECIMIENTO
+	lineageTag: e7b48208-40c5-41f3-a1be-d144de0bda01
+
+	column ITEMID
+		dataType: string
+		lineageTag: 8452543d-7868-44be-8738-1b2af443b25c
+		summarizeBy: none
+		sourceColumn: ITEMID
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROWTH
+		dataType: double
+		lineageTag: 3788f983-f55a-4584-86cf-edc809ab1968
+		summarizeBy: sum
+		sourceColumn: GROWTH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column STARTDATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ba882315-1e96-485e-b924-17d1ff23d317
+		summarizeBy: none
+		sourceColumn: STARTDATE
+
+		variation Variación
+			isDefault
+			relationship: af4f0d9c-8c06-4c9a-84ae-78af9eb34e9c
+			defaultHierarchy: LocalDateTable_6065664a-590f-41e0-9d71-3dc022d6c98f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CRECIMIENTO = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="SELECT ITEMID,GROWTH,STARTDATE FROM ForecastSales #(lf)WHERE DATEPART(WEEK,STARTDATE) = DATEPART(WEEK,GETDATE()) #(lf)AND DATEPART(YEAR,STARTDATE) = DATEPART(YEAR,GETDATE()) #(lf)AND DATAAREAID = 'CMER' #(lf)AND PARTITION = '5637144576'", MultiSubnetFailover=true])
+				in
+				    Origen
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

@@ -1,0 +1,988 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "070f1321531126b0bea4",
+  "position": {
+    "x": 343.75,
+    "y": 138.75,
+    "z": 24000,
+    "height": 661.25,
+    "width": 1112.5,
+    "tabOrder": 24000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "FAMILYID"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.FAMILYID",
+              "nativeQueryRef": "Familia",
+              "active": true,
+              "displayName": "Familia"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "PRODUCTCATEGORYID"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.PRODUCTCATEGORYID",
+              "nativeQueryRef": "Categoría",
+              "active": true,
+              "displayName": "Categoría"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "ITEMID"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.ITEMID",
+              "nativeQueryRef": "Artículo1",
+              "active": false,
+              "displayName": "Artículo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "PRODUCTNAME"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.PRODUCTNAME",
+              "nativeQueryRef": "Nombre Artículo",
+              "active": false,
+              "displayName": "Nombre Artículo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FILLRATEPBI"
+                    }
+                  },
+                  "Property": "Semana Ingreso"
+                }
+              },
+              "queryRef": "FILLRATEPBI.Semana Ingreso",
+              "nativeQueryRef": "Semana Ingreso",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "Encargado Inventario"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.Encargado Inventario",
+              "nativeQueryRef": "Encargado Inventario",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "ENCARGADO"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.ENCARGADO",
+              "nativeQueryRef": "Encargado Línea",
+              "active": false,
+              "displayName": "Encargado Línea"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FILLRATEPBI"
+                    }
+                  },
+                  "Property": "FECHAPROXENTRADA"
+                }
+              },
+              "queryRef": "FILLRATEPBI.FECHAPROXENTRADA",
+              "nativeQueryRef": "Fecha Ingreso",
+              "active": false,
+              "displayName": "Fecha Ingreso"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FILLRATEPBI"
+                    }
+                  },
+                  "Property": "PURCHID"
+                }
+              },
+              "queryRef": "FILLRATEPBI.PURCHID",
+              "nativeQueryRef": "OC Próx Ingreso",
+              "active": false,
+              "displayName": "OC Próx Ingreso"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "UNIDAD_INVENTARIO"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.UNIDAD_INVENTARIO",
+              "nativeQueryRef": "Unidad",
+              "active": false,
+              "displayName": "Unidad"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI_INVENTARIO"
+                        }
+                      },
+                      "Property": "Art_Und"
+                    }
+                  },
+                  "Function": 2
+                }
+              },
+              "queryRef": "Count(CATALOGO_PBI_INVENTARIO.Art_Und)",
+              "nativeQueryRef": "Cant Art",
+              "displayName": "Cant Art"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FILLRATEPBI"
+                    }
+                  },
+                  "Property": "% Ventas"
+                }
+              },
+              "queryRef": "FILLRATEPBI.% Ventas",
+              "nativeQueryRef": "% Vta 3M",
+              "displayName": "% Vta 3M"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FILLRATEPBI"
+                        }
+                      },
+                      "Property": "INVNETO"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FILLRATEPBI.INVNETO)",
+              "nativeQueryRef": "Cantidad1",
+              "displayName": "Cantidad"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "DI_Act_ConAF"
+                }
+              },
+              "queryRef": "InventCost.DI_Act",
+              "nativeQueryRef": "Días Inventario",
+              "displayName": "Días Inventario"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FILLRATEPBI"
+                  }
+                },
+                "Property": "% Ventas"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "CATALOGO_PBI_INVENTARIO.FAMILYID"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "FAMILYID"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CATALOGO_PBI_INVENTARIO.PRODUCTCATEGORYID"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "PRODUCTCATEGORYID"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CATALOGO_PBI_INVENTARIO.ITEMID"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "ITEMID"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CATALOGO_PBI_INVENTARIO.PRODUCTNAME"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "PRODUCTNAME"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "FILLRATEPBI.Semana Ingreso"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FILLRATEPBI"
+                    }
+                  },
+                  "Property": "Semana Ingreso"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CATALOGO_PBI_INVENTARIO.Encargado Inventario"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CATALOGO_PBI_INVENTARIO.ENCARGADO"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "ENCARGADO"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "FILLRATEPBI.FECHAPROXENTRADA"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "FILLRATEPBI.PURCHID"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CATALOGO_PBI_INVENTARIO.UNIDAD_INVENTARIO"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00496B'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "60.579730419931224D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(FILLRATEPBI.Semana Ingreso)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.60163224572361D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FILLRATEPBI.PURCHID"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "142.21673062316654D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CATALOGO_PBI_INVENTARIO.ENCARGADO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "69.44509628503312D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FILLRATEPBI.FECHAPROXENTRADA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "595.5299255650926D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CATALOGO_PBI_INVENTARIO.FAMILYID"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "113.52842217941166D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CATALOGO_PBI_INVENTARIO.PRODUCTCATEGORYID"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "227.016044177999D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CATALOGO_PBI_INVENTARIO.Encargado Inventario"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "86.20763627334486D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CATALOGO_PBI_INVENTARIO.UNIDAD_INVENTARIO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "457.55317723181895D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CATALOGO_PBI_INVENTARIO.PRODUCTNAME"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "66.07500648435261D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FILLRATEPBI.% Ventas"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 2,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "InventCost"
+                                    }
+                                  },
+                                  "Property": "DI_Act_ConAF"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "43D"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#59C647'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "And": {
+                              "Left": {
+                                "Comparison": {
+                                  "ComparisonKind": 2,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "InventCost"
+                                        }
+                                      },
+                                      "Property": "DI_Act_ConAF"
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "22D"
+                                    }
+                                  }
+                                }
+                              },
+                              "Right": {
+                                "Comparison": {
+                                  "ComparisonKind": 4,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "InventCost"
+                                        }
+                                      },
+                                      "Property": "DI_Act_ConAF"
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "42D"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#F4F41B'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "And": {
+                              "Left": {
+                                "Comparison": {
+                                  "ComparisonKind": 2,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "InventCost"
+                                        }
+                                      },
+                                      "Property": "DI_Act_ConAF"
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "8D"
+                                    }
+                                  }
+                                }
+                              },
+                              "Right": {
+                                "Comparison": {
+                                  "ComparisonKind": 4,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "InventCost"
+                                        }
+                                      },
+                                      "Property": "DI_Act_ConAF"
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "21D"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#F5AD8A'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 4,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "InventCost"
+                                    }
+                                  },
+                                  "Property": "DI_Act_ConAF"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "7D"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#CB6870'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "InventCost.DI_Act"
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(FILLRATEPBI.Semana Ingreso)"
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "layout": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Compact'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Fill Rate'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'None'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "isHidden": true
+}

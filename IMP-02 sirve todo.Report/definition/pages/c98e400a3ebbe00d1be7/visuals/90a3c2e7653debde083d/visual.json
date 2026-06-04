@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "90a3c2e7653debde083d",
+  "position": {
+    "x": 442.85714285714289,
+    "y": 874.28571428571433,
+    "z": 31000,
+    "height": 107.14285714285715,
+    "width": 292.85714285714289,
+    "tabOrder": 30000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "1.Control de llegada de contenedores al país por semana y naviera."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "2.Solo muestra la información de las PO's en estado Pendiente de Abordaje."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "3.El origen de la fecha utilizada es la del encabezado de PO en AX, se llama Ajustada Arribo"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "4.Para visualizar la información, se debe instalar R (solicitar a TI)"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'T21.1. CTRL CONT - PEND ABORDAJE'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "customizeSpacing": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,781 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 738.71055925281746
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1771.8136566014814,
+            "y": 731.70438468120585
+          },
+          "nodeIndex": "PURCHASE_PBI",
+          "nodeLineageTag": "a6d7a165-d232-491b-9783-2c0854739224",
+          "size": {
+            "height": 913.4851527626015,
+            "width": 234
+          },
+          "zIndex": 55
+        },
+        {
+          "location": {
+            "x": 1507.0158761272817,
+            "y": 872.32140221467751
+          },
+          "nodeIndex": "VENDOR_NAME",
+          "nodeLineageTag": "4448b67c-b36a-41b1-b9f8-39aee1c5c4a4",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 42
+        },
+        {
+          "location": {
+            "x": 2560.4730872716118,
+            "y": 432.43325052267255
+          },
+          "nodeIndex": "CATALOGO_PBI",
+          "nodeLineageTag": "f6d0d053-f19d-4e0b-9728-bd7620e1abaa",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 46
+        },
+        {
+          "location": {
+            "x": 827.29842922269188,
+            "y": 55.711652024475143
+          },
+          "nodeIndex": "Consulta1",
+          "nodeLineageTag": "a5bf2628-5ef6-460c-8a13-8d114d4837e9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 58
+        },
+        {
+          "location": {
+            "x": 1697.1259457658143,
+            "y": 26.221323408812168
+          },
+          "nodeIndex": "Intermedia_PO",
+          "nodeLineageTag": "c2115ade-46cf-4df3-a236-c9e294707c5f",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 51
+        },
+        {
+          "location": {
+            "x": 2510.9113461335505,
+            "y": 1278.3664272513579
+          },
+          "nodeIndex": "METODOS_TRASLADO",
+          "nodeLineageTag": "89d91ce6-ced3-422b-ac2a-e41085d831ec",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 45
+        },
+        {
+          "location": {
+            "x": 1585.5815816633233,
+            "y": 369.69754415749964
+          },
+          "nodeIndex": "DOCUMENTATION",
+          "nodeLineageTag": "ed380fca-37f1-4b9e-abb7-e23263cbe6fb",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 41
+        },
+        {
+          "location": {
+            "x": 2265.2796710620664,
+            "y": -50
+          },
+          "nodeIndex": "CONTAINERS",
+          "nodeLineageTag": "d27fe66c-8104-409e-9417-05a76c8fb883",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 50
+        },
+        {
+          "location": {
+            "x": 2510.8741707101008,
+            "y": 787.98404318916232
+          },
+          "nodeIndex": "Unidades",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 35
+        },
+        {
+          "location": {
+            "x": 1934.1886625682962,
+            "y": 1064.9585300064912
+          },
+          "nodeIndex": "PO_MADRE",
+          "nodeLineageTag": "da6c8ff0-b798-421b-8341-a011e4fecaad",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 36
+        },
+        {
+          "location": {
+            "x": 3387.8416846044597,
+            "y": 1222.338240405998
+          },
+          "nodeIndex": "Grupos",
+          "nodeLineageTag": "67e76247-527d-4e08-b4b3-d6d5e1c1bc32",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 37
+        },
+        {
+          "location": {
+            "x": 3193.35375315701,
+            "y": 931.92352382737909
+          },
+          "nodeIndex": "Dates",
+          "nodeLineageTag": "23f69bee-dec0-405f-839c-89aad75d341d",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 38
+        },
+        {
+          "location": {
+            "x": 3711.35375315701,
+            "y": 981.92352382737909
+          },
+          "nodeIndex": "Dates2",
+          "nodeLineageTag": "7c100c4e-1010-4329-aeab-e229151c5acf",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 39
+        },
+        {
+          "location": {
+            "x": 529.3355660902123,
+            "y": 605.19841477567888
+          },
+          "nodeIndex": "Sales",
+          "nodeLineageTag": "253f62cb-e8e6-4d55-8e3a-9601faa2ae11",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 40
+        },
+        {
+          "location": {
+            "x": 1192.8241042574459,
+            "y": 651.68664053715543
+          },
+          "nodeIndex": "CUADRO_INVENTARIO",
+          "nodeLineageTag": "460f6e35-ed89-4c0f-94c6-ea1540968b91",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 34
+        },
+        {
+          "location": {
+            "x": 1976.5673648610755,
+            "y": 282.47297430018443
+          },
+          "nodeIndex": "CONTRACTS",
+          "nodeLineageTag": "51f64cba-1ecf-415e-b779-cfe5f4532336",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 43
+        },
+        {
+          "location": {
+            "x": 240.60234865030225,
+            "y": 604.95024566411371
+          },
+          "nodeIndex": "CATALOGO_PBI_SALES",
+          "nodeLineageTag": "b652ff6b-f399-4c0e-b9c8-c5740ac3b111",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 31
+        },
+        {
+          "location": {
+            "x": 3995.35375315701,
+            "y": 969.92352382737909
+          },
+          "nodeIndex": "Grupos2",
+          "nodeLineageTag": "dac651d3-724a-4e7b-9e80-df06ee15f8b2",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 32
+        },
+        {
+          "location": {
+            "x": 4279.35375315701,
+            "y": 945.92352382737909
+          },
+          "nodeIndex": "Version",
+          "nodeLineageTag": "8fae9c55-a43c-4734-a85d-d8a8c14c5b6e",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 33
+        },
+        {
+          "location": {
+            "x": 2731.7182657286507,
+            "y": 1635.0169287332633
+          },
+          "nodeIndex": "lugar_pais",
+          "nodeLineageTag": "72ac65a6-d5bf-4fd9-9799-ec756f7c75be",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 30
+        },
+        {
+          "location": {
+            "x": 2909.35375315701,
+            "y": 1913.8470476547582
+          },
+          "nodeIndex": "regiones",
+          "nodeLineageTag": "05036e5c-80ff-41fa-a83b-1b53136690fe",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 44
+        },
+        {
+          "location": {
+            "x": 2908.4326091209205,
+            "y": 333.800478044733
+          },
+          "nodeIndex": "COTIZACIONES",
+          "nodeLineageTag": "19bfc1e0-a9d8-4252-ab37-2cdd3baf09db",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 29
+        },
+        {
+          "location": {
+            "x": 1146.5125480482679,
+            "y": 1587.4945915985936
+          },
+          "nodeIndex": "CRECIMIENTO",
+          "nodeLineageTag": "e7b48208-40c5-41f3-a1be-d144de0bda01",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 28
+        },
+        {
+          "location": {
+            "x": 4563.35375315701,
+            "y": 933.92352382737909
+          },
+          "nodeIndex": "Grupo_ Sem",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 47
+        },
+        {
+          "location": {
+            "x": 1315.9390510083608,
+            "y": 1287.5509916999913
+          },
+          "nodeIndex": "UNIDADES_TARIMAS",
+          "nodeLineageTag": "31883c8f-cf13-4b6f-8e65-cf86bbd01528",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 54
+        },
+        {
+          "location": {
+            "x": 948.75010189349041,
+            "y": 1235.8363804375324
+          },
+          "nodeIndex": "RECEPCIONES",
+          "nodeLineageTag": "ec95da7d-e155-4513-acf3-0d2f914ef0ec",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 48
+        },
+        {
+          "location": {
+            "x": 2847.3122400218981,
+            "y": 1429.2036679267771
+          },
+          "nodeIndex": "COUNTRY_CODE",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 25
+        },
+        {
+          "location": {
+            "x": 616.94694295130557,
+            "y": 962.59630723084842
+          },
+          "nodeIndex": "InventCost",
+          "nodeLineageTag": "9e3183aa-2108-4b5b-b683-15453fb3393d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 26
+        },
+        {
+          "location": {
+            "x": 2220.9457803185787,
+            "y": 1021.603274399181
+          },
+          "nodeIndex": "vPURCHDESCARGASBI",
+          "nodeLineageTag": "6f2eb6ab-0d63-4361-86ae-d54039ce27ef",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 27
+        },
+        {
+          "location": {
+            "x": 2221.6307750515339,
+            "y": 668.55445111541485
+          },
+          "nodeIndex": "Plan colocaciones y descargas",
+          "nodeLineageTag": "71be49a3-1d4e-408c-9914-5dde6ea293ae",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 49
+        },
+        {
+          "location": {
+            "x": 1399.1577828281474,
+            "y": 395.58125174553425
+          },
+          "nodeIndex": "TablaSemanas",
+          "nodeLineageTag": "a55781d8-7c76-4f16-8559-c9e516c63c32",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 24
+        },
+        {
+          "location": {
+            "x": 4847.35375315701,
+            "y": 945.92352382737909
+          },
+          "nodeIndex": "Resumen_Semanas",
+          "nodeLineageTag": "c335c5b1-453b-4da7-b579-ba7c2f388883",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 22
+        },
+        {
+          "location": {
+            "x": 1821.2627002872214,
+            "y": 1323.9186012870591
+          },
+          "nodeIndex": "Carpetas_Existentes",
+          "nodeLineageTag": "08456295-5592-4d6f-88f3-942b5111b649",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 23
+        },
+        {
+          "location": {
+            "x": 478.87237153151773,
+            "y": 1319.9377495096951
+          },
+          "nodeIndex": "CATALOGO_PBI_INVENTARIO",
+          "nodeLineageTag": "7565f6e1-5a36-44fb-817f-1d6c73aa2162",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 56
+        },
+        {
+          "location": {
+            "x": 339.90904926366488,
+            "y": 1677.2977772034667
+          },
+          "nodeIndex": "FILLRATEPBI",
+          "nodeLineageTag": "777404f6-1af7-4d57-86ae-c15b043876c1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 21
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 1478.7003268611297
+          },
+          "nodeIndex": "PROX VENCIMIENTO",
+          "nodeLineageTag": "7ded0f14-0fad-4792-ac3a-1edf36227fdf",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 52
+        },
+        {
+          "location": {
+            "x": 1238.36773668692,
+            "y": 1004.6191500049833
+          },
+          "nodeIndex": "RECEP",
+          "nodeLineageTag": "5d687025-9b42-4d92-9b94-320e4a3f5dd6",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 53
+        },
+        {
+          "location": {
+            "x": 1566.1441627604765,
+            "y": 1439.397540635749
+          },
+          "nodeIndex": "OC's Error 5",
+          "nodeLineageTag": "a211456b-22be-414d-914e-470d2eda5c9f",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 20
+        },
+        {
+          "location": {
+            "x": 2246.1112915582289,
+            "y": 372.00807562254772
+          },
+          "nodeIndex": "PAGOS OC's",
+          "nodeLineageTag": "06571aec-5259-46e0-9063-478ce7c92133",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 252.90805084149315,
+            "y": 1018.2637580438609
+          },
+          "nodeIndex": "SPECIAL_UNIT1",
+          "nodeLineageTag": "4802af15-2af9-4211-b61e-b8040cc7f1ab",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 906.40853710647229,
+            "y": 733.72851465810072
+          },
+          "nodeIndex": "CUBO INVENTARIOS",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 2582.535492120408,
+            "y": 1075.0556298134697
+          },
+          "nodeIndex": "TIPOS CONTENEDORES",
+          "nodeLineageTag": "21836044-dd7c-4074-9ee4-6d3d029c3ba9",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 16
+        },
+        {
+          "location": {
+            "x": 5081.35375315701,
+            "y": 969.92352382737909
+          },
+          "nodeIndex": "SITIOS",
+          "nodeLineageTag": "e2a9ed7e-66ba-4c46-bb5c-2a9eda402b53",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 17
+        },
+        {
+          "location": {
+            "x": 446.21754661367891,
+            "y": 325.61188234975975
+          },
+          "nodeIndex": "GRUPO TIPO CLTE",
+          "nodeLineageTag": "b2ea7685-3be6-4fbe-aedb-67a8d9d9d66f",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 18
+        },
+        {
+          "location": {
+            "x": 5315.35375315701,
+            "y": 993.92352382737909
+          },
+          "nodeIndex": "UPDATE",
+          "nodeLineageTag": "53dea97a-0da0-4033-aea5-c9abf3be216a",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 19
+        },
+        {
+          "location": {
+            "x": 5549.35375315701,
+            "y": 895.92352382737909
+          },
+          "nodeIndex": "BookingsMaersk (2)",
+          "nodeLineageTag": "7e1fa2c5-63bf-4cb1-835b-084d514f0397",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 5783.35375315701,
+            "y": 945.92352382737909
+          },
+          "nodeIndex": "Dates2_TEST",
+          "nodeLineageTag": "5d736d35-9dac-459b-9048-bbe722aa2dd8",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 6017.35375315701,
+            "y": 933.92352382737909
+          },
+          "nodeIndex": "VENDTRANS",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 6251.35375315701,
+            "y": 981.92352382737909
+          },
+          "nodeIndex": "OCS HIJAS",
+          "nodeLineageTag": "733d9728-8983-4ebc-a507-491c320b4b82",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 6535.35375315701,
+            "y": 981.92352382737909
+          },
+          "nodeIndex": "VEND_SALDO",
+          "nodeLineageTag": "785e90cf-2a91-4047-b87c-c52e688b8454",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 2032.157929606778,
+            "y": 1617.5242129238015
+          },
+          "nodeIndex": "OCs_Sin_Flete",
+          "nodeLineageTag": "94598f8f-8f94-419e-98f6-9933219bba74",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 57
+        },
+        {
+          "location": {
+            "x": 6769.35375315701,
+            "y": 0
+          },
+          "nodeIndex": "TRANSPORTISTAS",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 7003.35375315701,
+            "y": 0
+          },
+          "nodeIndex": "DI Minimo",
+          "nodeLineageTag": "88cd3a33-e8a9-472e-b55e-d59bdac29864",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 7237.35375315701,
+            "y": 0
+          },
+          "nodeIndex": "Dias Inventario",
+          "nodeLineageTag": "61c69482-245f-4d64-8bb7-a1f823d88699",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 7471.35375315701,
+            "y": 0
+          },
+          "nodeIndex": "RESUMEN_CTRL_CONT",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 7705.35375315701,
+            "y": 0
+          },
+          "nodeIndex": "DI_Act Parameter",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 8307.1298408941,
+            "y": 24
+          },
+          "nodeIndex": "PICKING_GROUP",
+          "nodeLineageTag": "cd84cfac-9930-4689-a6ee-f3cda61e0507",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 7939.35375315701,
+            "y": 0
+          },
+          "nodeIndex": "Consulta2",
+          "nodeLineageTag": "c498c058-f5f8-4de1-97db-714fb257d747",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 746.82351581744183,
+            "y": 1857.6924224808517
+          },
+          "nodeIndex": "Localidades_Bridge",
+          "nodeLineageTag": "d4db874e-628a-4254-afeb-1669ff659a92",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 59
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 49.004308313414612,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

@@ -1,0 +1,553 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "8aa84be07a99e80d6b00",
+  "position": {
+    "x": 240.00000000000003,
+    "y": 151.42857142857144,
+    "z": 27000,
+    "height": 648.57142857142867,
+    "width": 1560,
+    "tabOrder": 27000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "ITEMID"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.ITEMID",
+              "nativeQueryRef": "Artículo",
+              "active": true,
+              "displayName": "Artículo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "LOTE"
+                }
+              },
+              "queryRef": "InventCost.LOTE",
+              "nativeQueryRef": "LOTE",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "LOCALIDAD1"
+                }
+              },
+              "queryRef": "InventCost.LOCALIDAD1",
+              "nativeQueryRef": "LOCALIDAD1",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI_INVENTARIO"
+                        }
+                      },
+                      "Property": "ITEMID"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(CATALOGO_PBI_INVENTARIO.ITEMID)",
+              "nativeQueryRef": "#",
+              "displayName": "#"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI_INVENTARIO"
+                        }
+                      },
+                      "Property": "PRODUCTNAME"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(CATALOGO_PBI_INVENTARIO.PRODUCTNAME)",
+              "nativeQueryRef": "Nombre Artículo",
+              "displayName": "Nombre Artículo"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI_INVENTARIO"
+                        }
+                      },
+                      "Property": "UNIDAD_INVENTARIO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(CATALOGO_PBI_INVENTARIO.UNIDAD_INVENTARIO)",
+              "nativeQueryRef": "Unidad",
+              "displayName": "Unidad"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI_INVENTARIO"
+                        }
+                      },
+                      "Property": "Encargado Inventario"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(CATALOGO_PBI_INVENTARIO.Encargado Inventario)",
+              "nativeQueryRef": "Encargado Inventario",
+              "displayName": "Encargado Inventario"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "InventCost"
+                        }
+                      },
+                      "Property": "INVENTARIO_FISICO"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(InventCost.INVENTARIO_FISICO)",
+              "nativeQueryRef": "Inv Físico",
+              "displayName": "Inv Físico"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "DI_Act_ConAF"
+                }
+              },
+              "queryRef": "InventCost.DI_Act",
+              "nativeQueryRef": "Días Inventario",
+              "displayName": "Días Inventario"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "Costo Unitario"
+                }
+              },
+              "queryRef": "InventCost.Costo Unitario",
+              "nativeQueryRef": "Costo Unitario"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "InventCost"
+                        }
+                      },
+                      "Property": "TotalTotCostFinanc"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(InventCost.TotalTotCostFinanc)",
+              "nativeQueryRef": "Costo Total",
+              "displayName": "Costo Total"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CATALOGO_PBI_INVENTARIO"
+                  }
+                },
+                "Property": "ITEMID"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "CATALOGO_PBI_INVENTARIO.ITEMID"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "ITEMID"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "InventCost.LOTE"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "LOTE"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "InventCost.LOCALIDAD1"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00496B'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {}
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "79.1177704323028D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CATALOGO_PBI_INVENTARIO.UNIDAD_INVENTARIO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "237.95911567366818D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CATALOGO_PBI_INVENTARIO.ITEMID"
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(CATALOGO_PBI_INVENTARIO.PRODUCTNAME)"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(CATALOGO_PBI_INVENTARIO.UNIDAD_INVENTARIO)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(CATALOGO_PBI_INVENTARIO.Encargado Inventario)"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Inventario Actual'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Minimal'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "isHidden": true
+}

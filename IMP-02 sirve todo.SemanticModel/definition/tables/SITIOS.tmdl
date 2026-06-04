@@ -1,0 +1,40 @@
+table SITIOS
+	lineageTag: e2a9ed7e-66ba-4c46-bb5c-2a9eda402b53
+
+	column SITEID
+		dataType: string
+		lineageTag: cf6a36c8-6d25-4508-be94-68e283351ee4
+		summarizeBy: none
+		sourceColumn: SITEID
+
+		annotation SummarizationSetBy = Automatic
+
+	column NAME
+		dataType: string
+		lineageTag: 86c55356-a2aa-4b6d-b84f-ca00fba27bea
+		summarizeBy: none
+		sourceColumn: NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column RECID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9516894c-3d53-40af-a551-854163dda13a
+		summarizeBy: count
+		sourceColumn: RECID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SITIOS = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="SELECT SITEID,NAME,RECID FROM INVENTSITE WHERE DATAAREAID = 'CMER' AND PARTITION = 5637144576", MultiSubnetFailover=true])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,935 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "64f06b49b8b28140a88c",
+  "position": {
+    "x": 0,
+    "y": 201.11111111111111,
+    "z": 29001,
+    "height": 487.77777777777777,
+    "width": 2286.6666666666665,
+    "tabOrder": 29001
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_SALES"
+                    }
+                  },
+                  "Property": "FAMILYID"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_SALES.FAMILYID",
+              "nativeQueryRef": "Articulo",
+              "active": true,
+              "displayName": "Articulo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_SALES"
+                    }
+                  },
+                  "Property": "PRODUCTCATEGORYID"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_SALES.PRODUCTCATEGORYID",
+              "nativeQueryRef": "PRODUCTCATEGORYID",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_SALES"
+                    }
+                  },
+                  "Property": "SUBFAMILIA"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_SALES.SUBFAMILIA",
+              "nativeQueryRef": "SUBFAMILIA",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_SALES"
+                    }
+                  },
+                  "Property": "SUBCATEGORIA"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_SALES.SUBCATEGORIA",
+              "nativeQueryRef": "SUBCATEGORIA",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_SALES"
+                    }
+                  },
+                  "Property": "Art_Und"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_SALES.Art_Und",
+              "nativeQueryRef": "Art_Und",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FILLRATEPBI"
+                        }
+                      },
+                      "Property": "INVENT_L0"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FILLRATEPBI.INVENT_L0)",
+              "nativeQueryRef": "Inventario Fisico en UND",
+              "displayName": "Inventario Fisico en UND"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "DI_Act"
+                }
+              },
+              "queryRef": "InventCost.DI_Act",
+              "nativeQueryRef": "Días Inventario",
+              "displayName": "Días Inventario"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FILLRATEPBI"
+                        }
+                      },
+                      "Property": "VENTAS"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FILLRATEPBI.VENTAS)",
+              "nativeQueryRef": "Ventas de los ultimos 90 Días",
+              "displayName": "Ventas de los ultimos 90 Días"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FILLRATEPBI"
+                        }
+                      },
+                      "Property": "PORCVENTAS"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FILLRATEPBI.PORCVENTAS)",
+              "nativeQueryRef": "% ventas de articulos seleccionados segun D.I.",
+              "displayName": "% ventas de articulos seleccionados segun D.I."
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI"
+                        }
+                      },
+                      "Property": "ZONA_ID"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(CATALOGO_PBI.ZONA_ID)",
+              "nativeQueryRef": "Localidad de Alisto",
+              "displayName": "Localidad de Alisto"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI"
+                        }
+                      },
+                      "Property": "ZONA_DESCRIPCION"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(CATALOGO_PBI.ZONA_DESCRIPCION)",
+              "nativeQueryRef": "Descripcion de Zona de Alisto",
+              "displayName": "Descripcion de Zona de Alisto"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CATALOGO_PBI_SALES"
+                  }
+                },
+                "Property": "FAMILYID"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CATALOGO_PBI_SALES"
+                  }
+                },
+                "Property": "PRODUCTCATEGORYID"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CATALOGO_PBI_SALES"
+                  }
+                },
+                "Property": "SUBFAMILIA"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CATALOGO_PBI_SALES"
+                  }
+                },
+                "Property": "SUBCATEGORIA"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CATALOGO_PBI_SALES"
+                  }
+                },
+                "Property": "Art_Und"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "CATALOGO_PBI_SALES.FAMILYID"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_SALES"
+                    }
+                  },
+                  "Property": "FAMILYID"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CATALOGO_PBI_SALES.PRODUCTCATEGORYID"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_SALES"
+                    }
+                  },
+                  "Property": "PRODUCTCATEGORYID"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CATALOGO_PBI_SALES.SUBFAMILIA"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_SALES"
+                    }
+                  },
+                  "Property": "SUBFAMILIA"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CATALOGO_PBI_SALES.SUBCATEGORIA"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_SALES"
+                    }
+                  },
+                  "Property": "SUBCATEGORIA"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CATALOGO_PBI_SALES.Art_Und"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Alimentos'"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Vegetales'"
+                      }
+                    }
+                  ],
+                  "isToggled": true,
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'Enlatados'"
+                          }
+                        }
+                      ],
+                      "isToggled": true,
+                      "children": [
+                        {
+                          "identityValues": [
+                            {
+                              "Literal": {
+                                "Value": "'Chile'"
+                              }
+                            }
+                          ],
+                          "isToggled": true
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Aceites de Cocina'"
+                      }
+                    }
+                  ],
+                  "isToggled": true,
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'Grasas y Aceites'"
+                          }
+                        }
+                      ],
+                      "isToggled": true,
+                      "children": [
+                        {
+                          "identityValues": [
+                            {
+                              "Literal": {
+                                "Value": "'Aceite de Girasol'"
+                              }
+                            }
+                          ],
+                          "isToggled": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnTotal": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "184.22222339792788D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(FILLRATEPBI.PORCVENTAS)"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'% FALTANTES SEGUN SELECCION DE DIAS INVENTARIO'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3f1b64bf19ae9cd30908",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventCost"
+              }
+            },
+            "Property": "DI_Act"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "57f5597ab09addad7702",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FILLRATEPBI"
+              }
+            },
+            "Property": "PORCVENTAS"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "FILLRATEPBI",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "f"
+                            }
+                          },
+                          "Property": "PORCVENTAS"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "0L"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "f8ba0971ab0909e4d540",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI_SALES"
+              }
+            },
+            "Property": "Art_Und"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3eb9998344e7226e4538",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI_SALES"
+              }
+            },
+            "Property": "FAMILYID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e2bc2277c478ce7095db",
+        "ordinal": 4,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FILLRATEPBI"
+                  }
+                },
+                "Property": "DIASINVENT3M"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "95d9a2469d41d5031e82",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FILLRATEPBI"
+              }
+            },
+            "Property": "DATAAREAID"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "FILLRATEPBI",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "f"
+                          }
+                        },
+                        "Property": "DATAAREAID"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'cmer'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "1f14773b190b01deba89",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI_SALES"
+              }
+            },
+            "Property": "PRODUCTCATEGORYID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "15ffd1139ec869b91b4a",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI_SALES"
+              }
+            },
+            "Property": "SUBCATEGORIA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "338a3b73254365927c1b",
+        "ordinal": 8,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI_SALES"
+              }
+            },
+            "Property": "SUBFAMILIA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6fc6c62334607455375e",
+        "ordinal": 9,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FILLRATEPBI"
+                  }
+                },
+                "Property": "PORCVENTAS"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a85965e5347a9e6cc0d4",
+        "ordinal": 10,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FILLRATEPBI"
+                  }
+                },
+                "Property": "VENTAS"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2ee7484411168a3292bb",
+        "ordinal": 11,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FILLRATEPBI"
+                  }
+                },
+                "Property": "INVNETO"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "8c8effd6831db9dc8754",
+        "ordinal": 12,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventCost"
+              }
+            },
+            "Property": "DI_Act"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "bf51831194a290045906",
+        "ordinal": 13,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FILLRATEPBI"
+                  }
+                },
+                "Property": "INVENT_L0"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "72e68d8360bcd41a4a38",
+        "ordinal": 14,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "InventCost"
+                  }
+                },
+                "Property": "LOCALIDAD1"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "6ace19e62c463d08566b",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CATALOGO_PBI"
+                  }
+                },
+                "Property": "ZONA_ID"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "046650bce887ae19ce48",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CATALOGO_PBI"
+                  }
+                },
+                "Property": "ZONA_DESCRIPCION"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

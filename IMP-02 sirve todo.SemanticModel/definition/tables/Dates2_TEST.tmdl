@@ -1,0 +1,55 @@
+table Dates2_TEST
+	lineageTag: 5d736d35-9dac-459b-9048-bbe722aa2dd8
+
+	column Semana
+		dataType: string
+		lineageTag: dcb5ea92-ad11-4967-a83b-2614391dbdab
+		summarizeBy: none
+		sourceColumn: Semana
+		sortByColumn: Orden
+
+	column Fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d8631623-9206-4905-b6a1-ac39cceb3ccf
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		variation Variación
+			isDefault
+			relationship: c102717e-cc2d-471f-b106-c6ffe197d863
+			defaultHierarchy: LocalDateTable_73122e3d-5a28-43c5-9140-a2643ff9ba32.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Orden
+		dataType: int64
+		isHidden
+		lineageTag: 27648c58-4ac7-423e-93b6-f8cf69dcb4e8
+		summarizeBy: sum
+		sourceColumn: Orden
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Semana Jerarquía TEST'
+		lineageTag: 92f58ec7-492f-46e0-be72-df43cb57903c
+
+		level Semana
+			lineageTag: 468ff954-2ab9-486a-98e9-82babb82b686
+			column: Semana
+
+	partition Dates2_TEST = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="SELECT #(lf)#(tab)DATEADD(day, 1 - DATEPART(weekday, getdate()), getdate()) AS ""T"",#(lf)    DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()) - 1, 0) #(lf)    - CASE WHEN DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) = 1 #(lf)#(tab)THEN 0 ELSE DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) - 1 END AS ""T-1"",#(lf)#(tab)DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()) - 2, 0) #(lf)    - CASE WHEN DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) = 1 #(lf)#(tab)THEN 0 ELSE DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) - 1 END AS ""T-2"",#(lf)#(tab)DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()) - 3, 0) #(lf)    - CASE WHEN DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) = 1 #(lf)#(tab)THEN 0 ELSE DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) - 1 END AS ""T-3"",#(lf)#(tab)DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()) - 4, 0) #(lf)    - CASE WHEN DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) = 1 #(lf)#(tab)THEN 0 ELSE DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) - 1 END AS ""T-4"",#(lf)#(tab)DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()) - 5, 0) #(lf)    - CASE WHEN DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) = 1 #(lf)#(tab)THEN 0 ELSE DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) - 1 END AS ""T-5"",#(lf)#(tab)DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()) - 6, 0) #(lf)    - CASE WHEN DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) = 1 #(lf)#(tab)THEN 0 ELSE DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) - 1 END AS ""T-6"",#(lf)#(tab)DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()) - 7, 0) #(lf)    - CASE WHEN DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) = 1 #(lf)#(tab)THEN 0 ELSE DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) - 1 END AS ""T-7"",#(lf)#(tab)DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()) - 8, 0) #(lf)    - CASE WHEN DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) = 1 #(lf)#(tab)THEN 0 ELSE DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) - 1 END AS ""T-8"",#(lf)#(tab)DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()) - 9, 0) #(lf)    - CASE WHEN DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) = 1 #(lf)#(tab)THEN 0 ELSE DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) - 1 END AS ""T-9"",#(lf)#(tab)DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()) - 10, 0) #(lf)    - CASE WHEN DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) = 1 #(lf)#(tab)THEN 0 ELSE DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) - 1 END AS ""T-10"",#(lf)#(tab)DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()) - 11, 0) #(lf)    - CASE WHEN DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) = 1 #(lf)#(tab)THEN 0 ELSE DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) - 1 END AS ""T-11"",#(lf)#(tab)DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()) - 12, 0) #(lf)    - CASE WHEN DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) = 1 #(lf)#(tab)THEN 0 ELSE DATEPART(WEEKDAY, DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)) - 1 END AS ""T-12""#(lf)", MultiSubnetFailover=true]),
+				    #"Demoted Headers" = Table.DemoteHeaders(Source),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Demoted Headers",{{"Column1", type any}, {"Column2", type any}, {"Column3", type any}, {"Column4", type any}, {"Column5", type any}, {"Column6", type any}, {"Column7", type any}, {"Column8", type any}, {"Column9", type any}, {"Column10", type any}, {"Column11", type any}, {"Column12", type any}, {"Column13", type any}}),
+				    #"Transposed Table" = Table.Transpose(#"Changed Type"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Transposed Table",{{"Column1", "Semana"}, {"Column2", "Fecha"}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"Fecha", type date}}),
+				    #"Added Index" = Table.AddIndexColumn(#"Changed Type1", "Orden", 0, 1, Int64.Type),
+				    #"Sorted Asc" = Table.Sort(#"Added Index",{{"Orden", Order.Ascending}})
+				in
+				    #"Sorted Asc"
+

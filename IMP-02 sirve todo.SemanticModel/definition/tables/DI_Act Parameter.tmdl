@@ -1,0 +1,20 @@
+table 'DI_Act Parameter'
+	lineageTag: a5db99a4-e863-45bd-90bf-da8bd3f94038
+
+	measure 'DI_Act Valor' = SELECTEDVALUE('DI_Act Parameter'[DI_Act Parameter], 30)
+		lineageTag: c83a5c3c-85e3-424f-a5ce-d2cd9d72106b
+
+	column 'DI_Act Parameter'
+		formatString: 0
+		lineageTag: fc11f3eb-e5d0-43bd-bb93-a51ab161bc87
+		summarizeBy: sum
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DI_Act Parameter' = calculated
+		mode: import
+		source = GENERATESERIES(0, 999, 1)
+
+	annotation PBI_Id = b35dc71d9fa44341a595601ceae7e592
+

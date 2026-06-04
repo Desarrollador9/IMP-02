@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "983d53d439fc7b0e6584",
+  "displayName": "T9.1. DESALMACENAJE PENDIENTE",
+  "displayOption": "ActualSize",
+  "height": 850,
+  "width": 2000
+}

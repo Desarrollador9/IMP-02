@@ -1,0 +1,48 @@
+table Consulta2
+	lineageTag: c498c058-f5f8-4de1-97db-714fb257d747
+
+	column localidad
+		dataType: string
+		lineageTag: 4abaccb1-3f7d-4420-865b-1e1f24614907
+		summarizeBy: none
+		sourceColumn: localidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column articulo
+		dataType: string
+		lineageTag: bf0d2684-655a-4aaf-b1ff-3f9dc5276a4b
+		summarizeBy: none
+		sourceColumn: articulo
+
+		annotation SummarizationSetBy = Automatic
+
+	column inventario_contenedor
+		dataType: double
+		lineageTag: 761b99d0-c4b5-4f5e-9b00-b271b246f22a
+		summarizeBy: sum
+		sourceColumn: inventario_contenedor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Consulta2 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [MultiSubnetFailover=true]),
+				    dbo_Localidades = Source{[Schema="dbo", Item="Localidades_View_PBI"]}[Data],
+				    Filtro_Empresa = Table.SelectRows(dbo_Localidades, each [empresa] = "cmer"),
+				    Filtro_Almacen = Table.SelectRows(Filtro_Empresa, each [almacen] = "F20"),
+				    Filtro_Contenedor = Table.SelectRows(Filtro_Almacen, each Text.Length([localidad]) = 4 and Text.StartsWith([localidad], "C")),
+				    Filtro_Articulo = Table.SelectRows(Filtro_Contenedor, each [articulo] <> null and [articulo] <> ""),
+				    Columnas = Table.SelectColumns(Filtro_Articulo, {"localidad", "articulo", "inventario_fisico"}),
+				    Agrupado = Table.Group(Columnas, {"localidad", "articulo"}, {{"inventario_contenedor", each List.Sum([inventario_fisico]), type number}})
+				in
+				    Agrupado
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

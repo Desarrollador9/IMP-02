@@ -1,0 +1,334 @@
+table CATALOGO_PBI_SALES
+	lineageTag: b652ff6b-f399-4c0e-b9c8-c5740ac3b111
+
+	measure VT1_EstBase_Division = ```
+			
+			VAR VT1_Value = 
+			    CALCULATE(
+			        [MedidasAgrupadasCalculadas], 
+			        Grupos2[Medida] = "VT-1"
+			    )
+			VAR EstBase_Value = 
+			    CALCULATE(
+			        [MedidasAgrupadasCalculadas], 
+			        Grupos2[Medida] = "Est Base"
+			    )
+			RETURN
+			    DIVIDE(VT1_Value, EstBase_Value, 0)
+			
+			```
+		lineageTag: 569074b3-96f8-46d5-8ccd-db173c5d4b44
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "MathematicalDivision"
+				}
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ITEMID
+		dataType: string
+		lineageTag: 55e36e9a-0685-46de-86b2-83bd3437fb90
+		summarizeBy: none
+		sourceColumn: ITEMID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: 1ee95089-f59a-4a5e-ac23-ebc2db34fbdd
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCTCATEGORYID
+		dataType: string
+		lineageTag: 1614a189-6ad9-4ff6-ac8f-6650e98a1847
+		summarizeBy: none
+		sourceColumn: PRODUCTCATEGORYID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FAMILYID
+		dataType: string
+		lineageTag: 32572385-b6f4-4699-b622-e1aa14128682
+		summarizeBy: none
+		sourceColumn: FAMILYID
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY_GEN
+		dataType: string
+		lineageTag: 60bf946c-99f7-4497-b97e-5521dc76d918
+		summarizeBy: none
+		sourceColumn: KEY_GEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBFAMILIA
+		dataType: string
+		lineageTag: 3ebe039d-1b2f-4a3d-8ec2-c553d714b68c
+		summarizeBy: none
+		sourceColumn: SUBFAMILIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBCATEGORIA
+		dataType: string
+		lineageTag: 18e18246-3e79-4bee-b2a7-7de262ba8762
+		summarizeBy: none
+		sourceColumn: SUBCATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBSUBCATEGORIA
+		dataType: string
+		lineageTag: 8c30d3c3-e606-4dfb-b10b-ab8986b19a55
+		summarizeBy: none
+		sourceColumn: SUBSUBCATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ITEMMARKID
+		dataType: string
+		lineageTag: 190e4da2-9324-46d4-b83d-d55bafbebeec
+		summarizeBy: none
+		sourceColumn: ITEMMARKID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUADRO
+		dataType: string
+		lineageTag: a8359c2c-a874-4c07-a977-060029314bc5
+		summarizeBy: none
+		sourceColumn: CUADRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMBRE_CUADRO
+		dataType: string
+		lineageTag: 4ae2fcf1-7c0f-484e-aff3-971a887a1bce
+		summarizeBy: none
+		sourceColumn: NOMBRE_CUADRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cuadro_Inventario = ```
+			IF(
+			    ISBLANK(CATALOGO_PBI_SALES[CUADRO]), 
+			    "", 
+			    FORMAT(CATALOGO_PBI_SALES[CUADRO], "General Number")
+			) 
+			& " " & 
+			IF(
+			    ISBLANK(CATALOGO_PBI_SALES[NOMBRE_CUADRO]), 
+			    "", 
+			    CATALOGO_PBI_SALES[NOMBRE_CUADRO]
+			)
+			```
+		lineageTag: 4f4c9c31-b574-4d23-bf41-0d12641cb380
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENCARGADO
+		dataType: string
+		lineageTag: c69fcb25-aa48-443d-a755-0cebabdee422
+		summarizeBy: none
+		sourceColumn: ENCARGADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CICLO_VIDA
+		dataType: string
+		lineageTag: e3d6f674-fee9-478d-99c3-38bc861fd876
+		summarizeBy: none
+		sourceColumn: CICLO_VIDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIDAD
+		dataType: string
+		lineageTag: 2e007139-6e5e-43c3-9994-4ffc07c073da
+		summarizeBy: none
+		sourceColumn: UNIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCTNAME
+		dataType: string
+		lineageTag: 5ab56ebf-bdaa-4ccd-94ef-e4ec33d00dfe
+		summarizeBy: none
+		sourceColumn: PRODUCTNAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column Art_Und = CONCATENATE(CONCATENATE(CATALOGO_PBI_SALES[ITEMID], " ") ,CONCATENATE(CATALOGO_PBI_SALES[PRODUCTNAME],CONCATENATE(" (Unidad): ", CATALOGO_PBI_SALES[UNIDAD])))
+		lineageTag: 00f9f419-9b45-4833-81f0-3983f46177e4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column UPDATES
+		dataType: dateTime
+		formatString: dd-mmm-yy h:nn AM/PM
+		lineageTag: ae28eb41-ad78-49a1-850d-eb1baec918c7
+		summarizeBy: none
+		sourceColumn: UPDATES
+
+		variation Variación
+			isDefault
+			relationship: 1c690e76-fb4d-44a4-a241-5435e63297e0
+			defaultHierarchy: LocalDateTable_4e0ab1e4-1ab6-43c3-b248-5eea015fe84a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column CICLO_FAMILIA
+		dataType: string
+		lineageTag: db0d5db1-9820-486a-9b3d-5e07fddfc2dd
+		summarizeBy: none
+		sourceColumn: CICLO_FAMILIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CICLO_SUBFAMILIA
+		dataType: string
+		lineageTag: 2c3351b0-6f22-4040-a76e-dc10936940d5
+		summarizeBy: none
+		sourceColumn: CICLO_SUBFAMILIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CICLO_CATEGORIA
+		dataType: string
+		lineageTag: e4273de1-3321-49f1-9d0a-df80f22a9c98
+		summarizeBy: none
+		sourceColumn: CICLO_CATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CICLO_SUBCATEGORIA
+		dataType: string
+		lineageTag: f133339c-7944-4d45-a795-abaa7e0e67ae
+		summarizeBy: none
+		sourceColumn: CICLO_SUBCATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO
+		dataType: string
+		lineageTag: 8343b44e-25cb-4c0b-ba45-c856534458b2
+		summarizeBy: none
+		sourceColumn: TIPO
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_LINEA
+		dataType: string
+		lineageTag: 71a79586-3f66-4b12-ac37-9d332724ce8c
+		summarizeBy: none
+		sourceColumn: COD_LINEA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCION_LINEA
+		dataType: string
+		lineageTag: fe8391e5-8e84-437c-a93a-cf7fa114f507
+		summarizeBy: none
+		sourceColumn: DESCRIPCION_LINEA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Encargado Inventario'
+		dataType: string
+		lineageTag: 8543d5b7-29c9-40e9-8bd3-d1279980ba9f
+		summarizeBy: none
+		sourceColumn: Encargado Inventario
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIDAD_INVENTARIO
+		dataType: string
+		lineageTag: 3d1e2563-3200-4e0f-97ae-ea7487bbb3f2
+		summarizeBy: none
+		sourceColumn: UNIDAD_INVENTARIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column USO_PRODUCTO
+		dataType: string
+		lineageTag: d52c9920-7e87-438b-acb8-f13dcc4afe6b
+		summarizeBy: none
+		sourceColumn: USO_PRODUCTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FACTOR_TARIMA
+		dataType: double
+		lineageTag: e7d1966e-3389-4c6e-97c5-0d0cb401a108
+		summarizeBy: sum
+		sourceColumn: FACTOR_TARIMA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SEGURIDAD_MIN
+		dataType: int64
+		formatString: 0
+		lineageTag: 79c9f4a7-266d-4fa1-b27e-eeac74911f64
+		summarizeBy: sum
+		sourceColumn: SEGURIDAD_MIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORIGEN_CUADRO
+		dataType: string
+		lineageTag: bdac52d8-28fe-4285-bbb2-6037dc16a5a4
+		summarizeBy: none
+		sourceColumn: ORIGEN_CUADRO
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Jerarquia Articulo'
+		lineageTag: d1e1de8f-eb3a-483b-bb5a-dae0fa3f2db5
+
+		level Familia
+			lineageTag: 7db5f8e6-254b-4d81-90c4-f419672003b2
+			column: FAMILYID
+
+		level Categoría
+			lineageTag: 6f811548-7f58-463c-bbdf-e02906e61103
+			column: PRODUCTCATEGORYID
+
+		level Subfamilia
+			lineageTag: c8c7d446-e5a4-4594-8ec5-2c1aa240b745
+			column: SUBFAMILIA
+
+		level Subcategoría
+			lineageTag: 626dcab1-df18-4885-bfae-2289b4a74e0a
+			column: SUBCATEGORIA
+
+		level Artículo
+			lineageTag: be12c805-4563-4f44-bde3-04828f45ef4c
+			column: Art_Und
+
+	partition CATALOGO_PBI_SALES = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [MultiSubnetFailover=true, Query="SELECT DISTINCT #(lf)    T1.ITEMID,#(lf)    T1.DATAAREAID,#(lf)    T1.PRODUCTCATEGORYID,#(lf)    T1.FAMILYID, #(lf)    T1.DATAAREAID + T1.ITEMID AS KEY_GEN,#(lf)    T1.SUBFAMILYID AS SUBFAMILIA, #(lf)    T1.PRODUCTSUBCATEGORYID AS SUBCATEGORIA,#(lf)    T1.SubSubCategoryID AS SUBSUBCATEGORIA,#(lf)    T1.ITEMMARKID,#(lf)    T1.GI_InventoryBoxNumber AS CUADRO,#(lf)    ITB.GI_INVENTORYBOXNAME AS NOMBRE_CUADRO,#(lf)#(tab)CASE ITB.ORIGINVENDOR#(lf)#(tab)#(tab)WHEN 0 THEN ''#(lf)#(tab)#(tab)WHEN 1 THEN 'Internacional'#(lf)#(tab)#(tab)WHEN 2 THEN 'Nacional'#(lf)#(tab)#(tab)WHEN 3 THEN 'Ensamble'#(lf)#(tab)END AS ORIGEN_CUADRO,#(lf)    [dbo].[Get_NameEmployee](ITL.POSITIONID) AS ENCARGADO,#(lf)    T1.LIFECYCLEPRODUCTID AS CICLO_VIDA,#(lf)    ITM.UNITID AS UNIDAD,#(lf)    ITM1.UNITID AS UNIDAD_INVENTARIO,#(lf)    PROD.PRODUCTNAME,#(lf)    FAM.LIFECYCLEID AS CICLO_FAMILIA,#(lf)    SFAM.LIFECYCLEID AS CICLO_SUBFAMILIA,#(lf)    PC.LIFECYCLEID AS CICLO_CATEGORIA,#(lf)    PSC.LIFECYCLEID AS CICLO_SUBCATEGORIA,#(lf)    T1.INVENTITEMTYPEID AS TIPO,#(lf)    T1.ITEMLINE AS COD_LINEA,#(lf)    ITL.DESCRIPTION AS DESCRIPCION_LINEA,#(lf)    T1.PRODUCTUSEID AS USO_PRODUCTO,#(lf)    [dbo].[Get_NameEmployee](COALESCE(HCM3.POSITIONID, HCM2.POSITIONID, HCM1.POSITIONID)) AS POSITION,#(lf)    [dbo].[Get_unitConversionbyParent5](T1.PRODUCT, ITM1.UNITID, 'TARIMA') AS FACTOR_TARIMA,#(lf)#(tab)T1.SECURITYINVENTORY AS SEGURIDAD_MIN,#(lf)    GETDATE() AS UPDATES#(lf)FROM INVENTTABLE T1#(lf)    LEFT OUTER JOIN INVENTORYBOX ITB #(lf)        ON ITB.GI_INVENTORYBOXNUMBER = T1.GI_InventoryBoxNumber #(lf)       AND ITB.DATAAREAID = T1.DATAAREAID#(lf)    LEFT OUTER JOIN INVENTITEMLINE AS ITL #(lf)        ON ITL.LINECODE = T1.ITEMLINE #(lf)       AND ITL.PARTITION = T1.PARTITION#(lf)    LEFT OUTER JOIN INVENTTABLEMODULE ITM #(lf)        ON T1.ITEMID = ITM.ITEMID #(lf)       AND T1.DATAAREAID = ITM.DATAAREAID #(lf)       AND ITM.MODULETYPE = 1#(lf)    LEFT OUTER JOIN INVENTTABLEMODULE ITM1 #(lf)        ON T1.ITEMID = ITM1.ITEMID #(lf)       AND T1.DATAAREAID = ITM1.DATAAREAID #(lf)       AND ITM1.MODULETYPE = 0#(lf)    LEFT OUTER JOIN PRODUCT_PBI PROD #(lf)        ON PROD.DISPLAYPRODUCTNUMBER = T1.ITEMID#(lf)    LEFT OUTER JOIN FAMILY FAM #(lf)        ON FAM.FAMILYID = T1.FAMILYID#(lf)    LEFT OUTER JOIN HCMPOSITION HCM1 #(lf)        ON HCM1.RECID = FAM.INVENTORYMANAGER#(lf)    LEFT OUTER JOIN SUBFAMILY SFAM #(lf)        ON SFAM.SUBFAMILYID = T1.SUBFAMILYID #(lf)       AND SFAM.FAMILYID = T1.FAMILYID #(lf)       AND SFAM.RECID <> 5637179827#(lf)    LEFT OUTER JOIN HCMPOSITION HCM2 #(lf)        ON HCM2.RECID = SFAM.INVENTORYMANAGER#(lf)    LEFT OUTER JOIN PRODUCTCATEGORY PC #(lf)        ON PC.PRODUCTCATEGORYID = T1.PRODUCTCATEGORYID #(lf)       AND PC.SUBFAMILYID = T1.SUBFAMILYID#(lf)    LEFT OUTER JOIN HCMPOSITION HCM3 #(lf)        ON HCM3.RECID = PC.INVENTORYMANAGER#(lf)    LEFT OUTER JOIN PRODUCTSUBCATEGORY PSC #(lf)        ON PSC.PRODUCTSUBCATEGORYID = T1.PRODUCTSUBCATEGORYID #(lf)       AND PSC.PRODUCTCATEGORYID = T1.PRODUCTCATEGORYID#(lf)WHERE T1.DATAAREAID IN ('CMER', 'FMCM', '7388')#(lf)"]),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(Source,{{"POSITION", "Encargado Inventario"}})
+				in
+				    #"Columnas con nombre cambiado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

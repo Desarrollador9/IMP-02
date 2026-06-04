@@ -1,0 +1,41 @@
+table COUNTRY_CODE
+	lineageTag: 74ec5b2b-d4ae-4997-a592-c4856844d9a5
+
+	column Country
+		dataType: string
+		lineageTag: ad2a9b5d-6bad-4063-9565-b23b4d9f6b59
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column ISO
+		dataType: string
+		lineageTag: 0a6a8cdf-bece-46a1-be2b-f951680e300d
+		summarizeBy: none
+		sourceColumn: ISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		lineageTag: 5bbc29d7-fcc3-44b1-bb04-2d05cee321a4
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition COUNTRY_CODE = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(Web.Contents("https://parnersenseitcs.sharepoint.com/sites/CentrodeDocumentacinGrupoInteca/Documentos%20compartidos/Power%20BI/Archivos%20PBI/C%C3%B3digos%20de%20Pa%C3%ADses.xlsx"), null, true),
+				    Table1_Table = Origen{[Item="Table1",Kind="Table"]}[Data],
+				    #"Texto en mayúsculas" = Table.TransformColumns(Table1_Table,{{"Country", Text.Upper, type text}})
+				in
+				    #"Texto en mayúsculas"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

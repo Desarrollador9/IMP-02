@@ -1,0 +1,1123 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "905c2c751595b3498d78",
+  "position": {
+    "x": 148.88888888888889,
+    "y": 194.44444444444443,
+    "z": 15000,
+    "height": 572.22222222222217,
+    "width": 1701.1111111111111,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI_INVENTARIO"
+                        }
+                      },
+                      "Property": "ITEMID"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(CATALOGO_PBI_INVENTARIO.ITEMID)",
+              "nativeQueryRef": "#",
+              "displayName": "#"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "ITEMID"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.ITEMID",
+              "nativeQueryRef": "Artículo",
+              "displayName": "Artículo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "PRODUCTNAME"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.PRODUCTNAME",
+              "nativeQueryRef": "Nombre Artículo",
+              "displayName": "Nombre Artículo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "UNIDAD_INVENTARIO"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.UNIDAD_INVENTARIO",
+              "nativeQueryRef": "Unidad",
+              "displayName": "Unidad"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "InventCost"
+                        }
+                      },
+                      "Property": "INVENTARIO_FISICO"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(InventCost.INVENTARIO_FISICO)",
+              "nativeQueryRef": "Inv Físico",
+              "displayName": "Inv Físico"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "Inv en Cajas"
+                }
+              },
+              "queryRef": "InventCost.Inv en Cajas",
+              "nativeQueryRef": "Inv en Cajas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "Inv en Tarimas"
+                }
+              },
+              "queryRef": "InventCost.Inv en Tarima",
+              "nativeQueryRef": "Inv en Tarimas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "Inv + AF en Tarimas"
+                }
+              },
+              "queryRef": "InventCost.Inv + AF en Tarimas",
+              "nativeQueryRef": "Inv + AF en Tarimas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "Inventario Unidad Especial"
+                }
+              },
+              "queryRef": "InventCost.Inventario Unidad Especial",
+              "nativeQueryRef": "Inv en Und Esp",
+              "displayName": "Inv en Und Esp"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "DI_Act"
+                }
+              },
+              "queryRef": "InventCost.DI_Act1",
+              "nativeQueryRef": "Dias inventario",
+              "displayName": "Dias inventario"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "DI_Act_ConAF"
+                }
+              },
+              "queryRef": "InventCost.DI_Act",
+              "nativeQueryRef": "Dias Inventario + AF",
+              "displayName": "Dias Inventario + AF"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CATALOGO_PBI_INVENTARIO"
+                        }
+                      },
+                      "Property": "SEGURIDAD_MIN"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(CATALOGO_PBI_INVENTARIO.SEGURIDAD_MIN)",
+              "nativeQueryRef": "Días Seguridad Min",
+              "displayName": "Días Seguridad Min"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "Inv Tar (Seguridad Mínimo)"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.Inv Tar (Seguridad Mínimo)",
+              "nativeQueryRef": "Inv Tar (Seguridad Mínimo)"
+            },
+            {
+              "field": {
+                "NativeVisualCalculation": {
+                  "Language": "dax",
+                  "Expression": "\r\nIF(\r\n    [Inv + AF en Tarimas] - [Inv Tar (Seguridad Mínimo)] <= 0,\r\n    0,\r\n    [Inv + AF en Tarimas] - [Inv Tar (Seguridad Mínimo)]\r\n)",
+                  "Name": "Inv Tar Exceso"
+                }
+              },
+              "queryRef": "select",
+              "nativeQueryRef": "Inv Tar Exceso"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "Estado Autorización"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.Estado Autorización",
+              "nativeQueryRef": "Exceso",
+              "displayName": "Exceso"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "InventCost"
+                    }
+                  },
+                  "Property": "Costo Unitario"
+                }
+              },
+              "queryRef": "InventCost.Costo Unitario",
+              "nativeQueryRef": "Costo Unitario"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "InventCost"
+                        }
+                      },
+                      "Property": "TotalTotCostFinanc"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(InventCost.TotalTotCostFinanc)",
+              "nativeQueryRef": "Costo Total",
+              "displayName": "Costo Total"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "Vta Diaria 3S en Cajas"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.Vta diaria 3S en Cajas",
+              "nativeQueryRef": "Vta Diaria 3S en Cajas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "Vta Diaria 3M en Cajas"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.Vta diaria 3M en Cajas",
+              "nativeQueryRef": "Vta Diaria 3M en Cajas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "Vta Diaria Futura en Cajas"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.Vta Diaria Futura en Cajas",
+              "nativeQueryRef": "Vta Diaria Futura en Cajas"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                    }
+                  },
+                  "Property": "Encargado Inventario"
+                }
+              },
+              "queryRef": "CATALOGO_PBI_INVENTARIO.Encargado Inventario",
+              "nativeQueryRef": "Encargado Inventario"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PROX VENCIMIENTO"
+                    }
+                  },
+                  "Property": "FECHA PROX VENCIMIENTO"
+                }
+              },
+              "queryRef": "PROX VENCIMIENTO.FECHA PROX VENCIMIENTO",
+              "nativeQueryRef": "Fecha Prox Vencimiento",
+              "displayName": "Fecha Prox Vencimiento"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CATALOGO_PBI_INVENTARIO"
+                  }
+                },
+                "Property": "PRODUCTNAME"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00496B'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00496B'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "62.89023108914405D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CATALOGO_PBI_INVENTARIO.UNIDAD_INVENTARIO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "97.14808284629031D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PROX VENCIMIENTO.FECHA PROX VENCIMIENTO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "77.3296126388206D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(CATALOGO_PBI_INVENTARIO.SEGURIDAD_MIN)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "77.84997195235795D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.Inv Tar (Seguridad Mínimo)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.33335653381114D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "InventCost.Inv en Tarima"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "282.92830038735104D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CATALOGO_PBI_INVENTARIO.PRODUCTNAME"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "71.99999627834275D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "InventCost.Inv en Cajas"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.2499909548387D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "InventCost.Costo Unitario"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "59.25001107492391D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "select"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "69.66666918522677D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CATALOGO_PBI_INVENTARIO.Vta diaria 3S en Cajas"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "73.33341503499389D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CATALOGO_PBI_INVENTARIO.Vta diaria 3M en Cajas"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "74.69088656440321D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CATALOGO_PBI_INVENTARIO.Vta Diaria Futura en Cajas"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "131.71428735977196D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CATALOGO_PBI_INVENTARIO.Encargado Inventario"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "63.585784823081866D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "InventCost.Inventario Unidad Especial"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.66667017098152D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "InventCost.Inv + AF en Tarimas"
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "InventCost.Costo Unitario"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 1,
+                              "Left": {
+                                "SelectRef": {
+                                  "ExpressionName": "select"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "0D"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#efb5b9'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "select"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Inventario Actual'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'BoldHeader'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a27e928257406b41aaa3",
+        "ordinal": 0,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CATALOGO_PBI_INVENTARIO"
+                  }
+                },
+                "Property": "ITEMID"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4c69865f0987a5063025",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI_INVENTARIO"
+              }
+            },
+            "Property": "ITEMID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8e81be90432ab6609bd1",
+        "ordinal": 2,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "InventCost"
+                  }
+                },
+                "Property": "TotalTotCostFinanc"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "249ea302ca453026dcb3",
+        "ordinal": 3,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventCost"
+              }
+            },
+            "Property": "Costo Unitario"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c9754c417324d950c62c",
+        "ordinal": 4,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventCost"
+              }
+            },
+            "Property": "DI_Act"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bf6210e3e5e02d7edb0a",
+        "ordinal": 5,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventCost"
+              }
+            },
+            "Property": "DI_Act_ConAF"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "64432cccdb6cc70228d5",
+        "ordinal": 6,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CATALOGO_PBI_INVENTARIO"
+                  }
+                },
+                "Property": "SEGURIDAD_MIN"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5e30c180b05c02685b87",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI_INVENTARIO"
+              }
+            },
+            "Property": "Encargado Inventario"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3a7f13a669155568c3b8",
+        "ordinal": 8,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI_INVENTARIO"
+              }
+            },
+            "Property": "Estado Autorización"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7586000132c33096a430",
+        "ordinal": 9,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PROX VENCIMIENTO"
+              }
+            },
+            "Property": "FECHA PROX VENCIMIENTO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "46517337719b13d97370",
+        "ordinal": 10,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Localidades_Bridge"
+              }
+            },
+            "Property": "localidad"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "c8ecb10a91aa8bd0acd8",
+        "ordinal": 11,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventCost"
+              }
+            },
+            "Property": "Inv + AF en Tarimas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7b05ce21d2100eb66344",
+        "ordinal": 12,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventCost"
+              }
+            },
+            "Property": "Inv en Cajas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fbe4afa313870dce18dc",
+        "ordinal": 13,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventCost"
+              }
+            },
+            "Property": "Inv en Tarimas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5d6e154fe6c3a7e30bd5",
+        "ordinal": 14,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "InventCost"
+              }
+            },
+            "Property": "Inventario Unidad Especial"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2906c530c157a40d5a59",
+        "ordinal": 15,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "InventCost"
+                  }
+                },
+                "Property": "INVENTARIO_FISICO"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7a790ff170e658aa81d2",
+        "ordinal": 16,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PURCHASE_PBI"
+              }
+            },
+            "Property": "Inv Tar (Seguridad Mínimo)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9bd2c80ae8c6b0b08c9c",
+        "ordinal": 17,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI_INVENTARIO"
+              }
+            },
+            "Property": "PRODUCTNAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "79e63d216d8b0282304b",
+        "ordinal": 18,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI_INVENTARIO"
+              }
+            },
+            "Property": "UNIDAD_INVENTARIO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7e981ecee2d92ca10c95",
+        "ordinal": 19,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI_INVENTARIO"
+              }
+            },
+            "Property": "Vta Diaria 3M en Cajas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5edd17b8798708d72816",
+        "ordinal": 20,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI_INVENTARIO"
+              }
+            },
+            "Property": "Vta Diaria 3S en Cajas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1d320d438d20108abd3e",
+        "ordinal": 21,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CATALOGO_PBI_INVENTARIO"
+              }
+            },
+            "Property": "Vta Diaria Futura en Cajas"
+          }
+        },
+        "type": "Advanced"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

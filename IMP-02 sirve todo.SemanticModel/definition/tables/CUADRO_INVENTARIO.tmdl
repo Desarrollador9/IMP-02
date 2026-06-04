@@ -1,0 +1,123 @@
+table CUADRO_INVENTARIO
+	lineageTag: 460f6e35-ed89-4c0f-94c6-ea1540968b91
+
+	column ITEMID
+		dataType: string
+		lineageTag: 347ee62b-0d8a-4a90-a3e6-db8bb973b9f4
+		summarizeBy: none
+		sourceColumn: ITEMID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: 1d45e183-85d9-4917-a8f4-55f44a91c78b
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY_1
+		dataType: string
+		lineageTag: fc65c164-76f3-4ac5-9f87-db1a67b47647
+		summarizeBy: none
+		sourceColumn: KEY_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUADRO
+		dataType: string
+		lineageTag: 94623295-a582-4aa5-90d2-97add0ea0ef2
+		summarizeBy: none
+		sourceColumn: CUADRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMBRE_CUADRO
+		dataType: string
+		lineageTag: b2233272-a0c4-4115-8a52-3b0e6ee1b175
+		summarizeBy: none
+		sourceColumn: NOMBRE_CUADRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMBRE_PRODCUTO
+		dataType: string
+		lineageTag: 5e826d33-a531-4332-8c3d-b65f7df7acce
+		summarizeBy: none
+		sourceColumn: NOMBRE_PRODCUTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cuadro_Inventario = ```
+			IF(
+			    ISBLANK(CUADRO_INVENTARIO[CUADRO]), 
+			    "", 
+			    FORMAT(CUADRO_INVENTARIO[CUADRO], "General Number")
+			) 
+			& " " & 
+			IF(
+			    ISBLANK(CUADRO_INVENTARIO[NOMBRE_CUADRO]), 
+			    "", 
+			    CUADRO_INVENTARIO[NOMBRE_CUADRO]
+			)
+			```
+		lineageTag: bdc28d67-ed1d-4a27-a375-5ef2cde447cb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMBRE_CICLO
+		dataType: string
+		lineageTag: def4dcbd-8c88-46c6-8e35-abcf8646f2d4
+		summarizeBy: none
+		sourceColumn: NOMBRE_CICLO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CICLO_CUADRO
+		dataType: string
+		lineageTag: d29bc7b8-d382-4337-9eaa-1a47d6c1abfb
+		summarizeBy: none
+		sourceColumn: CICLO_CUADRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORIGEN_PROVEEDOR
+		dataType: string
+		lineageTag: eb8208ba-2cc2-4590-aca8-714c9dd9056c
+		summarizeBy: none
+		sourceColumn: ORIGEN_PROVEEDOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column Periodicidad
+		dataType: int64
+		formatString: 0
+		lineageTag: c01d9482-086b-4176-8ca5-a7c95a27477f
+		summarizeBy: none
+		sourceColumn: Periodicidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column Encargado
+		dataType: string
+		lineageTag: cbe9361d-fbd8-42f6-86f2-ef7e70314012
+		summarizeBy: none
+		sourceColumn: Encargado
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CUADRO_INVENTARIO = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="SELECT IT.ITEMID, #(lf)IT.DATAAREAID,#(lf)IT.DATAAREAID + IT.ITEMID AS KEY_1,#(lf)IT.GI_InventoryBoxNumber AS CUADRO,#(lf)ITB.GI_INVENTORYBOXNAME AS NOMBRE_CUADRO,#(lf)ITB.PERIODICITY as Periodicidad,#(lf)ITB.INCHARGE as Encargado,#(lf)PROD.NAME AS NOMBRE_PRODCUTO,#(lf)LCP.NAME AS NOMBRE_CICLO,#(lf)CASE LIFECYCLE#(lf)WHEN 1 THEN 'Activo'#(lf)WHEN 2 THEN 'Inactivo'#(lf)ELSE ''#(lf)END AS CICLO_CUADRO,#(lf)CASE ORIGINVENDOR#(lf)WHEN 1 THEN 'Internacional'#(lf)WHEN 2 THEN 'Nacional'#(lf)WHEN 3 THEN 'Ensamble'#(lf)ELSE ''#(lf)END AS ORIGEN_PROVEEDOR#(lf)FROM INVENTTABLE IT LEFT OUTER JOIN #(lf)INVENTORYBOX ITB ON ITB.GI_INVENTORYBOXNUMBER = IT.GI_InventoryBoxNumber AND ITB.DATAAREAID = IT.DATAAREAID LEFT OUTER JOIN#(lf)PRODUCTSPBI PROD ON PROD.ITEMID = IT.ITEMID LEFT OUTER JOIN #(lf)LifeCycleProducts LCP ON LCP.LIFECYCLEID = IT.LIFECYCLEPRODUCTID AND LCP.DATAAREAID = IT.DATAAREAID#(lf)WHERE IT.GI_InventoryBoxNumber <> ''", MultiSubnetFailover=true]),
+				    #"Duplicados quitados" = Table.Distinct(Origen, {"KEY_1"})
+				in
+				    #"Duplicados quitados"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

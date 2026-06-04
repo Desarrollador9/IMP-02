@@ -1,0 +1,1368 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "8167582d5cd260b78a52",
+  "position": {
+    "x": 0,
+    "y": 155,
+    "z": 2000,
+    "height": 695,
+    "width": 1900,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "PURCHID"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.PURCHID",
+              "nativeQueryRef": "OC",
+              "displayName": "OC"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "CONTENEDOR"
+                }
+              },
+              "queryRef": "CONTAINERS.CONTENEDOR",
+              "nativeQueryRef": "Contenedor",
+              "displayName": "Contenedor"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Hierarchy": "SOLICITADA_LLEGADA_BODEGA Jerarquía"
+                    }
+                  },
+                  "Level": "Solic Lleg Bodega"
+                }
+              },
+              "queryRef": "CONTAINERS.SOLICITADA_LLEGADA_BODEGA Jerarquía.Solic Lleg Bodega",
+              "nativeQueryRef": "SOLICITADA_LLEGADA_BODEGA Jerarquía Solic Lleg Bodega"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Hierarchy": "AJUSTADA_BODEGA Jerarquía"
+                    }
+                  },
+                  "Level": "Ajustada Bodega"
+                }
+              },
+              "queryRef": "CONTAINERS.AJUSTADA_BODEGA Jerarquía.Ajustada Bodega",
+              "nativeQueryRef": "AJUSTADA_BODEGA Jerarquía Ajustada Bodega"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Hierarchy": "AJUSTADA_ARRIBO Jerarquía"
+                    }
+                  },
+                  "Level": "Fecha Com"
+                }
+              },
+              "queryRef": "CONTAINERS.AJUSTADA_ARRIBO Jerarquía.Ajustada Arribo",
+              "nativeQueryRef": "AJUSTADA_ARRIBO Jerarquía Ajustada Arribo"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Property": "LLEG_BOD_SOLIC_SEM"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Sum(CONTAINERS.LLEG_BOD_SOLIC_SEM)",
+              "nativeQueryRef": "Lleg Bodega Solic Sem",
+              "displayName": "Lleg Bodega Solic Sem"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Property": "LLEG_BOD_AJUST_SEM"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Sum(CONTAINERS.LLEG_BOD_AJUST_SEM)",
+              "nativeQueryRef": "Máx. de LLEG_BOD_AJUST_SEM",
+              "displayName": "Lleg Bodega Ajust Sem"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Property": "AJUST_ARRIBO_SEM"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Sum(CONTAINERS.AJUST_ARRIBO_SEM)",
+              "nativeQueryRef": "Ajust Arribo Sem",
+              "displayName": "Ajust Arribo Sem"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Property": "DIAS_LIBRES"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Sum(CONTAINERS.DIAS_LIBRES)",
+              "nativeQueryRef": "Max of DIAS_LIBRES",
+              "displayName": "Días Libres"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Hierarchy": "FECHA_VENC_DIAS_LIBRES Jerarquía"
+                    }
+                  },
+                  "Level": "Vencimiento Días Libres"
+                }
+              },
+              "queryRef": "CONTAINERS.FECHA_VENC_DIAS_LIBRES Jerarquía.Vencimiento Días Libres",
+              "nativeQueryRef": "FECHA_VENC_DIAS_LIBRES Jerarquía Vencimiento Días Libres"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Hierarchy": "FECHA_DEVOLUCION Jerarquía"
+                    }
+                  },
+                  "Level": "TIR (Devolución)"
+                }
+              },
+              "queryRef": "CONTAINERS.FECHA_DEVOLUCION Jerarquía.Devolución (TIR)",
+              "nativeQueryRef": "FECHA_DEVOLUCION Jerarquía Devolución (TIR)"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Property": "DIAS_DEMORA_DEVOL"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Sum(CONTAINERS.DIAS_DEMORA_DEVOL)",
+              "nativeQueryRef": "Días Demora Dev",
+              "displayName": "Días Demora Dev"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "COD_TRANSP_TERRESTRE"
+                }
+              },
+              "queryRef": "CONTAINERS.COD_TRANSP_TERRESTRE",
+              "nativeQueryRef": "Transportista Terrestre",
+              "displayName": "Transportista Terrestre"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Hierarchy": "Transporte Puerto a Bodega"
+                    }
+                  },
+                  "Level": "Transporte Puerto a Bodega"
+                }
+              },
+              "queryRef": "CONTAINERS.Transporte Puerto a Bodega.Transporte Puerto a Puerto",
+              "nativeQueryRef": "Transporte Puerto a Bodega Transporte Puerto a Puerto"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CONTAINERS"
+                        }
+                      },
+                      "Hierarchy": "DESCARGA_BODEGA Jerarquía"
+                    }
+                  },
+                  "Level": "Descarga en Bodega"
+                }
+              },
+              "queryRef": "CONTAINERS.DESCARGA_BODEGA Jerarquía.Descarga en Bodega",
+              "nativeQueryRef": "DESCARGA_BODEGA Jerarquía Descarga en Bodega"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "UBICACION"
+                }
+              },
+              "queryRef": "CONTAINERS.UBICACION",
+              "nativeQueryRef": "Ubicación",
+              "displayName": "Ubicación"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "ESTADO"
+                }
+              },
+              "queryRef": "CONTAINERS.ESTADO",
+              "nativeQueryRef": "Estado",
+              "displayName": "Estado"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "TRANSPORTISTA_AF"
+                }
+              },
+              "queryRef": "CONTAINERS.TRANSPORTISTA_AF",
+              "nativeQueryRef": "Transportista AF",
+              "displayName": "Transportista AF"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "SITIO_AF"
+                }
+              },
+              "queryRef": "CONTAINERS.SITIO_AF",
+              "nativeQueryRef": "Sitio AF",
+              "displayName": "Sitio AF"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "NOMBRE_CHOFER_AF"
+                }
+              },
+              "queryRef": "CONTAINERS.NOMBRE_CHOFER_AF",
+              "nativeQueryRef": "Chofer AF",
+              "displayName": "Chofer AF"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "CEDULA_CHOFER_AF"
+                }
+              },
+              "queryRef": "CONTAINERS.CEDULA_CHOFER_AF",
+              "nativeQueryRef": "Ced AF",
+              "displayName": "Ced AF"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "CELULAR_CHOFER_AF"
+                }
+              },
+              "queryRef": "CONTAINERS.CELULAR_CHOFER_AF",
+              "nativeQueryRef": "Cel AF",
+              "displayName": "Cel AF"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "TRANSPORTISTA_FINAL"
+                }
+              },
+              "queryRef": "CONTAINERS.TRANSPORTISTA_FINAL",
+              "nativeQueryRef": "Transportista Final",
+              "displayName": "Transportista Final"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "SITIO_FINAL"
+                }
+              },
+              "queryRef": "CONTAINERS.SITIO_FINAL",
+              "nativeQueryRef": "Sitio Final",
+              "displayName": "Sitio Final"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "NOMBRE_CHOFER_FINAL"
+                }
+              },
+              "queryRef": "CONTAINERS.NOMBRE_CHOFER_FINAL",
+              "nativeQueryRef": "Chofer Final",
+              "displayName": "Chofer Final"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "CEDULA_CHOFER_FINAL"
+                }
+              },
+              "queryRef": "CONTAINERS.CEDULA_CHOFER_FINAL",
+              "nativeQueryRef": "Ced Chofer Final",
+              "displayName": "Ced Chofer Final"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "CELULAR_CHOFER_FINAL"
+                }
+              },
+              "queryRef": "CONTAINERS.CELULAR_CHOFER_FINAL",
+              "nativeQueryRef": "Cel Chofer Final",
+              "displayName": "Cel Chofer Final"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CONTAINERS"
+                  }
+                },
+                "Property": "CEDULA_CHOFER_AF"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00496B'"
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.2
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.42857405204217D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.SOLICITADA_LLEGADA_BODEGA Jerarquía.Solic Lleg Bodega"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "84.28570994830307D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.AJUSTADA_BODEGA Jerarquía.Ajustada Bodega"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "78.57144150666252D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.AJUSTADA_ARRIBO Jerarquía.Ajustada Arribo"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "109.71428747439444D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(CONTAINERS.LLEG_BOD_SOLIC_SEM)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "105.57143426662174D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(CONTAINERS.LLEG_BOD_AJUST_SEM)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "75.71428571428571D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(CONTAINERS.AJUST_ARRIBO_SEM)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "61.57142783477426D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(CONTAINERS.DIAS_LIBRES)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "107.28571815809369D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.FECHA_VENC_DIAS_LIBRES Jerarquía.Vencimiento Días Libres"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "98.85714464313548D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.FECHA_DEVOLUCION Jerarquía.Devolución (TIR)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "75.4285735045971D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(CONTAINERS.DIAS_DEMORA_DEVOL)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "118.57140625414394D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.COD_TRANSP_TERRESTRE"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "95.99999757796994D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.Transporte Puerto a Bodega.Transporte Puerto a Puerto"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "85.14285606777239D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.DESCARGA_BODEGA Jerarquía.Descarga en Bodega"
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#094780'"
+                    }
+                  }
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.SOLICITADA_LLEGADA_BODEGA Jerarquía.Solic Lleg Bodega"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#094780'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.AJUSTADA_BODEGA Jerarquía.Ajustada Bodega"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#094780'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.AJUSTADA_ARRIBO Jerarquía.Ajustada Arribo"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#094780'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(CONTAINERS.LLEG_BOD_SOLIC_SEM)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#094780'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(CONTAINERS.LLEG_BOD_AJUST_SEM)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#094780'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(CONTAINERS.AJUST_ARRIBO_SEM)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0D6ABF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(CONTAINERS.DIAS_LIBRES)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0D6ABF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.FECHA_VENC_DIAS_LIBRES Jerarquía.Vencimiento Días Libres"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0D6ABF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.FECHA_DEVOLUCION Jerarquía.Devolución (TIR)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0D6ABF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(CONTAINERS.DIAS_DEMORA_DEVOL)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#118DFF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.COD_TRANSP_TERRESTRE"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#118DFF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.Transporte Puerto a Bodega.Transporte Puerto a Puerto"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#118DFF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.DESCARGA_BODEGA Jerarquía.Descarga en Bodega"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#118DFF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.UBICACION"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#118DFF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.ESTADO"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

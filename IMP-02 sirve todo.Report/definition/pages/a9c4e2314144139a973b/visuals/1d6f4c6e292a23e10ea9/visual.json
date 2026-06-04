@@ -1,0 +1,166 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "1d6f4c6e292a23e10ea9",
+  "position": {
+    "x": 1.3157894736842106,
+    "y": 171.05263157894737,
+    "z": 11000,
+    "height": 367.10526315789474,
+    "width": 1897.3684210526314,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "scriptVisual",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "NAVIERA"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.NAVIERA",
+              "nativeQueryRef": "NAVIERA"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "ESTADO"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.ESTADO",
+              "nativeQueryRef": "ESTADO"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "Cant_Contenedores"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.Cant_Contenedores",
+              "nativeQueryRef": "Cant_Contenedores"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                    }
+                  },
+                  "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.SALIDA_AJUSTADA Hierarchy.Fecha Salida Ajustada del Barco",
+              "nativeQueryRef": "SALIDA_AJUSTADA Hierarchy Fecha Salida Ajustada del Barco"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                    }
+                  },
+                  "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.LLEGADA_PAIS Hierarchy.Fecha Llegada del Barco a Puerto",
+              "nativeQueryRef": "LLEGADA_PAIS Hierarchy Fecha Llegada del Barco a Puerto"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PURCHASE_PBI"
+                  }
+                },
+                "Property": "NAVIERA"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "script": [
+        {
+          "properties": {
+            "source": {
+              "expr": {
+                "Literal": {
+                  "Value": "'# Cargar librerías necesarias\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(gridExtra)\nlibrary(grid)\n\n# Eliminar duplicados\ndataset <- unique(dataset)\n\n# ---- ANCLA DINÁMICA: semana actual (domingo a sábado) ----\nhoy <- Sys.Date()\ninicio_semana_T <- hoy - as.integer(format(hoy, \"%w\"))  # domingo de la semana actual\n\n# Función para etiquetar semanas en base al ancla (T..T+9)\netiqueta_semana <- function(fecha, ancla) {\n  if (is.na(fecha) || fecha == as.Date(\"1900-01-01\")) return(\"Sin Fecha\")\n  diff_sem <- as.integer(floor((as.Date(fecha) - ancla)/7))\n  if (diff_sem < 0 || diff_sem > 9) return(NA_character_)  # fuera del rango mostrado\n  if (diff_sem == 0) \"T\" else paste0(\"T+\", diff_sem)\n}\n\n# Calcular Semana_Bodega y Semana_Mar respecto al ancla\ndataset <- dataset %>%\n  mutate(\n    Semana_Bodega = vapply(as.Date(SALIDA_AJUSTADA), etiqueta_semana, \"\", ancla = inicio_semana_T),\n    Semana_Mar    = vapply(as.Date(LLEGADA_PAIS),    etiqueta_semana, \"\", ancla = inicio_semana_T)\n  )\n\n# Rangos de fechas T..T+9 alineados al ancla\nrangos_semanas <- tibble(\n  Semana = c(\"T\", paste0(\"T+\", 1:9)),\n  Rango  = paste0(\n    format(inicio_semana_T + (0:9)*7, \"%d/%m/%Y\"), \" - \",\n    format(inicio_semana_T + (0:9)*7 + 6, \"%d/%m/%Y\")\n  )\n)\n\n# Agrupar por Estado, Naviera y Semana_Mar (solo T..T+9)\nresumen <- dataset %>%\n  filter(Semana_Mar %in% c(\"T\", paste0(\"T+\", 1:9))) %>%\n  group_by(ESTADO, NAVIERA, Semana_Mar) %>%\n  summarise(Total_Contenedores = sum(Cant_Contenedores, na.rm = TRUE), .groups = \"drop\") %>%\n  pivot_wider(\n    names_from = Semana_Mar,\n    values_from = Total_Contenedores,\n    values_fill = list(Total_Contenedores = 0)\n  ) %>%\n  ungroup()\n\n# Asegurar columnas T..T+9 presentes (aunque no haya datos)\nt_cols <- c(\"T\", paste0(\"T+\", 1:9))\nfor (cname in t_cols) if (!cname %in% names(resumen)) resumen[[cname]] <- 0L\n\n# Orden de columnas\nresumen <- resumen %>% select(NAVIERA, all_of(t_cols))\n\n# Encabezados con rangos\nrangos_encabezados <- rangos_semanas$Rango[match(t_cols, rangos_semanas$Semana)]\nnuevos_nombres <- paste0(t_cols, \"\\n(\", rangos_encabezados, \")\")\ncolnames(resumen)[-1] <- nuevos_nombres\n\n# Totales por fila (solo columnas T..T+9)\ncols_T <- grepl(\"^T(\\\\+[0-9]+)?\\\\n\", names(resumen))\nresumen <- resumen %>%\n  mutate(Total_General = rowSums(across(.cols = which(cols_T)), na.rm = TRUE))\n\n# Fila total\ntotales <- resumen %>%\n  summarise(across(where(is.numeric), ~sum(.x, na.rm = TRUE))) %>%\n  mutate(NAVIERA = \"Total\") %>%\n  select(names(resumen))\n\nresumen <- bind_rows(resumen, totales)\n\n# ---- Título y tabla ----\ngrid.newpage()\ngrid.text(\"TIERRA D\", x = 0.5, y = 0.92,\n          gp = gpar(fontsize = 23, fontface = \"bold\"))\ngrid.text(\"Control de contenedores ordenado por fecha estimada (en contenedores)\", x = 0.5, y = 0.82,\n          gp = gpar(fontsize = 21, fontface = \"italic\", col = \"gray15\"))\n\ngrid.table(\n  resumen,\n  theme = ttheme_default(\n    core = list(fg_params = list(cex = 1.6)),\n    colhead = list(fg_params = list(cex = 1.13))\n  )\n)\n'"
+                }
+              }
+            },
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'R'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

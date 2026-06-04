@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "a9c4e2314144139a973b",
+  "displayName": "T21.2. CTRL CONT -TIERRA D",
+  "displayOption": "FitToPage",
+  "height": 850,
+  "width": 1900,
+  "pageBinding": {
+    "name": "657ebe1cc9d9d14e58c8",
+    "type": "Default",
+    "parameters": []
+  }
+}

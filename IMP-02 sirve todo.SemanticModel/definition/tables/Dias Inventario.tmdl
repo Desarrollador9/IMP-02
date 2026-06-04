@@ -1,0 +1,26 @@
+table 'Dias Inventario'
+	lineageTag: 61c69482-245f-4d64-8bb7-a1f823d88699
+
+	measure 'Valor de Dias Inventario' = SELECTEDVALUE('Dias Inventario'[Dias Inventario])
+		formatString: 0
+		lineageTag: 321a2a3c-9cf3-4a89-9d3b-3b8d2540faa1
+
+	column 'Dias Inventario'
+		formatString: 0
+		lineageTag: cb9eb2a1-0599-4982-8119-a02a8384eeca
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition 'Dias Inventario' = calculated
+		mode: import
+		source = GENERATESERIES(0, 9999, 1)
+
+	annotation PBI_Id = 37220605935a42c58fb735b237ce59d7
+

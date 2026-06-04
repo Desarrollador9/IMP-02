@@ -1,0 +1,1141 @@
+table 'CUBO INVENTARIOS'
+	lineageTag: e5424ee7-38a1-4c09-a57b-3d9030564e12
+
+	column '[Released products].[Articulo].[Articulo].[MEMBER_CAPTION]'
+		dataType: string
+		lineageTag: 2d39890e-b74e-4f05-a894-afefd16cc85e
+		summarizeBy: none
+		sourceColumn: [Released products].[Articulo].[Articulo].[MEMBER_CAPTION]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Released products].[Articulo].[Articulo].[MEMBER_UNIQUE_NAME]'
+		dataType: string
+		lineageTag: d5c8f4c5-af57-45f7-b010-d44a81f193f5
+		summarizeBy: none
+		sourceColumn: [Released products].[Articulo].[Articulo].[MEMBER_UNIQUE_NAME]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Rotacion Estimada]'
+		dataType: string
+		lineageTag: 29c129c2-6552-4fc6-99ed-487da8402371
+		summarizeBy: none
+		sourceColumn: [Measures].[Rotacion Estimada]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Und X Cajas]'
+		dataType: double
+		lineageTag: fc4cec9e-1722-4521-ae7e-bc7a0fe1dc57
+		summarizeBy: sum
+		sourceColumn: [Measures].[Und X Cajas]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column '[Measures].[Growth Sem1]'
+		dataType: string
+		lineageTag: 3e84dabb-3c5f-4ab4-9cca-e7bf85552d97
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem2]'
+		dataType: string
+		lineageTag: f25e3173-ad64-4a10-8ae3-79951f191567
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem3]'
+		dataType: string
+		lineageTag: 0169acfe-9118-4102-a8b5-cdb116352154
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem4]'
+		dataType: string
+		lineageTag: 91686957-4879-4b1e-8415-bbb222560130
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem4]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem5]'
+		dataType: string
+		lineageTag: f08d2cc3-2ec5-440a-bd79-7814b473b3d7
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem5]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem6]'
+		dataType: string
+		lineageTag: 27c5b57c-43dd-4447-9774-9129b3096b3a
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem6]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem7]'
+		dataType: string
+		lineageTag: cea9cf0e-59ed-4330-838f-360c8a6f028a
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem7]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem8]'
+		dataType: string
+		lineageTag: a20f5134-63ff-4458-82f8-2b5913b5cc98
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem8]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem9]'
+		dataType: string
+		lineageTag: 5617cd92-4cad-4e80-b17c-528177f109ef
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem9]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem10]'
+		dataType: string
+		lineageTag: c2a99cb9-05a6-4de4-babe-311797622087
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem10]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem11]'
+		dataType: string
+		lineageTag: 1aa70347-fe86-4c25-ac64-598c7d50b7b1
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem11]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem12]'
+		dataType: string
+		lineageTag: 15357a49-24a9-44d3-95a5-7d75dd1efa34
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem12]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem13]'
+		dataType: string
+		lineageTag: dff0e026-18c3-4056-a917-6624d8926e1a
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem13]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem14]'
+		dataType: string
+		lineageTag: 90d30d0b-6b0f-42a7-8639-c5fb2f90403e
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem14]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem15]'
+		dataType: string
+		lineageTag: f7270e56-c96d-4ba1-94dd-bb720363878b
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem15]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem16]'
+		dataType: string
+		lineageTag: 5f040944-c148-497a-8af1-846861bad7b8
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem16]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem17]'
+		dataType: string
+		lineageTag: 19f576f1-7da7-406e-9b7a-d0e0ed5de837
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem17]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem18]'
+		dataType: string
+		lineageTag: cf6c7ad2-5802-4d40-987d-043c8f5087f9
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem18]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem19]'
+		dataType: string
+		lineageTag: 3413a083-4258-4bad-af53-1c38b19c6dda
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem19]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem20]'
+		dataType: string
+		lineageTag: 0e74e7a2-a8ee-4fb7-9f38-607d6a3df697
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem20]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem21]'
+		dataType: string
+		lineageTag: a3ef34d8-d311-4b4a-98a7-61e059df4c12
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem21]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem22]'
+		dataType: string
+		lineageTag: 36836aa3-6228-4ad3-a430-0e29d83b95db
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem22]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem23]'
+		dataType: string
+		lineageTag: 5e27b0d5-3540-4a7d-aec9-ab6f746eba3b
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem23]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem24]'
+		dataType: string
+		lineageTag: 7c36f3f2-6bff-471a-b9c1-cd315bafa1f6
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem24]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem25]'
+		dataType: string
+		lineageTag: 05b7b422-410f-43fb-a144-f81856ddaca0
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem25]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem26]'
+		dataType: string
+		lineageTag: 32564bc8-de96-4b88-b893-8fb482280876
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem26]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem27]'
+		dataType: string
+		lineageTag: e13083b4-5c3d-4ab0-96bc-614266d65645
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem27]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem28]'
+		dataType: string
+		lineageTag: 96a96cf8-76c7-4053-9b69-c6474a57b866
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem28]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem29]'
+		dataType: string
+		lineageTag: c747ecca-96d0-4972-8718-f6ef6159f50d
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem29]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem30]'
+		dataType: string
+		lineageTag: dfd2891a-ab05-4467-b46a-0259db2d6e48
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem30]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem31]'
+		dataType: string
+		lineageTag: 4a4bed09-2640-45c4-a3c2-2d367bcd6046
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem31]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem32]'
+		dataType: string
+		lineageTag: 26366db4-5ae7-4f75-bf86-ba1332b42d83
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem32]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem33]'
+		dataType: string
+		lineageTag: d3128beb-37cc-4e7b-ad77-6509bc741d5c
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem33]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem34]'
+		dataType: string
+		lineageTag: a7f56f23-88f1-48c6-90fd-fd4fcb9ed4f3
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem34]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem35]'
+		dataType: string
+		lineageTag: 591b29fb-ca6a-4f42-bb04-b80a620276f4
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem35]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Growth Sem36]'
+		dataType: string
+		lineageTag: 7cef1c06-066f-4abe-aedc-41d2987e53f5
+		summarizeBy: none
+		sourceColumn: [Measures].[Growth Sem36]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Peso Unidad Compra]'
+		dataType: double
+		lineageTag: 4643a3ab-63cc-4dc6-9cbe-d1ae9c1d4575
+		summarizeBy: sum
+		sourceColumn: [Measures].[Peso Unidad Compra]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column '[Measures].[Ancho Unidad Compra]'
+		dataType: string
+		lineageTag: 4960e0d8-da64-4800-9cd1-0d62fa51a3d5
+		summarizeBy: none
+		sourceColumn: [Measures].[Ancho Unidad Compra]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Altura Unidad Compra]'
+		dataType: string
+		lineageTag: d0e3b69d-d0d4-40f6-b513-5094d46ce87b
+		summarizeBy: none
+		sourceColumn: [Measures].[Altura Unidad Compra]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Profundidad Unidad Compra]'
+		dataType: string
+		lineageTag: 99db739e-bbb2-4007-954a-cb087db39aa8
+		summarizeBy: none
+		sourceColumn: [Measures].[Profundidad Unidad Compra]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Inventory]'
+		dataType: string
+		lineageTag: 106cc94b-2c70-4033-baf1-23512e00968c
+		summarizeBy: none
+		sourceColumn: [Measures].[Inventory]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Rot Historica Diaria 3M]'
+		dataType: string
+		lineageTag: 9908458a-7956-4262-b7d8-6f416c006c95
+		summarizeBy: none
+		sourceColumn: [Measures].[Rot Historica Diaria 3M]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Rot Historica Diaria 3S]'
+		dataType: string
+		lineageTag: 3fb71215-066d-4e8c-a1d5-67408758b3d5
+		summarizeBy: none
+		sourceColumn: [Measures].[Rot Historica Diaria 3S]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Prom Ventas3M]'
+		dataType: string
+		lineageTag: f634061d-d5d2-4d41-81a5-27528f1f4bb3
+		summarizeBy: none
+		sourceColumn: [Measures].[Prom Ventas3M]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem1]'
+		dataType: string
+		lineageTag: d7a30f9f-3b01-4bd9-9ac1-12a868bc085c
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem2]'
+		dataType: string
+		lineageTag: d4f2822d-e52e-41e1-8b59-b23730d4fc09
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem3]'
+		dataType: string
+		lineageTag: 2db0ff14-e003-46ac-a633-546d65e3e47e
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem4]'
+		dataType: string
+		lineageTag: dcda2489-e389-4725-ab9a-4dd05d672e5d
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem4]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem5]'
+		dataType: string
+		lineageTag: 2abde8a2-acff-4027-a664-6ca95055b678
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem5]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem6]'
+		dataType: string
+		lineageTag: 88eb3852-efeb-47c6-bd50-363c5f70f3da
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem6]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem7]'
+		dataType: string
+		lineageTag: 906ba44c-c4eb-4fd2-8e11-3c3b94a38c5c
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem7]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem8]'
+		dataType: string
+		lineageTag: 8da2eec6-b17c-440c-8dc6-e8da76acc933
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem8]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem9]'
+		dataType: string
+		lineageTag: 457e73e3-b35c-4610-b616-fdf187420353
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem9]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem10]'
+		dataType: string
+		lineageTag: 386f3e9a-8dde-4928-a6d4-4157e233d21d
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem10]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem11]'
+		dataType: string
+		lineageTag: 34478803-553c-4a65-aedf-e581034f01e1
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem11]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem12]'
+		dataType: string
+		lineageTag: 286be583-9be5-4ae2-99ee-5b10525b0117
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem12]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem13]'
+		dataType: string
+		lineageTag: 30962157-eb46-4941-9ff0-094df6d89625
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem13]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem14]'
+		dataType: string
+		lineageTag: 5f36afe6-c77f-4146-a2c7-01b36cb9dc4f
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem14]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem15]'
+		dataType: string
+		lineageTag: 49389d8d-d2de-4a52-9f5b-234074ff6d4f
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem15]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem16]'
+		dataType: string
+		lineageTag: c09cb42a-5c00-413e-bdd5-6789fe609426
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem16]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem17]'
+		dataType: string
+		lineageTag: 0af80e6d-9bd7-440b-a62a-d56fd97ac876
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem17]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem18]'
+		dataType: string
+		lineageTag: dbd4d91b-fa01-4845-943b-45087a9039bb
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem18]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem19]'
+		dataType: string
+		lineageTag: 0b36d4ff-86ae-46f8-b599-70a68c1f9839
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem19]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem20]'
+		dataType: string
+		lineageTag: acc5fc77-7c33-452d-8249-b3c9aa27ccbd
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem20]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem21]'
+		dataType: string
+		lineageTag: 545e8d47-ad7d-43f5-9a6a-89e62e4cd9bf
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem21]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem22]'
+		dataType: string
+		lineageTag: 1f064e47-98f2-40d9-9bb6-43891339a73f
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem22]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem23]'
+		dataType: string
+		lineageTag: e5ce9c9f-f1f7-482d-92a2-0f44f27cbe88
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem23]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem24]'
+		dataType: string
+		lineageTag: c6a5d7dd-495d-4b71-92ad-7e8f7846a238
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem24]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem25]'
+		dataType: string
+		lineageTag: d5a74297-d9b8-4634-8467-54d7cc8410bd
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem25]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem26]'
+		dataType: string
+		lineageTag: b4e1478b-56e4-4350-bfba-240cbec295b9
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem26]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem27]'
+		dataType: string
+		lineageTag: e2339e3a-33de-47c4-9ad4-dbe0a60ae249
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem27]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem28]'
+		dataType: string
+		lineageTag: e7ea60f6-3718-4f96-b62c-7139d73565e5
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem28]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem29]'
+		dataType: string
+		lineageTag: 08e1f150-4c86-438c-8173-360719d7713e
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem29]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem30]'
+		dataType: string
+		lineageTag: f7dbd1d5-f7bc-4438-b825-04fe22c1a44e
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem30]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem31]'
+		dataType: string
+		lineageTag: 93aa9cfa-47a0-4baf-b259-de7237d874c0
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem31]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem32]'
+		dataType: string
+		lineageTag: 081709c3-b67f-47ea-87ff-e73b04010110
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem32]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem33]'
+		dataType: string
+		lineageTag: 46dc9eba-ebe5-41d9-bd30-43978d3af0c7
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem33]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem34]'
+		dataType: string
+		lineageTag: 4b7ed6e0-d2ea-409b-a80f-7f4424855900
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem34]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem35]'
+		dataType: string
+		lineageTag: 6db0e73e-bb29-452a-9d4e-857b00b48903
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem35]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[QTY Unidad Inventario Sem36]'
+		dataType: string
+		lineageTag: 686a9f94-677e-4b3f-83f4-5d52f3857d03
+		summarizeBy: none
+		sourceColumn: [Measures].[QTY Unidad Inventario Sem36]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Prom Ventas3S]'
+		dataType: string
+		lineageTag: f4fc39fd-c109-471d-be40-9d8b91b1fb48
+		summarizeBy: none
+		sourceColumn: [Measures].[Prom Ventas3S]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Rot Diaria Total]'
+		dataType: string
+		lineageTag: 1c1aa335-ef31-4f58-be91-1f08eccf193e
+		summarizeBy: none
+		sourceColumn: [Measures].[Rot Diaria Total]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Costo Unitario]'
+		dataType: double
+		lineageTag: a3f37390-d863-4f16-b56f-55b26fc738d4
+		summarizeBy: sum
+		sourceColumn: [Measures].[Costo Unitario]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column '[Measures].[Inventory Cajas]'
+		dataType: string
+		lineageTag: fa1f2c3e-422f-4456-89dc-f5f30e4188eb
+		summarizeBy: none
+		sourceColumn: [Measures].[Inventory Cajas]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Precio Promedio]'
+		dataType: string
+		lineageTag: ebb74404-306a-4f86-8b94-f4e19027cc23
+		summarizeBy: none
+		sourceColumn: [Measures].[Precio Promedio]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Rot Diaria]'
+		dataType: string
+		lineageTag: 8892ce0e-c998-4102-9728-b1b49c934a31
+		summarizeBy: none
+		sourceColumn: [Measures].[Rot Diaria]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+4 Grwth]'
+		dataType: string
+		lineageTag: 91f1ca30-b5c0-48dc-bc64-fdbb5535578a
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+4 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+5 Grwth]'
+		dataType: string
+		lineageTag: c71748b4-fa20-4d70-98b6-66c316397be1
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+5 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+6 Grwth]'
+		dataType: string
+		lineageTag: 792c39f6-e6d5-478f-bb0f-4336290c755e
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+6 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+7 Grwth]'
+		dataType: string
+		lineageTag: 9aad2d10-001d-4cd6-b0d9-f5157596933b
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+7 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+3 Grwth]'
+		dataType: string
+		lineageTag: 52afba6e-bfa4-4d8b-8586-11de4bb2df74
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+3 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+1 Grwth]'
+		dataType: string
+		lineageTag: 01207015-0291-4c0b-9622-8d3740ba7eb3
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+1 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+2 Grwth]'
+		dataType: string
+		lineageTag: ce733368-4141-4b85-b1e1-749791f204c3
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+2 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+8 Grwth]'
+		dataType: string
+		lineageTag: 7e8021ac-eff8-4b78-87af-04e19db319f9
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+8 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+9 Grwth]'
+		dataType: string
+		lineageTag: 9fc5f49c-de2e-4483-868c-ab01d486de83
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+9 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+10 Grwth]'
+		dataType: string
+		lineageTag: 286f07b6-55f7-48d8-a650-c8ea3cc275ea
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+10 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+11 Grwth]'
+		dataType: string
+		lineageTag: 8691bbb8-fa07-4609-89bf-fe4ac85da990
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+11 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+12 Grwth]'
+		dataType: string
+		lineageTag: 798c7480-d85e-40be-a383-c8a14479bd4a
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+12 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+13 Grwth]'
+		dataType: string
+		lineageTag: 3f115bbf-5785-485f-a913-c9aa85f466dd
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+13 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+14 Grwth]'
+		dataType: string
+		lineageTag: cc9f9160-217a-4e35-b908-e36489198662
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+14 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+15 Grwth]'
+		dataType: string
+		lineageTag: 5f64b30a-ad41-46d4-9e55-d3d2da7f6cd0
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+15 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+16 Grwth]'
+		dataType: string
+		lineageTag: 43b5f809-d9bf-4ca4-94c3-5e134718fe6a
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+16 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+17 Grwth]'
+		dataType: string
+		lineageTag: 1048e02a-55ad-4808-b649-b0cb4938cd65
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+17 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+18 Grwth]'
+		dataType: string
+		lineageTag: 2b5b582b-2af1-480f-82f4-7c6e1d070348
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+18 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+19 Grwth]'
+		dataType: string
+		lineageTag: dc709f9a-9f8d-45ec-8a61-abc6ed46cb9e
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+19 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+20 Grwth]'
+		dataType: string
+		lineageTag: 16546767-941e-4151-a2f7-dd47fc41a304
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+20 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+21 Grwth]'
+		dataType: string
+		lineageTag: 32dd7ae6-f873-4e84-97c2-68934792cf8a
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+21 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+22 Grwth]'
+		dataType: string
+		lineageTag: e034902d-d424-4cf9-895b-630f3025a318
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+22 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+23 Grwth]'
+		dataType: string
+		lineageTag: 75986082-33a0-4153-b615-6eb7bdf5b48e
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+23 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+24 Grwth]'
+		dataType: string
+		lineageTag: 011ec04e-c0fe-4cb8-aad7-dc426f7a22ef
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+24 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+25 Grwth]'
+		dataType: string
+		lineageTag: 8f6b8d05-5bca-4451-91e8-d5543877fbfe
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+25 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+26 Grwth]'
+		dataType: string
+		lineageTag: b4fffbff-b649-40d6-a350-bb26a7ffd3c8
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+26 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+27 Grwth]'
+		dataType: string
+		lineageTag: ca734f61-3c16-4d00-8b1f-9c7e62569014
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+27 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+28 Grwth]'
+		dataType: string
+		lineageTag: 3a3cf5eb-68e1-41ef-aabd-14a53345c7b0
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+28 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+29 Grwth]'
+		dataType: string
+		lineageTag: 49d38d8f-9a33-4a29-8109-da2bcc6a08ca
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+29 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+30 Grwth]'
+		dataType: string
+		lineageTag: 8d8f8f0f-8b35-4278-8374-4ed65de21233
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+30 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+31 Grwth]'
+		dataType: string
+		lineageTag: 474c53cb-4217-424d-b175-c9208068a84b
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+31 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+32 Grwth]'
+		dataType: string
+		lineageTag: fdeebeb0-41bc-4288-b34b-1bee3b7b66e9
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+32 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+33 Grwth]'
+		dataType: string
+		lineageTag: 4396d42b-be9e-448d-b3ef-5b790d277d8d
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+33 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+34 Grwth]'
+		dataType: string
+		lineageTag: 23742fa0-2b2e-4904-8463-636cbf2fafe7
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+34 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+35 Grwth]'
+		dataType: string
+		lineageTag: 58f1bcec-8e1e-4c28-845b-d6658e510c1a
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+35 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Measures].[Cajas T+36 Grwth]'
+		dataType: string
+		lineageTag: bc8d41ef-ef3c-4fc1-932e-23c9d42778c2
+		summarizeBy: none
+		sourceColumn: [Measures].[Cajas T+36 Grwth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CRECIMIENTO.GROWTH'
+		dataType: double
+		lineageTag: f0a41b21-6fcc-4b56-8a10-b262a172f2c7
+		summarizeBy: sum
+		sourceColumn: CRECIMIENTO.GROWTH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column '[Released products].[Tipo de Articulo].[Tipo de Articulo].[MEMBER_CAPTION]'
+		dataType: string
+		lineageTag: e6c5a372-43f3-47a0-a6bc-e53c05d0a3c8
+		summarizeBy: none
+		sourceColumn: [Released products].[Tipo de Articulo].[Tipo de Articulo].[MEMBER_CAPTION]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '[Released products].[Tipo de Articulo].[Tipo de Articulo].[MEMBER_UNIQUE_NAME]'
+		dataType: string
+		lineageTag: f8c04403-0e58-4b9b-aab9-3d7a0e7733a2
+		summarizeBy: none
+		sourceColumn: [Released products].[Tipo de Articulo].[Tipo de Articulo].[MEMBER_UNIQUE_NAME]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'CUBO INVENTARIOS' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SJODB001", "GIAX2012_PROD", [Query="EXEC Get_InventoryValues", MultiSubnetFailover=true]),
+				    #"Valor reemplazado1" = Table.ReplaceValue(Source,"0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem1]"}),
+				    #"Valor reemplazado2" = Table.ReplaceValue(#"Valor reemplazado1","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem2]"}),
+				    #"Valor reemplazado3" = Table.ReplaceValue(#"Valor reemplazado2","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem3]"}),
+				    #"Valor reemplazado4" = Table.ReplaceValue(#"Valor reemplazado3","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem4]"}),
+				    #"Valor reemplazado5" = Table.ReplaceValue(#"Valor reemplazado4","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem5]"}),
+				    #"Valor reemplazado6" = Table.ReplaceValue(#"Valor reemplazado5","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem6]"}),
+				    #"Valor reemplazado7" = Table.ReplaceValue(#"Valor reemplazado6","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem7]"}),
+				    #"Valor reemplazado8" = Table.ReplaceValue(#"Valor reemplazado7","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem8]"}),
+				    #"Valor reemplazado9" = Table.ReplaceValue(#"Valor reemplazado8","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem9]"}),
+				    #"Valor reemplazado10" = Table.ReplaceValue(#"Valor reemplazado9","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem10]"}),
+				    #"Valor reemplazado11" = Table.ReplaceValue(#"Valor reemplazado10","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem11]"}),
+				    #"Valor reemplazado12" = Table.ReplaceValue(#"Valor reemplazado11","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem12]"}),
+				    #"Valor reemplazado13" = Table.ReplaceValue(#"Valor reemplazado12","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem13]"}),
+				    #"Valor reemplazado14" = Table.ReplaceValue(#"Valor reemplazado13","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem14]"}),
+				    #"Valor reemplazado15" = Table.ReplaceValue(#"Valor reemplazado14","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem15]"}),
+				    #"Valor reemplazado16" = Table.ReplaceValue(#"Valor reemplazado15","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem16]"}),
+				    #"Valor reemplazado17" = Table.ReplaceValue(#"Valor reemplazado16","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem17]"}),
+				    #"Valor reemplazado18" = Table.ReplaceValue(#"Valor reemplazado17","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem18]"}),
+				    #"Valor reemplazado19" = Table.ReplaceValue(#"Valor reemplazado18","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem19]"}),
+				    #"Valor reemplazado20" = Table.ReplaceValue(#"Valor reemplazado19","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem20]"}),
+				    #"Valor reemplazado21" = Table.ReplaceValue(#"Valor reemplazado20","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem21]"}),
+				    #"Valor reemplazado22" = Table.ReplaceValue(#"Valor reemplazado21","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem22]"}),
+				    #"Valor reemplazado23" = Table.ReplaceValue(#"Valor reemplazado22","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem23]"}),
+				    #"Valor reemplazado24" = Table.ReplaceValue(#"Valor reemplazado23","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem24]"}),
+				    #"Valor reemplazado25" = Table.ReplaceValue(#"Valor reemplazado24","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem25]"}),
+				    #"Valor reemplazado26" = Table.ReplaceValue(#"Valor reemplazado25","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem26]"}),
+				    #"Valor reemplazado27" = Table.ReplaceValue(#"Valor reemplazado26","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem27]"}),
+				    #"Valor reemplazado28" = Table.ReplaceValue(#"Valor reemplazado27","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem28]"}),
+				    #"Valor reemplazado29" = Table.ReplaceValue(#"Valor reemplazado28","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem29]"}),
+				    #"Valor reemplazado30" = Table.ReplaceValue(#"Valor reemplazado29","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem30]"}),
+				    #"Valor reemplazado31" = Table.ReplaceValue(#"Valor reemplazado30","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem31]"}),
+				    #"Valor reemplazado32" = Table.ReplaceValue(#"Valor reemplazado31","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem32]"}),
+				    #"Valor reemplazado33" = Table.ReplaceValue(#"Valor reemplazado32","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem33]"}),
+				    #"Valor reemplazado34" = Table.ReplaceValue(#"Valor reemplazado33","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem34]"}),
+				    #"Valor reemplazado35" = Table.ReplaceValue(#"Valor reemplazado34","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem35]"}),
+				    #"Valor reemplazado36" = Table.ReplaceValue(#"Valor reemplazado35","0","1",Replacer.ReplaceValue,{"[Measures].[Growth Sem36]"}),
+				    #"Valor reemplazado37" = Table.ReplaceValue(#"Valor reemplazado36",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem1]"}),
+				    #"Valor reemplazado38" = Table.ReplaceValue(#"Valor reemplazado37",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem2]"}),
+				    #"Valor reemplazado39" = Table.ReplaceValue(#"Valor reemplazado38",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem3]"}),
+				    #"Valor reemplazado40" = Table.ReplaceValue(#"Valor reemplazado39",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem4]"}),
+				    #"Valor reemplazado41" = Table.ReplaceValue(#"Valor reemplazado40",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem5]"}),
+				    #"Valor reemplazado42" = Table.ReplaceValue(#"Valor reemplazado41",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem6]"}),
+				    #"Valor reemplazado43" = Table.ReplaceValue(#"Valor reemplazado42",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem7]"}),
+				    #"Valor reemplazado44" = Table.ReplaceValue(#"Valor reemplazado43",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem8]"}),
+				    #"Valor reemplazado45" = Table.ReplaceValue(#"Valor reemplazado44",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem9]"}),
+				    #"Valor reemplazado46" = Table.ReplaceValue(#"Valor reemplazado45",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem10]"}),
+				    #"Valor reemplazado47" = Table.ReplaceValue(#"Valor reemplazado46",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem11]"}),
+				    #"Valor reemplazado48" = Table.ReplaceValue(#"Valor reemplazado47",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem12]"}),
+				    #"Valor reemplazado49" = Table.ReplaceValue(#"Valor reemplazado48",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem13]"}),
+				    #"Valor reemplazado50" = Table.ReplaceValue(#"Valor reemplazado49",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem14]"}),
+				    #"Valor reemplazado51" = Table.ReplaceValue(#"Valor reemplazado50",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem15]"}),
+				    #"Valor reemplazado52" = Table.ReplaceValue(#"Valor reemplazado51",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem16]"}),
+				    #"Valor reemplazado53" = Table.ReplaceValue(#"Valor reemplazado52",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem17]"}),
+				    #"Valor reemplazado54" = Table.ReplaceValue(#"Valor reemplazado53",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem18]"}),
+				    #"Valor reemplazado55" = Table.ReplaceValue(#"Valor reemplazado54",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem19]"}),
+				    #"Valor reemplazado56" = Table.ReplaceValue(#"Valor reemplazado55",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem20]"}),
+				    #"Valor reemplazado57" = Table.ReplaceValue(#"Valor reemplazado56",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem21]"}),
+				    #"Valor reemplazado58" = Table.ReplaceValue(#"Valor reemplazado57",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem22]"}),
+				    #"Valor reemplazado59" = Table.ReplaceValue(#"Valor reemplazado58",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem23]"}),
+				    #"Valor reemplazado60" = Table.ReplaceValue(#"Valor reemplazado59",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem24]"}),
+				    #"Valor reemplazado61" = Table.ReplaceValue(#"Valor reemplazado60",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem25]"}),
+				    #"Valor reemplazado62" = Table.ReplaceValue(#"Valor reemplazado61",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem26]"}),
+				    #"Valor reemplazado63" = Table.ReplaceValue(#"Valor reemplazado62",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem27]"}),
+				    #"Valor reemplazado64" = Table.ReplaceValue(#"Valor reemplazado63",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem28]"}),
+				    #"Valor reemplazado65" = Table.ReplaceValue(#"Valor reemplazado64",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem29]"}),
+				    #"Valor reemplazado66" = Table.ReplaceValue(#"Valor reemplazado65",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem30]"}),
+				    #"Valor reemplazado67" = Table.ReplaceValue(#"Valor reemplazado66",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem31]"}),
+				    #"Valor reemplazado68" = Table.ReplaceValue(#"Valor reemplazado67",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem32]"}),
+				    #"Valor reemplazado69" = Table.ReplaceValue(#"Valor reemplazado68",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem33]"}),
+				    #"Valor reemplazado70" = Table.ReplaceValue(#"Valor reemplazado69",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem34]"}),
+				    #"Valor reemplazado71" = Table.ReplaceValue(#"Valor reemplazado70",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem35]"}),
+				    #"Valor reemplazado72" = Table.ReplaceValue(#"Valor reemplazado71",null,"1",Replacer.ReplaceValue,{"[Measures].[Growth Sem36]"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Valor reemplazado72",null,"0",Replacer.ReplaceValue,{"[Measures].[Und X Cajas]"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value",null,"0",Replacer.ReplaceValue,{"[Measures].[Costo Unitario]"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Replaced Value1",{{"[Measures].[Costo Unitario]", type number}}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Changed Type",null,"0",Replacer.ReplaceValue,{"[Measures].[Peso Unidad Compra]"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Replaced Value2",{{"[Measures].[Peso Unidad Compra]", type number}}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Changed Type1", {"[Released products].[Articulo].[Articulo].[MEMBER_CAPTION]"}, CRECIMIENTO, {"ITEMID"}, "CRECIMIENTO", JoinKind.LeftOuter),
+				    #"Se expandió CRECIMIENTO" = Table.ExpandTableColumn(#"Consultas combinadas", "CRECIMIENTO", {"GROWTH"}, {"CRECIMIENTO.GROWTH"}),
+				    #"Valor reemplazado" = Table.ReplaceValue(#"Se expandió CRECIMIENTO",null,1,Replacer.ReplaceValue,{"CRECIMIENTO.GROWTH"}),
+				    #"Duplicados quitados" = Table.Distinct(#"Valor reemplazado", {"[Released products].[Articulo].[Articulo].[MEMBER_CAPTION]"}),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Duplicados quitados",{{"[Measures].[Und X Cajas]", type number}}),
+				    #"Valor reemplazado73" = Table.TransformColumns(
+				    #"Tipo cambiado",
+				    {{"[Measures].[Und X Cajas]", each if _ = 0 then 1 else _, type number}}
+				)
+				in
+				    #"Valor reemplazado73"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

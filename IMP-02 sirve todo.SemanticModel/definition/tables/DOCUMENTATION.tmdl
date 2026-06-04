@@ -1,0 +1,568 @@
+table DOCUMENTATION
+	lineageTag: ed380fca-37f1-4b9e-abb7-e23263cbe6fb
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: 14961099-59fc-4213-af4e-eb7368435c61
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PURCHID
+		dataType: string
+		lineageTag: 3c1881fb-88dd-4c34-b6ad-c837eb713521
+		summarizeBy: none
+		sourceColumn: PURCHID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LLEGADA_DOC_ORIG
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: a2ff1c99-4cc0-44fa-876c-78019bf775b2
+		summarizeBy: none
+		sourceColumn: LLEGADA_DOC_ORIG
+
+		variation Variación
+			isDefault
+			relationship: 74f07ed9-b992-4768-9fb8-3f6b840eb020
+			defaultHierarchy: LocalDateTable_a28229f1-56af-4973-9a56-d1fa2c0f5271.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column DOC_ORIG_INT
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: e1a1cb07-ba5b-4e94-9339-c7d0ec247791
+		summarizeBy: none
+		sourceColumn: DOC_ORIG_INT
+
+		variation Variación
+			isDefault
+			relationship: 77500c45-9e05-482a-9ffb-88b6220ce844
+			defaultHierarchy: LocalDateTable_ca34cb9d-d53a-45d2-9271-33f5d3afabae.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column SEM_DOC_ORIG
+		dataType: int64
+		formatString: 0
+		lineageTag: 3543a745-58e0-486a-823c-6fae87b82078
+		summarizeBy: sum
+		sourceColumn: SEM_DOC_ORIG
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENVIO_COPIAS
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: caaef634-ef39-4412-80cd-1821a20b7150
+		summarizeBy: none
+		sourceColumn: ENVIO_COPIAS
+
+		variation Variación
+			isDefault
+			relationship: fe41cbd9-91fe-4455-9c21-10f7af70d8f1
+			defaultHierarchy: LocalDateTable_71b119ce-94f2-4d60-908d-585106599c8a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column OK_COPIAS_DOC
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: 0313cc4b-c314-435d-ba7d-58414d80f1f1
+		summarizeBy: none
+		sourceColumn: OK_COPIAS_DOC
+
+		variation Variación
+			isDefault
+			relationship: 8e7df777-ad1d-489e-a6e5-45fef8846f3f
+			defaultHierarchy: LocalDateTable_650b212d-1371-4d96-b9e2-fff35cf3fcb1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column FECHA_BL
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: 738dd0a8-4eec-4361-969d-1f2d67fde8c1
+		summarizeBy: none
+		sourceColumn: FECHA_BL
+
+		variation Variación
+			isDefault
+			relationship: b3190668-0014-469b-b178-66bde45cb23b
+			defaultHierarchy: LocalDateTable_fe8bfce8-e2ac-4a9d-a59a-997a81a08a48.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column BORRADOR_BL
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: 29a2df48-7915-4f6e-b6e0-0ca2c9c6ec50
+		summarizeBy: none
+		sourceColumn: BORRADOR_BL
+
+		variation Variación
+			isDefault
+			relationship: 65390b15-6ee8-477b-92bc-bdf9d219f01d
+			defaultHierarchy: LocalDateTable_3911b29c-886f-4d92-b4aa-c43e0a28d0e1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column ENVIO_BL
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: ed0e67e9-a840-484e-81a5-96d49b97745b
+		summarizeBy: none
+		sourceColumn: ENVIO_BL
+
+		variation Variación
+			isDefault
+			relationship: df300732-f409-44ed-8f82-97f5d3d233de
+			defaultHierarchy: LocalDateTable_235177ec-64bb-495c-9aaa-4022fe5b1b9d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column APROB_BL
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: ad83021a-0b3b-4554-9738-398cb086c706
+		summarizeBy: none
+		sourceColumn: APROB_BL
+
+		variation Variación
+			isDefault
+			relationship: e8a490d7-1519-4e1f-9143-e79c0d8f6e4c
+			defaultHierarchy: LocalDateTable_f2f6ade1-09e9-4cf5-8aa3-afe28a523d9d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column BORRADOR_COO
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: f38a9a74-a1a7-4b83-ad12-e0391fcab0d1
+		summarizeBy: none
+		sourceColumn: BORRADOR_COO
+
+		variation Variación
+			isDefault
+			relationship: 0ba02c71-dff3-4e70-9c6d-5a4c0cfb28a3
+			defaultHierarchy: LocalDateTable_8d14fa03-15ea-4d4c-b2b4-044f486e8f8c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column APROB_BORRADOR_COO
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: 0a5ec512-8e28-4943-866d-d6a4c812ddd1
+		summarizeBy: none
+		sourceColumn: APROB_BORRADOR_COO
+
+		variation Variación
+			isDefault
+			relationship: 741064a9-427e-4d9d-bf42-5b65666606f7
+			defaultHierarchy: LocalDateTable_92a267eb-f738-4e80-8cde-90979442b05c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column APROB_CERTIF_ORIGEN
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: d983cec4-d0ef-48b9-a67e-daaf54689280
+		summarizeBy: none
+		sourceColumn: APROB_CERTIF_ORIGEN
+
+		variation Variación
+			isDefault
+			relationship: 532bf68b-7ae1-4396-9e6d-f6b11386b7e3
+			defaultHierarchy: LocalDateTable_7f4ac7be-bc65-49d4-9d1a-8bcc81569e8e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column BORR_CERTIF_FITO_ORIGEN
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: 49e665bf-0723-4fc7-baff-1e833d64ada6
+		summarizeBy: none
+		sourceColumn: BORR_CERTIF_FITO_ORIGEN
+
+		variation Variación
+			isDefault
+			relationship: 4aa69273-8fe5-4c7e-9dce-1e49f8de59a2
+			defaultHierarchy: LocalDateTable_2560ccfc-55a1-4824-b5dc-2b8a97ad690f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column APROB_BORR_CERTIF_FITO_ORIGEN
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: fc732a66-bf3a-4c6d-9c29-216e12aec5cb
+		summarizeBy: none
+		sourceColumn: APROB_BORR_CERTIF_FITO_ORIGEN
+
+		variation Variación
+			isDefault
+			relationship: d622cd39-68b5-4885-acaa-a65b5b3622be
+			defaultHierarchy: LocalDateTable_2a0d2cc7-03ac-4ec8-ba4a-16990e5bd16e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column CERTIF_FITO_DEST
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: c9ea45c7-dc31-47cd-a487-3de5cf451a5a
+		summarizeBy: none
+		sourceColumn: CERTIF_FITO_DEST
+
+		variation Variación
+			isDefault
+			relationship: d76b0db7-26d6-40fb-8a0c-4637340903de
+			defaultHierarchy: LocalDateTable_5bd0f9a1-3853-4d51-a56b-5516044f0e90.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column APROB_CERTIF_FITO_DEST
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: aa6571f7-7195-46bf-b009-d44c34acf77f
+		summarizeBy: none
+		sourceColumn: APROB_CERTIF_FITO_DEST
+
+		variation Variación
+			isDefault
+			relationship: 93ffea51-d5fb-41d4-a44a-f28766b63c17
+			defaultHierarchy: LocalDateTable_5c4c56c8-d9f8-4269-b10c-0d3eb00d6f97.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column CERTIF_ZOOS_ORIGEN
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: af3d3b39-5cd6-487a-9d7d-c674763d24f9
+		summarizeBy: none
+		sourceColumn: CERTIF_ZOOS_ORIGEN
+
+		variation Variación
+			isDefault
+			relationship: 3a85320d-c48e-4e09-8c07-3364e1035f46
+			defaultHierarchy: LocalDateTable_91eafa49-05c7-4514-8785-eda6ca672e01.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column APROB_ZOOS_ORIGEN
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: 639bdf70-8592-48aa-9212-d194c9f9759f
+		summarizeBy: none
+		sourceColumn: APROB_ZOOS_ORIGEN
+
+		variation Variación
+			isDefault
+			relationship: b889f819-9398-44bc-9b69-c91d54ff6d4b
+			defaultHierarchy: LocalDateTable_236807a6-62d2-425c-9070-8d645f3506ab.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column ENVIO_COPIAS_AGENCIA
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: a90fed1f-e91b-4d82-b152-716e2ad23935
+		summarizeBy: none
+		sourceColumn: ENVIO_COPIAS_AGENCIA
+
+		variation Variación
+			isDefault
+			relationship: d311b383-c33a-49e1-ba60-0b7f5fc02739
+			defaultHierarchy: LocalDateTable_fd375512-8d87-446e-adb6-bee6ee472814.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column ENVIO_ORIG_AGENCIA
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: cbded6f2-6ae3-4477-b22f-521e107e3e8f
+		summarizeBy: none
+		sourceColumn: ENVIO_ORIG_AGENCIA
+
+		variation Variación
+			isDefault
+			relationship: 1b5035ec-f41b-42d9-9aa5-389db958a26c
+			defaultHierarchy: LocalDateTable_0609f05b-42f6-4156-9f5b-151333e98b0f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column SEM_DOC_ORIG_AGEN
+		dataType: int64
+		formatString: 0
+		lineageTag: 486a4f75-4200-4783-bfd5-00bb013953cb
+		summarizeBy: sum
+		sourceColumn: SEM_DOC_ORIG_AGEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACEP_DOC_AGENCIA
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: 71008556-3b60-48ca-bced-0d527b618321
+		summarizeBy: none
+		sourceColumn: ACEP_DOC_AGENCIA
+
+		variation Variación
+			isDefault
+			relationship: ccafa60d-5946-45eb-bfe4-ba42ce6e7887
+			defaultHierarchy: LocalDateTable_d7392e39-e02f-4356-8e58-56c4d733d04f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column AGENC_FIRMA_PRINTER
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: 8e570c48-9645-431f-a190-3ccf0cfc9cb8
+		summarizeBy: none
+		sourceColumn: AGENC_FIRMA_PRINTER
+
+		variation Variación
+			isDefault
+			relationship: b69fcbed-8121-4755-ad63-6bbef5ef29d8
+			defaultHierarchy: LocalDateTable_11849d34-587c-42bf-bdc0-c4e0159e7e8e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column EXON_HACIENDA
+		dataType: dateTime
+		formatString: DD/MM/YY
+		lineageTag: f91d735a-7bd6-48e9-b836-b1c50e776fe2
+		summarizeBy: none
+		sourceColumn: EXON_HACIENDA
+
+		variation Variación
+			isDefault
+			relationship: 568c1aa9-8ad2-4002-aafc-91b8785b0311
+			defaultHierarchy: LocalDateTable_7426dbbc-bcf2-4b0b-960b-ebb10412bf1b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column PLANTA
+		dataType: string
+		lineageTag: 88d6fcaa-a633-4429-92d2-eaa283d97301
+		summarizeBy: none
+		sourceColumn: PLANTA
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'LLEGADA_DOC_ORIG Jerarquía'
+		lineageTag: cdcd20ac-939f-47fc-9000-732364257e05
+
+		level 'Lleg Estimada Doc Orig'
+			lineageTag: 56647f9e-e1a0-41f3-8ade-75a863d3e30f
+			column: LLEGADA_DOC_ORIG
+
+	hierarchy 'DOC_ORIG_INT Jerarquía'
+		lineageTag: e64b5a25-2ee9-4f4d-9311-9c684274e936
+
+		level 'Doc''s Orig INTECA'
+			lineageTag: c6bcabdc-37cd-4a93-b261-48eb84617c5a
+			column: DOC_ORIG_INT
+
+	hierarchy 'ENVIO_COPIAS Jerarquía'
+		lineageTag: e4969ad5-89cb-46d9-82fa-516d8f1735fb
+
+		level 'Envio Copias'
+			lineageTag: 7a1a0ef0-c1d0-4113-a33b-d4ca12a9ef5a
+			column: ENVIO_COPIAS
+
+	hierarchy 'OK_COPIAS_DOC Jerarquía'
+		lineageTag: 1ff4d2fd-095c-4e25-8ad7-c81edac38105
+
+		level 'Ok  Copia Doc''s'
+			lineageTag: 6a7cd5e7-9e9f-4792-8c2a-2fa7ce58d37f
+			column: OK_COPIAS_DOC
+
+	hierarchy 'FECHA_BL Jerarquía'
+		lineageTag: b00f9491-c2c6-4b26-b31e-a8b1b05827aa
+
+		level BL/AWS/Porte
+			lineageTag: 9b975b28-99ca-4be1-940c-0ab72345bebb
+			column: FECHA_BL
+
+	hierarchy 'BORRADOR_BL Jerarquía'
+		lineageTag: f1ee6cb4-c2b2-40c2-8da4-fa72fb9885d8
+
+		level 'Borr BL/AWS/Porte'
+			lineageTag: cb0c3850-89f0-49ca-984c-6448dc2d0edd
+			column: BORRADOR_BL
+
+	hierarchy 'ENVIO_BL Jerarquía'
+		lineageTag: c31ddbc9-48cf-49db-852f-58f24f5ce5ef
+
+		level 'Envío BL/AWS/Porte'
+			lineageTag: f94d8785-04af-4074-9c58-535f2ee6337f
+			column: ENVIO_BL
+
+	hierarchy 'APROB_BL Jerarquía'
+		lineageTag: 026bd12f-637c-4e87-a8a0-4491a00421de
+
+		level 'Aprob Borr BL'
+			lineageTag: 2797c20e-479c-4276-9121-05b2afdc5e82
+			column: APROB_BL
+
+	hierarchy 'BORRADOR_COO Jerarquía'
+		lineageTag: a9260c0e-48cc-4550-b61c-39655a460b2b
+
+		level 'Borr COO'
+			lineageTag: 954016ba-2180-4a85-90b2-70d05038d7ec
+			column: BORRADOR_COO
+
+	hierarchy 'APROB_BORRADOR_COO Jerarquía'
+		lineageTag: 62ae546b-e1f7-4458-8b7f-978ad82240bc
+
+		level 'Aprob Borr COO'
+			lineageTag: 94968d13-fb78-4223-9a12-679a13ebd134
+			column: APROB_BORRADOR_COO
+
+	hierarchy 'APROB_CERTIF_ORIGEN Jerarquía'
+		lineageTag: aaea8977-53ec-4271-b9a7-528c25fa571d
+
+		level 'Aprob Certif Origen'
+			lineageTag: 92ff5501-cfd0-4ca3-9608-958260119fa6
+			column: APROB_CERTIF_ORIGEN
+
+	hierarchy 'BORR_CERTIF_FITO_ORIGEN Jerarquía'
+		lineageTag: 2de3d941-376a-4dc5-9660-d2a6288a984b
+
+		level 'Borr Cert Fito Origen'
+			lineageTag: 82d80ba5-9be7-4214-8043-5606b7115923
+			column: BORR_CERTIF_FITO_ORIGEN
+
+	hierarchy 'APROB_BORR_CERTIF_FITO_ORIGEN Jerarquía'
+		lineageTag: 32741a3b-dec3-4c32-8a6e-52fe1630652a
+
+		level 'Aprob Borr Cert Fito Origen'
+			lineageTag: 0ea0b444-4985-4c0a-9d4d-ac446ba01932
+			column: APROB_BORR_CERTIF_FITO_ORIGEN
+
+	hierarchy 'CERTIF_FITO_DEST Jerarquía'
+		lineageTag: 8d8ddce1-91f1-4046-9c37-eaeede41cb43
+
+		level 'Certif Fito Destino'
+			lineageTag: 9ee7a93b-234f-4797-a9d9-e077a5331d87
+			column: CERTIF_FITO_DEST
+
+	hierarchy 'APROB_CERTIF_FITO_DEST Jerarquía'
+		lineageTag: c39a48aa-7de5-4764-8849-cceda1cb6e12
+
+		level 'Aprob Cert Fito Destino'
+			lineageTag: 576399d0-e5a4-4f2f-996f-8a4eef726c3b
+			column: APROB_CERTIF_FITO_DEST
+
+	hierarchy 'CERTIF_ZOOS_ORIGEN Jerarquía'
+		lineageTag: 8c3ef9cf-24ed-4c23-987a-3faf5e927d15
+
+		level 'Certif Zoos Origen'
+			lineageTag: e1c044b3-2bbb-49e4-8f27-110df4ec71e5
+			column: CERTIF_ZOOS_ORIGEN
+
+	hierarchy 'APROB_ZOOS_ORIGEN Jerarquía'
+		lineageTag: dd2f70fb-a2fc-4e3f-acad-1a9e877d5635
+
+		level 'Aprob Zoos Origen'
+			lineageTag: a2316b9b-ecf7-46a9-bf03-2fdfbe4225bb
+			column: APROB_ZOOS_ORIGEN
+
+	hierarchy 'Envío Copias Agencia'
+		lineageTag: a522f481-cd18-41ac-8ae1-a1500a30e8cc
+
+		level ENVIO_COPIAS_AGENCIA
+			lineageTag: dd6b31fb-510d-4dbb-93e8-31a427d4859c
+			column: ENVIO_COPIAS_AGENCIA
+
+	hierarchy 'ENVIO_COPIAS_AGENCIA Jerarquía'
+		lineageTag: 77574999-fb52-4945-b7f1-88cd435b8404
+
+		level 'Envío Copias Agencia'
+			lineageTag: f1961a25-70bc-441e-b444-9603af653e2f
+			column: ENVIO_COPIAS_AGENCIA
+
+	hierarchy 'ENVIO_ORIG_AGENCIA Jerarquía'
+		lineageTag: 815047e1-418d-40cc-b165-60217291a631
+
+		level 'Envío Original Agencia'
+			lineageTag: cdfef231-3132-41e5-ab4d-50761f923106
+			column: ENVIO_ORIG_AGENCIA
+
+	hierarchy 'ACEP_DOC_AGENCIA Jerarquía'
+		lineageTag: a5f874d7-3e27-4137-870b-a529bffa6104
+
+		level 'Acep Doc''s Agencia'
+			lineageTag: b8fe59c4-0555-4bbc-a6e3-5ed07081422a
+			column: ACEP_DOC_AGENCIA
+
+	hierarchy 'AGENC_FIRMA_PRINTER Jerarquía'
+		lineageTag: 1258962b-8243-4d19-9853-0d1c831508db
+
+		level 'Agencia Firma Printer'
+			lineageTag: 3810fb41-f68e-46c0-8926-4b764116a297
+			column: AGENC_FIRMA_PRINTER
+
+	hierarchy 'EXON_HACIENDA Jerarquía'
+		lineageTag: 710fae2c-bc68-48ad-addf-b57ac73588aa
+
+		level 'Exoneración Hacienda'
+			lineageTag: 4636e4c0-4aac-4051-ab1e-c93a8ee058e9
+			column: EXON_HACIENDA
+
+	partition DOCUMENTATION = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="SELECT T1.DATAAREAID,T1.PURCHID,T1.LlegadaEstDocsOrigs AS LLEGADA_DOC_ORIG,#(lf)T1.SIT_DateOrigDocs AS DOC_ORIG_INT, #(lf)T1.SIT_WeekOrigDocs AS SEM_DOC_ORIG,#(lf)T1.SIT_SendDateCopies AS ENVIO_COPIAS,#(lf)T1.OkCopiasDocumentos AS OK_COPIAS_DOC,#(lf)T1.DateBLOrigen AS FECHA_BL,#(lf)T1.DateBorradorBL AS BORRADOR_BL,#(lf)T1.SIT_ShippingAWBDate AS ENVIO_BL,#(lf)T1.DateAprobBorradorBL AS APROB_BL,#(lf)T1.DateBorradorCOO AS BORRADOR_COO,#(lf)T1.DateAprobBorradorCOO AS APROB_BORRADOR_COO,#(lf)T1.OkCertificadoOrigen AS APROB_CERTIF_ORIGEN,#(lf)T1.DateBorrCertFitoOrig AS BORR_CERTIF_FITO_ORIGEN,#(lf)T1.DateAprobBorrCertFitoOrig AS APROB_BORR_CERTIF_FITO_ORIGEN,#(lf)T1.DateCertFitoDest AS CERTIF_FITO_DEST,#(lf)T1.DateAprobCertFitoDest AS APROB_CERTIF_FITO_DEST,#(lf)T1.DateCertZoosOrig AS CERTIF_ZOOS_ORIGEN,#(lf)T1.DateAprobZoosOrig AS APROB_ZOOS_ORIGEN,#(lf)T1.SIT_SendDateAgencyDocs AS ENVIO_COPIAS_AGENCIA,#(lf)T1.SIT_DateOrigDocAgen AS ENVIO_ORIG_AGENCIA,#(lf)T1.SIT_WeekOrigDocAgen AS SEM_DOC_ORIG_AGEN,#(lf)T1.AceptacionDocsAgencia AS ACEP_DOC_AGENCIA,#(lf)T1.AgenciaFirmaPrinter AS AGENC_FIRMA_PRINTER,#(lf)T1.ExoneracionHacienda AS EXON_HACIENDA,#(lf)T1.PlantNumber AS PLANTA#(lf)FROM PURCHTABLE T1#(lf)WHERE T1.DATAAREAID = 'CMER' AND T1.CREATEDDATETIME >= DATEADD(MM,-12,GETDATE())", MultiSubnetFailover=true])
+				in
+				    Origen
+
+	annotation PBI_ResultType = Table
+

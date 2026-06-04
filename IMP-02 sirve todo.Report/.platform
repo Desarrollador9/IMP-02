@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "IMP-02 sirve todo"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3b638442-1716-466b-834e-5007ada53bf7"
+  }
+}

@@ -1,0 +1,193 @@
+table 'BookingsMaersk (2)'
+	lineageTag: 7e1fa2c5-63bf-4cb1-835b-084d514f0397
+
+	column BL
+		dataType: string
+		lineageTag: 57e8ce24-0360-4fe4-a299-403c86a95324
+		summarizeBy: none
+		sourceColumn: BL
+
+		annotation SummarizationSetBy = Automatic
+
+	column Confirmado
+		dataType: string
+		lineageTag: 4b250487-52c2-42be-a1d7-539e35b5befc
+		summarizeBy: none
+		sourceColumn: Confirmado
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Estado Documento'
+		dataType: string
+		lineageTag: 514e4be0-346c-4e6e-9f37-c48a6eb01eb1
+		summarizeBy: none
+		sourceColumn: Estado Documento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Copia Verificación Emitida'
+		dataType: string
+		lineageTag: b3e319ee-eced-4600-b207-de3b71870fd1
+		summarizeBy: none
+		sourceColumn: Copia Verificación Emitida
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Instrucciones Enviadas'
+		dataType: string
+		lineageTag: da3a9437-d32f-40f4-a1e2-5829b24d19f8
+		summarizeBy: none
+		sourceColumn: Instrucciones Enviadas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VGM Enviado'
+		dataType: string
+		lineageTag: 9bde2732-d8fb-4feb-ae18-e5f64bd16b37
+		summarizeBy: none
+		sourceColumn: VGM Enviado
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Origen Ciudad'
+		dataType: string
+		lineageTag: 4d4d1f11-f5e1-4d88-9ee2-11e6418f0087
+		summarizeBy: none
+		sourceColumn: Origen Ciudad
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Origen País'
+		dataType: string
+		lineageTag: 922ee736-b5eb-431d-ae87-877bd0d1e15f
+		summarizeBy: none
+		sourceColumn: Origen País
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETD
+		dataType: string
+		lineageTag: 1ceeae08-c426-4495-af47-0a8585c3e90d
+		summarizeBy: none
+		sourceColumn: ETD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Buque Salida'
+		dataType: string
+		lineageTag: aaa73ed8-69bb-414f-88d4-e091268e5703
+		summarizeBy: none
+		sourceColumn: Buque Salida
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Voyage Salida'
+		dataType: string
+		lineageTag: c50f48c6-66c2-4c38-8e3e-3b82343716f1
+		summarizeBy: none
+		sourceColumn: Voyage Salida
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Destino Ciudad'
+		dataType: string
+		lineageTag: b7ee229c-825b-442c-9e58-86d6febd461f
+		summarizeBy: none
+		sourceColumn: Destino Ciudad
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Destino País'
+		dataType: string
+		lineageTag: 36ea76a5-fc68-4df7-b399-50901cb61301
+		summarizeBy: none
+		sourceColumn: Destino País
+
+		annotation SummarizationSetBy = Automatic
+
+	column ETA
+		dataType: string
+		lineageTag: 4e272d05-837e-401a-9af4-21ba0cd9a723
+		summarizeBy: none
+		sourceColumn: ETA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Buque Llegada'
+		dataType: string
+		lineageTag: 344f8e33-32c8-4097-99ae-b22ee925e83e
+		summarizeBy: none
+		sourceColumn: Buque Llegada
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Voyage Llegada'
+		dataType: string
+		lineageTag: 6844b67c-f8cb-4549-88e9-78ca8c88384c
+		summarizeBy: none
+		sourceColumn: Voyage Llegada
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Último Evento'
+		dataType: string
+		lineageTag: 8ae464de-6e91-4270-adcb-a74c1684a34f
+		summarizeBy: none
+		sourceColumn: Último Evento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fecha Último Evento'
+		dataType: string
+		lineageTag: 186ebe91-ec10-4222-a838-a62bad03f04c
+		summarizeBy: none
+		sourceColumn: Fecha Último Evento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ciudad Último Evento'
+		dataType: string
+		lineageTag: f782ccaf-36e0-4b65-8bd3-70491d78b61d
+		summarizeBy: none
+		sourceColumn: Ciudad Último Evento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tiempo Tránsito'
+		dataType: string
+		lineageTag: bd6ae7ac-896d-4e68-9e71-3a69bbc74555
+		summarizeBy: none
+		sourceColumn: Tiempo Tránsito
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Estado BL'
+		dataType: string
+		lineageTag: 66eecc80-a81d-4d82-828f-a006fcac0921
+		summarizeBy: none
+		sourceColumn: Estado BL
+
+		annotation SummarizationSetBy = Automatic
+
+	column Contenedores
+		dataType: string
+		lineageTag: 9e56432a-298e-49ef-9f59-e032f3d60852
+		summarizeBy: none
+		sourceColumn: Contenedores
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'BookingsMaersk (2)' = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(Web.Contents("https://parnersenseitcs.sharepoint.com/sites/CentrodeDocumentacinGrupoInteca/Documentos%20compartidos/Power%20BI/Archivos%20PBI/maersk_bookings.xlsx"), null, true),
+				    BookingsMaersk_Table = Origen{[Item="BookingsMaersk",Kind="Table"]}[Data],
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(BookingsMaersk_Table,{{"N° Documento Transporte", "BL"}})
+				in
+				    #"Columnas con nombre cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

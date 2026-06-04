@@ -1,0 +1,313 @@
+table InventCost
+	lineageTag: 9e3183aa-2108-4b5b-b683-15453fb3393d
+
+	measure INVENTARIO =
+			
+			SUMX (
+			    InventCost,
+			    DIVIDE (
+			        InventCost[INVENTARIO_FISICO],
+			        RELATED ( 'CUBO INVENTARIOS'[[Measures]].[Und X Cajas]]] ),
+			        0
+			    )
+			)
+		formatString: #,0
+		lineageTag: ecb83db7-a416-41e0-bfbe-d254d649667d
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure INVENTARIO_ACTUAL =
+			
+			COALESCE(
+			    SUMX(
+			        InventCost,
+			        InventCost[INVENTARIO]
+			    ),
+			    0
+			)
+		formatString: #,0
+		lineageTag: 7196c783-4016-4dd0-a15c-4a8566a91e74
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure DI_Act_ConAF =
+			
+			SUMX(
+			    'CUBO INVENTARIOS',
+			    IF([RT] > 0, InventCost[INV ACTUAL] / [RT],0))
+		lineageTag: 43277656-901b-40eb-bc81-77a72814935c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Costo Unitario' = DIVIDE(SUM(InventCost[TotalTotCostFinanc]),SUM(InventCost[INVENTARIO_FISICO]))
+		lineageTag: 85991329-9f64-498b-8947-8143876e4eb8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inv en Tarimas' =
+			
+			SUMX(
+			    InventCost,  // Itera sobre cada fila de InventCost
+			    DIVIDE(
+			        InventCost[INVENTARIO_FISICO],
+			        RELATED(CATALOGO_PBI_INVENTARIO[FACTOR_TARIMA])
+			    )
+			)
+		lineageTag: c70c5d7d-fd7f-40f5-a944-ea8d49e27abd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inv en Cajas' =
+			
+			SUMX(
+			    InventCost,  // Itera sobre cada fila de InventCost
+			    DIVIDE(
+			        InventCost[INVENTARIO_FISICO],
+			        RELATED(CATALOGO_PBI_INVENTARIO[FACTOR_CAJA])
+			    )
+			)
+		lineageTag: 80d4d5a5-e00d-4fb0-ae58-e225ed0e4e44
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inventario Unidad Especial' =
+			
+			SUMX(
+			    InventCost,
+			    InventCost[INVENTARIO_FISICO] * LOOKUPVALUE(
+			        SPECIAL_UNIT1[FACTOR],
+			        SPECIAL_UNIT1[DISPLAYPRODUCTNUMBER], InventCost[ITEMID]
+			    )
+			)
+		formatString: #,0
+		lineageTag: 56f18745-4a5b-4e22-ab0b-a3311ea961d2
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Inv + AF en Tarimas' =
+			VAR InvTarimas = [Inv en Tarimas]
+			VAR EntradasFiscal =
+			    CALCULATE(
+			        [Entradas_Tarima],
+			        PURCHASE_PBI[ESTADO] = "ALMACÉN FISCAL"
+			    )
+			RETURN
+			    InvTarimas + EntradasFiscal
+		lineageTag: 1e0fba5f-0995-4995-b8db-6b358014b55e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure DI_Act =
+			
+			SUMX(
+			    'CUBO INVENTARIOS',
+			    IF([RT] > 0, InventCost[INVENTARIO_ACTUAL] / [RT],0))
+		lineageTag: 2332bd83-80ba-455a-9478-7bdb6ddd1426
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'INV ACTUAL' =
+			DIVIDE(
+			    [Inv + AF en Tarimas] * MAX(CATALOGO_PBI_INVENTARIO[FACTOR_TARIMA]),
+			    MAX(CATALOGO_PBI_INVENTARIO[FACTOR_CAJA])
+			)
+		lineageTag: 067b739a-f4ea-4897-83ee-1fb90f064fb7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Inventario físico en unidades. Retorna 0 si no hay stock. Usar en matriz para filtrar productos sin inventario.
+	measure 'Inventario Físico' =
+			VAR _inv = SUMX(InventCost, InventCost[INVENTARIO_FISICO])
+			RETURN IF(ISBLANK(_inv) || _inv <= 0, 0, _inv)
+		formatString: #,##0
+		displayFolder: Inventario
+		lineageTag: 1dca3903-a3ec-448a-ae9c-1345496f0b60
+
+	/// Devuelve el DI_Act_ConAF del articulo solo si cae dentro del rango seleccionado en el segmentador Dias Inventario. Usar en filtros visuales.
+	measure 'Filtro DI Activo' =
+			VAR _di = [DI_Act_ConAF]
+			VAR _min = MINX('Dias Inventario', 'Dias Inventario'[Dias Inventario])
+			VAR _max = MAXX('Dias Inventario', 'Dias Inventario'[Dias Inventario])
+			RETURN
+			    IF(
+			        _di >= _min && _di <= _max,
+			        _di,
+			        BLANK()
+			    )
+		formatString: 0
+		lineageTag: 27ea8f82-2111-4f9d-b986-5582fcc7924e
+
+	/// Inventario físico en unidades, restringido a artículos cuyo DI_Act_ConAF cae estrictamente dentro del rango del slicer Y tienen inventario físico > 0. Excluye artículos sin rotación (DI=0 con stock) y artículos sin DI calculado.
+	measure 'Inventario Físico (Rango DI)' =
+			VAR _min = SELECTEDVALUE('DI Minimo'[DI Minimo], 0)
+			VAR _max = SELECTEDVALUE('Dias Inventario'[Dias Inventario], 999999)
+			VAR _itemsEnRango =
+			    CALCULATETABLE(
+			        VALUES(InventCost[ITEMID]),
+			        FILTER(
+			            ALL(InventCost[ITEMID]),
+			            VAR _di   = CALCULATE([DI_Act_ConAF])
+			            VAR _inv  = CALCULATE(SUMX(InventCost, InventCost[INVENTARIO_FISICO]))
+			            RETURN
+			                NOT ISBLANK(_di)
+			                && _di > 0
+			                && _di >= _min
+			                && _di <= _max
+			                && _inv > 0
+			        )
+			    )
+			VAR _result =
+			    CALCULATE(
+			        SUMX(InventCost, InventCost[INVENTARIO_FISICO]),
+			        _itemsEnRango
+			    )
+			RETURN
+			    IF(ISBLANK(_result) || _result <= 0, BLANK(), _result)
+		formatString: #,##0
+		lineageTag: 4d69995b-76ce-467c-9a1d-568dc4ab9eca
+
+	/// Inv en Tarimas restringido al rango del slicer Dias Inventario. Trata DI BLANK como 0. Usar en la matriz de faltantes en lugar de Inv en Tarimas.
+	measure 'Inv en Tarimas (Rango DI)' =
+			VAR _min = MINX('Dias Inventario', 'Dias Inventario'[Dias Inventario])
+			VAR _max = MAXX('Dias Inventario', 'Dias Inventario'[Dias Inventario])
+			RETURN
+			    SUMX(
+			        FILTER(
+			            VALUES(InventCost[ITEMID]),
+			            VAR _di = COALESCE(CALCULATE([DI_Act_ConAF]), 0)
+			            RETURN _di >= _min && _di <= _max
+			        ),
+			        CALCULATE(
+			            SUMX(
+			                InventCost,
+			                DIVIDE(
+			                    InventCost[INVENTARIO_FISICO],
+			                    RELATED(CATALOGO_PBI_INVENTARIO[FACTOR_TARIMA])
+			                )
+			            )
+			        )
+			    )
+		formatString: #,##0.00
+		lineageTag: fd2ceeac-168a-4c2d-bb06-9af25963704e
+
+	/// Devuelve DI_Act si está por debajo del umbral seleccionado en el slicer, BLANK() si no. Usar en la matriz en lugar de DI_Act directo.
+	measure 'DI_Act Filtrada' =
+			VAR _umbral = [DI_Act Valor]
+			RETURN
+			    SUMX(
+			        FILTER(
+			            VALUES('CUBO INVENTARIOS'[ITEMID]),
+			            NOT ISBLANK([DI_Act]) && [DI_Act] < _umbral
+			        ),
+			        [DI_Act]
+			    )
+		formatString: 0.00
+		lineageTag: 62de596f-ac39-4c76-8f97-b21639305111
+
+	column ITEMID
+		dataType: string
+		lineageTag: 97fe5ca4-51e9-4864-b1e1-0cc86fb0ae52
+		summarizeBy: none
+		sourceColumn: ITEMID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalCostoUnit
+		dataType: double
+		lineageTag: 13f79fa3-a828-4cbb-a858-062945c6bfb9
+		summarizeBy: sum
+		sourceColumn: TotalCostoUnit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalTotCostFinanc
+		dataType: double
+		lineageTag: 5c8ce080-c132-48d3-90cb-b94eba5fbacd
+		summarizeBy: sum
+		sourceColumn: TotalTotCostFinanc
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column INVENTARIO_FISICO
+		dataType: double
+		lineageTag: a411998b-c4bd-42ff-8459-4deac0d5af90
+		summarizeBy: sum
+		sourceColumn: INVENTARIO_FISICO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ALMACEN
+		dataType: string
+		lineageTag: 6d9ffea9-ec0b-492f-8668-57d45b86b409
+		summarizeBy: none
+		sourceColumn: ALMACEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOCALIDAD1
+		dataType: string
+		lineageTag: 119aef21-5f8b-4a08-9e73-39895f014110
+		summarizeBy: none
+		sourceColumn: LOCALIDAD1
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITIO
+		dataType: string
+		lineageTag: c86a317c-e68a-4a76-be62-30c8b81a2bfc
+		summarizeBy: none
+		sourceColumn: SITIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOTE
+		dataType: string
+		lineageTag: 06d2b528-eff3-40d9-a3a8-3546caa21ef8
+		summarizeBy: none
+		sourceColumn: LOTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ESTADO INVENTARIO'
+		dataType: string
+		lineageTag: cf45cc06-0c5c-4eb3-9b1f-6d5de7f6d180
+		summarizeBy: none
+		sourceColumn: ESTADO INVENTARIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BACKORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: ee026086-1deb-4c37-a25c-72af016b9c57
+		summarizeBy: sum
+		sourceColumn: BACKORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Back Order?' = IF(InventCost[BACKORDER] = 1,"Si","No")
+		lineageTag: 052afa63-d134-4e83-8862-5bee0a374903
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition InventCost = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD"),
+				    dbo_InventCost = Origen{[Schema="dbo",Item="InventCost"]}[Data],
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(dbo_InventCost,{{"LOCALIDAD", "ALMACEN"}})
+				in
+				    #"Columnas con nombre cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

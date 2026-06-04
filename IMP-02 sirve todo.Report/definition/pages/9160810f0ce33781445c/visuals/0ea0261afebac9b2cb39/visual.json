@@ -1,0 +1,440 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "0ea0261afebac9b2cb39",
+  "position": {
+    "x": 0,
+    "y": 156.56118804436366,
+    "z": 15000,
+    "height": 563.36361927439054,
+    "width": 1600.2606679616517,
+    "tabOrder": 14000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vPURCHDESCARGASBI"
+                    }
+                  },
+                  "Property": "PURCHID - Copia"
+                }
+              },
+              "queryRef": "vPURCHDESCARGASBI.PURCHID - Copia",
+              "nativeQueryRef": "PO",
+              "displayName": "PO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vPURCHDESCARGASBI"
+                    }
+                  },
+                  "Property": "PURCHNAME"
+                }
+              },
+              "queryRef": "vPURCHDESCARGASBI.PURCHNAME",
+              "nativeQueryRef": "Proveedor",
+              "displayName": "Proveedor"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vPURCHDESCARGASBI"
+                    }
+                  },
+                  "Property": "SIT_CONTAINERS"
+                }
+              },
+              "queryRef": "vPURCHDESCARGASBI.SIT_CONTAINERS",
+              "nativeQueryRef": "Contenedores",
+              "displayName": "Contenedores"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vPURCHDESCARGASBI"
+                    }
+                  },
+                  "Property": "SIT_AIRWAYBILL"
+                }
+              },
+              "queryRef": "vPURCHDESCARGASBI.SIT_AIRWAYBILL",
+              "nativeQueryRef": "Booking",
+              "displayName": "Booking"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vPURCHDESCARGASBI"
+                    }
+                  },
+                  "Property": "SIT_FREEDAYS"
+                }
+              },
+              "queryRef": "Sum(vPURCHDESCARGASBI.SIT_FREEDAYS)",
+              "nativeQueryRef": "Días Libres",
+              "displayName": "Días Libres"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vPURCHDESCARGASBI"
+                    }
+                  },
+                  "Property": "TRANSPORT"
+                }
+              },
+              "queryRef": "vPURCHDESCARGASBI.TRANSPORT",
+              "nativeQueryRef": "Naviera",
+              "displayName": "Naviera"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Plan colocaciones y descargas"
+                    }
+                  },
+                  "Property": "Column2"
+                }
+              },
+              "queryRef": "Plan colocaciones y descargas.Column2",
+              "nativeQueryRef": "Eta",
+              "displayName": "Eta"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "VENCIMIENTO_DIAS_LIBRES"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.VENCIMIENTO_DIAS_LIBRES",
+              "nativeQueryRef": "Vencimiento",
+              "displayName": "Vencimiento"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Hierarchy": "FECHA_DEVOLUCION_CONTENEDOR Hierarchy"
+                    }
+                  },
+                  "Level": "Fecha Dev Cont"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.FECHA_DEVOLUCION_CONTENEDOR Hierarchy.Fecha Dev Cont",
+              "nativeQueryRef": "FECHA_DEVOLUCION_CONTENEDOR Hierarchy Fecha Dev Cont"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "Demora?"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.Demora?",
+              "nativeQueryRef": "Demora?1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "Días demora"
+                }
+              },
+              "queryRef": "Sum(PURCHASE_PBI.Días demora)",
+              "nativeQueryRef": "Días demora1",
+              "displayName": "Días demora"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Plan colocaciones y descargas"
+                    }
+                  },
+                  "Property": "Column3"
+                }
+              },
+              "queryRef": "Plan colocaciones y descargas.Column3",
+              "nativeQueryRef": "Feha Com",
+              "displayName": "Feha Com"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Plan colocaciones y descargas"
+                    }
+                  },
+                  "Property": "Column18"
+                }
+              },
+              "queryRef": "Plan colocaciones y descargas.Column18",
+              "nativeQueryRef": "Transportista",
+              "displayName": "Transportista"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "vPURCHDESCARGASBI"
+                  }
+                },
+                "Property": "PURCHID - Copia"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00496B'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "168.12D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "vPURCHDESCARGASBI.SIT_CONTAINERS"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "83.36400851505756D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Plan colocaciones y descargas.Column3"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "77.60839190051469D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "PURCHASE_PBI.FECHA_DEVOLUCION_CONTENEDOR Hierarchy.Fecha Dev Cont"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "450.93812854978603D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "vPURCHDESCARGASBI.PURCHNAME"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "180.27778896334422D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "vPURCHDESCARGASBI.SIT_AIRWAYBILL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "79.27273175648807D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Plan colocaciones y descargas.Column2"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7df62a40046b55dd56a2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "vPURCHDESCARGASBI"
+              }
+            },
+            "Property": "PURCHID - Copia"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "v",
+              "Entity": "vPURCHDESCARGASBI",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "v"
+                            }
+                          },
+                          "Property": "PURCHID - Copia"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

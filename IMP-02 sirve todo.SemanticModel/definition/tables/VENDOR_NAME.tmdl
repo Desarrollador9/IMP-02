@@ -1,0 +1,55 @@
+table VENDOR_NAME
+	lineageTag: 4448b67c-b36a-41b1-b9f8-39aee1c5c4a4
+
+	column NAME
+		dataType: string
+		lineageTag: 26d6ebcd-8215-417d-a659-ce8ff799f2ce
+		summarizeBy: none
+		sourceColumn: NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACCOUNTNUM
+		dataType: string
+		lineageTag: 61264b5c-e052-4e2b-9df5-ed6e519d7fa8
+		summarizeBy: none
+		sourceColumn: ACCOUNTNUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: f37e571a-b1f9-4b15-9e6c-b330e2e239c6
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONCAT_NAME
+		dataType: string
+		lineageTag: daecf818-2705-4ac2-94a4-800edb215e4f
+		summarizeBy: none
+		sourceColumn: CONCAT_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column KEY
+		dataType: string
+		lineageTag: 3ab1f20c-eedc-421a-8962-3d29a8e2ca27
+		summarizeBy: none
+		sourceColumn: KEY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VENDOR_NAME = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [MultiSubnetFailover=true]),
+				    dbo_BICOMPANYVIEW_PBI = Source{[Schema="dbo",Item="VENDOR_NAME"]}[Data],
+				    #"Added Custom" = Table.AddColumn(dbo_BICOMPANYVIEW_PBI, "KEY", each [DATAAREAID]&[ACCOUNTNUM])
+				in
+				    #"Added Custom"
+
+	annotation PBI_ResultType = Table
+

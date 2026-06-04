@@ -1,0 +1,168 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "1ae3c53d8b70cabbac3b",
+  "position": {
+    "x": 0,
+    "y": 449.87277353689569,
+    "z": 15000,
+    "height": 400.12722646310431,
+    "width": 1898.9821882951655,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "scriptVisual",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "AWBDOCUMENTS"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.AWBDOCUMENTS",
+              "nativeQueryRef": "AWBDOCUMENTS"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "PURCHID"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.PURCHID",
+              "nativeQueryRef": "PURCHID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "LLEGADA_PAIS"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.LLEGADA_PAIS",
+              "nativeQueryRef": "LLEGADA_PAIS"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PAGOS OC's"
+                    }
+                  },
+                  "Property": "EstadoPago"
+                }
+              },
+              "queryRef": "PAGOS OC's.EstadoPago",
+              "nativeQueryRef": "EstadoPago"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "ESTADO_PAGO"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.ESTADO_PAGO",
+              "nativeQueryRef": "ESTADO_PAGO"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PURCHASE_PBI"
+                  }
+                },
+                "Property": "AWBDOCUMENTS"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "script": [
+        {
+          "properties": {
+            "source": {
+              "expr": {
+                "Literal": {
+                  "Value": "'# Librerías necesarias\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(gridExtra)\nlibrary(grid)\n\ndataset <- unique(dataset)\n\n# ---- ANCLA DINÁMICA: semana actual (domingo a sábado) ----\nhoy <- Sys.Date()\ninicio_semana_T <- hoy - as.integer(format(hoy, \"%w\"))  # domingo de la semana actual\n\n# Función para etiquetar semanas en base al ancla (T..T+9)\netiqueta_semana <- function(fecha, ancla) {\n  if (is.na(fecha) || fecha == as.Date(\"1900-01-01\")) return(\"Sin Fecha\")\n  diff_sem <- as.integer(floor((as.Date(fecha) - ancla)/7))\n  if (diff_sem < 0 || diff_sem > 9) return(NA_character_) \n  if (diff_sem == 0) \"T\" else paste0(\"T+\", diff_sem)\n}\n\n# Calcular Semana_Pais respecto al ancla y clasificar por AWB y Pago\ndataset <- dataset %>%\n  mutate(\n    Semana_Pais = vapply(as.Date(LLEGADA_PAIS), etiqueta_semana, \"\", ancla = inicio_semana_T),\n    Estado_AWB = if_else(!is.na(AWBDOCUMENTS) & AWBDOCUMENTS != \"\", \"Con AWB\", \"Sin AWB\"),\n    Estado_Pago = case_when(\n      !is.na(AWBDOCUMENTS) & AWBDOCUMENTS != \"\" ~ \"\",           # Con AWB: no muestra estado pago\n      !is.na(ESTADO_PAGO) & ESTADO_PAGO != \"\" ~ as.character(ESTADO_PAGO),  # Sin AWB: muestra lo que traiga\n      TRUE ~ \"Sin Estado\"\n    )\n  )\n\n# Agrupar por Estado_AWB, Estado_Pago y Semana_Pais (todos los registros)\nresumen <- dataset %>%\n  filter(Semana_Pais %in% c(\"T\", paste0(\"T+\", 1:9))) %>%\n  group_by(Estado_AWB, Estado_Pago, Semana_Pais) %>%\n  summarise(Total_PurchID = n_distinct(PURCHID), .groups = \"drop\") %>%\n  pivot_wider(\n    names_from = Semana_Pais,\n    values_from = Total_PurchID,\n    values_fill = list(Total_PurchID = 0)\n  ) %>%\n  ungroup()\n\n# Asegurar columnas T..T+9 presentes\nt_cols <- c(\"T\", paste0(\"T+\", 1:9)) \nfor (cname in t_cols) if (!cname %in% names(resumen)) resumen[[cname]] <- 0L\n\n# Orden de columnas\nresumen <- resumen %>% select(Estado_AWB, Estado_Pago, all_of(t_cols))\n\n# Ordenar: Con AWB primero, luego Sin AWB ordenado por Estado_Pago alfabéticamente\nresumen <- resumen %>%\n  mutate(\n    orden = case_when(\n      Estado_AWB == \"Con AWB\" ~ 1,\n      Estado_AWB == \"Sin AWB\" ~ 2\n    )\n  ) %>%\n  arrange(orden, Estado_Pago) %>%\n  select(-orden)\n\n# Encabezados con rangos\nrangos_semanas <- tibble(\n  Semana = t_cols,\n  Rango  = paste0(\n    format(inicio_semana_T + (0:9)*7, \"%d/%m/%y\"), \" -> \"\n  )\n)\nnuevos_nombres <- paste0(t_cols, \"\\n(\", rangos_semanas$Rango, \")\")\ncolnames(resumen)[-(1:2)] <- nuevos_nombres\n\n# Totales por fila (solo columnas T..T+9)\ncols_T <- grepl(\"^T\", names(resumen))\nresumen <- resumen %>%\n  mutate(Total_General = rowSums(across(.cols = which(cols_T)), na.rm = TRUE))\n\n# Fila total\ntotales <- resumen %>%\n  summarise(across(where(is.numeric), ~sum(.x, na.rm = TRUE))) %>%\n  mutate(Estado_AWB = \"Total\", Estado_Pago = \"\") %>%\n  select(names(resumen))\n\nresumen <- bind_rows(resumen, totales)\n\n# ---- Título y tabla ----\ngrid.newpage()\ngrid.text(\"CONTROL DE DOCUMENTACIÓN - AWB Y PAGO (MEDIDO EN # DE OC''s)\", x = 0.5, y = 0.94,\n          gp = gpar(fontsize = 25, fontface = \"bold\"))\ngrid.text(\"Fecha estimada llegada a puerto\", x = 0.5, y = 0.85,\n          gp = gpar(fontsize = 22, fontface = \"italic\", col = \"gray30\"))\n\ngrid.table(\n  resumen,\n  theme = ttheme_default(\n    core = list(fg_params = list(cex = 1.5)),\n    colhead = list(fg_params = list(cex = 1.5))\n  )\n)'"
+                }
+              }
+            },
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'R'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "39a1971928551f037fac",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PURCHASE_PBI"
+              }
+            },
+            "Property": "Estado Documentación"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      }
+    ]
+  }
+}

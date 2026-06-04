@@ -1,0 +1,80 @@
+table Unidades
+	lineageTag: 3ce6f469-1ca0-49e5-9816-06fc705231f5
+
+	column 'Company.Company'
+		dataType: string
+		lineageTag: 86f8053f-f32b-4f3c-920b-cca68cc82ed8
+		summarizeBy: none
+		sourceColumn: Company.Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dim Conversiones.Articulo'
+		dataType: string
+		lineageTag: 254369ce-5604-4b4f-aa0c-e8985058de2f
+		summarizeBy: none
+		sourceColumn: Dim Conversiones.Articulo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dim Conversiones.Desde Unidad'
+		dataType: string
+		lineageTag: 881d050f-e8f7-495d-b1f0-834ba1c7d4cb
+		summarizeBy: none
+		sourceColumn: Dim Conversiones.Desde Unidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dim Conversiones.Factor'
+		dataType: double
+		lineageTag: 7101fe85-b879-4a10-8364-3b69e849269d
+		summarizeBy: sum
+		sourceColumn: Dim Conversiones.Factor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Und X Cajas'
+		dataType: double
+		lineageTag: c5b84fd7-737b-4a63-9479-2f363139b539
+		summarizeBy: sum
+		sourceColumn: Und X Cajas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Indicador
+		dataType: string
+		lineageTag: fa3636e5-c046-45bd-8341-674aae71de9b
+		summarizeBy: none
+		sourceColumn: Indicador
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Unidades = m
+		mode: import
+		source =
+				let
+				    Source = AnalysisServices.Databases("SJOCUBES", [TypedMeasureColumns=true, Implementation="2.0"]),
+				    #"Dynamics AX" = Source{[Name="Dynamics AX"]}[Data],
+				    #"Inventory value cube1" = #"Dynamics AX"{[Id="Inventory value cube"]}[Data],
+				    #"Inventory value cube2" = #"Inventory value cube1"{[Id="Inventory value cube"]}[Data],
+				    #"Added Items" = Cube.Transform(#"Inventory value cube2",
+				        {
+				            {Cube.AddAndExpandDimensionColumn, "[Company]", {"[Company].[Company].[Company]"}, {"Company.Company"}},
+				            {Cube.AddAndExpandDimensionColumn, "[Dim Conversiones]", {"[Dim Conversiones].[Articulo].[Articulo]", "[Dim Conversiones].[Desde Unidad].[Desde Unidad]", "[Dim Conversiones].[Factor].[Factor]"}, {"Dim Conversiones.Articulo", "Dim Conversiones.Desde Unidad", "Dim Conversiones.Factor"}},
+				            {Cube.AddMeasureColumn, "Und X Cajas", "[Measures].[Und X Cajas]"}
+				        }),
+				    #"Filtered Rows" = Table.SelectRows(#"Added Items", each [Company.Company] = "CMER"),
+				    #"Filtered Rows2" = Table.SelectRows(#"Filtered Rows", each not Text.Contains([Dim Conversiones.Factor], "Unknown")),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows2",{{"Dim Conversiones.Factor", type number}, {"Und X Cajas", type number}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "Indicador", each if [Dim Conversiones.Factor] = [Und X Cajas] then 1 else 2),
+				    #"Filtered Rows1" = Table.SelectRows(#"Added Custom", each ([Dim Conversiones.Factor] <> null and [Dim Conversiones.Factor] <> "") and ([Indicador] = 1)),
+				    #"Removed Duplicates" = Table.Distinct(#"Filtered Rows1", {"Dim Conversiones.Articulo"})
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,48 @@
+table 'GRUPO TIPO CLTE'
+	lineageTag: b2ea7685-3be6-4fbe-aedb-67a8d9d9d66f
+
+	column ROLESPECIFICID
+		dataType: string
+		lineageTag: d79cae28-38d5-46c2-9d06-ace9ef157c27
+		summarizeBy: none
+		sourceColumn: ROLESPECIFICID
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRUPO_TIPOCLIENTE
+		dataType: string
+		lineageTag: 2ee8df35-dcd8-40bc-8e4c-3a55e6b597ff
+		summarizeBy: none
+		sourceColumn: GRUPO_TIPOCLIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATAAREAID
+		dataType: string
+		lineageTag: 425f0391-8fc4-4b51-9c69-3044423a0d2c
+		summarizeBy: none
+		sourceColumn: DATAAREAID
+
+		annotation SummarizationSetBy = Automatic
+
+	column key_vendedor
+		dataType: string
+		lineageTag: 0a66ea21-6645-4fde-831d-5d629073dd05
+		summarizeBy: none
+		sourceColumn: key_vendedor
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'GRUPO TIPO CLTE' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="SELECT RS.ROLESPECIFICID,#(lf)RS.DATAAREAID#(lf),ISNULL(AG_1.AGENTGROUP, N'ND') AS GRUPO_TIPOCLIENTE#(lf)FROM #(tab)(SELECT        RS.ROLESPECIFICID, RS.ROLEID, VIRT.ID AS DATAAREAID, RS.PARTITION#(lf)                          FROM            ROLESPECIFIC AS RS INNER JOIN#(lf)                                                    VIRTUALDATAAREALIST AS VIRT ON RS.DATAAREAID = VIRT.VIRTUALDATAAREA#(lf)                          UNION ALL#(lf)                          SELECT        RS.ROLESPECIFICID, RS.ROLEID, RS.DATAAREAID, RS.PARTITION#(lf)                          FROM            ROLESPECIFIC AS RS INNER JOIN#(lf)                                                   DATAAREA AS DAT ON RS.DATAAREAID = DAT.ID AND DAT.ISVIRTUAL = 0) AS RS#(lf)LEFT OUTER JOIN AGENTGROUPRELATION AS AG_1 ON RS.ROLESPECIFICID = AG_1.ROLESPECIFICID AND RS.DATAAREAID = AG_1.DATAAREAID AND AG_1.AGENTGROUPTYPES = 'Tipo de Cliente'#(lf)WHERE        (RS.ROLEID LIKE '%Vendedor%') AND RS.DATAAREAID IN ('CMER','FMCM')#(lf)UNION ALL#(lf)SELECT 'ND' AS ROLESPECIFICID, 'FMCM' AS DATAAREAID, 'ND' AS GRUPO_TIPOCLIENTE#(lf)UNION ALL#(lf)SELECT 'ND' AS ROLESPECIFICID, 'CMER' AS DATAAREAID, 'ND' AS GRUPO_TIPOCLIENTE", MultiSubnetFailover=true]),
+				    #"Personalizada agregada" = Table.AddColumn(Origen, "key_vendedor", each [DATAAREAID]&[ROLESPECIFICID])
+				in
+				    #"Personalizada agregada"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
+

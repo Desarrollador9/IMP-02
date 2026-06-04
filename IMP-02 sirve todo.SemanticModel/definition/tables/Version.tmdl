@@ -1,0 +1,24 @@
+table Version
+	lineageTag: 8fae9c55-a43c-4734-a85d-d8a8c14c5b6e
+
+	column Version
+		lineageTag: 9531b8f2-2456-4f4b-9a03-94d952a1ef0e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Version]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Version = calculated
+		mode: import
+		source = ```
+				DATATABLE(
+				    "Version", STRING,
+				    {   
+				        {"V13.9"}
+				    }
+				)
+				```
+
+	annotation PBI_Id = e06aba4f2cea46faa064d98940876a7d
+

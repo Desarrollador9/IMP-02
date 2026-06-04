@@ -3,9 +3,9 @@
   "name": "afe5518dc68ad499d857",
   "position": {
     "x": 524,
-    "y": 133,
+    "y": 144,
     "z": 14000,
-    "height": 845,
+    "height": 1056,
     "width": 919,
     "tabOrder": 14000
   },
@@ -56,25 +56,6 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Consulta1"
-                        }
-                      },
-                      "Property": "TIPO"
-                    }
-                  },
-                  "Function": 3
-                }
-              },
-              "queryRef": "Min(Consulta1.TIPO)",
-              "nativeQueryRef": "Primera fecha: TIPO"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
                           "Entity": "VENDOR_NAME"
                         }
                       },
@@ -86,6 +67,25 @@
               },
               "queryRef": "Min(VENDOR_NAME.CONCAT_NAME)",
               "nativeQueryRef": "Última fecha: CONCAT_NAME"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Consulta1"
+                        }
+                      },
+                      "Property": "TIPO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Consulta1.TIPO)",
+              "nativeQueryRef": "Primera fecha: TIPO"
             },
             {
               "field": {
@@ -127,6 +127,28 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Consulta1"
+                      }
+                    },
+                    "Property": "TIPO"
+                  }
+                },
+                "Function": 3
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
     },
     "expansionStates": [
@@ -173,20 +195,7 @@
             "isPinned": true
           }
         ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'OC-00177200'"
-                  }
-                }
-              ],
-              "isToggled": true
-            }
-          ]
-        }
+        "root": {}
       }
     ],
     "objects": {
@@ -267,6 +276,54 @@
                 }
               }
             ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "159D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(VENDOR_NAME.CONCAT_NAME)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "242D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Consulta1.NOMBRE_PROVEEDOR)"
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ]

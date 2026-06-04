@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "24460ad0aabbd852d0a8",
   "position": {
-    "x": 744.5454545454545,
-    "y": 57.272727272727266,
+    "x": 734.78260869565213,
+    "y": 63.043478260869563,
     "z": 16002,
-    "height": 76.36363636363636,
-    "width": 150.90909090909091,
+    "height": 70.65217391304347,
+    "width": 134.78260869565216,
     "tabOrder": 16002
   },
   "visual": {
@@ -63,44 +63,6 @@
                 "Literal": {
                   "Value": "6D"
                 }
-              }
-            },
-            "selfFilter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "c",
-                    "Entity": "Consulta1",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "Contains": {
-                        "Left": {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "c"
-                              }
-                            },
-                            "Property": "PO_HIJA"
-                          }
-                        },
-                        "Right": {
-                          "Literal": {
-                            "Value": "'208733'"
-                          }
-                        }
-                      }
-                    },
-                    "Annotations": {
-                      "PowerBI.MParameterBehavior": 1
-                    }
-                  }
-                ]
               }
             }
           }

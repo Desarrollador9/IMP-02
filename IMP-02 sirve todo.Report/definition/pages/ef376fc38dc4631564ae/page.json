@@ -1,8 +1,0 @@
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "ef376fc38dc4631564ae",
-  "displayName": "T10. PO MERCA EN ALMACÉN FISCAL",
-  "displayOption": "FitToPage",
-  "height": 850,
-  "width": 1900
-}

@@ -1,8 +1,0 @@
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "4a8dc5ca558360ef8395",
-  "displayName": "T5.0 INV MATRIZ",
-  "displayOption": "ActualSize",
-  "height": 850,
-  "width": 1850
-}

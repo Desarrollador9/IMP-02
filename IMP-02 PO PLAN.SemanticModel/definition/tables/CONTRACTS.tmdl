@@ -102,7 +102,7 @@ table CONTRACTS
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="SELECT T1.CONTRACTNUMBER, T1.DATAAREAID, T1.DATE AS FECHA_INICIO, T1.ENDDATE AS FECHA_FINAL, T1.VENDOR, T1.CONTRACTVENDOR FROM CONTRACTS T1#(lf)WHERE T1.DATAAREAID = 'CMER'", MultiSubnetFailover=true]),
+				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="SELECT T1.CONTRACTNUMBER, T1.DATAAREAID, T1.DATE AS FECHA_INICIO, T1.ENDDATE AS FECHA_FINAL, T1.VENDOR, T1.CONTRACTVENDOR FROM CONTRACTS T1#(lf)WHERE T1.DATAAREAID = 'CMER'", MultiSubnetFailover=true]),
 				    #"Personalizada agregada" = Table.AddColumn(Origen, "KEY", each [DATAAREAID]&[VENDOR]),
 				    #"Added Custom" = Table.AddColumn(#"Personalizada agregada", "KEY_1", each [DATAAREAID] & Text.From([CONTRACTNUMBER]))
 				in

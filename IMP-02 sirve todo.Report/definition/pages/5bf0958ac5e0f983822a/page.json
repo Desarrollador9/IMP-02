@@ -1,8 +1,0 @@
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "5bf0958ac5e0f983822a",
-  "displayName": "T5.1. FILL RATE",
-  "displayOption": "FitToPage",
-  "height": 800,
-  "width": 1800
-}

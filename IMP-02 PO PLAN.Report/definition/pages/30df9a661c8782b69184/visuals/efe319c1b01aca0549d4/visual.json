@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "efe319c1b01aca0549d4",
   "position": {
-    "x": 974.76303317535542,
-    "y": 56.279620853080566,
+    "x": 1114.4444444444443,
+    "y": 55.555555555555557,
     "z": 17000,
-    "height": 76.540284360189574,
-    "width": 272.39336492890993,
+    "height": 77.777777777777771,
+    "width": 132.22222222222223,
     "tabOrder": 17000
   },
   "visual": {
@@ -20,15 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Consulta1"
+                      "Entity": "PURCHASE_PBI"
                     }
                   },
-                  "Property": "TIPOSERVICIO"
+                  "Property": "Tiene_Booking"
                 }
               },
-              "queryRef": "Consulta1.TIPOSERVICIO",
-              "nativeQueryRef": "TIPOSERVICIO",
-              "active": true
+              "queryRef": "PURCHASE_PBI.Tiene_Booking",
+              "nativeQueryRef": "Booking",
+              "active": true,
+              "displayName": "Booking"
             }
           ]
         }
@@ -147,11 +148,6 @@
           }
         }
       ]
-    },
-    "syncGroup": {
-      "groupName": "Tiene_Booking",
-      "fieldChanges": true,
-      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

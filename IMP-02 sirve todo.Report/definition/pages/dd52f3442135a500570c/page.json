@@ -1,8 +1,0 @@
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "dd52f3442135a500570c",
-  "displayName": "T13. CUADROS Y CARACT",
-  "displayOption": "FitToPage",
-  "height": 750,
-  "width": 1800
-}

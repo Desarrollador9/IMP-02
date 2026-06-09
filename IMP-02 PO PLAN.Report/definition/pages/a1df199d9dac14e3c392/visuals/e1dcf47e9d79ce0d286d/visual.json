@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "e1dcf47e9d79ce0d286d",
   "position": {
     "x": 1.25,
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                      "Entity": "InventCost"
                     }
                   },
-                  "Property": "Estado Autorización"
+                  "Property": "Back Order?"
                 }
               },
-              "queryRef": "CATALOGO_PBI_INVENTARIO.Estado Autorización",
-              "nativeQueryRef": "Estado Autorización",
+              "queryRef": "InventCost.Back Order?",
+              "nativeQueryRef": "Back Order?",
               "active": true
             }
           ]
@@ -42,7 +42,7 @@
         "levels": [
           {
             "queryRefs": [
-              "CATALOGO_PBI_INVENTARIO.Estado Autorización"
+              "InventCost.Back Order?"
             ],
             "isCollapsed": true,
             "isPinned": true

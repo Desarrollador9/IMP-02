@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "7b1242e57a116696bc49",
   "position": {
-    "x": 201.42857142857144,
-    "y": 55.714285714285715,
+    "x": 106.78971654581412,
+    "y": 58.141067897165463,
     "z": 7000,
-    "height": 68.571428571428569,
-    "width": 250.00000000000003,
+    "height": 68.820039551746873,
+    "width": 249.17600527356626,
     "tabOrder": 7000
   },
   "visual": {
@@ -20,16 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                      "Entity": "CATALOGO_PBI_SALES"
                     }
                   },
                   "Property": "Art_Und"
                 }
               },
-              "queryRef": "CATALOGO_PBI_INVENTARIO.Art_Und",
-              "nativeQueryRef": "Nombre Artículo",
+              "queryRef": "CATALOGO_PBI_SALES.Art_Und",
+              "nativeQueryRef": "Artículo",
               "active": true,
-              "displayName": "Nombre Artículo"
+              "displayName": "Artículo"
             }
           ]
         }

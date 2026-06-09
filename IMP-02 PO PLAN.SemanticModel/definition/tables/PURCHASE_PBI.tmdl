@@ -160,6 +160,7 @@ table PURCHASE_PBI
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure T22 = MAX(MAX('CUBO INVENTARIOS'[[Measures]].[Cajas T+22 Grwth]]])/[RT],0)
+		isHidden
 		lineageTag: 2d599cef-7a18-4d04-9bde-6a32023df2aa
 
 		changedProperty = IsHidden
@@ -4187,53 +4188,6 @@ table PURCHASE_PBI
 		displayFolder: Mercadería AF
 		lineageTag: 1a011655-b5f8-4633-87dd-e6ae426496b1
 
-	/// Identifica si la OC es una madre sin hijas
-	measure 'Estado OC Madre-Hija' =
-			VAR OCMadreActual = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
-			VAR OCActual = SELECTEDVALUE('PURCHASE_PBI'[PURCHID])
-			VAR EsMadre = OCMadreActual = OCActual
-			VAR CantidadHijas = [Cantidad OCs Hijas]
-			RETURN
-			IF(
-			    EsMadre && CantidadHijas = 0,
-			    "Sin Hijas",
-			    IF(EsMadre && CantidadHijas > 0, "Con Hijas", "Es Hija")
-			)
-		lineageTag: 61296a64-6109-4a41-9e72-640d6a430335
-
-	/// Indicador visual: muestra icono de alerta para OCs madre sin hijas
-	measure 'Alerta Flete' =
-			VAR OCMadreActual = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
-			VAR OCActual = SELECTEDVALUE('PURCHASE_PBI'[PURCHID])
-			VAR EsMadre = NOT ISBLANK(OCMadreActual) && OCActual = OCMadreActual
-			VAR CantidadHijas = [Cantidad OCs Hijas]
-			RETURN
-			IF(
-			    EsMadre && CantidadHijas = 0,
-			    "⚠️ Sin Flete Gestionado",
-			    IF(EsMadre && CantidadHijas > 0, "✅ Flete OK", "")
-			)
-		lineageTag: 9c65a457-e84d-4d38-beaa-e8e6ebc84b40
-
-	/// Calcula cuántos días faltan hasta la fecha de llegada al país
-	measure 'Dias Hasta Llegada' = DATEDIFF(TODAY(), SELECTEDVALUE(PURCHASE_PBI[LLEGADA_PAIS]), DAY)
-		formatString: #,0
-		lineageTag: 2887f174-5586-44ae-8fe2-a970873a2e3c
-
-	/// Clasifica la OC por prioridad según días hasta llegada
-	measure 'Nivel Prioridad' =
-			VAR Dias = [Dias Hasta Llegada]
-			RETURN
-			SWITCH(
-			    TRUE(),
-			    ISBLANK(Dias), "",
-			    Dias < 0, "⏰ RETRASADO",
-			    Dias <= 15, "🔴 CRÍTICO",
-			    Dias <= 30, "⚠️ URGENTE",
-			    "✅ PLANIFICADO"
-			)
-		lineageTag: 126a6387-ad61-496f-864c-d807651d9d41
-
 	/// Cuenta cuántas OCs hijas tiene cada OC madre
 	measure 'Cantidad OCs Hijas' =
 			VAR OCMadreActual = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
@@ -4252,7 +4206,21 @@ table PURCHASE_PBI
 			    BLANK()
 			)
 		formatString: #,0
-		lineageTag: 5f7caa61-bde9-4803-ba17-1aabd9b8e671
+		lineageTag: e339ae93-20ce-409e-a210-662c4754b298
+
+	/// Identifica si la OC es una madre sin hijas
+	measure 'Estado OC Madre-Hija' =
+			VAR OCMadreActual = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
+			VAR OCActual = SELECTEDVALUE('PURCHASE_PBI'[PURCHID])
+			VAR EsMadre = OCMadreActual = OCActual
+			VAR CantidadHijas = [Cantidad OCs Hijas]
+			RETURN
+			IF(
+			    EsMadre && CantidadHijas = 0,
+			    "Sin Hijas",
+			    IF(EsMadre && CantidadHijas > 0, "Con Hijas", "Es Hija")
+			)
+		lineageTag: 61296a64-6109-4a41-9e72-640d6a430335
 
 	/// Cuenta solo las OCs Madres (internacionales) que NO tienen OCs hijas asociadas
 	measure 'Total OCs Madres Sin Hijas' = ```
@@ -4277,11 +4245,25 @@ table PURCHASE_PBI
 			)
 			```
 		formatString: #,0
-		lineageTag: 1ae31718-6e2e-4901-9238-63138478abdf
+		lineageTag: 4fd4fc18-f71a-4908-bad8-76070940556d
+
+	/// Indicador visual: muestra icono de alerta para OCs madre sin hijas
+	measure 'Alerta Flete' =
+			VAR OCMadreActual = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
+			VAR OCActual = SELECTEDVALUE('PURCHASE_PBI'[PURCHID])
+			VAR EsMadre = NOT ISBLANK(OCMadreActual) && OCActual = OCMadreActual
+			VAR CantidadHijas = [Cantidad OCs Hijas]
+			RETURN
+			IF(
+			    EsMadre && CantidadHijas = 0,
+			    "⚠️ Sin Flete Gestionado",
+			    IF(EsMadre && CantidadHijas > 0, "✅ Flete OK", "")
+			)
+		lineageTag: 9c65a457-e84d-4d38-beaa-e8e6ebc84b40
 
 	measure Contenedores = SUM(PURCHASE_PBI[CANT_CONTENEDOR])
 		formatString: 0
-		lineageTag: 08ae0584-a99f-4bb5-816d-c4056f1122e1
+		lineageTag: ea276eac-91aa-4c72-947d-7116e47e9145
 
 	measure 'Contenedores x Transp Final' =
 			CALCULATE(
@@ -4289,189 +4271,23 @@ table PURCHASE_PBI
 			    USERELATIONSHIP(PURCHASE_PBI[TRANSPORTISTA_FINAL], TRANSPORTISTAS[COD_TRANSPORTISTA])
 			)
 		formatString: 0
-		lineageTag: 6cf066ee-70a4-4749-9e5f-7665aaed0b9c
+		lineageTag: ff91c152-e484-461e-be40-af53e67e298c
 
-	/// Peso proporcional de cantidad del artículo vs total de la OC madre
-	measure COSTEO_Peso_Item =
-			VAR ocMadre = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
-			VAR cantItem = SUM('PURCHASE_PBI'[CANTIDAD])
-			VAR cantTotal = CALCULATE(
-			    SUM('PURCHASE_PBI'[CANTIDAD]),
-			    ALL('PURCHASE_PBI'),
-			    'PURCHASE_PBI'[PO_MADRE] = ocMadre
+	measure 'Dias Hasta Llegada' = DATEDIFF(TODAY(), SELECTEDVALUE(PURCHASE_PBI[LLEGADA_PAIS]), DAY)
+		lineageTag: 08ae53da-c045-48e9-bf68-84ddb974bb41
+
+	measure 'Nivel Prioridad' =
+			VAR Dias = [Dias Hasta Llegada]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(Dias), "",
+			    Dias < 0, "RETRASADO",
+			    Dias <= 15, "CRÍTICO",
+			    Dias <= 30, "URGENTE",
+			    "PLANIFICADO"
 			)
-			RETURN
-			    IF(ISBLANK(ocMadre) || cantTotal = 0, BLANK(), DIVIDE(cantItem, cantTotal))
-		displayFolder: COSTEO IMP
-		lineageTag: 5b947d7f-3258-4086-abe1-f0746affd0a3
-
-	/// Precio base del artículo (LINEAMOUNT / CANTIDAD)
-	measure COSTEO_Precio_Base = DIVIDE(SUM('PURCHASE_PBI'[LINEAMOUNT]), SUM('PURCHASE_PBI'[CANTIDAD]))
-		displayFolder: COSTEO IMP
-		lineageTag: 1b1ca426-ae32-4a96-a986-1cfe49b2cf9a
-
-	/// Cargo 1 - Sociaco Logistics S.A. (CRC) distribuido por peso de cantidad
-	measure COSTEO_Cargo1_SAC_CRC =
-			VAR ocMadre = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
-			VAR pesoItem = [COSTEO_Peso_Item]
-			VAR totalCargo1 = CALCULATE(
-			    SUM(Consulta1[LINEAMOUNT]),
-			    ALL(Consulta1),
-			    Consulta1[PO_MADRE] = ocMadre,
-			    Consulta1[ORDERACCOUNT] = "SAC000",
-			    Consulta1[MONEDA] = "CRC"
-			)
-			RETURN
-			    IF(ISBLANK(pesoItem) || ISBLANK(ocMadre), BLANK(), pesoItem * totalCargo1)
-		displayFolder: COSTEO IMP
-		lineageTag: faf23c94-01bc-4efa-84a1-6d70af5562c8
-
-	/// Cargo 2 - Mediterranean Shipping Company (USD) - primer flete
-	measure COSTEO_Cargo2_MSC_USD =
-			VAR ocMadre = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
-			VAR pesoItem = [COSTEO_Peso_Item]
-			VAR totalCargo = CALCULATE(
-			    SUM(Consulta1[LINEAMOUNT]),
-			    ALL(Consulta1),
-			    Consulta1[PO_MADRE] = ocMadre,
-			    Consulta1[ORDERACCOUNT] = "MSC000",
-			    Consulta1[MONEDA] = "USD",
-			    Consulta1[TIPOSERVICIO] = "Flete_Internacional"
-			)
-			RETURN
-			    IF(ISBLANK(pesoItem) || ISBLANK(ocMadre), BLANK(), pesoItem * totalCargo)
-		displayFolder: COSTEO IMP
-		lineageTag: 72c2218a-cf27-479e-b176-f54b7dd29668
-
-	/// Cargo 3 - Mediterranean Shipping Company otros cargos (USD)
-	measure COSTEO_Cargo3_MSC_USD =
-			VAR ocMadre = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
-			VAR pesoItem = [COSTEO_Peso_Item]
-			VAR totalCargo = CALCULATE(
-			    SUM(Consulta1[LINEAMOUNT]),
-			    ALL(Consulta1),
-			    Consulta1[PO_MADRE] = ocMadre,
-			    Consulta1[ORDERACCOUNT] = "MSC000",
-			    Consulta1[MONEDA] = "USD",
-			    OR(Consulta1[TIPOSERVICIO] = "Flete_Internacional_Terrestre", Consulta1[TIPOSERVICIO] = "Gastos Naviera")
-			)
-			RETURN
-			    IF(ISBLANK(pesoItem) || ISBLANK(ocMadre), BLANK(), pesoItem * totalCargo)
-		displayFolder: COSTEO IMP
-		lineageTag: f02a5a24-8144-451f-baec-2b887d3e7e62
-
-	/// Cargo 4 - Poliza Maritima (USD) distribuido por peso
-	measure COSTEO_Cargo4_Poliza_USD =
-			VAR ocMadre = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
-			VAR pesoItem = [COSTEO_Peso_Item]
-			VAR totalCargo = CALCULATE(
-			    SUM(Consulta1[LINEAMOUNT]),
-			    ALL(Consulta1),
-			    Consulta1[PO_MADRE] = ocMadre,
-			    Consulta1[ORDERACCOUNT] = "POL012",
-			    Consulta1[MONEDA] = "USD"
-			)
-			RETURN
-			    IF(ISBLANK(pesoItem) || ISBLANK(ocMadre), BLANK(), pesoItem * totalCargo)
-		displayFolder: COSTEO IMP
-		lineageTag: 6ad8bf1a-c7c3-451a-a0c6-b10db2983216
-
-	/// Impuestos Aduana (CRC) - Ministerio Hacienda distribuido por peso
-	measure COSTEO_Impuestos_CRC =
-			VAR ocMadre = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
-			VAR pesoItem = [COSTEO_Peso_Item]
-			VAR totalImpuestos = CALCULATE(
-			    SUM(Consulta1[LINEAMOUNT]),
-			    ALL(Consulta1),
-			    Consulta1[PO_MADRE] = ocMadre,
-			    Consulta1[ORDERACCOUNT] = "MHDT000",
-			    Consulta1[MONEDA] = "CRC"
-			)
-			RETURN
-			    IF(ISBLANK(pesoItem) || ISBLANK(ocMadre), BLANK(), pesoItem * totalImpuestos)
-		displayFolder: COSTEO IMP
-		lineageTag: 8e4dfb2e-ddbb-4751-8f95-8c964b0621f9
-
-	/// Monto de compra en USD = LINEAMOUNT de la OC madre por artículo
-	measure COSTEO_Monto_Compra_USD = SUM('PURCHASE_PBI'[LINEAMOUNT])
-		formatString: #,##0.00
-		displayFolder: COSTEO IMP
-		lineageTag: e264cabb-ca5f-4492-ac35-66c50e081613
-
-	/// Tasa de cambio CRC/USD - busca en tabla Consulta1 o usa valor por defecto
-	measure COSTEO_Tasa_CRC =
-			VAR tcDefault = 530
-			VAR tcFromData = CALCULATE(
-			    DIVIDE(
-			        SUMX(FILTER(Consulta1, Consulta1[MONEDA] = "CRC" && Consulta1[ORDERACCOUNT] = "MHDT000"), Consulta1[LINEAMOUNT]),
-			        SUMX(FILTER(Consulta1, Consulta1[MONEDA] = "USD" && Consulta1[ORDERACCOUNT] = "MHDT000"), Consulta1[LINEAMOUNT])
-			    )
-			)
-			RETURN tcDefault
-		displayFolder: COSTEO IMP
-		lineageTag: f62f8c12-38b8-418a-b20e-fedc27981636
-
-	/// Costo total por unidad de compra en USD = (Monto compra + cargos USD proporcionales) / CANTIDAD
-	measure COSTEO_Por_Unidad_Compra_USD =
-			VAR montoCompra = [COSTEO_Monto_Compra_USD]
-			VAR cargo2 = [COSTEO_Cargo2_MSC_USD]
-			VAR cargo3 = [COSTEO_Cargo3_MSC_USD]
-			VAR cargo4 = [COSTEO_Cargo4_Poliza_USD]
-			VAR cantidad = SUM('PURCHASE_PBI'[CANTIDAD])
-			VAR totalUSD = montoCompra + cargo2 + cargo3 + cargo4
-			RETURN
-			    IF(cantidad = 0 || ISBLANK(cantidad), BLANK(), DIVIDE(totalUSD, cantidad))
-		formatString: #,##0.0000
-		displayFolder: COSTEO IMP
-		lineageTag: c068e3f0-a74f-4edf-867e-57dc38a22c74
-
-	/// Costo por unidad de inventario en USD. Factor de conversión editable aquí hasta implementar tabla de conversiones.
-	measure COSTEO_Por_Unidad_Inventario_USD =
-			-- ⚠️ FACTOR_CONVERSION pendiente: editar el valor 1 abajo cuando se implemente
-			VAR factorConversion = 1
-			VAR porUnidadCompra = [COSTEO_Por_Unidad_Compra_USD]
-			RETURN
-			    IF(ISBLANK(porUnidadCompra), BLANK(), porUnidadCompra / factorConversion)
-		formatString: #,##0.0000
-		displayFolder: COSTEO IMP
-		lineageTag: ff21d6d2-0c31-4a61-b4db-ef9f0662f0bc
-
-	/// Monto total de compra en CRC = (Monto compra USD + cargos USD) * Tasa + Cargo1 CRC + Impuestos CRC
-	measure COSTEO_Monto_Compra_CRC =
-			VAR tasa = [COSTEO_Tasa_CRC]
-			VAR montoCompraUSD = [COSTEO_Monto_Compra_USD]
-			VAR cargo2 = [COSTEO_Cargo2_MSC_USD]
-			VAR cargo3 = [COSTEO_Cargo3_MSC_USD]
-			VAR cargo4 = [COSTEO_Cargo4_Poliza_USD]
-			VAR cargo1CRC = [COSTEO_Cargo1_SAC_CRC]
-			VAR impuestosCRC = [COSTEO_Impuestos_CRC]
-			VAR totalUSDenCRC = (montoCompraUSD + cargo2 + cargo3 + cargo4) * tasa
-			RETURN
-			    IF(ISBLANK(montoCompraUSD), BLANK(), totalUSDenCRC + cargo1CRC + impuestosCRC)
-		formatString: #,##0.00
-		displayFolder: COSTEO IMP
-		lineageTag: 1fa8b1f0-5165-42a7-8c36-9602ed543a09
-
-	/// Costo total por unidad de compra en CRC
-	measure COSTEO_Por_Unidad_Compra_CRC =
-			VAR montoCRC = [COSTEO_Monto_Compra_CRC]
-			VAR cantidad = SUM('PURCHASE_PBI'[CANTIDAD])
-			RETURN
-			    IF(cantidad = 0 || ISBLANK(cantidad), BLANK(), DIVIDE(montoCRC, cantidad))
-		formatString: #,##0.00
-		displayFolder: COSTEO IMP
-		lineageTag: 8b260ae4-9003-4f81-980f-b53510d489a3
-
-	/// Costo por unidad de inventario en CRC. Factor de conversión editable aquí hasta implementar tabla de conversiones.
-	measure COSTEO_Por_Unidad_Inventario_CRC =
-			-- ⚠️ FACTOR_CONVERSION pendiente: editar el valor 1 abajo cuando se implemente
-			VAR factorConversion = 1
-			VAR porUnidadCompra = [COSTEO_Por_Unidad_Compra_CRC]
-			RETURN
-			    IF(ISBLANK(porUnidadCompra), BLANK(), porUnidadCompra / factorConversion)
-		formatString: #,##0.00
-		displayFolder: COSTEO IMP
-		lineageTag: e508689f-4645-4481-945d-76ac740a8a7b
+		lineageTag: 9feaea07-d91c-4dbd-aa28-b8dec20f9a60
 
 	column DATAAREAID
 		dataType: string
@@ -6469,8 +6285,7 @@ table PURCHASE_PBI
 			    "OC Hija"
 			)
 			```
-		dataType: string
-		lineageTag: 9cfc769e-6f1f-4f3f-b8ca-ed704b2305c5
+		lineageTag: a9712124-4252-4a5a-a45f-6dde57eab30a
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
@@ -6491,7 +6306,7 @@ table PURCHASE_PBI
 			)
 		dataType: int64
 		formatString: #,0
-		lineageTag: 5f078953-6696-4d79-accc-d7f941b564a9
+		lineageTag: 5c791bea-c473-4ff4-8108-50ca61e1d6a6
 		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
@@ -6509,10 +6324,10 @@ table PURCHASE_PBI
 			    _metodo = "CAL-SLC-CC", "CAL-SLC-CCA",
 			    _metodo = "LAEMCHA-C", "LAEMCHA-CCA",
 			    _debeAF = "Sí" && _sitioAF <> BLANK(), "AF-" & _sitioAF,
-			    "NULL"
+			    "OTRO"
 			)
 		dataType: string
-		lineageTag: b9ee0886-4076-4ad1-a366-fa4265b84903
+		lineageTag: a3d0594d-7d3e-4ce7-b988-5a52e8a49c6b
 		summarizeBy: none
 
 	column SEMANA_LLEGADA_SORT =
@@ -6522,13 +6337,13 @@ table PURCHASE_PBI
 		dataType: dateTime
 		isHidden
 		formatString: dd/mm/yyyy
-		lineageTag: bd3fefdd-3264-4e3a-b75e-563f82ca1f77
+		lineageTag: b7245a89-9557-4d28-9ca2-4e61ccd7146a
 		summarizeBy: none
 
 		variation Variación
 			isDefault
-			relationship: 2e27afc7-9205-4c14-b3a6-b311b47e11dd
-			defaultHierarchy: LocalDateTable_eaf91acb-1efa-4437-b6e7-3d959ce0fa34.'Date Hierarchy'
+			relationship: e99230fe-98fb-48b2-b539-d145cb1bbd72
+			defaultHierarchy: LocalDateTable_265cc2ff-2dd0-4c6f-a769-32bbde8f8542.'Date Hierarchy'
 
 	column SEMANA_LLEGADA =
 			VAR _fecha = PURCHASE_PBI[LLEGADA_PAIS]
@@ -6537,7 +6352,7 @@ table PURCHASE_PBI
 			RETURN
 			IF(_fecha = BLANK(), BLANK(), FORMAT(_lunes, "DD/MM/YY") & " al " & FORMAT(_domingo, "DD/MM/YY"))
 		dataType: string
-		lineageTag: e87452ec-74cd-4b82-944a-40b692aa5606
+		lineageTag: 728fbc45-4fdf-43f8-adb6-47cd0531a432
 		summarizeBy: none
 		sortByColumn: SEMANA_LLEGADA_SORT
 
@@ -6556,12 +6371,60 @@ table PURCHASE_PBI
 			RETURN
 			SWITCH(
 			    TRUE(),
-			    EstaEnMadres, "Madre",
+			    EstaEnMadres, "Madre con Hijas",
 			    EstaEnHijas, "Es Hija",
-			    "Sin Hijas"
+			    "Madre sin Hijas"
 			)
 		dataType: string
-		lineageTag: ae4b9c56-fe39-476b-8166-af24ff432881
+		lineageTag: 9c14a53f-bd6a-49a8-b7d5-b986b9cb9ff7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sem Salida' =
+			VAR _sems = DATEDIFF(TODAY(), purchase_pbi[SALIDA_AJUSTADA], WEEK)
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    purchase_pbi[SALIDA_AJUSTADA] <= DATE(1900,1,2), "6.Ya Llegó",
+			    _sems < 0, "6.Ya Llegó",
+			    _sems = 0, "1.T",
+			    _sems = 1, "1.T+1",
+			    _sems = 2, "1.T+2",
+			    _sems = 3, "1.T+3",
+			    _sems = 4, "1.T+4",
+			    _sems = 5, "1.T+5",
+			    _sems = 6, "1.T+6",
+			    _sems = 7, "1.T+7",
+			    _sems = 8, "1.T+8",
+			    _sems = 9, "1.T+9",
+			    _sems = 10, "2.T+10",
+			    _sems = 11, "2.T+11",
+			    _sems = 12, "2.T+12",
+			    _sems = 13, "2.T+13",
+			    _sems = 14, "2.T+14",
+			    _sems = 15, "2.T+15",
+			    _sems = 16, "2.T+16",
+			    _sems = 17, "2.T+17",
+			    _sems = 18, "2.T+18",
+			    _sems = 19, "2.T+19",
+			    _sems = 20, "3.T+20",
+			    _sems = 21, "3.T+21",
+			    _sems = 22, "3.T+22",
+			    _sems = 23, "3.T+23",
+			    _sems = 24, "3.T+24",
+			    _sems = 25, "3.T+25",
+			    _sems = 26, "3.T+26",
+			    _sems = 27, "3.T+27",
+			    _sems = 28, "3.T+28",
+			    _sems = 29, "3.T+29",
+			    _sems = 30, "4.T+30",
+			    "5.Otras Sem"
+			)
+		lineageTag: c649e650-81c9-45f3-a93a-d338481cfabe
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	hierarchy 'SALIDA_AJUSTADA Hierarchy'
 		lineageTag: 63d4aba1-0253-43d2-b979-da286c328550
@@ -6644,7 +6507,7 @@ table PURCHASE_PBI
 		mode: import
 		source = ```
 				let
-				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [MultiSubnetFailover=true]),
+				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [MultiSubnetFailover=true]),
 				    dbo_PURCHASE_PBI = Source{[Schema="dbo",Item="PURCHASE_PBI"]}[Data],
 				    #"Added Custom" = Table.AddColumn(dbo_PURCHASE_PBI, "Artículo", each "("&[ITEMID]&")"&" "&[PRODUCTNAME]),
 				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "KEY", each [DATAAREAID]&[ORDERACCOUNT]),

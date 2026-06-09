@@ -45,7 +45,7 @@ table VENDOR_NAME
 		mode: import
 		source =
 				let
-				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [MultiSubnetFailover=true]),
+				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [MultiSubnetFailover=true]),
 				    dbo_BICOMPANYVIEW_PBI = Source{[Schema="dbo",Item="VENDOR_NAME"]}[Data],
 				    #"Added Custom" = Table.AddColumn(dbo_BICOMPANYVIEW_PBI, "KEY", each [DATAAREAID]&[ACCOUNTNUM])
 				in

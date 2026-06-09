@@ -1,11 +1,11 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "905c2c751595b3498d78",
   "position": {
-    "x": 0,
-    "y": 142,
+    "x": 149,
+    "y": 223,
     "z": 15000,
-    "height": 696,
+    "height": 627,
     "width": 1701,
     "tabOrder": 15000
   },
@@ -359,16 +359,21 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "CATALOGO_PBI_INVENTARIO"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "InventCost"
+                      }
+                    },
+                    "Property": "INVENTARIO_FISICO"
                   }
                 },
-                "Property": "ITEMID"
+                "Function": 0
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -763,6 +768,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "isHidden": true
+  }
 }

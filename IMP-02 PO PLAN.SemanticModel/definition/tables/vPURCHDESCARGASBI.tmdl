@@ -126,7 +126,7 @@ table vPURCHDESCARGASBI
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD"),
+				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD"),
 				    dbo_SYSMODEL = Origen{[Schema="dbo",Item="vPURCHDESCARGASBI"]}[Data],
 				    #"Columna duplicada" = Table.DuplicateColumn(dbo_SYSMODEL, "PURCHID", "PURCHID - Copia"),
 				    #"Valor reemplazado" = Table.ReplaceValue(#"Columna duplicada","OC-00","",Replacer.ReplaceText,{"PURCHID - Copia"}),

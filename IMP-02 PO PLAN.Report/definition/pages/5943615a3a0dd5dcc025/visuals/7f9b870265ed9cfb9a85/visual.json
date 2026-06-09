@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "7f9b870265ed9cfb9a85",
   "position": {
     "x": 0,
-    "y": 238.2636655948553,
+    "y": 218.75,
     "z": 22000,
-    "height": 612.459807073955,
-    "width": 1903.0546623794212,
+    "height": 631.25,
+    "width": 1902.5,
     "tabOrder": 22000
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "PURCHASE_PBI"
                     }
                   },
-                  "Property": "Semanas"
+                  "Property": "Sem Salida"
                 }
               },
-              "queryRef": "PURCHASE_PBI.Semanas",
-              "nativeQueryRef": "Semanas",
+              "queryRef": "PURCHASE_PBI.Sem Salida",
+              "nativeQueryRef": "Sem Salida",
               "active": true
             }
           ]
@@ -63,7 +63,7 @@
               },
               "queryRef": "lugar_pais.nombre_pais",
               "nativeQueryRef": "País",
-              "active": true,
+              "active": false,
               "displayName": "País"
             },
             {
@@ -165,6 +165,7 @@
             "queryRefs": [
               "lugar_pais.regiones.nombre_region"
             ],
+            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -437,7 +438,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "100.80989673388135D"
+                  "Value": "83.38860790994886D"
                 }
               }
             }

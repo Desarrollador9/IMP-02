@@ -30,7 +30,7 @@ table SITIOS
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="SELECT SITEID,NAME,RECID FROM INVENTSITE WHERE DATAAREAID = 'CMER' AND PARTITION = 5637144576", MultiSubnetFailover=true])
+				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="SELECT SITEID,NAME,RECID FROM INVENTSITE WHERE DATAAREAID = 'CMER' AND PARTITION = 5637144576", MultiSubnetFailover=true])
 				in
 				    Origen
 

@@ -1,8 +1,0 @@
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "9160810f0ce33781445c",
-  "displayName": "T20. DEMORAS",
-  "displayOption": "FitToPage",
-  "height": 720,
-  "width": 1600
-}

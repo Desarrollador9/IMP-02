@@ -42,7 +42,7 @@ table 'TIPOS CONTENEDORES'
 		mode: import
 		source =
 				let
-				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="#(lf)select containertypecode as codigo_contenedor,#(lf)maxweight as peso_maximo,#(lf)maxvolume as volumen_maximo,#(lf)recid#(lf)from WHSContainerType#(lf)where dataareaid = 'cmer'#(lf)and partition = 5637144576#(lf)UNION ALL#(lf)select '' as codigo_contenedor, 0 as peso_maximo, 0 as volumen_maximo, 0 as recid", MultiSubnetFailover=true])
+				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="#(lf)select containertypecode as codigo_contenedor,#(lf)maxweight as peso_maximo,#(lf)maxvolume as volumen_maximo,#(lf)recid#(lf)from WHSContainerType#(lf)where dataareaid = 'cmer'#(lf)and partition = 5637144576#(lf)UNION ALL#(lf)select '' as codigo_contenedor, 0 as peso_maximo, 0 as volumen_maximo, 0 as recid", MultiSubnetFailover=true])
 				in
 				    Source
 

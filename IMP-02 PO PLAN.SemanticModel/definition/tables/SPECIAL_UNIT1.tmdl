@@ -31,7 +31,7 @@ table SPECIAL_UNIT1
 		mode: import
 		source =
 				let
-				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD", [MultiSubnetFailover=true]),
+				    Origen = Sql.Database("SJODB003", "GIAX2012_PROD", [MultiSubnetFailover=true]),
 				    dbo_SPECIAL_UNIT1 = Origen{[Schema="dbo",Item="SPECIAL_UNIT1"]}[Data],
 				    #"Duplicados quitados" = Table.Distinct(dbo_SPECIAL_UNIT1, {"DISPLAYPRODUCTNUMBER"})
 				in

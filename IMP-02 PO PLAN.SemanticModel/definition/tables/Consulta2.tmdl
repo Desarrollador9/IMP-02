@@ -1,0 +1,75 @@
+table Consulta2
+	lineageTag: becfde39-83a7-4c7c-bf22-043b18c297b9
+
+	measure Inv_Localidad_Ctx = ```
+			
+			VAR _val = 
+			    CALCULATE(
+			        SUM( Consulta2[inventario_contenedor] ),
+			        ALLEXCEPT( Consulta2, Consulta2[localidad], Consulta2[articulo] )
+			    )
+			RETURN
+			    IF( ISBLANK(_val), BLANK(), _val )
+			```
+		lineageTag: f1a9e249-d712-4774-8780-a18d48c7ae0e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column localidad
+		dataType: string
+		lineageTag: e1fdf4b4-cb9c-4ca7-955e-d87afbd6d8e3
+		summarizeBy: none
+		sourceColumn: localidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column articulo
+		dataType: string
+		lineageTag: b5aad75c-2e20-4116-a035-aa52bbc74442
+		summarizeBy: none
+		sourceColumn: articulo
+
+		annotation SummarizationSetBy = Automatic
+
+	column inventario_contenedor
+		dataType: double
+		lineageTag: eac591ee-4bdf-434f-bb59-e73e6d10498d
+		summarizeBy: sum
+		sourceColumn: inventario_contenedor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nombre_articulo
+		dataType: string
+		lineageTag: 54dae1b9-0df5-4ca9-82ab-fdaae240fa36
+		summarizeBy: none
+		sourceColumn: nombre_articulo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Consulta2 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [MultiSubnetFailover=true]),
+				    dbo_Localidades = Source{[Schema="dbo", Item="Localidades_View_PBI"]}[Data],
+				    Filtro_Empresa = Table.SelectRows(dbo_Localidades, each [empresa] = "cmer"),
+				    Filtro_Almacen = Table.SelectRows(Filtro_Empresa, each [almacen] = "F20"),
+				    Filtro_Contenedor = Table.SelectRows(Filtro_Almacen, each Text.Length([localidad]) = 4 and Text.StartsWith([localidad], "C")),
+				    Filtro_Articulo = Table.SelectRows(Filtro_Contenedor, each [articulo] <> null and [articulo] <> ""),
+				    Columnas = Table.SelectColumns(Filtro_Articulo, {"localidad", "articulo", "inventario_fisico"}),
+				    Agrupado = Table.Group(Columnas, {"localidad", "articulo"}, {{"inventario_contenedor", each List.Sum([inventario_fisico]), type number}}),
+				    dbo_Catalogo = Source{[Schema="dbo", Item="CATALOGO_PBI"]}[Data],
+				    Catalogo_Filtrado = Table.SelectRows(dbo_Catalogo, each [DATAAREAID] = "cmer"),
+				    Catalogo_Cols = Table.SelectColumns(Catalogo_Filtrado, {"ITEMID", "PRODUCTNAME"}),
+				    JoinNombre = Table.NestedJoin(Agrupado, {"articulo"}, Catalogo_Cols, {"ITEMID"}, "CAT", 1),
+				    ExpandNombre = Table.ExpandTableColumn(JoinNombre, "CAT", {"PRODUCTNAME"}, {"nombre_articulo"})
+				in
+				    ExpandNombre
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

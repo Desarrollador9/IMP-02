@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "98e85fffc0ea2931ad6c",
   "position": {
-    "x": 0,
+    "x": 2,
     "y": 213,
     "z": 14000,
     "height": 637,
-    "width": 1359,
+    "width": 1352,
     "tabOrder": 14000
   },
   "visual": {
@@ -600,7 +600,7 @@
                     "Entity": "PURCHASE_PBI"
                   }
                 },
-                "Property": "DATEDUA"
+                "Property": "METODO_TRASLADO_TERRESTRE"
               }
             },
             "direction": "Descending"

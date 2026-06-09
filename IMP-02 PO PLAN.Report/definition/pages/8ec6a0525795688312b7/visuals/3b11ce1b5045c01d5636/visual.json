@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "3b11ce1b5045c01d5636",
   "position": {
     "x": 120,
@@ -92,7 +92,7 @@
                         },
                         "Right": {
                           "Literal": {
-                            "Value": "'MTMSPA01'"
+                            "Value": "'gr24'"
                           }
                         }
                       }
@@ -134,7 +134,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'MTMSPA01 MISABOR PASTA SPAGUETTI PAQUETE 250G 40U/C 84C/T (Unidad): CAJA'"
+                                "Value": "'MTMSGR24 MISABOR ARROZ SELECTO 95% GRANO ENTERO 1.8KG 10U/B 45B/T (Unidad): BULTO'"
                               }
                             }
                           ]

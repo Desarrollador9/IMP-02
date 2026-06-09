@@ -28,7 +28,7 @@ table Unidades
 	column 'Dim Conversiones.Factor'
 		dataType: double
 		lineageTag: 7101fe85-b879-4a10-8364-3b69e849269d
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Dim Conversiones.Factor
 
 		annotation SummarizationSetBy = Automatic
@@ -38,7 +38,7 @@ table Unidades
 	column 'Und X Cajas'
 		dataType: double
 		lineageTag: c5b84fd7-737b-4a63-9479-2f363139b539
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Und X Cajas
 
 		annotation SummarizationSetBy = Automatic

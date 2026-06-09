@@ -1,21 +1,15 @@
 table TRANSPORTISTAS
-	lineageTag: 3b01c82b-3741-48c3-bbf7-35eef4751a86
+	lineageTag: 03e2bbcd-0f0f-4bc1-8c2e-0e83304bea38
 
 	column COD_TRANSPORTISTA
-		lineageTag: 0e36c493-c67c-4db3-93b5-191261d686b6
-		summarizeBy: none
+		lineageTag: 57bc93be-ae7d-4f2b-8936-84e92b3ad321
 		isNameInferred
 		sourceColumn: [COD_TRANSPORTISTA]
 
-		annotation SummarizationSetBy = Automatic
-
 	column NOMBRE_TRANSPORTISTA
-		lineageTag: c46061c7-c1c7-46ae-84c4-b20a5d1a2d3f
-		summarizeBy: none
+		lineageTag: da3cdf29-476e-4a72-9a52-173de8e8bca8
 		isNameInferred
 		sourceColumn: [NOMBRE_TRANSPORTISTA]
-
-		annotation SummarizationSetBy = Automatic
 
 	partition TRANSPORTISTAS = calculated
 		mode: import
@@ -34,6 +28,4 @@ table TRANSPORTISTAS
 				        {"", "(Sin Transportista)"}
 				    }
 				)
-
-	annotation PBI_Id = 23ad72fba043438daa32e3690d54be37
 

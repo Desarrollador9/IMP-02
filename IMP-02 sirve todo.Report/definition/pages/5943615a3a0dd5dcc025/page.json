@@ -1,8 +1,0 @@
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "5943615a3a0dd5dcc025",
-  "displayName": "T17. AGRUP POR REGIÓN",
-  "displayOption": "FitToPage",
-  "height": 850,
-  "width": 1900
-}

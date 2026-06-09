@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "fa435cf64d1c9c91aeba",
   "position": {
-    "x": 0,
-    "y": 196.25,
+    "x": 1,
+    "y": 196,
     "z": 20000,
-    "height": 653.75,
-    "width": 1998.75,
+    "height": 654,
+    "width": 2199,
     "tabOrder": 20000
   },
   "visual": {
@@ -602,6 +602,21 @@
               "queryRef": "CONTAINERS.ESTADO",
               "nativeQueryRef": "Estado",
               "displayName": "Estado"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CONTAINERS"
+                    }
+                  },
+                  "Property": "DESCARGAESTIMADA"
+                }
+              },
+              "queryRef": "CONTAINERS.DESCARGAESTIMADA",
+              "nativeQueryRef": "Fecha Descarga Estimada",
+              "displayName": "Fecha Descarga Estimada"
             }
           ]
         }
@@ -616,10 +631,10 @@
                     "Entity": "CONTAINERS"
                   }
                 },
-                "Property": "PURCHID"
+                "Property": "DESCARGAESTIMADA"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -1054,7 +1069,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "96.66666666666666D"
+                  "Value": "100.68089233753636D"
                 }
               }
             }
@@ -1145,6 +1160,34 @@
           },
           "selector": {
             "metadata": "CONTAINERS.Nombre Proveedor"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "172D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.ESTADO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "147D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CONTAINERS.DESCARGAESTIMADA"
           }
         }
       ]

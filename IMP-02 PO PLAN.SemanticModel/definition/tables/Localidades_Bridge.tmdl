@@ -1,0 +1,31 @@
+table Localidades_Bridge
+	lineageTag: 87124ff7-ba43-41d2-8459-d3a7291292da
+
+	column localidad
+		lineageTag: dc9e27bb-f659-4a75-ac71-80aaa317ae68
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Consulta2[localidad]
+
+		annotation SummarizationSetBy = Automatic
+
+	column articulo
+		lineageTag: 4b1c43c4-dcd8-4797-be04-24752701441c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Consulta2[articulo]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Localidades_Bridge = calculated
+		mode: import
+		source =
+				
+				SUMMARIZE(
+				    Consulta2,
+				    Consulta2[localidad],
+				    Consulta2[articulo]
+				)
+
+	annotation PBI_Id = 8320e20db4be4e6aa1765fb97a694586
+

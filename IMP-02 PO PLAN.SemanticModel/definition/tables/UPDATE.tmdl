@@ -45,7 +45,7 @@ table UPDATE
 		mode: import
 		source =
 				let
-				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="SELECT GETDATE() AS UPDATES", MultiSubnetFailover=true])
+				    Source = Sql.Database("SJODB003", "GIAX2012_PROD", [Query="SELECT GETDATE() AS UPDATES", MultiSubnetFailover=true])
 				in
 				    Source
 

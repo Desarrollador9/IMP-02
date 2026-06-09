@@ -265,6 +265,7 @@ relationship 149b379b-6229-4ac4-4d7c-fd9886ddc94c
 	toColumn: CATALOGO_PBI_SALES.KEY_GEN
 
 relationship 9cbb7c49-f234-89a7-5666-edb7cc150346
+	crossFilteringBehavior: bothDirections
 	fromColumn: Sales.ITEMID
 	toColumn: 'CUBO INVENTARIOS'.'[Released products].[Articulo].[Articulo].[MEMBER_CAPTION]'
 
@@ -434,6 +435,7 @@ relationship 66476b4e-d0b5-461b-9fbf-e86c1faad60a
 	toColumn: LocalDateTable_2cbc5ae2-21c6-4b7c-aa51-df8802d851eb.Date
 
 relationship d2a50513-68f5-d022-d2b8-d09cec87307c
+	crossFilteringBehavior: bothDirections
 	fromColumn: InventCost.ITEMID
 	toColumn: CATALOGO_PBI_INVENTARIO.ITEMID
 
@@ -619,6 +621,10 @@ relationship 8aff326f-602f-44c9-9db4-4df43dc3793d
 	fromColumn: UPDATE.UPDATES
 	toColumn: LocalDateTable_e4a9d668-f3a7-461c-a5d4-cb37e7fb7c02.Date
 
+relationship 'PURCHASE_PBI_BL_BookingsMaersk (2)_BL'
+	fromColumn: PURCHASE_PBI.BL
+	toColumn: 'BookingsMaersk (2)'.BL
+
 relationship c102717e-cc2d-471f-b106-c6ffe197d863
 	joinOnDateBehavior: datePartOnly
 	fromColumn: Dates2_TEST.Fecha
@@ -633,21 +639,6 @@ relationship VEND_SALDO_a_PURCHASE_PBI
 	fromColumn: PURCHASE_PBI.PURCHID
 	toColumn: VEND_SALDO.OC_Extraida
 
-relationship 'PURCHASE_PBI_BL_BookingsMaersk (2)_BL'
-	fromColumn: PURCHASE_PBI.BL
-	toColumn: 'BookingsMaersk (2)'.BL
-
-relationship a7ba47d3-c945-ddfb-7631-511ff9c86333
-	crossFilteringBehavior: bothDirections
-	toCardinality: many
-	fromColumn: OCs_Sin_Flete.PURCHID
-	toColumn: PURCHASE_PBI.PURCHID
-
-relationship 2e27afc7-9205-4c14-b3a6-b311b47e11dd
-	joinOnDateBehavior: datePartOnly
-	fromColumn: PURCHASE_PBI.SEMANA_LLEGADA_SORT
-	toColumn: LocalDateTable_eaf91acb-1efa-4437-b6e7-3d959ce0fa34.Date
-
 relationship PURCHASE_PBI_TRANSPORTISTA_AF_TRANSPORTISTAS_COD_TRANSPORTISTA
 	fromColumn: PURCHASE_PBI.TRANSPORTISTA_AF
 	toColumn: TRANSPORTISTAS.COD_TRANSPORTISTA
@@ -657,7 +648,22 @@ relationship PURCHASE_PBI_TRANSPORTISTA_FINAL_TRANSPORTISTAS_COD_TRANSPORTISTA
 	fromColumn: PURCHASE_PBI.TRANSPORTISTA_FINAL
 	toColumn: TRANSPORTISTAS.COD_TRANSPORTISTA
 
-relationship FILLRATEPBI_KEY_GEN_CATALOGO_PBI_SALES_KEY_GEN
-	fromColumn: FILLRATEPBI.KEY_GEN
-	toColumn: CATALOGO_PBI_SALES.KEY_GEN
+relationship e99230fe-98fb-48b2-b539-d145cb1bbd72
+	joinOnDateBehavior: datePartOnly
+	fromColumn: PURCHASE_PBI.SEMANA_LLEGADA_SORT
+	toColumn: LocalDateTable_265cc2ff-2dd0-4c6f-a769-32bbde8f8542.Date
+
+relationship AutoDetected_a712ccca-0404-426c-ba2a-5607c9f7b569
+	fromColumn: Consulta2.articulo
+	toColumn: Unidades.'Dim Conversiones.Articulo'
+
+relationship 8be17395-5e02-5174-35d7-867b3c780b2d
+	crossFilteringBehavior: bothDirections
+	fromColumn: Localidades_Bridge.articulo
+	toColumn: CATALOGO_PBI_INVENTARIO.ITEMID
+
+relationship 724efc21-f8ae-47d7-9feb-59d37b2e6184
+	joinOnDateBehavior: datePartOnly
+	fromColumn: CONTAINERS.DESCARGAESTIMADA
+	toColumn: LocalDateTable_5d263faa-ed0c-4691-a34b-3e6bd78574b6.Date
 

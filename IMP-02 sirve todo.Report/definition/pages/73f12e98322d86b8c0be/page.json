@@ -1,8 +1,0 @@
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "73f12e98322d86b8c0be",
-  "displayName": "T4.2 PO PLAN-DIAS INV-TAR",
-  "displayOption": "FitToPage",
-  "height": 1325,
-  "width": 1900
-}

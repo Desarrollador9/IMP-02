@@ -279,14 +279,42 @@ table CATALOGO_PBI
 
 		annotation SummarizationSetBy = Automatic
 
+	column ZONA_ID
+		dataType: string
+		lineageTag: e5dc3a45-7ab0-438f-bc96-ec1b21bedba4
+		summarizeBy: none
+		sourceColumn: ZONA_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZONA_DESCRIPCION
+		dataType: string
+		lineageTag: cc05c35a-dc8b-4f14-80c9-5da2e3e5d9a2
+		summarizeBy: none
+		sourceColumn: ZONA_DESCRIPCION
+
+		annotation SummarizationSetBy = Automatic
+
 	partition CATALOGO_PBI = m
 		mode: import
-		source =
+		source = ```
 				let
-				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [MultiSubnetFailover=true]),
-				    dbo_CATALOGO_PBI = Source{[Schema="dbo",Item="CATALOGO_PBI"]}[Data]
+				    Source = Sql.Database("SJODB002", "GIAX2012_PROD", [MultiSubnetFailover=true, Query="
+				        SELECT 
+				            C.*,
+				            IT.WMSBALANCEPICKGROUPID AS ZONA_ID,
+				            WPG.DESCRIPTION AS ZONA_DESCRIPCION
+				        FROM dbo.CATALOGO_PBI C
+				        LEFT JOIN dbo.INVENTTABLE IT 
+				            ON IT.ITEMID = C.ITEMID 
+				            AND IT.DATAAREAID = C.DATAAREAID
+				        LEFT JOIN dbo.WMSBALANCEPICKINGGROUP WPG
+				            ON WPG.ID = IT.WMSBALANCEPICKGROUPID
+				            AND WPG.DATAAREAID = C.DATAAREAID
+				    "])
 				in
-				    dbo_CATALOGO_PBI
+				    Source
+				```
 
 	annotation PBI_ResultType = Table
 

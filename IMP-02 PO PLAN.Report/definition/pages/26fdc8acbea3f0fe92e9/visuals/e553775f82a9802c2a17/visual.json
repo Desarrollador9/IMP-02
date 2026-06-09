@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "e553775f82a9802c2a17",
   "position": {
-    "x": 591.25,
-    "y": 56.25,
-    "z": 2000,
-    "height": 76.25,
-    "width": 152.5,
-    "tabOrder": 3000
+    "x": 472.83582089552237,
+    "y": 0,
+    "z": 4000,
+    "height": 75.223880597014926,
+    "width": 151.34328358208955,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -92,54 +92,13 @@
                         },
                         "Right": {
                           "Literal": {
-                            "Value": "'107595'"
+                            "Value": "'178777'"
                           }
                         }
                       }
                     },
                     "Annotations": {
                       "PowerBI.MParameterBehavior": 1
-                    }
-                  }
-                ]
-              }
-            },
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "p",
-                    "Entity": "PURCHASE_PBI",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "p"
-                                }
-                              },
-                              "Property": "PURCHID"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'OC-00190425'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
                     }
                   }
                 ]

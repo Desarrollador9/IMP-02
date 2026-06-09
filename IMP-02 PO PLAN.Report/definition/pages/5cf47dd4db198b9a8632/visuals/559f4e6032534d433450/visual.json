@@ -1,0 +1,783 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "559f4e6032534d433450",
+  "position": {
+    "x": 0,
+    "y": 897.38805970149247,
+    "z": 16000,
+    "height": 323.3830845771144,
+    "width": 1646.0199004975123,
+    "tabOrder": 16000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "RESUMEN_CTRL_CONT"
+                        }
+                      },
+                      "Property": "Orden"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(RESUMEN_CTRL_CONT.Orden)",
+              "nativeQueryRef": "#",
+              "displayName": "#"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RESUMEN_CTRL_CONT"
+                    }
+                  },
+                  "Property": "Concepto"
+                }
+              },
+              "queryRef": "RESUMEN_CTRL_CONT.Concepto",
+              "nativeQueryRef": "Concepto"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "RESUMEN_CTRL_CONT"
+                        }
+                      },
+                      "Property": "T"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(RESUMEN_CTRL_CONT.T)",
+              "nativeQueryRef": "T",
+              "displayName": "T"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "RESUMEN_CTRL_CONT"
+                        }
+                      },
+                      "Property": "T+1"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(RESUMEN_CTRL_CONT.T+1)",
+              "nativeQueryRef": "T+1",
+              "displayName": "T+1"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "RESUMEN_CTRL_CONT"
+                        }
+                      },
+                      "Property": "T+2"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(RESUMEN_CTRL_CONT.T+2)",
+              "nativeQueryRef": "T+2",
+              "displayName": "T+2"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "RESUMEN_CTRL_CONT"
+                        }
+                      },
+                      "Property": "T+3"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(RESUMEN_CTRL_CONT.T+3)",
+              "nativeQueryRef": "T+3",
+              "displayName": "T+3"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "RESUMEN_CTRL_CONT"
+                        }
+                      },
+                      "Property": "T+4"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(RESUMEN_CTRL_CONT.T+4)",
+              "nativeQueryRef": "T+4",
+              "displayName": "T+4"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "RESUMEN_CTRL_CONT"
+                        }
+                      },
+                      "Property": "T+5"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(RESUMEN_CTRL_CONT.T+5)",
+              "nativeQueryRef": "T+5",
+              "displayName": "T+5"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "RESUMEN_CTRL_CONT"
+                        }
+                      },
+                      "Property": "T+6"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(RESUMEN_CTRL_CONT.T+6)",
+              "nativeQueryRef": "T+6",
+              "displayName": "T+6"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "RESUMEN_CTRL_CONT"
+                        }
+                      },
+                      "Property": "T+7"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(RESUMEN_CTRL_CONT.T+7)",
+              "nativeQueryRef": "T+7",
+              "displayName": "T+7"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "RESUMEN_CTRL_CONT"
+                        }
+                      },
+                      "Property": "T+8"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(RESUMEN_CTRL_CONT.T+8)",
+              "nativeQueryRef": "T+8",
+              "displayName": "T+8"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "RESUMEN_CTRL_CONT"
+                        }
+                      },
+                      "Property": "T+9"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(RESUMEN_CTRL_CONT.T+9)",
+              "nativeQueryRef": "T+9",
+              "displayName": "T+9"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "RESUMEN_CTRL_CONT"
+                        }
+                      },
+                      "Property": "Total"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(RESUMEN_CTRL_CONT.Total)",
+              "nativeQueryRef": "Total",
+              "displayName": "Total"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "RESUMEN_CTRL_CONT"
+                      }
+                    },
+                    "Property": "Orden"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00496B'"
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.2
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82.99999838531346D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(RESUMEN_CTRL_CONT.T)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89.16666666666667D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(RESUMEN_CTRL_CONT.T+1)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "94.16666666666667D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(RESUMEN_CTRL_CONT.T+2)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "92.5D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(RESUMEN_CTRL_CONT.T+3)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89.16666666666667D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(RESUMEN_CTRL_CONT.T+4)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "84.6078342019484D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(RESUMEN_CTRL_CONT.T+5)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "83.83333969892698D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(RESUMEN_CTRL_CONT.T+6)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82.97654098349791D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(RESUMEN_CTRL_CONT.T+7)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "79.65234139215117D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(RESUMEN_CTRL_CONT.T+8)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "78.00000484406158D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(RESUMEN_CTRL_CONT.T+9)"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'CONTROL DE CONTENEDORES Y TARIMAS QUE ESTÁN POR LLEGAR'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "19D"
+                }
+              }
+            },
+            "heading": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Heading2'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Ordenado por fecha estimada de llegada de semana T a T+9 (En contenedores)'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'solid'"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Los contenedores son naturales, la Estimación Total es en tarimas'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0fa6aae129420f81ca3f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PO_MADRE"
+              }
+            },
+            "Property": "PURCHIDREFERENCE"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "p",
+              "Entity": "PO_MADRE",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "p"
+                            }
+                          },
+                          "Property": "PURCHIDREFERENCE"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  }
+}

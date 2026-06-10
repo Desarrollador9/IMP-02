@@ -53,11 +53,6 @@ relationship bf7f1f89-9455-2c9f-aa83-83694d51dca3
 	fromColumn: PURCHASE_PBI.PURCHID
 	toColumn: METODOS_TRASLADO.PURCHID
 
-relationship 2c37b44f-2ac1-4638-8417-403185ffab20
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Consulta1.CREATEDDATETIME
-	toColumn: LocalDateTable_884a7c35-462a-446d-ad4d-75fff3147600.Date
-
 relationship 74f07ed9-b992-4768-9fb8-3f6b840eb020
 	joinOnDateBehavior: datePartOnly
 	fromColumn: DOCUMENTATION.LLEGADA_DOC_ORIG
@@ -637,12 +632,6 @@ relationship VEND_SALDO_a_PURCHASE_PBI
 	fromColumn: PURCHASE_PBI.PURCHID
 	toColumn: VEND_SALDO.OC_Extraida
 
-relationship a7ba47d3-c945-ddfb-7631-511ff9c86333
-	crossFilteringBehavior: bothDirections
-	toCardinality: many
-	fromColumn: OCs_Sin_Flete.PURCHID
-	toColumn: PURCHASE_PBI.PURCHID
-
 relationship 2e27afc7-9205-4c14-b3a6-b311b47e11dd
 	joinOnDateBehavior: datePartOnly
 	fromColumn: PURCHASE_PBI.SEMANA_LLEGADA_SORT
@@ -660,4 +649,12 @@ relationship PURCHASE_PBI_TRANSPORTISTA_FINAL_TRANSPORTISTAS_COD_TRANSPORTISTA
 relationship FILLRATEPBI_KEY_GEN_CATALOGO_PBI_SALES_KEY_GEN
 	fromColumn: FILLRATEPBI.KEY_GEN
 	toColumn: CATALOGO_PBI_SALES.KEY_GEN
+
+relationship AutoDetected_aa8ede33-ce4f-4c56-870f-0fade7d4ff0d
+	fromColumn: UnidadesDeMedida.ITEMID
+	toColumn: CATALOGO_PBI_INVENTARIO.ITEMID
+
+relationship AutoDetected_80107d6a-7108-464f-b8ef-f985cba1d9ab
+	fromColumn: UnidadesDeMedida.ITEMID
+	toColumn: 'CUBO INVENTARIOS'.'[Released products].[Articulo].[Articulo].[MEMBER_CAPTION]'
 

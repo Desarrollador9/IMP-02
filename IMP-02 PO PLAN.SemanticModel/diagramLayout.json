@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 112.8460089041095,
-        "y": 121.94649349315058
+        "x": 5804.289070890406,
+        "y": 0
       },
       "nodes": [
         {
@@ -62,8 +62,8 @@
         },
         {
           "location": {
-            "x": 1697.1259457658143,
-            "y": 26.221323408812168
+            "x": 1773.5700163137594,
+            "y": 24.401226491003953
           },
           "nodeIndex": "Intermedia_PO",
           "nodeLineageTag": "c2115ade-46cf-4df3-a236-c9e294707c5f",
@@ -629,19 +629,6 @@
         },
         {
           "location": {
-            "x": 6251.35375315701,
-            "y": 981.92352382737909
-          },
-          "nodeIndex": "OCS HIJAS",
-          "nodeLineageTag": "733d9728-8983-4ebc-a507-491c320b4b82",
-          "size": {
-            "height": 128,
-            "width": 234
-          },
-          "zIndex": 4
-        },
-        {
-          "location": {
             "x": 6535.35375315701,
             "y": 981.92352382737909
           },
@@ -652,19 +639,6 @@
             "width": 234
           },
           "zIndex": 5
-        },
-        {
-          "location": {
-            "x": 2032.157929606778,
-            "y": 1617.5242129238015
-          },
-          "nodeIndex": "OCs_Sin_Flete",
-          "nodeLineageTag": "94598f8f-8f94-419e-98f6-9933219bba74",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 50
         },
         {
           "location": {
@@ -710,6 +684,31 @@
             "y": 0
           },
           "nodeIndex": "RESUMEN_CTRL_CONT",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7705.35375315701,
+            "y": 0
+          },
+          "nodeIndex": "UnidadesDeMedida",
+          "nodeLineageTag": "ca528bdf-710f-4dd5-848c-da8369e0717e",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7939.35375315701,
+            "y": 0
+          },
+          "nodeIndex": "MacroUnidades",
           "size": {
             "height": 200,
             "width": 234

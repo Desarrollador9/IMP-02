@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "d6c6e2ea61908b48436e",
   "position": {
     "x": 482.5,
@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CATALOGO_PBI_INVENTARIO"
+                      "Entity": "MacroUnidades"
                     }
                   },
-                  "Property": "Tipo Concat"
+                  "Property": "MacroUnidad"
                 }
               },
-              "queryRef": "CATALOGO_PBI_INVENTARIO.Tipo Concat",
-              "nativeQueryRef": "Tipo",
-              "active": true,
-              "displayName": "Tipo"
+              "queryRef": "MacroUnidades.MacroUnidad",
+              "nativeQueryRef": "MacroUnidad",
+              "active": true
             }
           ]
         }

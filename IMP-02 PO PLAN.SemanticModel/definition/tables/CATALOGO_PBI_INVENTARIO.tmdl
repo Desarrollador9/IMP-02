@@ -51,6 +51,24 @@ table CATALOGO_PBI_INVENTARIO
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Flag Sin UND Identidad' =
+			VAR es_fila_und = MAX(UnidadesDeMedida[UNIDAD_DESDE]) = "UND"
+			VAR tiene_und_identidad =
+			    CALCULATE(
+			        COUNTROWS(UnidadesDeMedida),
+			        UnidadesDeMedida[UNIDAD_DESDE] = "UND",
+			        UnidadesDeMedida[UNIDAD_HASTA] = "UND",
+			        UnidadesDeMedida[TIPO_CONVERSION] = "ESPECIFICA"
+			    )
+			RETURN
+			IF(
+			    es_fila_und && (ISBLANK(tiene_und_identidad) || tiene_und_identidad = 0),
+			    "Falta",
+			    BLANK()
+			)
+		displayFolder: Auditoría Unidades
+		lineageTag: 9431f54c-6dd1-41e7-9160-888a9906a2f5
+
 	column ITEMID
 		dataType: string
 		lineageTag: 0ab1cff8-aa3f-4de6-b714-099bc6c7d2f6

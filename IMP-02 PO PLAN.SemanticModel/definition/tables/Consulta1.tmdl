@@ -62,24 +62,6 @@ table Consulta1
 
 		annotation SummarizationSetBy = Automatic
 
-	column CREATEDDATETIME
-		dataType: dateTime
-		formatString: DD/MM/YY
-		lineageTag: 0d922fc6-25d6-4107-ab7f-b752d8451572
-		summarizeBy: none
-		sourceColumn: CREATEDDATETIME
-
-		variation Variation
-			isDefault
-			relationship: 2c37b44f-2ac1-4638-8417-403185ffab20
-			defaultHierarchy: LocalDateTable_884a7c35-462a-446d-ad4d-75fff3147600.'Date Hierarchy'
-
-		changedProperty = IsHidden
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isCustom":true}
-
 	column LINEAMOUNT
 		dataType: double
 		formatString: #,0
@@ -122,23 +104,15 @@ table Consulta1
 		dataType: string
 		lineageTag: f2bd4c92-a012-4e0f-8d94-04e66c8179ce
 
-	hierarchy 'CREATEDDATETIME Hierarchy'
-		lineageTag: 884e025e-6f40-4192-bf43-96835e82f1ce
-
-		level 'Fecha Creación'
-			lineageTag: af0e277e-0da4-4a26-8a03-e0f6c88b54db
-			column: CREATEDDATETIME
-
-		changedProperty = IsHidden
-
 	partition Consulta1 = m
 		mode: import
 		source =
 				let
 				    Origen = Sql.Database("SJODB002", "GIAX2012_PROD", [Query="SELECT T1.DATAAREAID, T1.PURCHIDREFERENCE AS PO_MADRE, T1.PURCHID AS PO_HIJA, #(lf)T1.SERVICEID AS TIPO,T1.ORDERACCOUNT,T1.CREATEDDATETIME,T2.RECID, T2.LINEAMOUNT, T2.CURRENCYCODE AS MONEDA, T1.SERVICEID AS TIPOSERVICIO#(lf)FROM PURCHTABLE T1 LEFT OUTER JOIN#(lf)PURCHLINE T2 ON T2.PURCHID = T1.PURCHID AND T2.DATAAREAID = T1.DATAAREAID#(lf)WHERE T1.DATAAREAID = 'CMER' AND T1.PURCHIDREFERENCE <> ''", MultiSubnetFailover=true]),
-				    #"DATAAREAID a mayúsculas" = Table.TransformColumns(Origen, {{"DATAAREAID", Text.Upper, type text}})
+				    #"DATAAREAID a mayúsculas" = Table.TransformColumns(Origen, {{"DATAAREAID", Text.Upper, type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"DATAAREAID a mayúsculas",{"CREATEDDATETIME"})
 				in
-				    #"DATAAREAID a mayúsculas"
+				    #"Columnas quitadas"
 
 	changedProperty = IsHidden
 

@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "221271cd869bc1d5d94c",
   "position": {
-    "x": 0,
-    "y": 56.25,
+    "x": 1,
+    "y": 63,
     "z": 1000,
-    "height": 71.25,
+    "height": 72,
     "width": 235,
     "tabOrder": 1000
   },
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "PURCHASE_PBI.TIPO_ORDEN",
-              "nativeQueryRef": "TIPO_ORDEN",
-              "active": true
+              "nativeQueryRef": "Tipo Orden",
+              "active": true,
+              "displayName": "Tipo Orden"
             }
           ]
         }

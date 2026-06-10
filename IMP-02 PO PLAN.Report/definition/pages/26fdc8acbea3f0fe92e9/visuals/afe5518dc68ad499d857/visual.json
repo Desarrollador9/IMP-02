@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "afe5518dc68ad499d857",
   "position": {
-    "x": 524,
-    "y": 144,
+    "x": 188.88888888888889,
+    "y": 134.44444444444443,
     "z": 14000,
-    "height": 1056,
-    "width": 919,
+    "height": 616.66666666666663,
+    "width": 846.66666666666663,
     "tabOrder": 14000
   },
   "visual": {
@@ -51,6 +51,21 @@
           "projections": [
             {
               "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "Cant_Contenedores"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.Cant_Contenedores",
+              "nativeQueryRef": "Cant Cont",
+              "displayName": "Cant Cont"
+            },
+            {
+              "field": {
                 "Aggregation": {
                   "Expression": {
                     "Column": {
@@ -66,26 +81,8 @@
                 }
               },
               "queryRef": "Min(VENDOR_NAME.CONCAT_NAME)",
-              "nativeQueryRef": "Última fecha: CONCAT_NAME"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Consulta1"
-                        }
-                      },
-                      "Property": "TIPO"
-                    }
-                  },
-                  "Function": 3
-                }
-              },
-              "queryRef": "Min(Consulta1.TIPO)",
-              "nativeQueryRef": "Primera fecha: TIPO"
+              "nativeQueryRef": "OC Madre",
+              "displayName": "OC Madre"
             },
             {
               "field": {
@@ -104,7 +101,8 @@
                 }
               },
               "queryRef": "Min(PURCHASE_PBI.NAVIERA)",
-              "nativeQueryRef": "Primera fecha: NAVIERA"
+              "nativeQueryRef": "Naviera",
+              "displayName": "Naviera"
             },
             {
               "field": {
@@ -123,32 +121,61 @@
                 }
               },
               "queryRef": "Min(Consulta1.NOMBRE_PROVEEDOR)",
-              "nativeQueryRef": "Primera fecha: NOMBRE_PROVEEDOR"
+              "nativeQueryRef": "OC Hija",
+              "displayName": "OC Hija"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                        }
+                      },
+                      "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(PURCHASE_PBI.SALIDA_AJUSTADA Hierarchy.Estimated Time of Departure(Fecha Estimada De Salida))",
+              "nativeQueryRef": "Salida Ajustada",
+              "displayName": "Salida Ajustada"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                        }
+                      },
+                      "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(PURCHASE_PBI.LLEGADA_PAIS Hierarchy.Adjusted Arrival Date (Fecha De Llegada Ajustada))",
+              "nativeQueryRef": "Llegada país",
+              "displayName": "Llegada país"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Aggregation": {
-                "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "Consulta1"
-                      }
-                    },
-                    "Property": "TIPO"
-                  }
-                },
-                "Function": 3
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "expansionStates": [
@@ -161,6 +188,7 @@
             "queryRefs": [
               "Consulta1.PO_MADRE"
             ],
+            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -195,7 +223,30 @@
             "isPinned": true
           }
         ],
-        "root": {}
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'OC-00163540'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'OC-00198067'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
       }
     ],
     "objects": {
@@ -283,7 +334,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "159D"
+                  "Value": "153.44444586618079D"
                 }
               }
             }
@@ -297,13 +348,165 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "242D"
+                  "Value": "203.1110980334791D"
                 }
               }
             }
           },
           "selector": {
             "metadata": "Min(Consulta1.NOMBRE_PROVEEDOR)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "159D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "PURCHASE_PBI"
+                          }
+                        },
+                        "Property": "SALIDA_AJUSTADA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "datetime'2026-04-29T00:00:00'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Min(VENDOR_NAME.CONCAT_NAME)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "143D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "PURCHASE_PBI"
+                          }
+                        },
+                        "Property": "SALIDA_AJUSTADA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "datetime'2026-04-20T00:00:00'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Min(VENDOR_NAME.CONCAT_NAME)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "178D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "PURCHASE_PBI"
+                          }
+                        },
+                        "Property": "SALIDA_AJUSTADA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "datetime'2026-04-20T00:00:00'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Min(Consulta1.NOMBRE_PROVEEDOR)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "75D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "PURCHASE_PBI"
+                          }
+                        },
+                        "Property": "SALIDA_AJUSTADA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "datetime'2026-04-20T00:00:00'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Min(PURCHASE_PBI.NAVIERA)"
           }
         }
       ],
@@ -318,6 +521,13 @@
               }
             },
             "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "perRowLevel": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -342,7 +552,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'ORDENES '"
+                  "Value": "'OCS MADRES E HIJAS'"
                 }
               }
             },
@@ -370,6 +580,33 @@
               "expr": {
                 "Literal": {
                   "Value": "'BoldHeader'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Incluyendo proveedores de madres e hijas, navieras y cantidad de contenedores'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             }
@@ -410,6 +647,153 @@
             }
           ]
         }
+      },
+      {
+        "name": "748923a137b300d97d86",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Consulta1"
+              }
+            },
+            "Property": "PO_MADRE"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "80867fffc0e7d71502b1",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "VENDOR_NAME"
+                  }
+                },
+                "Property": "CONCAT_NAME"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0219bad5ad6ced2c9b29",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "PURCHASE_PBI"
+                  }
+                },
+                "Property": "NAVIERA"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7b5b46c009bd9401cbcd",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Consulta1"
+                  }
+                },
+                "Property": "NOMBRE_PROVEEDOR"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c3bf2797903a57a19ed0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Consulta1"
+              }
+            },
+            "Property": "PO_HIJA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2ff1d0663070ce1a1db1",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "PURCHASE_PBI"
+                      }
+                    },
+                    "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                  }
+                },
+                "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "30b2fe1f1c03c52b5c71",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "HierarchyLevel": {
+                "Expression": {
+                  "Hierarchy": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "PURCHASE_PBI"
+                      }
+                    },
+                    "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                  }
+                },
+                "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+              }
+            },
+            "Function": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b376cc07d4430d91bcc2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PURCHASE_PBI"
+              }
+            },
+            "Property": "Cant_Contenedores"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

@@ -6562,6 +6562,9 @@ table PURCHASE_PBI
 			)
 		dataType: string
 		lineageTag: ae4b9c56-fe39-476b-8166-af24ff432881
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
 
 	hierarchy 'SALIDA_AJUSTADA Hierarchy'
 		lineageTag: 63d4aba1-0253-43d2-b979-da286c328550

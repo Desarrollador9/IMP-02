@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "42e3d87f8c68751107dc",
   "position": {
     "x": 835,
@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "PURCHASE_PBI"
+                      "Entity": "CATALOGO_PBI"
                     }
                   },
-                  "Property": "Art_Und"
+                  "Property": "ITEMID"
                 }
               },
-              "queryRef": "PURCHASE_PBI.Art_Und",
-              "nativeQueryRef": "Artículo",
-              "active": true,
-              "displayName": "Artículo"
+              "queryRef": "CATALOGO_PBI.ITEMID",
+              "nativeQueryRef": "ITEMID",
+              "active": true
             }
           ]
         }

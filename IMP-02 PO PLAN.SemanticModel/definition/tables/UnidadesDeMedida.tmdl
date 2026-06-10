@@ -1,0 +1,123 @@
+table UnidadesDeMedida
+	lineageTag: ca528bdf-710f-4dd5-848c-da8369e0717e
+
+	column ITEMID
+		dataType: string
+		lineageTag: 8ee1a3fa-efd5-48e8-b5f1-93b841560480
+		summarizeBy: none
+		sourceColumn: ITEMID
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIDAD_DESDE
+		dataType: string
+		lineageTag: e42bd8b0-47d4-43df-9074-d06bca97a7cd
+		summarizeBy: none
+		sourceColumn: UNIDAD_DESDE
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIDAD_HASTA
+		dataType: string
+		lineageTag: 61cb58b8-1eea-44e9-9c21-238294d1a01a
+		summarizeBy: none
+		sourceColumn: UNIDAD_HASTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FACTOR
+		dataType: double
+		lineageTag: a012ab35-1898-4d0b-aa8e-30f231345b34
+		summarizeBy: sum
+		sourceColumn: FACTOR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TIPO_CONVERSION
+		dataType: string
+		lineageTag: 76f55b95-1c4d-46e4-ae0e-19345a6b8d5c
+		summarizeBy: none
+		sourceColumn: TIPO_CONVERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	column MACROUNIDAD_LABEL =
+			SWITCH(
+			    UnidadesDeMedida[UNIDAD_DESDE],
+			    "TARIMA", "TARIMA",
+			    "CAJA",   "CAJA",
+			    "UND",    "UNIDAD",
+			    BLANK()
+			)
+		dataType: string
+		lineageTag: fade709e-5f13-4c60-8e02-2f63dc535e38
+
+	partition UnidadesDeMedida = m
+		mode: import
+		source = ```
+				let
+				    Source = Sql.Database(
+				        "SJODB002", 
+				        "GIAX2012_PROD",
+				        [Query = "
+				            SELECT
+				                i.ITEMID,
+				                uom_from.SYMBOL  AS UNIDAD_DESDE,
+				                uom_to.SYMBOL    AS UNIDAD_HASTA,
+				                c.FACTOR,
+				                CASE 
+				                    WHEN c.PRODUCT = 0 THEN 'GLOBAL'
+				                    ELSE 'ESPECIFICA'
+				                END AS TIPO_CONVERSION
+				            FROM UnitOfMeasureConversion c
+				            INNER JOIN InventTable i
+				                ON i.PRODUCT    = c.PRODUCT
+				                AND i.DATAAREAID = 'cmer'
+				            INNER JOIN UnitOfMeasure uom_from
+				                ON uom_from.RECID = c.FROMUNITOFMEASURE
+				            INNER JOIN UnitOfMeasure uom_to
+				                ON uom_to.RECID   = c.TOUNITOFMEASURE
+				            
+				            UNION ALL
+				            
+				            -- Conversiones globales (PRODUCT = 0): aplican a todos los artículos
+				            -- que usen esas unidades. Las unimos por la unidad del artículo.
+				            SELECT
+				                i2.ITEMID,
+				                uom_g_from.SYMBOL  AS UNIDAD_DESDE,
+				                uom_g_to.SYMBOL    AS UNIDAD_HASTA,
+				                cg.FACTOR,
+				                'GLOBAL' AS TIPO_CONVERSION
+				            FROM UnitOfMeasureConversion cg
+				            INNER JOIN UnitOfMeasure uom_g_from
+				                ON uom_g_from.RECID = cg.FROMUNITOFMEASURE
+				            INNER JOIN UnitOfMeasure uom_g_to
+				                ON uom_g_to.RECID   = cg.TOUNITOFMEASURE
+				            INNER JOIN InventTableModule itm
+				                ON itm.UNITID       = uom_g_from.SYMBOL
+				                AND itm.DATAAREAID  = 'cmer'
+				                AND itm.MODULETYPE  = 2   -- 2 = Inventario
+				            INNER JOIN InventTable i2
+				                ON i2.ITEMID        = itm.ITEMID
+				                AND i2.DATAAREAID   = 'cmer'
+				            WHERE cg.PRODUCT = 0
+				        ",
+				        CommandTimeout = #duration(0, 0, 5, 0)]
+				    ),
+				    #"Tipos aplicados" = Table.TransformColumnTypes(Source, {
+				        {"ITEMID",           type text},
+				        {"UNIDAD_DESDE",     type text},
+				        {"UNIDAD_HASTA",     type text},
+				        {"FACTOR",           type number},
+				        {"TIPO_CONVERSION",  type text}
+				    })
+				in
+				    #"Tipos aplicados"
+				```
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Exception
+

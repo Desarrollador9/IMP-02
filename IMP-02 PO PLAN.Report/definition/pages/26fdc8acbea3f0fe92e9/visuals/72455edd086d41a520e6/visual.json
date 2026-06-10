@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "72455edd086d41a520e6",
   "position": {
-    "x": 304,
-    "y": 144,
+    "x": 0,
+    "y": 134.44444444444443,
     "z": 0,
-    "height": 911,
-    "width": 220,
+    "height": 616.66666666666663,
+    "width": 187.77777777777777,
     "tabOrder": 0
   },
   "visual": {
@@ -161,7 +161,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'ORDENES '"
+                  "Value": "'OCS CLASIFICADAS'"
                 }
               }
             },
@@ -189,6 +189,33 @@
               "expr": {
                 "Literal": {
                   "Value": "'BoldHeader'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Por madres con o sin hijas'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             }

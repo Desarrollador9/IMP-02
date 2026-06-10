@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "46b5dd8a7dbcbaea4650",
   "position": {
     "x": 149,
@@ -44,7 +44,7 @@
               },
               "queryRef": "CATALOGO_PBI_INVENTARIO.SUBCATEGORIA",
               "nativeQueryRef": "Subcategoria",
-              "active": false,
+              "active": true,
               "displayName": "Subcategoria"
             },
             {
@@ -60,7 +60,7 @@
               },
               "queryRef": "CATALOGO_PBI_INVENTARIO.ITEMID",
               "nativeQueryRef": "Artículo",
-              "active": false,
+              "active": true,
               "displayName": "Artículo"
             },
             {
@@ -76,7 +76,7 @@
               },
               "queryRef": "CATALOGO_PBI_INVENTARIO.PRODUCTNAME",
               "nativeQueryRef": "Nombre Artículo",
-              "active": false,
+              "active": true,
               "displayName": "Nombre Artículo"
             }
           ]
@@ -358,16 +358,21 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "CATALOGO_PBI_INVENTARIO"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "InventCost"
+                      }
+                    },
+                    "Property": "INVENTARIO_FISICO"
                   }
                 },
-                "Property": "ITEMID"
+                "Function": 0
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -382,7 +387,6 @@
             "queryRefs": [
               "CATALOGO_PBI_INVENTARIO.PRODUCTCATEGORYID"
             ],
-            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -401,7 +405,6 @@
             "queryRefs": [
               "CATALOGO_PBI_INVENTARIO.SUBCATEGORIA"
             ],
-            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -420,7 +423,6 @@
             "queryRefs": [
               "CATALOGO_PBI_INVENTARIO.ITEMID"
             ],
-            "isCollapsed": true,
             "identityKeys": [
               {
                 "Column": {
@@ -495,16 +497,6 @@
                           "isToggled": true
                         }
                       ]
-                    },
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'MTCLLI05'"
-                          }
-                        }
-                      ],
-                      "isToggled": true
                     }
                   ]
                 }

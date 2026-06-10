@@ -1,0 +1,36 @@
+table MacroUnidades
+	lineageTag: 4ca6cd7b-dcbd-49c1-8927-05b857ed87fb
+
+	column MacroUnidad
+		lineageTag: 4347afb9-4e86-4965-b544-430c1fa06f26
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MacroUnidad]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orden
+		formatString: 0
+		lineageTag: 54ecd268-deb4-4644-b505-570eac6b4639
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Orden]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MacroUnidades = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "MacroUnidad", STRING,
+				    "Orden",      INTEGER,
+				    {
+				        {"TARIMA", 1},
+				        {"CAJA",   2},
+				        {"UNIDAD", 3}
+				    }
+				)
+
+	annotation PBI_Id = 39281b9ae55e4e0e9b1624ddfceaea87
+

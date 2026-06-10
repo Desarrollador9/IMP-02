@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "828eba4af8ef7fe56682",
   "position": {
-    "x": 1448,
-    "y": 63,
+    "x": 1039.090909090909,
+    "y": 134.54545454545453,
     "z": 3000,
-    "height": 71,
-    "width": 152,
+    "height": 72.72727272727272,
+    "width": 160.90909090909091,
     "tabOrder": 4000
   },
   "visual": {
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "PURCHASE_PBI.Tiene Hijas",
-              "nativeQueryRef": "Tiene Hijas",
-              "active": true
+              "nativeQueryRef": "Clasificacion OCs",
+              "active": true,
+              "displayName": "Clasificacion OCs"
             }
           ]
         }

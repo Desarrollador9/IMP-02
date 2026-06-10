@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "8091edabe52433b2a2e8",
   "position": {
-    "x": 1026.086956521739,
-    "y": 60.869565217391305,
+    "x": 1039.090909090909,
+    "y": 62.72727272727272,
     "z": 15000,
-    "height": 76.086956521739125,
-    "width": 202.17391304347825,
+    "height": 72.72727272727272,
+    "width": 160.90909090909091,
     "tabOrder": 15000
   },
   "visual": {
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "Consulta1.TIPOSERVICIO",
-              "nativeQueryRef": "TIPOSERVICIO",
-              "active": true
+              "nativeQueryRef": "Tipo Servicio",
+              "active": true,
+              "displayName": "Tipo Servicio"
             }
           ]
         }

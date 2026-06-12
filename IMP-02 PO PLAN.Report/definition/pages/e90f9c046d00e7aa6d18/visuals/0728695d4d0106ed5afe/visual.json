@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "0728695d4d0106ed5afe",
   "position": {
-    "x": 600,
-    "y": 57.5,
-    "z": 6000,
-    "height": 71.25,
-    "width": 235,
-    "tabOrder": 6000
+    "x": 332.5,
+    "y": 56.666666666666671,
+    "z": 5000,
+    "height": 70.833333333333343,
+    "width": 155,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "slicer",
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "PURCHASE_PBI.TIPO_ORDEN",
-              "nativeQueryRef": "TIPO_ORDEN",
-              "active": true
+              "nativeQueryRef": "Tipo Orden",
+              "active": true,
+              "displayName": "Tipo Orden"
             }
           ]
         }
@@ -65,7 +66,7 @@
                 }
               }
             },
-            "selfFilter": {
+            "filter": {
               "filter": {
                 "Version": 2,
                 "From": [
@@ -78,26 +79,29 @@
                 "Where": [
                   {
                     "Condition": {
-                      "Contains": {
-                        "Left": {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "p"
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "p"
+                                }
+                              },
+                              "Property": "TIPO_ORDEN"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Internacional'"
                               }
-                            },
-                            "Property": "PURCHID"
-                          }
-                        },
-                        "Right": {
-                          "Literal": {
-                            "Value": "'195658'"
-                          }
-                        }
+                            }
+                          ]
+                        ]
                       }
-                    },
-                    "Annotations": {
-                      "PowerBI.MParameterBehavior": 1
                     }
                   }
                 ]

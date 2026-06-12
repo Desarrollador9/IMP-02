@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "42e3d87f8c68751107dc",
   "position": {
-    "x": 835,
-    "y": 56.25,
-    "z": 11000,
-    "height": 71.25,
-    "width": 235,
-    "tabOrder": 11000
+    "x": 487.5,
+    "y": 56.666666666666671,
+    "z": 10000,
+    "height": 70.833333333333343,
+    "width": 112.5,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,15 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CATALOGO_PBI"
+                      "Entity": "PURCHASE_PBI"
                     }
                   },
-                  "Property": "ITEMID"
+                  "Property": "PURCHID"
                 }
               },
-              "queryRef": "CATALOGO_PBI.ITEMID",
-              "nativeQueryRef": "ITEMID",
-              "active": true
+              "queryRef": "PURCHASE_PBI.PURCHID",
+              "nativeQueryRef": "OC",
+              "active": true,
+              "displayName": "OC"
             }
           ]
         }

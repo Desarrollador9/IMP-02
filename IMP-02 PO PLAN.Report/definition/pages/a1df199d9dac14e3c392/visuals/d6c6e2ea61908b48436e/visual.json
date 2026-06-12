@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "MacroUnidades"
+                      "Entity": "UnidadesDeMedida"
                     }
                   },
-                  "Property": "MacroUnidad"
+                  "Property": "Flag Sin UND"
                 }
               },
-              "queryRef": "MacroUnidades.MacroUnidad",
-              "nativeQueryRef": "MacroUnidad",
+              "queryRef": "UnidadesDeMedida.Flag Sin UND",
+              "nativeQueryRef": "Flag Sin UND",
               "active": true
             }
           ]

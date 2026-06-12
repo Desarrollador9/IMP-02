@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Consulta1"
+                      "Entity": "PURCHASE_PBI"
                     }
                   },
-                  "Property": "TIPOSERVICIO"
+                  "Property": "TIPO_SERV"
                 }
               },
-              "queryRef": "Consulta1.TIPOSERVICIO",
-              "nativeQueryRef": "TIPOSERVICIO",
+              "queryRef": "PURCHASE_PBI.TIPO_SERV",
+              "nativeQueryRef": "TIPO_SERV",
               "active": true
             }
           ]
@@ -63,6 +63,47 @@
                 "Literal": {
                   "Value": "true"
                 }
+              }
+            },
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "p",
+                    "Entity": "PURCHASE_PBI",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "p"
+                                }
+                              },
+                              "Property": "TIPO_SERV"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Flete_Internacional'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
               }
             }
           }

@@ -6543,21 +6543,16 @@ table PURCHASE_PBI
 
 	column 'Tiene Hijas' =
 			VAR OC_Actual = PURCHASE_PBI[PURCHID]
+			VAR PO_MADRE_valor = PURCHASE_PBI[PO_MADRE]
 			VAR EstaEnMadres =
-			    CALCULATE(
-			        COUNTROWS(Consulta1),
-			        Consulta1[PO_MADRE] = OC_Actual
-			    ) > 0
-			VAR EstaEnHijas =
-			    CALCULATE(
-			        COUNTROWS(Consulta1),
-			        Consulta1[PO_HIJA] = OC_Actual
-			    ) > 0
+			    OC_Actual IN VALUES(Consulta1[PO_MADRE])
+			VAR EsHija =
+			    PO_MADRE_valor <> "" && NOT ISBLANK(PO_MADRE_valor)
 			RETURN
 			SWITCH(
 			    TRUE(),
 			    EstaEnMadres, "Madre",
-			    EstaEnHijas, "Es Hija",
+			    EsHija, "Es Hija",
 			    "Sin Hijas"
 			)
 		dataType: string

@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CATALOGO_PBI"
+                      "Entity": "PURCHASE_PBI"
                     }
                   },
-                  "Property": "ITEMID"
+                  "Property": "PURCHID"
                 }
               },
-              "queryRef": "CATALOGO_PBI.ITEMID",
-              "nativeQueryRef": "ITEMID",
+              "queryRef": "PURCHASE_PBI.PURCHID",
+              "nativeQueryRef": "PURCHID",
               "active": true
             }
           ]

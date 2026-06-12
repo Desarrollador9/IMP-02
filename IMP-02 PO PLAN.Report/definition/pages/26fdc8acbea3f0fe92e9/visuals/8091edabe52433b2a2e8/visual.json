@@ -4,10 +4,10 @@
   "position": {
     "x": 1039.090909090909,
     "y": 62.72727272727272,
-    "z": 15000,
+    "z": 14000,
     "height": 72.72727272727272,
     "width": 160.90909090909091,
-    "tabOrder": 15000
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Consulta1"
+                      "Entity": "PURCHASE_PBI"
                     }
                   },
-                  "Property": "TIPOSERVICIO"
+                  "Property": "TIPO_SERV"
                 }
               },
-              "queryRef": "Consulta1.TIPOSERVICIO",
+              "queryRef": "PURCHASE_PBI.TIPO_SERV",
               "nativeQueryRef": "Tipo Servicio",
               "active": true,
               "displayName": "Tipo Servicio"
@@ -64,6 +64,47 @@
                 "Literal": {
                   "Value": "true"
                 }
+              }
+            },
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "p",
+                    "Entity": "PURCHASE_PBI",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "p"
+                                }
+                              },
+                              "Property": "TIPO_SERV"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Flete_Internacional'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
               }
             }
           }

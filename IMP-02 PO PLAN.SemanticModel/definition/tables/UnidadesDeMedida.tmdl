@@ -1,6 +1,28 @@
 table UnidadesDeMedida
 	lineageTag: ca528bdf-710f-4dd5-848c-da8369e0717e
 
+	measure 'Items Sin UND' =
+			COUNTROWS(
+			    DISTINCT(
+			        SELECTCOLUMNS(
+			            FILTER(UnidadesDeMedida, UnidadesDeMedida[Flag Sin UND] = "Sin UND"),
+			            "ID", UnidadesDeMedida[ITEMID]
+			        )
+			    )
+			)
+		lineageTag: c1c4521b-47be-443a-9287-1b1bb1acc185
+
+	measure 'Items Con UND' =
+			COUNTROWS(
+			    DISTINCT(
+			        SELECTCOLUMNS(
+			            FILTER(UnidadesDeMedida, UnidadesDeMedida[Flag Sin UND] = "Con UND"),
+			            "ID", UnidadesDeMedida[ITEMID]
+			        )
+			    )
+			)
+		lineageTag: e18f5266-8ad3-41da-9a61-1e47e09a0af3
+
 	column ITEMID
 		dataType: string
 		lineageTag: 8ee1a3fa-efd5-48e8-b5f1-93b841560480
@@ -43,16 +65,27 @@ table UnidadesDeMedida
 
 		annotation SummarizationSetBy = Automatic
 
-	column MACROUNIDAD_LABEL =
-			SWITCH(
-			    UnidadesDeMedida[UNIDAD_DESDE],
-			    "TARIMA", "TARIMA",
-			    "CAJA",   "CAJA",
-			    "UND",    "UNIDAD",
-			    BLANK()
-			)
+	column 'Flag Sin UND' =
+			VAR ItemActual = UnidadesDeMedida[ITEMID]
+			VAR TieneUND =
+			    COUNTROWS(
+			        FILTER(
+			            UnidadesDeMedida,
+			            UnidadesDeMedida[ITEMID] = ItemActual
+			                && (
+			                    UnidadesDeMedida[UNIDAD_DESDE] = "UND"
+			                    || UnidadesDeMedida[UNIDAD_HASTA] = "UND"
+			                )
+			        )
+			    ) > 0
+			RETURN
+			    IF(NOT TieneUND, "Sin UND", "Con UND")
 		dataType: string
-		lineageTag: fade709e-5f13-4c60-8e02-2f63dc535e38
+		lineageTag: 0f1515d5-f2ec-4efe-9020-50b32395af7a
+
+	column DESDE_HASTA = UnidadesDeMedida[UNIDAD_DESDE] & " → " & UnidadesDeMedida[UNIDAD_HASTA]
+		dataType: string
+		lineageTag: 94088e18-0870-4df4-9230-af37360aed4a
 
 	partition UnidadesDeMedida = m
 		mode: import

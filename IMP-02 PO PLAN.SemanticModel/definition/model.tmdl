@@ -7,7 +7,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["PURCHASE_PBI","VENDOR_NAME","CATALOGO_PBI","Inventory value cube","CUBO INVENTARIOS","Consulta1","METODOS_TRASLADO","DOCUMENTATION","CONTAINERS","Unidades","PO_MADRE","Dates","Dates2","Sales","CUADRO_INVENTARIO","CONTRACTS","CATALOGO_PBI_SALES","regiones","lugar_pais","COTIZACIONES","CRECIMIENTO","UNIDADES_TARIMAS","RECEPCIONES","COUNTRY_CODE","InventCost","vPURCHDESCARGASBI","Plan colocaciones y descargas","Carpetas_Existentes","CATALOGO_PBI_INVENTARIO","FILLRATEPBI","PROX VENCIMIENTO","OC's Error 5","PAGOS OC's","SPECIAL_UNIT1","TIPOS CONTENEDORES","SITIOS","GRUPO TIPO CLTE","UPDATE","BookingsMaersk (2)","Dates2_TEST","VENDTRANS","Consulta2"]
+annotation PBI_QueryOrder = ["PURCHASE_PBI","VENDOR_NAME","CATALOGO_PBI","Inventory value cube","CUBO INVENTARIOS","Consulta1","METODOS_TRASLADO","DOCUMENTATION","CONTAINERS","Unidades","PO_MADRE","Dates","Dates2","Sales","CUADRO_INVENTARIO","CONTRACTS","CATALOGO_PBI_SALES","regiones","lugar_pais","COTIZACIONES","CRECIMIENTO","UNIDADES_TARIMAS","RECEPCIONES","COUNTRY_CODE","InventCost","vPURCHDESCARGASBI","Plan colocaciones y descargas","Carpetas_Existentes","CATALOGO_PBI_INVENTARIO","FILLRATEPBI","PROX VENCIMIENTO","OC's Error 5","PAGOS OC's","SPECIAL_UNIT1","TIPOS CONTENEDORES","SITIOS","GRUPO TIPO CLTE","UPDATE","BookingsMaersk (2)","Dates2_TEST","VENDTRANS","Consulta2","UnidadesDeMedida"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -26,7 +26,6 @@ ref table LocalDateTable_e2d802d9-5eb4-4778-9ba9-2e56e16f22df
 ref table Consulta1
 ref table Intermedia_PO
 ref table METODOS_TRASLADO
-ref table LocalDateTable_884a7c35-462a-446d-ad4d-75fff3147600
 ref table DOCUMENTATION
 ref table LocalDateTable_a28229f1-56af-4973-9a56-d1fa2c0f5271
 ref table LocalDateTable_ca34cb9d-d53a-45d2-9271-33f5d3afabae
@@ -151,11 +150,13 @@ ref table VENDTRANS
 ref table LocalDateTable_afcb6ebb-1ced-4434-a072-28f85805e86a
 ref table VEND_SALDO
 ref table TRANSPORTISTAS
+ref table RESUMEN_CTRL_CONT
+ref table LocalDateTable_884a7c35-462a-446d-ad4d-75fff3147600
 ref table LocalDateTable_265cc2ff-2dd0-4c6f-a769-32bbde8f8542
 ref table Consulta2
 ref table Localidades_Bridge
-ref table RESUMEN_CTRL_CONT
 ref table LocalDateTable_5d263faa-ed0c-4691-a34b-3e6bd78574b6
+ref table UnidadesDeMedida
 
 ref cultureInfo en-US
 

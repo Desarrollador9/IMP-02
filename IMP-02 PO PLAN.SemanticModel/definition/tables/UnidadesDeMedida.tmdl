@@ -1,0 +1,166 @@
+table UnidadesDeMedida
+	lineageTag: 828ce3d7-8a68-4a11-934b-5c14274970f0
+
+	measure 'Items Sin UND' =
+			COUNTROWS(
+			    DISTINCT(
+			        SELECTCOLUMNS(
+			            FILTER(UnidadesDeMedida, UnidadesDeMedida[Flag Sin UND] = "Sin UND"),
+			            "ID", UnidadesDeMedida[ITEMID]
+			        )
+			    )
+			)
+		formatString: 0
+		lineageTag: d8f23e15-59b4-4052-ab2f-b611f13aca63
+
+	measure 'Items Con UND' =
+			COUNTROWS(
+			    DISTINCT(
+			        SELECTCOLUMNS(
+			            FILTER(UnidadesDeMedida, UnidadesDeMedida[Flag Sin UND] = "Con UND"),
+			            "ID", UnidadesDeMedida[ITEMID]
+			        )
+			    )
+			)
+		lineageTag: ca564e30-883a-45ba-a1c4-d230185eb02c
+
+	column ITEMID
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(20)
+		lineageTag: a35709ec-ff7a-487e-904d-fa99b2db3bfe
+		summarizeBy: none
+		sourceColumn: ITEMID
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIDAD_DESDE
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(10)
+		lineageTag: decf43af-0157-46f9-8ad4-439506dda013
+		summarizeBy: none
+		sourceColumn: UNIDAD_DESDE
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIDAD_HASTA
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(10)
+		lineageTag: b5ca9249-f8a0-4120-b037-14649f00228e
+		summarizeBy: none
+		sourceColumn: UNIDAD_HASTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FACTOR
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(32, 16)
+		lineageTag: 93aee81c-182b-48a1-b726-570abbac4e87
+		summarizeBy: sum
+		sourceColumn: FACTOR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TIPO_CONVERSION
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(10)
+		lineageTag: 97a31f17-2f06-4fce-a44d-cbf9db10f80f
+		summarizeBy: none
+		sourceColumn: TIPO_CONVERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESDE_HASTA = UnidadesDeMedida[UNIDAD_DESDE] & " → " & UnidadesDeMedida[UNIDAD_HASTA]
+		lineageTag: 84ece92d-c2e8-4eb6-9d30-b11b46ed5444
+
+	column 'Flag Sin UND' =
+			VAR ItemActual = UnidadesDeMedida[ITEMID]
+			VAR TieneUND =
+			    COUNTROWS(
+			        FILTER(
+			            UnidadesDeMedida,
+			            UnidadesDeMedida[ITEMID] = ItemActual
+			                && (
+			                    UnidadesDeMedida[UNIDAD_DESDE] = "UND"
+			                    || UnidadesDeMedida[UNIDAD_HASTA] = "UND"
+			                )
+			        )
+			    ) > 0
+			RETURN
+			    IF(NOT TieneUND, "Sin UND", "Con UND")
+		lineageTag: af15fe6a-129f-49e5-8e02-6bc241603923
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition UnidadesDeMedida = m
+		mode: import
+		source = ```
+				let
+				    Source = Sql.Database(
+				        "SJODB002", 
+				        "GIAX2012_PROD",
+				        [Query = "
+				            SELECT
+				                i.ITEMID,
+				                uom_from.SYMBOL  AS UNIDAD_DESDE,
+				                uom_to.SYMBOL    AS UNIDAD_HASTA,
+				                c.FACTOR,
+				                CASE 
+				                    WHEN c.PRODUCT = 0 THEN 'GLOBAL'
+				                    ELSE 'ESPECIFICA'
+				                END AS TIPO_CONVERSION
+				            FROM UnitOfMeasureConversion c
+				            INNER JOIN InventTable i
+				                ON i.PRODUCT    = c.PRODUCT
+				                AND i.DATAAREAID = 'cmer'
+				            INNER JOIN UnitOfMeasure uom_from
+				                ON uom_from.RECID = c.FROMUNITOFMEASURE
+				            INNER JOIN UnitOfMeasure uom_to
+				                ON uom_to.RECID   = c.TOUNITOFMEASURE
+				            
+				            UNION ALL
+				            
+				            SELECT
+				                i2.ITEMID,
+				                uom_g_from.SYMBOL  AS UNIDAD_DESDE,
+				                uom_g_to.SYMBOL    AS UNIDAD_HASTA,
+				                cg.FACTOR,
+				                'GLOBAL' AS TIPO_CONVERSION
+				            FROM UnitOfMeasureConversion cg
+				            INNER JOIN UnitOfMeasure uom_g_from
+				                ON uom_g_from.RECID = cg.FROMUNITOFMEASURE
+				            INNER JOIN UnitOfMeasure uom_g_to
+				                ON uom_g_to.RECID   = cg.TOUNITOFMEASURE
+				            INNER JOIN InventTableModule itm
+				                ON itm.UNITID       = uom_g_from.SYMBOL
+				                AND itm.DATAAREAID  = 'cmer'
+				                AND itm.MODULETYPE  = 2
+				            INNER JOIN InventTable i2
+				                ON i2.ITEMID        = itm.ITEMID
+				                AND i2.DATAAREAID   = 'cmer'
+				            WHERE cg.PRODUCT = 0
+				        ",
+				        CommandTimeout = #duration(0, 0, 5, 0)]
+				    ),
+				    #"Tipos aplicados" = Table.TransformColumnTypes(Source, {
+				        {"ITEMID",           type text},
+				        {"UNIDAD_DESDE",     type text},
+				        {"UNIDAD_HASTA",     type text},
+				        {"FACTOR",           type number},
+				        {"TIPO_CONVERSION",  type text}
+				    })
+				in
+				    #"Tipos aplicados"
+				```
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

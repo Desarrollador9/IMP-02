@@ -1,15 +1,6 @@
 table RESUMEN_CTRL_CONT
 	lineageTag: c232c31b-de25-4129-a70b-423a08448e0a
 
-	column Orden
-		formatString: 0
-		lineageTag: 76b8feaf-dd83-424f-bb03-e4934dfe29f1
-		summarizeBy: sum
-		isNameInferred
-		sourceColumn: [Orden]
-
-		annotation SummarizationSetBy = Automatic
-
 	column Concepto
 		lineageTag: dca4577b-f08b-4d9d-8fa6-01d825565eb5
 		summarizeBy: none
@@ -127,6 +118,15 @@ table RESUMEN_CTRL_CONT
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Orden
+		formatString: 0
+		lineageTag: 76b8feaf-dd83-424f-bb03-e4934dfe29f1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Orden]
+
+		annotation SummarizationSetBy = Automatic
 
 	partition RESUMEN_CTRL_CONT = calculated
 		mode: import

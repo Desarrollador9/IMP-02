@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "2eca173d5ee516722dc1",
+  "position": {
+    "x": 1.1111111111111112,
+    "y": 751.11111111111109,
+    "z": 19,
+    "height": 48.888888888888886,
+    "width": 758.88888888888891,
+    "tabOrder": 20
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Fuente: Sistema ERP corporativo. Actualización automática al refrescar el modelo. ",
+                    "textStyle": {
+                      "fontStyle": "italic",
+                      "color": "#808080"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Matrices diseñadas para operar en conjunto.",
+                    "textStyle": {
+                      "fontStyle": "italic",
+                      "color": "#808080"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

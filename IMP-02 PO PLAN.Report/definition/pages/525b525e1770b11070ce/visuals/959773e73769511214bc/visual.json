@@ -1,0 +1,630 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "959773e73769511214bc",
+  "position": {
+    "x": 189,
+    "y": 136,
+    "z": 22,
+    "height": 615,
+    "width": 847,
+    "tabOrder": 23
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Consulta1"
+                    }
+                  },
+                  "Property": "PO_MADRE"
+                }
+              },
+              "queryRef": "Consulta1.PO_MADRE",
+              "nativeQueryRef": "PO_MADRE",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Consulta1"
+                    }
+                  },
+                  "Property": "PO_HIJA"
+                }
+              },
+              "queryRef": "Consulta1.PO_HIJA",
+              "nativeQueryRef": "PO_HIJA",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PURCHASE_PBI"
+                    }
+                  },
+                  "Property": "Cant_Contenedores"
+                }
+              },
+              "queryRef": "PURCHASE_PBI.Cant_Contenedores",
+              "nativeQueryRef": "Cant Cont",
+              "displayName": "Cant Cont"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VENDOR_NAME"
+                        }
+                      },
+                      "Property": "CONCAT_NAME"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Min(VENDOR_NAME.CONCAT_NAME)",
+              "nativeQueryRef": "OC Madre",
+              "displayName": "OC Madre"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "PURCHASE_PBI"
+                        }
+                      },
+                      "Property": "NAVIERA"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(PURCHASE_PBI.NAVIERA)",
+              "nativeQueryRef": "Naviera",
+              "displayName": "Naviera"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Consulta1"
+                        }
+                      },
+                      "Property": "NOMBRE_PROVEEDOR"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(Consulta1.NOMBRE_PROVEEDOR)",
+              "nativeQueryRef": "OC Hija",
+              "displayName": "OC Hija"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "SALIDA_AJUSTADA Hierarchy"
+                        }
+                      },
+                      "Level": "Estimated Time of Departure(Fecha Estimada De Salida)"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(PURCHASE_PBI.SALIDA_AJUSTADA Hierarchy.Estimated Time of Departure(Fecha Estimada De Salida))",
+              "nativeQueryRef": "Salida Ajustada",
+              "displayName": "Salida Ajustada"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "PURCHASE_PBI"
+                            }
+                          },
+                          "Hierarchy": "LLEGADA_PAIS Hierarchy"
+                        }
+                      },
+                      "Level": "Adjusted Arrival Date (Fecha De Llegada Ajustada)"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(PURCHASE_PBI.LLEGADA_PAIS Hierarchy.Adjusted Arrival Date (Fecha De Llegada Ajustada))",
+              "nativeQueryRef": "Llegada país",
+              "displayName": "Llegada país"
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Consulta1.PO_MADRE"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Consulta1"
+                    }
+                  },
+                  "Property": "PO_MADRE"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Consulta1.PO_HIJA"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Consulta1"
+                    }
+                  },
+                  "Property": "PO_HIJA"
+                }
+              }
+            ],
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00496B'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#00496B'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "164.24996773033115D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "LocalDateTable_60fe2414-1e49-4650-893e-bef4fe9f2f45"
+                          }
+                        },
+                        "Property": "Year"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "2025L"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "153.44444586618079D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(VENDOR_NAME.CONCAT_NAME)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "203.1110980334791D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Min(Consulta1.NOMBRE_PROVEEDOR)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "159D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "PURCHASE_PBI"
+                          }
+                        },
+                        "Property": "SALIDA_AJUSTADA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "datetime'2026-04-29T00:00:00'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Min(VENDOR_NAME.CONCAT_NAME)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "143D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "PURCHASE_PBI"
+                          }
+                        },
+                        "Property": "SALIDA_AJUSTADA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "datetime'2026-04-20T00:00:00'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Min(VENDOR_NAME.CONCAT_NAME)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "178D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "PURCHASE_PBI"
+                          }
+                        },
+                        "Property": "SALIDA_AJUSTADA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "datetime'2026-04-20T00:00:00'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Min(Consulta1.NOMBRE_PROVEEDOR)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "75D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "PURCHASE_PBI"
+                          }
+                        },
+                        "Property": "SALIDA_AJUSTADA"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "datetime'2026-04-20T00:00:00'"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "metadata": "Min(PURCHASE_PBI.NAVIERA)"
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "perRowLevel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'OCS MADRES E HIJAS'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'BoldHeader'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Incluyendo proveedores de madres e hijas, navieras y cantidad de contenedores'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b531d96771d6c73ee269",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "OCs_Sin_Flete"
+              }
+            },
+            "Property": "PURCHID"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

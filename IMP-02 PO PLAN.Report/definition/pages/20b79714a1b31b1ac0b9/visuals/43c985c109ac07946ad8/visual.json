@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "43c985c109ac07946ad8",
+  "position": {
+    "x": 1218.75,
+    "y": 902.5,
+    "z": 30,
+    "height": 107.5,
+    "width": 298.75,
+    "tabOrder": 30
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "1.Control de llegada de contenedores al país por semana y naviera."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "2.Solo muestra la información de las PO's en estado Tierra D."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "3.El origen de la fecha utilizada es la del encabezado de PO en AX, se llama Ajustada Arribo"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "4.Para visualizar la información, se debe instalar R (solicitar a TI)"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'T21.2. CTRL CONT - TIERRA D'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "customizeSpacing": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

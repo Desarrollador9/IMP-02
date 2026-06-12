@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "1611dc9d1a56e4911dc7",
+  "position": {
+    "x": 970.00000000000011,
+    "y": 30.000000000000004,
+    "z": 33,
+    "height": 34.285714285714285,
+    "width": 630,
+    "tabOrder": 33
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Este modelo excluye la información de las PO's con estado en BODEGA o INDEFINIDO (en blanco)",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#ffffff"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

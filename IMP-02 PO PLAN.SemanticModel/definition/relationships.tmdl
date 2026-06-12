@@ -53,11 +53,6 @@ relationship bf7f1f89-9455-2c9f-aa83-83694d51dca3
 	fromColumn: PURCHASE_PBI.PURCHID
 	toColumn: METODOS_TRASLADO.PURCHID
 
-relationship 2c37b44f-2ac1-4638-8417-403185ffab20
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Consulta1.CREATEDDATETIME
-	toColumn: LocalDateTable_884a7c35-462a-446d-ad4d-75fff3147600.Date
-
 relationship 74f07ed9-b992-4768-9fb8-3f6b840eb020
 	joinOnDateBehavior: datePartOnly
 	fromColumn: DOCUMENTATION.LLEGADA_DOC_ORIG
@@ -648,6 +643,11 @@ relationship PURCHASE_PBI_TRANSPORTISTA_FINAL_TRANSPORTISTAS_COD_TRANSPORTISTA
 	fromColumn: PURCHASE_PBI.TRANSPORTISTA_FINAL
 	toColumn: TRANSPORTISTAS.COD_TRANSPORTISTA
 
+relationship 2c37b44f-2ac1-4638-8417-403185ffab20
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Consulta1.CREATEDDATETIME
+	toColumn: LocalDateTable_884a7c35-462a-446d-ad4d-75fff3147600.Date
+
 relationship e99230fe-98fb-48b2-b539-d145cb1bbd72
 	joinOnDateBehavior: datePartOnly
 	fromColumn: PURCHASE_PBI.SEMANA_LLEGADA_SORT
@@ -666,4 +666,8 @@ relationship 724efc21-f8ae-47d7-9feb-59d37b2e6184
 	joinOnDateBehavior: datePartOnly
 	fromColumn: CONTAINERS.DESCARGAESTIMADA
 	toColumn: LocalDateTable_5d263faa-ed0c-4691-a34b-3e6bd78574b6.Date
+
+relationship UnidadesDeMedida_ITEMID_CATALOGO_PBI_INVENTARIO_ITEMID
+	fromColumn: UnidadesDeMedida.ITEMID
+	toColumn: CATALOGO_PBI_INVENTARIO.ITEMID
 

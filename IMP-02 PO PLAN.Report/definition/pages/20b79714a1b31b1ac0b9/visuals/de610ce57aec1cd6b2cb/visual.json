@@ -1,0 +1,138 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "de610ce57aec1cd6b2cb",
+  "position": {
+    "x": 812.5,
+    "y": 1025,
+    "z": 36,
+    "height": 106.25,
+    "width": 350,
+    "tabOrder": 36
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Items Con UND / Items Sin UND",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": " "
+                  },
+                  {
+                    "value": "(tarjetas KPI)",
+                    "textStyle": {
+                      "fontStyle": "italic"
+                    }
+                  },
+                  {
+                    "value": ": Conteo de ítems que tienen o no tienen asignada la unidad de medida \"UND\" en la tabla de conversiones. Indicadores de cobertura del catálogo."
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "ITEMS CON O SIN LA UNIDAD UNIDAD",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": " "
+                  },
+                  {
+                    "value": "(matriz desplegable)",
+                    "textStyle": {
+                      "fontStyle": "italic"
+                    }
+                  },
+                  {
+                    "value": ": Detalle por ITEMID con su FLAG (Con UND / Sin UND), expandible para ver el desglose de unidades desde–hasta. Es la tabla de auditoría de cobertura de unidades de medida por artículo."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'T.24 ITEMS CON MACRO UNIDAD UNIDAD SIN \"UNIDAD\"'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "customizeSpacing": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

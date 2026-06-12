@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "165ffac87de784bd1134",
+  "position": {
+    "x": 0,
+    "y": 653.75,
+    "z": 11,
+    "height": 66.25,
+    "width": 332.5,
+    "tabOrder": 11
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Fuente: Sistema ERP corporativo. Actualización automática al refrescar el modelo. ",
+                    "textStyle": {
+                      "fontStyle": "italic",
+                      "color": "#808080"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Matriz para identificar artículos sin la unidad->unidad.",
+                    "textStyle": {
+                      "fontStyle": "italic",
+                      "color": "#808080"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

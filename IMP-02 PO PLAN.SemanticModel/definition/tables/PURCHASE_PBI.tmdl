@@ -4188,6 +4188,50 @@ table PURCHASE_PBI
 		displayFolder: Mercadería AF
 		lineageTag: 1a011655-b5f8-4633-87dd-e6ae426496b1
 
+	/// Identifica si la OC es una madre sin hijas
+	measure 'Estado OC Madre-Hija' =
+			VAR OCMadreActual = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
+			VAR OCActual = SELECTEDVALUE('PURCHASE_PBI'[PURCHID])
+			VAR EsMadre = OCMadreActual = OCActual
+			VAR CantidadHijas = [Cantidad OCs Hijas]
+			RETURN
+			IF(
+			    EsMadre && CantidadHijas = 0,
+			    "Sin Hijas",
+			    IF(EsMadre && CantidadHijas > 0, "Con Hijas", "Es Hija")
+			)
+		lineageTag: 61296a64-6109-4a41-9e72-640d6a430335
+
+	/// Indicador visual: muestra icono de alerta para OCs madre sin hijas
+	measure 'Alerta Flete' =
+			VAR OCMadreActual = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
+			VAR OCActual = SELECTEDVALUE('PURCHASE_PBI'[PURCHID])
+			VAR EsMadre = NOT ISBLANK(OCMadreActual) && OCActual = OCMadreActual
+			VAR CantidadHijas = [Cantidad OCs Hijas]
+			RETURN
+			IF(
+			    EsMadre && CantidadHijas = 0,
+			    "⚠️ Sin Flete Gestionado",
+			    IF(EsMadre && CantidadHijas > 0, "✅ Flete OK", "")
+			)
+		lineageTag: 9c65a457-e84d-4d38-beaa-e8e6ebc84b40
+
+	measure 'Dias Hasta Llegada' = DATEDIFF(TODAY(), SELECTEDVALUE(PURCHASE_PBI[LLEGADA_PAIS]), DAY)
+		lineageTag: 08ae53da-c045-48e9-bf68-84ddb974bb41
+
+	measure 'Nivel Prioridad' =
+			VAR Dias = [Dias Hasta Llegada]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(Dias), "",
+			    Dias < 0, "RETRASADO",
+			    Dias <= 15, "CRÍTICO",
+			    Dias <= 30, "URGENTE",
+			    "PLANIFICADO"
+			)
+		lineageTag: 9feaea07-d91c-4dbd-aa28-b8dec20f9a60
+
 	/// Cuenta cuántas OCs hijas tiene cada OC madre
 	measure 'Cantidad OCs Hijas' =
 			VAR OCMadreActual = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
@@ -4207,20 +4251,6 @@ table PURCHASE_PBI
 			)
 		formatString: #,0
 		lineageTag: e339ae93-20ce-409e-a210-662c4754b298
-
-	/// Identifica si la OC es una madre sin hijas
-	measure 'Estado OC Madre-Hija' =
-			VAR OCMadreActual = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
-			VAR OCActual = SELECTEDVALUE('PURCHASE_PBI'[PURCHID])
-			VAR EsMadre = OCMadreActual = OCActual
-			VAR CantidadHijas = [Cantidad OCs Hijas]
-			RETURN
-			IF(
-			    EsMadre && CantidadHijas = 0,
-			    "Sin Hijas",
-			    IF(EsMadre && CantidadHijas > 0, "Con Hijas", "Es Hija")
-			)
-		lineageTag: 61296a64-6109-4a41-9e72-640d6a430335
 
 	/// Cuenta solo las OCs Madres (internacionales) que NO tienen OCs hijas asociadas
 	measure 'Total OCs Madres Sin Hijas' = ```
@@ -4247,20 +4277,6 @@ table PURCHASE_PBI
 		formatString: #,0
 		lineageTag: 4fd4fc18-f71a-4908-bad8-76070940556d
 
-	/// Indicador visual: muestra icono de alerta para OCs madre sin hijas
-	measure 'Alerta Flete' =
-			VAR OCMadreActual = SELECTEDVALUE('PURCHASE_PBI'[PO_MADRE])
-			VAR OCActual = SELECTEDVALUE('PURCHASE_PBI'[PURCHID])
-			VAR EsMadre = NOT ISBLANK(OCMadreActual) && OCActual = OCMadreActual
-			VAR CantidadHijas = [Cantidad OCs Hijas]
-			RETURN
-			IF(
-			    EsMadre && CantidadHijas = 0,
-			    "⚠️ Sin Flete Gestionado",
-			    IF(EsMadre && CantidadHijas > 0, "✅ Flete OK", "")
-			)
-		lineageTag: 9c65a457-e84d-4d38-beaa-e8e6ebc84b40
-
 	measure Contenedores = SUM(PURCHASE_PBI[CANT_CONTENEDOR])
 		formatString: 0
 		lineageTag: ea276eac-91aa-4c72-947d-7116e47e9145
@@ -4272,22 +4288,6 @@ table PURCHASE_PBI
 			)
 		formatString: 0
 		lineageTag: ff91c152-e484-461e-be40-af53e67e298c
-
-	measure 'Dias Hasta Llegada' = DATEDIFF(TODAY(), SELECTEDVALUE(PURCHASE_PBI[LLEGADA_PAIS]), DAY)
-		lineageTag: 08ae53da-c045-48e9-bf68-84ddb974bb41
-
-	measure 'Nivel Prioridad' =
-			VAR Dias = [Dias Hasta Llegada]
-			RETURN
-			SWITCH(
-			    TRUE(),
-			    ISBLANK(Dias), "",
-			    Dias < 0, "RETRASADO",
-			    Dias <= 15, "CRÍTICO",
-			    Dias <= 30, "URGENTE",
-			    "PLANIFICADO"
-			)
-		lineageTag: 9feaea07-d91c-4dbd-aa28-b8dec20f9a60
 
 	column DATAAREAID
 		dataType: string
@@ -6358,22 +6358,17 @@ table PURCHASE_PBI
 
 	column 'Tiene Hijas' =
 			VAR OC_Actual = PURCHASE_PBI[PURCHID]
+			VAR PO_MADRE_valor = PURCHASE_PBI[PO_MADRE]
 			VAR EstaEnMadres =
-			    CALCULATE(
-			        COUNTROWS(Consulta1),
-			        Consulta1[PO_MADRE] = OC_Actual
-			    ) > 0
-			VAR EstaEnHijas =
-			    CALCULATE(
-			        COUNTROWS(Consulta1),
-			        Consulta1[PO_HIJA] = OC_Actual
-			    ) > 0
+			    OC_Actual IN VALUES(Consulta1[PO_MADRE])
+			VAR EsHija =
+			    PO_MADRE_valor <> "" && NOT ISBLANK(PO_MADRE_valor)
 			RETURN
 			SWITCH(
 			    TRUE(),
-			    EstaEnMadres, "Madre con Hijas",
-			    EstaEnHijas, "Es Hija",
-			    "Madre sin Hijas"
+			    EstaEnMadres, "Madre",
+			    EsHija, "Es Hija",
+			    "Sin Hijas"
 			)
 		dataType: string
 		lineageTag: 9c14a53f-bd6a-49a8-b7d5-b986b9cb9ff7

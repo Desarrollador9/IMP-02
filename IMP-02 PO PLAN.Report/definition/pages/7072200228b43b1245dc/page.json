@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "7072200228b43b1245dc",
+  "displayName": "T.23 MERCADERIA EN AF",
+  "displayOption": "FitToPage",
+  "height": 700,
+  "width": 900
+}
